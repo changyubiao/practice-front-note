@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		<style type="text/css">
+			/* 
+			 类 自己定义的class  
+			  
+			 伪类 ， 没有定义class 但是依然  可以像类那样使用的类 
+	
+			 */
+
+			/* 	
+			.a{
+				
+				color: green;
+				font-size: 30px;
+			} */
+
+			body {
+				font-size: 18px;
+			}
+
+			/* 伪类
+			  
+			  注意： 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+			  注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+				  
+			  a:link  a:visited   a:hover  a:active 
+			 */
+
+
+
+			/* 未访问链接*/
+			a:link {
+
+				color: black;
+
+			}
+
+			/* 访问过的标签 */
+			a:visited {
+				color: gray;
+
+			}
+
+
+			/* hover 鼠标 停留的时候 ，使用样式 
+		
+			a:hover
+			*/
+			a:hover {
+				color: red;
+				font-size: 25px;
+			}
+
+
+			/* 选中的状态 
+			 鼠标点击的 那一瞬间 
+			 鼠标点击时
+			*/
+			a:active {
+
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<!-- <div class="a"> 百度一下 AAAA</div> -->
+		<div>
+
+			<a href="#">一个A标签</a>
+		</div>
+
+
+	</body>
+</html>

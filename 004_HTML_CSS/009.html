@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css 冲突 如何解决</title>
+		<style type="text/css">
+			div {
+				background-color: red;
+				/* font-size: 50px; */
+			}
+
+			div {
+				background-color: blue!important;
+			}
+
+			/* 后面的 css 格式 会覆盖前面的样式  */
+		</style>
+	</head>
+	<body>
+
+
+		<div style="background-color: orange;">AAAA</div>
+
+
+
+	</body>
+</html>

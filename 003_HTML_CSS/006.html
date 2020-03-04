@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 模拟字体样式练习</title>
+		
+		<style type="text/css">
+			
+			.font20{
+				font-size: 20px;
+			}
+			
+			#putong{
+				background-color: #87CEEB;
+			}
+			#strong{
+				
+				font-weight: 700;
+			}
+			
+			#em{
+				/*  italic  normal  */
+				font-style: italic;
+			}
+			#del{
+				text-decoration: line-through;
+			}
+			
+			#ins{
+				text-decoration: underline;
+			}
+			
+			p{
+				background-color: greenyellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		 strong  em  del  ins  -->
+		<div id="putong" class="font20" >
+			abcdefgh <span>abcdefgh</span>
+		</div>
+		<div id="strong" class="font20">
+			abcdefgh <span><strong>abcdefgh</strong></span>
+		</div>
+		<div id="em" class="font20">
+			abcdefgh <span><em>abcdefgh</em></span>
+		</div>		
+		
+		<div id="del" class="font20" >
+			abcdefgh <span><del>abcdefgh</del></span>
+		</div>		
+		<div id="ins" class="font20">
+			abcdefgh <span><ins>abcdefgh</ins></span>
+		</div>		
+		
+		
+		<p>Hello World</p>
+		<p>Hello World</p>
+		
+	</body>
+</html>

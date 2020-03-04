@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css 学习1</title>
+		<style type="text/css">
+			.red{
+				color: red;
+			}
+			
+			.green{
+				color: #ADFF2F;
+			}
+			
+			.font{
+				font-size: 25px;
+			}
+			.font30{
+				font-size: 30px;
+			}
+			.jiduan{
+				font-size: 50px;
+				color: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 1 类选择器 比 标签选择器 更加灵活 
+		 2  一个标签使用多个类
+			class="green  red font30 "
+			冲突： 同一个样式在不同的类里定义成不同的样子， 定义在后面的样式 可以覆盖在先的样式 
+				在先在后  指定的 是css 中类的定义，而不是标签中的类 的使用顺序
+		 
+		 
+		 -->
+		
+	<!-- 	<div class="red">
+			abcdefg
+		</div> -->
+		
+		
+		<div class="green   font30 jiduan ">
+			abcdefg
+		</div>
+		
+		
+		<div >
+			abcdefg
+		</div>
+		
+		<p >1111111</p>
+		<p class="green">222222</p>
+	</body>
+</html>

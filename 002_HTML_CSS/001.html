@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		  使用 table 来实现 布局    是错误的
+		  
+		  主张放弃表格  错误
+		  
+		  在使用表格的地方   ，使用table 标记 
+		 
+		 
+		 tr  是一行          
+		 td  是一列 
+		 
+		 
+		 
+		 表格属性 
+		 border  表格的边框    
+		 
+		 概念  ：  外边 table的边框 ，  里面 是 cell 的边框 
+				cellspacing       table 和 ceil 之间的空白 
+		 
+				cellpadding     ceil 和内容之间的空白 
+				
+				width  宽度 
+				height ： 高度
+				
+				align :       center  left right 
+		 -->
+		
+		<!-- <h3>表格的题目</h3> -->
+		<table border="2px" cellspacing="2" cellpadding="5px"
+		 align="left"  width="200px" height="300px" >
+		 <caption>表格的题目</caption>
+		 
+		 <tbody>
+		 	
+			<thead>
+				<tr>
+					<th>标题1</th>
+					<th>标题2</th>
+					<th>标题3</th>	
+				</tr>
+			</thead>
+		
+		
+			<tr> 
+				<td><a href="http://www.baidu.com" target="_blank">百度首页</a></td>
+				<td>data2</td> 
+				<td>data3</td>
+			</tr>
+			<tr> <td>data1</td>  <td>data2</td> <td>data3</td></tr>
+			<tr> <td>data1</td>  <td>data2</td> <td>data3</td></tr>
+			<tr> <td>data1</td>  <td>data2</td> <td>data3</td></tr>
+			
+		</tbody>
+			
+<!-- 		</table>
+		
+		<table border="" cellspacing="" cellpadding="">
+			<tr><th>Header</th></tr>
+			<tr><td>Data</td></tr>
+		</table> -->
+	</body>
+</html>

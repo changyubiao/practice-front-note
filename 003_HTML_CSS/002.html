@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>id 选择器</title>
+		
+		<style type="text/css">
+			
+			*{
+					font-family: "agency fb";
+					font-size: 20px;
+					font-style: normal;
+				
+			}
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#first-p{
+				color: red;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			命名法 
+			1 起名法 ，
+				- 小驼峰法: 若干个单词组成，第一个单词小写，其他单词大写   helloWorld
+				- 串糖葫芦法：若单个单词组成，所有字母小写，单词直接用 减号 连接 ，  xxx-p-xxx  , hello-world 
+				
+		
+		
+		-->
+		
+		<!-- 
+		类选择器 ，  id 选择器  什么时候使用 ， 区别是什么？ 
+		
+		#id选择器{
+			
+		}
+		 
+		 一个类 可以给多个标签使用  ， 一个标签同时 使用多个类     多对多关系
+		 
+		 
+		id 选择器     一对一 关系 
+			  一个标签 只能有一个id， 同一个id值 只能有一个标签使用,一个标签独占使用 
+		
+		
+		 id 一般应用页面的顶级结构， 在页面里面只有一个这样的id 
+		 
+		 类则描述了标签的一种特征 
+		 
+		-->
+		<!-- 通配符选择器 *
+		* 代表 所有的标签 
+		
+		* {
+				
+		}
+		
+		-->
+		
+		<p id="first-p">aaaa</p>
+		<p id="sec-p">bbbb</p>
+		<p id="thd-p">cccc</p>
+		
+		<!-- <p id="first-p">aaaa</p> -->
+		
+		
+	</body>
+</html>

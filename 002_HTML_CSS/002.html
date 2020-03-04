@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 
+		单元格  横向合并方法   
+		 
+		 1 找到 左上 ceil 的  行数 ，列数  ， 找位置
+		 2 几个单元格合并   
+		 
+		 3 在左上ceil 中 td 添加属性 ，列合并  colspan = 合并数 
+		 4  把已经占位 的单元格 删除掉
+		 
+		 -->
+		
+		<table border="1px" cellspacing="0px" cellpadding="5px" width="100px" height="100px"	>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+				<!-- third  line  -->
+				<tr>
+					<td></td>
+					
+					<td colspan="2"></td>
+					<!-- <td></td> -->
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<br /> <br />
+		
+		
+		<!--
+		单元格  纵向合并方法   
+		 
+		 1 找到 左上 ceil 的  行数 ，列数  ， 找位置
+		 2 几个单元格合并       ， 总共结果单元格
+		 
+		 3 在左上ceil 中 td 添加属性 ，列合并  rowspan = 合并数 
+		 4  把已经占位 的单元格 删除掉
+		 
+		 -->
+		<table border="1px" cellspacing="0px" cellpadding="5px" width="100px" height="100px"	>
+			<tbody>
+				<tr>
+					<td></td>
+					<td rowspan="3"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<!-- <td></td> -->
+					<td></td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<!-- <td></td> -->
+					<td></td>
+							
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		
+		<br><br>
+		<!--
+		
+		多行多列合并 
+		单元格  删除 一块区域 
+		   方法类似 
+		   同时指定 两个 rowspan  colspan 
+		   
+		 
+		 1 找到 左上 ceil 的  行数 ，列数  ， 找位置
+		 2 几个单元格合并     几行，几列   ， 总共结果单元格
+		 
+		 3 在左上ceil 中 td 添加属性 , rowspan = 合并数 , colspan= 合并数
+		 4  把已经占位 的单元格 删除掉
+		 
+		 -->
+		<table border="1px" cellspacing="1px" cellpadding="5px" width="50" height="50px"	>
+			<tbody>
+				<tr>
+					<td></td>
+					<td rowspan="2" colspan="2"></td>
+					<!-- <td></td> -->
+				</tr>
+				<tr>
+					<td></td>
+					<!-- <td></td> -->
+					<!-- <td></td> -->
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+		
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+	</body>
+</html>

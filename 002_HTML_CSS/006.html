@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- 
+ css      把样式和内容 很好的分离 
+ 用 较少的代码， 来管理 样式 
+ 
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS 学习</title>		
+		<!-- style 标记 放在 head 中  -->
+		
+		<!--  选择器  是一种规则，  用来选择 一类标记 选择出来，然后对这些标记使用样式 style
+		 
+		 选择器 { 
+			 属性名：属性值 ；
+			 属性名：属性值 ；
+			 属性名：属性值 ；
+			 ...
+			 
+		 }
+		 
+		 
+		选择器 分类  
+			标签选择器   标签
+			类选择其      .类名
+		 
+		 -->
+		<style type="text/css">
+			
+			.red-d{
+				color: red;
+				font-size: 20px;
+				background: black;
+			}
+			
+			p{
+				color:red;
+			}
+			.green-p{
+				color:green;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		
+		
+		<div id="div1">
+			<!-- style="color: red;font-size: 20px;background: black;" -->
+			<div id="div2" class="red-d" >
+				<!-- 行内样式  
+				   style=:"属性名:属性值;属性名:属性值;"
+				 -->
+				<p >这是一行字</p>
+				<p class="green-p" >Frank 很帅</p>
+				<p >王校长 很帅</p>
+				
+			</div>
+		</div>
+		
+		
+		<div >
+			<!-- 行内样式
+			   style=:"属性名:属性值;属性名:属性值;"
+			 -->
+			<p style="color: #FFA500;font-size: 50px;">aaaaaaa</p>
+		</div>
+		
+	</body>
+</html>

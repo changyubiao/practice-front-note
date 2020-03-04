@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			/* 
+			 把 li 下面的p 添加 字体颜色红色  
+			 
+			 - 后代选择器 :  用 空格分隔      aaa  bbb 翻译： aaa 下面的bbb 
+			 
+			 - 子代选择器 :  li>p
+			 把 li 下面 直接的p  染成 红色 ，中间不包含其他的标签 
+			 把 p 的color 变为red , 但是p 有定语  作为li 的子节点p ,中间不包含任何标签
+					
+			 2:29 分
+			 */
+			
+	/* 		li p {
+				color: red;
+			} */
+			
+		/* 	ul li p {
+				color: red;
+			} */
+			
+			ul>li>p{
+				color: red;
+			}
+			
+			
+			body>div>p{
+				color: green;
+				
+			}
+			
+			div>p{
+				color: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<ul>
+			<li>
+				<div>
+					<p>aaaa</p>
+				</div>
+				
+				<p>bbbb</p>
+				
+			</li>
+			
+			<li>
+				<p>cccc</p>
+				<p>dddd</p>
+			</li>
+		</ul>
+		
+		
+		
+		<div>
+			<div>
+				<p>eeee</p>
+				<p>ffff</p>
+				
+			</div>
+			<div>
+				<p>gggg</p>
+				<p>hhhh</p>
+				
+			</div>
+			
+			<p>zzzzzzz</p>
+		</div>
+		
+	</body>
+</html>

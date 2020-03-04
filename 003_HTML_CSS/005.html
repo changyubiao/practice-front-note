@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css 学习5html</title>
+		
+		<style type="text/css">
+			p{
+				color: red;
+				background: #000000;
+				text-align: center;
+				
+				/* 设定行高   比字体 大7 8 px  */
+				/* line-height: 100px; */
+				
+				line-height: 100px;
+			}
+			
+			.div-p{
+				
+				background: blue;
+				height: 100px;
+			}
+			
+	/* 		*{
+				text-indent: 2em;
+				text-decoration: blink;
+			} */
+			
+			.t1{
+				text-decoration: none;
+			}
+			.t2{
+				text-decoration: underline;
+			}
+			.t3{
+				text-decoration: line-through;
+			}
+			.t4{
+				text-decoration: overline;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 颜色
+		 颜色 有三种表示 
+		 
+		 1.表示方法  名称   red orange  blue  
+		 2.十六进制来表示      RGB        red  green  blue 
+			三位十六进制数  0-9，a-f     红色： #f00   ; 绿色 #0f0 ; 黑色:#000; 白色:#fff 
+			
+			六位十六进制数                  #ff0000        #00ff00    #000000     #ffffff
+			
+		3. rgb    rgb(0-255,0-255,0-255)  
+			rgb(255,0,0)   rgb(0,255,0), rgb(0,0,0), rgb(255,255,255)
+			百分比      rgb(100%,0,0)
+			
+			
+			
+			
+		 为啥 用RGB 表示所有颜色 ？ 
+		 
+			- 你能看到颜色，说明有颜色的光 ，进入你的眼睛 
+			- 光的颜色 是 光的震动频率 决定 
+			- 太阳的白光 通过三棱镜    频谱连续 ，  显示器的白光 通过三棱镜  之后  r g b 三条谱线 
+			- 眼睛 只能看到 R,G,B 三种颜色的光 ， 
+			- 黄 + 蓝   == 绿色   （颜料）
+			 蓝 + 绿  == 黄色  （光） 
+			
+			频率是连续变化的， 
+			
+			
+			三原色 rgb 
+		 -->
+		
+		<!--  
+		text-align    : 设定内容 在盒子中的对齐方式   
+			left  right  center 
+		 -->
+		
+		
+		<!-- 
+		line-height  
+		 
+		如何 让文字居中 ？
+		
+		 水平    text-align   center   
+		 垂直    line-height  这只 和 父亲盒子的高度保持一致 就可以了。
+		 
+		 -->
+		
+		
+		<div class="div-p">
+			
+			<p>
+				111111
+			</p>
+		</div>
+		
+		
+		<!-- 
+		
+			none 
+			underline   下划线
+			overline    上划线
+			line-through  删除线 
+		 -->
+		<div id="">
+			<p class="t1">abc</p>
+			<p class="t2">abc</p>
+			<p class="t3">abc</p>
+			<p class="t4">abc</p>
+			
+		</div>
+		
+	</body>
+</html>

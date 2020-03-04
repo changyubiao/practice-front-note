@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- 
+ label  practice 
+ 
+ 点击文字 获取 控件焦点 
+ 方法1： 直接将文字+控件  外面 放在 label 标签里面
+ 
+ 方法2： 通过 label 的for 属性
+	- 首先 将文件用label 括起来
+	- 之后 把控件input 的id 名称起好  
+	- label 中添加 属性 for="id名称"
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="text_test">
+			<!-- 单行输入文本框   input type="text"
+			
+			type  可以取不同的值 ，  对于单行文本框  type="text"
+			
+			name 和 id  是用于标识控件的
+			name  可以重复
+			id 不能重复 ,在本网页中 id 的值仅有这一个
+			
+			maxlength="10"
+			value 缺省的一个值
+			
+			方法1 ：直接 加label
+			 -->
+			
+			<label>
+				姓名: <input type="text" name="username" id="username" value="Frank"  />
+			</label>
+			
+			
+		
+		</div>
+		
+		<!-- 方法2  -->
+		<div id="text_test2">
+			
+			<label for="job">职业:</label> <input type="text" name="jobname" id="job"   />
+			
+		</div>
+		
+		
+		<div id="radio_test">
+			<!-- 单选按钮 -->
+				
+				性别:
+				<label for="men">男</label><input type="radio" name="gender" id="men"   />
+				<label for="women">女</label><input type="radio" name="gender"  id="women" />
+					
+		</div>
+	
+		
+
+		
+
+	</body>
+</html>

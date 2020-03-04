@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="text_test">
+			<!-- 单行输入文本框   input type="text"
+			
+			type  可以取不同的值 ，  对于单行文本框  type="text"
+			
+			name 和 id  是用于标识控件的
+			name  可以重复
+			id 不能重复 ,在本网页中 id 的值仅有这一个
+			
+			maxlength="10"
+			value 缺省的一个值
+			 -->
+			
+			姓名: <input type="text" name="username" id="username" value="Frank"  />
+		</div>
+		
+		<div id="pwd_test">
+			<!-- 单行输入密码 -->
+			密码: <input type="password" name="pwd" id="pwd" value="" />
+			
+		</div>
+		
+		
+		<div id="radio_test">
+			<!-- 单选按钮 -->
+			
+			性别: 
+			男<input type="radio" name="gender"   />
+			女<input type="radio" name="gender"   />
+			
+		</div>
+		
+		
+		<div id="checkbox_test">
+			
+			爱好:
+			旅游<input type="checkbox" name="hobby"  value="" />
+			打球<input type="checkbox" name="hobby"  value="" />
+			游泳<input type="checkbox" name="hobby"  value="" checked />  
+			<!-- checked 默认选择 -->
+			看电影<input type="checkbox" name="hobby"  value=""  />
+			
+		</div>
+		
+		
+		
+	
+		<div id="button_test">
+			<input type="button" name=""  value="确定按钮" />
+			
+			<input type="submit" name=""  value="提交" />
+			
+			<input type="reset"  value="取消" />
+
+			<input type="image" src="image/reg.png"  />
+		</div>
+		
+		
+		<div id="file_test">
+			<!-- 文件提交 -->
+			<input type="file"  />
+		</div>
+		
+		<div id="label_test">
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		
+		<div id="textarea_test">
+			<!-- 
+			 textara  用于 输入多行文字 
+			 不支持 富文本 ， 所以一般不用它  
+			 -->
+			<textarea rows="5" cols="20">
+				fsafsafsafsafsafsafsa
+			</textarea>
+		</div>
+		
+		
+		<div id="select_test">
+			<!-- 
+			 不常用 
+			 下拉框 ，下拉列表 
+			 
+			 属性  selected  默认选择 
+			 
+			 不好看， 一般用 select 控件  
+			 
+			 -->
+			<select>
+				<option value="91">1991</option>
+				<option value="92">1992</option>
+				<option value="93" selected >1993</option>
+				<option value="94">1994</option>
+			</select>
+			
+		</div>
+		
+	</body>
+</html>

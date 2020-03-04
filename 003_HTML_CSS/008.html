@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+			/* 
+			 将 div 并且 是 class   red 的元素 ， color 变红 
+			  
+			 
+			 交集选择器     直接 把选择器 拼接一起 div.red
+			 
+			 
+			 并集选择器 
+			 要求  将  div  或者 p 下 的 background-color  设置 yellow     , 用逗号 分隔选择器  选择器1,选择器2 
+			  
+			 */
+			
+			.red{
+				color: red;
+			}
+			
+			div.red{
+				font-weight: 700;
+			}
+			
+			
+			.bold{
+				font-weight: 700;
+			}
+			
+			
+			/* 或的关系， div 或 p 的 background-color  */
+			div,p{
+				background-color: yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		
+		<div class="red">aaa</div>
+		<div>bbb</div>
+		<div class="red">cccc</div>
+		
+		
+		
+		<p>eee</p>
+		<p>ffff</p>
+		<p class="red">ggg</p>
+		
+		
+	</body>
+</html>
