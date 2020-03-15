@@ -1,6 +1,6 @@
 <!-- 
  
-# 显示模式
+# css显示模式
 display 有以下 三种
   - block  
   - inline  
@@ -23,8 +23,13 @@ display 有以下 三种
 				padding-left: 5px; 
 				
 				margin 
+				margin-top: 1px;
+				margin-right: 5px;
+				margin-bottom: 10px;
+				margin-left: 20px;
 				
-	- 块级元素 的宽度  是 其 容器（父亲） 宽度的100% 
+				
+	- 块级元素 的宽度  是 其容器（父亲） 宽度的100% 
 	- 块级元素内部可以容纳 其他的块级元素 或者 内联元素 
 	- 例外： p , h1-h6    通常只放文字 
 
@@ -40,7 +45,7 @@ inline  行内元素
 	- 默认宽度   是其内部内容 的宽度 .
 	- 通常只容纳文本 或者其他 行内元素 
 	- 例外     a 元素 内部可以放  块级元素（div）
-			 注意：a 元素内部 不可以放 a 元素 
+			 *注意：a 元素内部 不可以放 a 元素 *
 
 
 ## 行内块元素
@@ -123,21 +128,45 @@ inline-block  行内块元素
 	
 	- CSS 的优先级 
 		1.  优先级 不同，高优先级的 选择器 会覆盖 低优先级选择器 CSS 属性
-		2. 优先级 相同，  定义在后面的，会覆盖定义在先的选择器的 CSS 属性 
+		2. 优先级 相同，定义在后面的，会覆盖定义在先的选择器的 CSS 属性 
 		
 		3.  优先级 确定方法   （0<1<2<3) 0 优先级最低
 			1.  *  ， 继承的 优先级       = 0,0,0,0
 			2.  元素            =  0,0,0,1
 			3.  类 ，伪类       =  0,0,1,0
 			4. ID 选择器        = 0,1,0,0
-			5. h行内样式        = 1,0,0,0
-			6.  !important       = 无穷大   
+			5. 行内样式        = 1,0,0,0
+			6. !important       = 无穷大   
 					p {
 						background-color: blue!important;
 					}
 			7. 复合选择器  优先级   把所有出现的单个选择器 优先级  进行累加不进位 		
-					
-			
-<!-- 1h 43min -->
-<!-- 2h 13min  优先级的计算 复合选择器优先级的计算  -->
- 
+
+
+- 要求要会计算 css 的优先级 
+
+
+ // 1h 43min 
+ // 2h 13min  优先级的计算 复合选择器优先级的计算 
+
+
+# 背景 
+	background
+	
+	background-position: left top;
+	
+	第一个参数 水平方向 ，第二个参数 是竖直方向
+	 
+	水平方向  left  center  right 
+	竖直方向   top  center  bottom 
+	 
+	如果只有center ，  background-position: center, 水平和竖直方向 居中
+	 
+	第二种方式 可以用数值 
+	background-position: 10px  center;
+	 
+	 
+	 
+-->
+
+

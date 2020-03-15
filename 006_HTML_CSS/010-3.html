@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ nav  导航栏  效果 
+ 
+
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>网页布局</title>
+
+		<style>
+			body,
+			ul,
+			li,
+			div {
+				margin: 0;
+				padding: 0;
+			}
+
+
+
+			#header,
+			#nav,
+			#content,
+			#content2,
+			#content3,
+			#footer {
+				width: 960px;
+				height: 100px;
+				background-color: #F8F8F8;
+				border: 1px solid #D0D0D0;
+				margin: 0 auto;
+				margin-bottom: 5px;
+			}
+
+
+			#header {
+				width: 100%;
+				height: 130px;
+				border-width: 0px;
+
+			}
+
+			#header>.inner {
+				width: 960px;
+				height: 130px;
+				border: 1px solid #D0D0D0;
+
+				margin: 0 auto;
+
+			}
+
+			#nav {
+				height: 80px;
+			}
+
+			#nav li {
+				list-style: none;
+				width: 232px;
+				height: 80px;
+				float: left;
+				
+				margin-right: 10px;
+			}
+
+			/* 
+			nth-child  这个 可以从 li 下面 ul 的 元素 ， 注意这里下标从1 开始的。
+			 
+			 */
+			#nav li:nth-child(1) {
+				background-color: red;
+			}
+
+			#nav li:nth-child(2) {
+				background-color: green;
+				margin-right: 11px;
+			}
+
+			#nav li:nth-child(3) {
+				background-color: blue;
+			}
+
+			#nav li:nth-child(4) {
+				background-color: orange;
+				
+				margin-right: 0;
+				float: right;
+			}
+			
+			/* 块的宽度，margin的宽度：
+						1. 求块的宽度： （总宽度 - margin的宽度 * （n-1））/ n 向下取整
+						我们知道：n * 块宽度 + （n-1）* margin的宽度 < 总宽度： 有一个差
+						2. 求出差
+						3. 最后一个快float right
+							有一个问题，就是最后一个块和倒数第二个块之间的margin = margin + 差，且这个差小于n
+							
+						4. 调整一部分 块 的margin-right  + 1
+			*/
+			
+			
+			
+			
+
+
+			#content {
+				height: 500px;
+			}
+
+			#content>.left,
+			#content>.right {
+				height: 500px;
+
+			}
+
+			#content>.left {
+				width: 320px;
+
+				float: left;
+				background-color: red;
+				border: none;
+			}
+
+			#content>.right {
+				width: 630px;
+
+				float: right;
+				background-color: blue;
+				border: none;
+
+				margin-left: 10px;
+			}
+
+			#content2 {
+				height: 300px;
+			}
+
+			#content2>.left,
+			#content2>.middle,
+			#content2>.right {
+				width: 320px;
+				height: 300px;
+				float: left;
+			}
+
+			#content2>.left {
+
+				background-color: orange;
+				border: none;
+			}
+
+			#content2>.middle {
+				background-color: blue;
+				border: none;
+			}
+
+			#content2>.right {
+
+				float: right;
+				background-color: skyblue;
+				border: none;
+			}
+
+
+			#content3 {
+
+				height: 200px;
+			}
+
+
+			#footer,
+			#footer>.inner {
+				height: 100px;
+				margin-bottom: 0px;
+				border-width: 0px;
+				;
+			}
+
+			#footer {
+				width: 100%;
+			}
+
+			#footer>.inner {
+				width: 960px;
+
+				border-width: 0;
+
+
+				border: 1px solid #D0D0D0;
+				margin: 0 auto;
+			}
+		</style>
+
+
+	</head>
+	<body>
+
+
+		<div id="header">
+			<div class="inner"> </div>
+		</div>
+		<div id="nav">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="left">left</div>
+			<div class="right">right</div>
+		</div>
+
+		<div id="content2">
+			<div class="left"></div>
+			<div class="middle"></div>
+			<div class="right"></div>
+		</div>
+		<div id="content3">content 333</div>
+		<div id="footer">
+			<div class="inner">
+				footer-inner
+			</div>
+		</div>
+
+	</body>
+</html>

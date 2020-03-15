@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 
+ padding  就是  填充物 
+ 
+ 内容到 盒子内边距 的距离 
+ 
+ padding  也有 四个方向 
+ 
+ padding-top: 1px;
+ padding-right: 5px;
+ padding-bottom: 10px;
+ padding-left: 10px ;
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>padding</title>
+		<style type="text/css">
+			
+			
+			div{
+				
+				width: 100px;
+				height: 100px;
+				
+				border: 1px solid black;
+				
+				padding: 10px;
+				
+		/* 		padding-top: 1px;
+				padding-right: 5px;
+				padding-bottom: 10px;
+				padding-left: 10px ;
+				 */
+				
+				/*覆盖写法 和border 类似   */
+				padding-left: 1px;
+				
+				
+				/* 可以按照 上右下左 */
+				padding: 5px 5px 5px 0.3125rem;
+				
+				
+			}
+			
+			
+			a{
+					
+				height: 35px;
+				background-color: #808080;
+				
+				line-height: 35px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				
+				color: white;
+				
+				/* 宽度 ,每个a 标签都是一样的宽度了。*/
+				/* width: 150px; */
+				
+				
+				/* padding 上下 0px  左右 20px  */
+				padding: 0px 20px;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<div>Frank真帅</div>
+		
+		
+		<a href="#">首页</a>
+		<a href="#">移动客户端</a>
+		<a href="#">移动客户端4444444</a>
+		
+	</body>
+</html>

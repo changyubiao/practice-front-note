@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 技术点 
+ 1 如何去掉 li 的圆点
+	list-style-type:none;
+ 
+ 2  消除内外边距 ，为了浏览器的兼容 
+	margin: 0;
+	padding: 0;
+	
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>练习 新闻 </title>
+
+		<style type="text/css">
+			body,
+			div,
+			h4,
+			li,
+			ul,
+			a {
+				margin: 0;
+				padding: 0;
+			}
+
+
+			body {
+				/* 浅灰的颜色 */
+				background-color: #eee;
+			}
+
+			#article {
+
+				width: 380px;
+				height: 263px;
+
+				border: 1px solid #ccc;
+				margin: 100px;
+
+				/* 上20px  下0 ， 左右15排序 */
+				padding: 20px 15px 0px;
+
+
+			}
+
+			#article>ul {
+				margin-top: 15px;
+			}
+
+			#article li {
+
+				/* 去掉ul li 的圆点 */
+				list-style-type: none;
+
+				/* 高度 */
+				line-height: 38px;
+				height: 38px;
+
+
+				border-bottom: 1px dashed #ccc;
+				text-indent: 2em;
+			}
+
+
+
+			#article li>a {
+				font-size: 14px;
+
+				color: #333;
+
+				text-decoration: none;
+
+			}
+
+
+			#article li>a:hover {
+
+				color: red;
+				text-decoration: underline;
+
+			}
+
+			#article>h4 {
+
+				color: #202026;
+				font-size: 20px;
+				border-bottom: 1px solid #ccc;
+				padding-bottom: 7px;
+
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="article">
+			<h4>最新文章/ News Articles</h4>
+			<ul>
+				<li><a href="#">PHP 是最好的语言</a></li>
+				<li><a href="#">不对！JAVA 才是</a></li>
+				<li><a href="#">都别争了，JS才是世界上最好的语言</a></li>
+				<li><a href="#">你们这样骗自己有意思吗</a></li>
+				<li><a href="#">哈哈哈哈哈哈哈哈哈</a></li>
+
+			</ul>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

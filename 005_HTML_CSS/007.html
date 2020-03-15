@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- 
+两个盒子  外边距 可以 合并的。
+
+
+
+
+ 两个盒子真实距离  ， 不是两个盒子之和，而是 两个margin中 最大的那个 。
+ 不是累加的 关系.. 
+ 
+ 两个 盒子的 margin 是可以重合的，   
+ 
+ 
+ 
+ tips:
+	不要 给两个盒子 同时设定 margin，  将margin 设定在一个 盒子上。
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>外边距的合并</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				/* color: #FF0000; */
+				background-color: red;
+			}
+			
+			#section1{
+				margin-bottom: 100px;
+			}
+			
+			#section2{
+				/* margin-top: 100px; */
+			}
+			
+		</style>
+	</head>
+	<body>
+
+
+
+		<div id="section1"></div>
+		<div id="section2"></div>
+
+
+	</body>
+</html>

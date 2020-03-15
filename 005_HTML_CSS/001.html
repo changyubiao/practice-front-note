@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 
+ border-radius: 5px;  设置圆角
+				或者用 百分比  5%， 10% 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> border 学习</title>
+		<style type="text/css">
+			
+			
+			div{
+				
+				width: 200px;
+				height: 200px;
+				
+				
+				/* solid  实线
+				 dotted  点线 
+				 none   没有 边框 
+				 */
+				/* 
+				border-style:solid;
+				border-width: 1px;
+				border-color: blue; */
+				
+				
+				/*放在一行写  width  style color  */
+				/* border: 1px solid  blue ; */
+					
+				
+				/* border 分为 上右下左  top right  bottom left  */
+				/* 每个边框 都可以设置  */
+		/* 		border-top: 5px  solid red ;
+				border-right: 5px  dashed blue;
+				border-bottom: 5px dotted  yellow;
+				border-left: 5px solid orange; */
+				
+				
+				
+				/* 覆盖写法 ， 其他边 5px  solid  黑色，只有右边是红色 */
+				/* border: 5px solid black; */
+				/* border-right: 5px solid red; */
+				
+				/* 甚至 可以 直接写 这个颜色 */
+				/* border-right-color: red;
+				border-radius: 20%; */
+				
+				
+				
+				
+				/* 用 border 画一个圆 */
+				/* border: 125px solid  blue;
+				border-radius: 100%;
+				border-right-color: red; */
+				
+				
+				/* 一次性 设置方法  */
+				border: 20px solid black;
+				
+				
+				/* border-width 为例
+				 z只要记住 顺序 上 右下左
+				 */
+				/* 第一种全部改    上下左右 */
+				/* border-width: 4px ; */
+				
+				/* 第二种上下 40px ，左右4px  */
+				/* border-width: 40px 4px; */
+				
+				/*第三种 上80px,下40px , 左右 4px   不好记*/
+				/* border-width: 80px 4px 40px  ; */
+				
+				/* 第四种 上 80px  下 40px 左 10px  右20px */
+				/* border-width: 80px  20px 40px 10px ; */
+				
+				border-width: 20px;
+				border-color: red  skyblue orange blue;
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div></div>
+	</body>
+</html>

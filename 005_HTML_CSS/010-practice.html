@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 外边距 塌陷  :  什么是塌陷 
+ 
+ 两个 div  ，给儿子设置 margin 之后 所有的都 塌陷 下来了。
+ 
+ 如何解决? 
+ 
+ 
+ 
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>外边距的塌陷222</title>
+
+
+		<style type="text/css">
+			#fat {
+				width: 400px;
+				height: 400px;
+				background-color: #f00;
+				overflow: hidden;
+			}
+
+
+
+
+
+			#son {
+				width: 200px;
+				height: 200px;
+				background-color: #00FF00;
+				margin-top: 50px;
+			}
+
+			#son2 {
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+				margin-top: 50px;
+
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="fat">
+			<div id="son">AAAA</div>
+			<div id="son2">BBBB</div>
+
+
+		</div>
+	</body>
+</html>

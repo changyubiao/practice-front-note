@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>background</title>
+		<style type="text/css">
+			
+			
+			div{
+				width: 300px;
+				height: 300px;
+				
+				/* 背景颜色 ，背景图片 */
+				background-color: ghostwhite;
+				background-image: url(image/bg.png);
+				
+				background-repeat: no-repeat;
+				/* no-repeat 不平铺
+				 repeat-x  水平方向 平铺
+				 repeat-y  垂直方向平铺
+				 no-repeat  
+				
+				*/
+			   
+				/* 平铺图片的位置 背景位置
+				 1.左中右 ，上中下   左 中  右  left  center  center  ,  top  bottom center 
+				 */
+				/* background-position: right bottom; */
+				/* 2  px 先水平方向x  , 在垂直方向  */
+				/* background-position: 15px 30px; */
+				
+				/* 左右 方向偏移 10px  ,  垂直方向 居中  */
+				/* background-position: 10px center; */
+				
+				
+				/* background: 背景颜色   图片地址  平铺  背景位置; */
+				/* background:ghostwhite  url(image/bg.png) no-repeat  10px center ; */
+				
+				/* rgb(0,255,255,a)  第四个参数    叫 alpha   透明度   */
+				background:rgb(0,255,255,0.9)  url(image/bg.png) no-repeat  10px center ;
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div></div>
+	</body>
+</html>

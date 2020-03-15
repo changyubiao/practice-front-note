@@ -4,22 +4,50 @@
 		<meta charset="utf-8">
 		<title>css 继承性</title>
 		<style type="text/css">
+			
+			*{
+				color:#000000;
+			}
 			#nav {
-				
 				color: #f00;
 			}
+			
+			.div1{
+				color: red;
+			}
+			.div2{
+				color: orange;
+			}
+			
+			
+			
+			
+			div ul li{}
+			/* 0,0,0,1 + 0,0,0,1 +0,0,0,1  ==  0,0,0,3 */
+			
+			.nav ul>li {} 
+			/* 0,0,1,0 + 0,0,0,1 +  0,0,0,1 = 0,0,1,2*/
+			
+			a:hover{}
+			
+			.nav  a {}
+			/* 0,0,1,0 + 0,0,0,1 == 0,0,1,1 */
+			#nav p {}
+			/* 0,1,0,1  */
+			
+			
 		</style>
 	</head>
 	<body>
 
-		<div id="nav">
-			<p>王思聪</p>
+	<!-- 	<div id="nav">
+			<p >王思聪</p>
 
-		</div>
+		</div> -->
 		
 		<div class="div1">
 			<div class="div2">
-				<p>AAAA </p>
+				<p style="color: blue;">AAAA </p>
 			</div>
 		</div>
 	</body>

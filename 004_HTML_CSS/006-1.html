@@ -20,7 +20,8 @@
 				height: 50px;
 				/* 先转成块级元素 */
 				display: inline-block;
-				background-image: url(image/bg.png);
+				background-image: url(image/bgall.png);
+				background-position: left top;
 				
 				/* 调整 行高 和父元素 一样  */
 				line-height: 50px;
@@ -37,16 +38,19 @@
 			
 			#nav>a:hover{
 				/*  注意这里不要 */
-				background-image: url(image/bgh.png);
-				font-weight: 800;
-				font-size: 20px;
+				/* background-image: url(image/bgh.png); */
+				
+				background-position: left bottom;
+				/* background-position: left -50px; */
+				/* font-weight: 800;
+				font-size: 20px; */
 			}
 			
 		</style>
 	</head>
 	<body>
 		
-		
+		<!-- <div id="head"><He></He>ad</div> -->
 		<div id="nav">
 			
 			<a href="#">测试菜单1</a>

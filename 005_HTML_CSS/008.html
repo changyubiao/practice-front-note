@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 外边距 塌陷  :  什么是塌陷 
+ 
+ 两个 div  ，给儿子设置 margin 之后 所有的都 塌陷 下来了。
+ 
+ 如何解决? 
+ 
+ 
+ 
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>外边距的塌陷</title>
+		
+		
+		<style type="text/css">
+			
+/* 			#fat{
+				width: 400px;
+				height: 350px;
+				background-color: #f00;
+			} */
+			
+			
+			
+			/* 塌陷的解决方法
+			  方法1  可以给fat 加上样式 padding-top  ,  同时调整height  保持 盒子的大小。
+			*/
+			/* #fat {
+				width: 400px;
+				height: 350px;
+				background-color: #f00;
+				padding-top: 50px;
+			} 
+			*/
+
+
+			/* 方法二 
+			
+			给父 div  放一个 padding 进去，同时调整height  保持盒子的高度 400px 
+			height  + padding-top    == 原来的距离
+			
+			pading-top    +margin-top ==      下移的距离
+			
+			*/
+		   
+		   
+		   
+		/* 	#fat {
+				width: 400px;
+				height: 375px;
+				background-color: #f00;
+				padding-top: 25px;
+			} */
+			
+			
+			/* 方法3 
+			给父 div  放一个 border 进去，同时调整height  保持盒子的高度 400px 
+			
+			 */
+			
+		/* 	#fat {
+				width: 400px;
+				height: 399px;
+				background-color: #f00;
+				border-top: 1px solid #f00;
+			} */
+			
+			/* 方法4  给父div 增加样式  overflow:hidden  
+			 */
+			#fat{
+				width: 400px;
+				height: 400px;
+				background-color: #f00;
+				/* 添加样式 就可以了 */
+				/* overflow: hidden; */
+				
+				padding: 50px;
+			}
+
+			/* #son {
+				width: 200px;
+				height: 200px;
+				background-color: #0f0;
+				margin-top: 50px;
+			} */
+			
+			#son{
+				
+				height: 200px;
+				background-color: #0f0;
+				/* padding: 50px; */
+				
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="fat">
+			<div id="son">AAAA</div>
+		</div>
+	</body>
+</html>

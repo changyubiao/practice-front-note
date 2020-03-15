@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>xxx 商城</title>
+		<style type="text/css">
+			/* 删除 默认 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			
+			
+			body{
+				height: 300px;
+				
+				background-color: rgb(250,250,250);
+				
+				/* 写完后删除 背景 */
+				/* background-color: red; */
+			}
+			
+			
+			li{
+				list-style: none;
+			}
+			
+			
+			/* 顶部导航栏 */
+			
+			#header{
+				
+				height: 100px;
+				background-color: #FFFFFF;
+				
+				/* -------写完后 删除 ------------*/
+				/* background-color: #00FF00; */
+			}
+			
+			#header>.inner{
+				
+				height: 100px;
+				width: 1200px;
+				
+				margin: 0 auto;
+				
+				
+				/* -------写完后 删除 ------------*/
+				/* background-color: #0ff; */
+			
+				line-height: 100px;
+			}
+			
+			
+			
+			#header .logo{
+				float: left;
+			}
+			
+			#header .nav{
+				float: right;
+			}
+			
+			#header  .nvae ul{
+				overflow: hidden;
+			}
+			
+			.nav li {
+				
+				float: left;
+				
+				/* display: inline-block; */
+				
+				margin-right: 20px;
+				
+				
+			/* 	width: 80px;
+				height: 100px; */
+				
+				
+	
+			}
+			
+			
+			/* 调整 a 标签的 颜色，下划线 */
+			.nav  li>a {
+				
+				color: rgb(42,51,68);
+				text-decoration: none;
+				
+				/* line-height: 100px; */
+				
+			}
+			
+			.nav  li>a:hover{
+				/* 淡蓝色 */
+				color: #2288f6;
+				
+			}
+			/* 顶部导航栏    === end  === */
+			
+			/* Banner  */
+			
+			
+			#banner{
+				
+				height: 620px;
+				
+				background: url(./image/banner.jpg)  no-repeat  top center ;
+			}
+			
+			/* Banner   === end  === */
+			/* Seveice  部分 */
+			
+			#service{
+				height: 800px;
+				
+				width: 1056px;
+				
+				/* 写完后删除 */
+				background-color: #00FF00;
+				
+				/*  居中 */
+				margin: 0 auto;
+				margin-top: 75px;
+			}
+			
+			
+			#service > .service-head{
+				
+				border-top: 1px solid #CCCCCC;
+				
+		/* 		width: 1006px;
+				margin: 0 auto; */
+				
+				
+				margin: 0 25px;
+				
+			}
+			
+			
+			
+			#service>.service-head p {
+				/* background-color: #00FF00; */
+				
+				width: 800px;
+				font-size: 12px;
+				color: #666;
+				
+				margin: 0 auto;
+				
+				/* 字体居中 */
+				text-align: center;
+				
+				/*  行高调整一下 */
+				line-height: 26px;
+				
+				
+			}
+			
+			#service>.service-head h4{
+				width: 167px;
+				height: 46px;
+				margin: 0 auto;
+				
+				margin-top: -15px;
+			}
+			
+			
+			
+			
+			/* Seveice  部分   ===end === */
+			
+			
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航栏  -->
+		<div id="header">
+			<div class="inner">
+				<div class="logo">
+				<a href="#"> <img src="./image/logo.png" alt="" /></a>	
+				</div>
+				<div class="nav"> 
+				<!-- 导航栏  中 有a 标签 -->
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">xxx商城</a></li>
+					<li><a href="#">智慧门店</a></li>
+					<li><a href="#">营销平台</a></li>
+					<li><a href="#">媒体联盟</a></li>
+					<li><a href="#">关于某某</a></li>
+					
+					
+				</ul>
+				
+				</div>
+			</div>
+		</div>
+		<!-- 顶部导航栏   ===结束===  -->
+		
+		
+		<!-- Banner  开始  轮播图     -->
+		<div id="banner">
+		
+		
+		</div>
+		<!-- Banner   ===end===     -->
+		
+		
+		<!-- 服务模块 -->
+		<div id="service">
+			<div class="service-head">
+				<h4>
+					<img src="./image/ser.png" alt="">
+				</h4>
+				<p>国内领先的电商平台 国内领先的电商平台国内领先的电商平台国内领先的电商平台国内领先的电商平台国内领先的电商平台国内领先的电商平台国内领先的电商平台 </p>
+			</div>
+			<div class="service-body"></div>
+		</div>
+		
+		<!-- 服务模块   ===end ===    -->
+		
+		
+		
+		
+	</body>
+</html>

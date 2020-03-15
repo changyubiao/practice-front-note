@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!-- 
+ 
+ 如果 让两个块级元素 在一行 ？ 
+ 
+ 可以使用浮动
+ 
+ float   是 元素 脱离标准流 ， 移动到其父元素指定的位置的过程 ， 
+	float: left , right 
+ 
+ 
+ 
+ 设置inline-block 这样两个块状元素 会紧紧挨在一起， 只能 左对齐 ,不能实现 右对齐 
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body,
+			div{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				/* display: inline-block; */
+			}
+			
+			.red{
+				background-color: red;
+				/* float: right; */
+			}
+			.green{
+				background-color: #00FF00;
+				width: 250px;
+				height: 250px;
+				/* float: left; */
+			}
+			
+		</style>
+	</head>
+	
+	
+	
+	<body>
+		
+		
+		<div class="red"></div>
+		<div class="green"></div>
+	</body>
+</html>
