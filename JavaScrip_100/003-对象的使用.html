@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			/*
+				1 
+			
+				person
+				{name: "frank", age: 19, score: 55, email: "frank@qq.com", language: Array(4)}
+				person.language
+				(4) ["java", "c++", "python", "goland"]
+				person.name
+				"frank"
+				person.name ="frank3"
+				"frank3"
+				person
+				{name: "frank3", age: 19, score: 55, email: "frank@qq.com", language: Array(4)}
+				person.aaa
+				undefined
+				person.gender=1
+				1
+				person
+				{name: "frank3", age: 19, score: 55, email: "frank@qq.com", language: Array(4), …}age: 19email: "frank@qq.com"gender: 1language: (4) ["java", "c++", "python", "goland"]name: "frank3"score: 55__proto__: Object
+				delete  person.gender
+				true
+				person
+				{name: "frank3", age: 19, score: 55, email: "frank@qq.com", language: Array(4)}
+				
+				'age' in person 
+				true
+				
+				
+				'toString' in person;
+				true
+				person.hasOwnProperty('toString') ;
+				false
+				person.hasOwnProperty('name') ;
+				true
+				person.hhahhahaha
+				undefined
+			*/ 
+		</script>
+		
+		
+		
+		<script type="text/javascript">
+			// 严格检查模式 
+			'use strict';
+			
+			
+			let person ={
+				name:"frank",
+				age:19,
+				score:55,
+				email:"frank@qq.com",
+				language:["java","c++","python","goland"]
+			}
+			
+			// 修改对象
+			person.name="frank2";
+			
+			person.aaa ="aaaa";
+			
+			//  删除属性
+			delete  person.aaa; 
+			
+			
+			//  使用不存在的属性 undefined 
+			person = {name: "frank3", age: 19, score: 55, email: "frank@qq.com"}
+			
+			person.aaaaa
+			undefined
+			
+			// 判断 属性
+			
+			'age'  in person ;  // true 
+			
+			'toString' in person; // true 继承 
+			
+			
+			// 判断自身属性
+			person.hasOwnProperty('age'); // true  
+			person.hasOwnProperty('toString') // false 
+			
+			
+			console.log(person)
+			
+			
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>
