@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- https://www.cnblogs.com/jjgw/p/11561169.html
+		 
+		 -->
+		
+		<script type="text/javascript">
+			
+			let mySet =new Set([1,2,3,4,6,3,3]);
+			console.log(mySet);
+			
+			
+			for (let item of mySet) {
+				console.log(item);
+			}
+			
+			
+			for (let item of mySet.keys()){
+				console.log(item);
+			}
+			 
+
+			
+			
+			
+			// 通过 array 构造 一个set 
+			let myArray = ["value1", "value2", "value3"];
+			
+			// 用Set构造器将Array转换为Set
+			let mySet = new Set(myArray);
+			
+			mySet.has("value1"); //  true
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

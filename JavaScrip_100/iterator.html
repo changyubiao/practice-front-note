@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			/*
+			
+			for x of xxx  来遍历 容器 
+			*/ 
+		</script>
+		
+		<script type="text/javascript">
+			
+			// 遍历 arr
+			let  arr = ["one","two","three","four","five"];
+			
+			
+			for (let i  in  arr){
+				console.log(i);
+			}
+			
+			arr.name ="frank"
+			
+			for (let i  in  arr){
+				console.log(i,arr[i]);
+			}
+			
+			
+			
+			console.log("===========")
+			
+			for (let item of arr){
+				console.log(item);
+			}
+			
+			
+			
+			
+			
+			
+			//  遍历 set 
+			
+			let set = new Set(arr)
+			console.log("=======print set ")
+			for (let item of set){
+				console.log(item);
+			}
+			
+			
+			
+			
+			// 遍历map 
+			let map =new Map( [['frank',60],['lile',80],['liuxiao',99]]) ;
+			
+			score = map.get('lile');
+			console.log(score);
+			console.log("====print map ====")
+			for(let x of map){
+				console.log(x);
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

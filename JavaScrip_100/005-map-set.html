@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 
+		 
+		 set 学习 参考链接 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set
+		 -->
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			
+			// ES6  新特性  map  set  的用法 
+			
+			
+		</script>
+		
+		<script type="text/javascript">
+				// 'use strict';
+				
+				let map =new Map( [['frank',60],['lile',80],['liuxiao',99]]) ;
+				
+				score = map.get('lile');
+				console.log(score);
+				
+				map.set('admin',100);
+				
+				
+
+				console.log(map);
+				
+				// delete one element 
+				delete map("frank")
+				console.log(map);
+				
+			
+				let set =new Set([1,2,3,4,6,3,3]);
+				console.log(set);
+				
+				console.log("add frank into set")
+				
+				// 添加
+				set.add("frank")
+				console.log(set);
+				// 删除  删除成功返回true ,删除不成功返回false 
+				set.delete(3);
+				
+				// 判断 元素 是否在 set 中 
+				set.has(1);
+				
+				
+				// set 的属性 集合的长度
+				console.log(set.size));
+				
+				
+				// 清空集合元素
+				set.clear() ;
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
