@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<script>
+			/*
+	 在 函数里面定义 变量 ,出了函数后,就不能访问了. 
+	 
+	 
+	 1 函数体内定义的变量,在函数体内中正常使用,在函数体外不可可以使用
+	
+	2  如果两个函数 使用了相同的变量 不会产生冲突的.
+	
+	
+	3  内部函数 可以访问 外部函数的成员. 反之不行.
+	
+	
+	4 内部变量 与外部变量重名 ?
+	
+	由内向外 查找 变量 .临近原则 
+	
+	5 
+	
+	
+	
+	*/
+		</script>
+
+		<script type="text/javascript">
+			// function f (){
+
+			// 	var x = 1;
+
+			// 	x = x +1
+			// 	console.log(x);
+
+			// }
+			// // ReferenceError  这里 是访问不到 x 
+			// console.log(x);
+
+
+
+			// function f2 (){
+
+			// 	var x = 1;
+
+			// 	x = x +1
+			// 	console.log(x);
+
+			// }
+
+			// function f3 (){
+
+			// 	var x = 10;
+
+			// 	x = x +1
+			// 	console.log(x);
+
+			// }
+			// f2();
+			// f3();
+
+
+
+
+
+
+
+
+			// function outer() {
+			// 	var x = 1;
+
+			// 	function inner() {
+
+			// 		var y = x + 1;
+
+			// 		console.log("x= ", x, ",y= ", y)
+			// 	}
+
+			// 	//  调用inner 函数
+			// 	inner();
+
+			// 	var z = y + 1 //ReferenceError: y is not defined
+			// 	console.log(z);
+
+			// }
+			
+			
+			
+			
+			// function outer() {
+			// 	var x = 1;
+			
+			// 	function inner() {
+			
+			// 		var x = 100;
+			
+			// 		console.log("inner(), x= ", x);
+			// 	}
+			// 	console.log("outer(), x= ", x);
+				
+				
+			// 	//  调用一下inner 函数 
+			// 	inner();
+			// }
+			
+			
+			
+			
+			
+			//  js 执行 引擎 ,自动提升了 y 的声明,但是不会提升变量y 的赋值 
+			
+			/*
+			这个在JavaScript 成立之初 就存在的特性, 养成一个规范
+			
+			所有定义的代码 都写在 前面 就可以了,  便于代码维护 .
+			
+			
+			
+			*/ 
+			function f4(){
+				
+				var  x  = "x" +y;
+				console.log(x);
+				var y ='y';
+				
+			}
+			
+			
+			function f5(){
+				
+				var x =1,
+				y = x+1,
+				z, name,age;
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+
+
+
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+			规范:
+			由于我们的所有全局变量会绑定到我们的 window 上, 如果不同的js 文件,使用了相同的全局变量,冲突会发生? 
+			
+			如何解决这问题呢?  如何 减少冲突呢? 
+			 Answer:    自己定义一个全局变量
+			
+
+			把自己代码 全部放入自己 定义的唯一空间的名字中. 
+			
+			*/ 
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+			
+			var frankApp = {};
+			
+			frankApp.name = "frank";
+			
+			frankApp.add = function(x,y){
+				return x + y;
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
