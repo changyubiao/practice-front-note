@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			function foo() {
+			    for (var i=0; i<100; i++) {
+			        //
+			    }
+				
+				// 仍然可以引用变量i
+				// 用 var 定义的变量 ,出了 for 仍然可以访问
+			    i += 100; 
+				console.log("i=",i);
+			}
+		</script>
+		
+		
+		<script type="text/javascript">
+			'use strict';
+			
+			function foo2() {
+			    var sum = 0;
+			    for (let i=0; i<100; i++) {
+			        sum += i;
+			    }
+			    // SyntaxError:
+			    i += 1;
+				console.log("foo2, i=",i);
+			}
+			
+			
+		</script>
+	</body>
+</html>

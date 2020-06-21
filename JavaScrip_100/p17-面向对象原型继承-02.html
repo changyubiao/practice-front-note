@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- 
+面向对象 
+ JavaScript 
+ java 
+ C#  
+ python 
+ 
+ 
+ 
+ 原型继承  
+ 可以通过 对象 .__proto__ 来指定一个原型 
+ 
+ 
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			var  User = {
+				name:"laoda",
+				age:29,
+				run:function(){
+					console.log(this.name + " is runing ... ");
+				}
+			};
+			
+			var Bird={
+				fly:function(){
+					console.log(this.name + "  flying...")
+				}
+			}
+			
+			var  frank={
+				name:"frank",
+
+			};
+			
+			
+			// frank.__proto__ = User;
+			
+			//  原型对象 
+			frank.__proto__ = Bird;
+
+			
+		</script>
+		
+	</body>
+</html>

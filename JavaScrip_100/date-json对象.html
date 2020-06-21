@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<!-- 
+Date  
+ 
+JSON 
+ 
+ 
+ 
+ -->
+
+
+<!-- 
+ 
+ typeof  123
+ "number"
+ typeof  "123"
+ "string"
+ typeof  true
+ "boolean"
+ typeof  []
+ "object"
+ typeof  {}
+ "object"
+ typeof  Math.max
+ "function"
+ typeof [] 
+ "object"
+ typeof undefined
+ "undefined"
+ 
+ 
+ 
+ 
+ -->
+
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			let now = new Date() ;
+			
+			now.getFullYear();
+			now.getMonth(); //月
+			now.getDate(); // 日
+			
+			now.getDay(); // 星期几
+			now.getHours();// 时
+			
+			now.getMinutes();// 分 
+			
+			now.getSeconds(); //秒
+			
+			now.getTime(); // 时间戳 
+			
+			
+			console.log(new Date(1591524563478))
+			
+			now.toLocaleString();
+			
+			now.toGMTString();
+
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		<script type="text/javascript">
+			
+		/*
+		在JavaScript  一切皆为对象 , 任何 js 支持的类型都可以使用 json 来表示 .
+		
+		
+		number 
+		对象 {} 
+		数组  []
+		
+		所有键值对  key:value 
+		
+		
+		JSON.stringify() 
+		JSON.parse()
+		
+		*/
+			
+			
+		// 	var  user ={
+				
+		// 		name:'frank',
+		// 		gender:'man',
+		// 		age:18
+		// 	}
+		
+		// 	console.log(user);
+			
+		// 	// 对象 转换为json 
+		// 	//  对象转成 字符串 
+		// 	let jsonUser = JSON.stringify(user)
+			
+			
+			// json字符串 转 对象 
+			let  obj = JSON.parse('{"name":"frank","gender":"man","age":18}')
+			console.log(obj)
+			
+		</script>
+		
+		
+		
+		
+		<script type="text/javascript">
+			//  JSON  与 JS  对象的区别 
+			var obj = {a:'hello',b:'world'}
+			
+			var json = '{"a":"hello","b":"world"}'
+			
+		
+		</script>
+		
+		
+		
+	</body>
+</html>

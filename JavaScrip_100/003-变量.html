@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 
+ 
+1.  变量 是存储信息的容器 
+ 
+ 声明一个变量  
+ 
+ 
+ 
+ 变量名 命名规则 
+ 
+ 使用描述名称    见名 知道意思.
+ 
+ 
+ 容易 引起 语义二义性 , 编译原理 
+ 
+ 变量必须以字母 $ _开头, 后面 可以是 字母 , $, _数字  
+ 
+ 
+ 变量 也能以  $ 和 _  符号开头, 一般 不建议 
+ 变量 不能使用关键字  ,保留字  
+ 搜索 javascirpt 关键字 保留字表 
+ 
+ 变量名 大小写 敏感 
+ 
+ JavaScript  语句 与JavaScript变量 都大小写敏感 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2. 数据类型  
+ 
+2.1 原始类型 
+ 
+number  string   undefined 
+null
+
+boolean  true /false
+ 
+ 
+2.2 引用类型 
+ 
+ 
+ arr map set 
+ 对象 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ -->
+ 
+ 
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			var  关键词  用于 声明一个变量 
+			name  是变量名称
+			
+			var  name = 'frank';
+			
+			*/
+			
+			var  name ='frank';
+			console.log(name);
+			
+			
+			
+			
+			var  a;
+			a = 100;
+			console.log(a);
+			
+			
+			var  x=25;
+			console.log(x)
+			
+			var y ;
+			y = a +x  ;
+			console.log(y)
+			
+			
+			// var  x1,x2,x3;
+			// x1 =1;
+			// x2 = 2;
+			// x3 = 3;
+			// console.log(x1,x2,x3);
+			
+			var x1 =1,
+				x2 = 2,
+				x3 =3;
+			console.log(x1,x2,x3)
+			
+			
+			
+			//  不写var  也可以 , 当时不推荐 
+			// 等价写法
+			// x4 = 1000
+			window.x4 =1000
+			console.log(x4);
+			
+			
+			// 大小写敏感 
+			var  x =6;
+			var  X =66;
+			console.log(x,X);
+		</script>
+	</body>
+</html>

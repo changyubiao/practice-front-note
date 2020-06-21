@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var array = ['hello', 'JavaScript', 'ES6'];
+			var x = array[0];
+			var y = array[1];
+			var z = array[2];
+			console.log(x,y,z);
+		</script>
+		
+		
+		<script type="text/javascript">
+			var [x, y, z] = ['hello', 'JavaScript', 'ES6'];
+			console.log(x,y,z);
+		</script>
+		
+		<script type="text/javascript">
+			var [x, [y, z]] = ['AAA', ['Frank', 'English']];
+			console.log(x,y,z);
+		</script>
+		
+		<script type="text/javascript">
+			var [, , z] = ['hello', 'JavaScript', 'three']; // 忽略前两个元素，只对z赋值第三个元素
+			console.log(z);
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+			// 如果需要从一个对象中取出若干属性，也可以使用解构赋值，
+			// 便于快速获取对象的指定属性：
+			var person = {
+			    name: '小明',
+			    age: 20,
+			    gender: 'male',
+			    passport: 'G-12345678',
+			    school: 'No.4 middle school'
+			};
+			var {name, age, passport} = person;
+			
+			console.log(name,age,passport);
+		</script>
+		
+		
+		
+		<script type="text/javascript">
+			/*
+			对一个对象进行解构赋值时，同样可以直接对嵌套的对象属性进行赋值，
+			只要保证对应的层次是一致的：
+
+
+			*/
+		   console.log("====== 对一个对象进行解构赋值时，同样可以直接对嵌套的对象属性进行赋值 \
+只要保证对应的层次是一致的")
+			var person = {
+			    name: '小明',
+			    age: 20,
+			    gender: 'male',
+			    passport: 'G-12345678',
+			    school: 'No.4 middle school',
+			    address: {
+			        city: 'Beijing',
+			        street: 'No.1 Road',
+			        zipcode: '100001'
+			    }
+			};
+			var {name, address: {city, zipcode}} = person;
+			
+			console.log(name,city ,zipcode) ;
+		</script>
+		
+		
+		
+		
+		<script type="text/javascript">
+			console.log("===== 解构赋值还可以使用默认值，这样就避免了不存在的属性返回undefined的问题：")
+				var person = {
+				    name: '小明',
+				    age: 20,
+				    gender: 'male',
+				    passport: 'G-12345678'
+				};
+				
+				// 如果person对象没有single属性，默认赋值为true:
+				//  hobby  undefined 
+				var {name, single=true,hobby} = person;
+				console.log(name,single,hobby) ;
+			
+		</script>
+		
+	</body>
+</html>

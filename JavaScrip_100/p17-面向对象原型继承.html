@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- 
+面向对象 
+
+ 
+ 原型继承  
+ 可以通过 对象 .__proto__ 来指定一个原型 
+ 
+ 
+ 类继承 
+ 
+ 
+ JavaScript 原型和原型链
+ https://zhuanlan.zhihu.com/p/39549472
+ 
+ 
+ 
+ class  ECS6  
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			
+			// function Student(name){
+			// 	this.name =name  
+			// }
+			
+			
+			// Student.prototype.hello = function{
+			// 	alert("hello ")
+			// }
+			
+			
+			//  ES6   class  
+			//  定义一个 学生类
+			class  Student{
+				
+				//  构造方法
+				constructor(name) {
+				    this.name = name  ;
+				}
+				
+				// 添加方法
+				hello(){
+					// alert("hello ");
+					console.log(this.name +" hello");
+				}
+			}
+			
+			
+			//  extends 继承
+			class PrimaryStudent extends Student {
+			    constructor(name, grade) {
+			        super(name); // 记得用super调用父类的构造方法!
+			        this.grade = grade;
+			    }
+			
+			    myGrade() {
+			        console.log('I am at grade  ' + this.grade);
+			    }
+			}
+			
+			
+			
+			class  Animal{
+				constructor(name) {
+				    this.name = name  
+				}
+				say(){
+					console.log(this.name + "  say hello !")
+				}
+			}
+			
+			
+			var xiaoming = new Student("xiaoming");
+			var frank = new Student("frank");
+			
+			var  siqin = new PrimaryStudent("siqin",5)
+	
+			var  cat = new Animal("cat");
+			
+		</script>
+		
+	</body>
+</html>

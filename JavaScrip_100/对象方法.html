@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- 
+ 
+ 定义一个方法 
+ 
+ 
+ 属性 
+ person.name
+ 
+  方法  
+ person.age()
+ 
+ 
+ 
+ -->
+ 
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var  person = {
+				name:'frank',
+				birth:1990,
+				
+				age: function(){
+					var now = new Date().getFullYear();
+					return now - this.birth;
+				}
+			}
+			
+			console.log(person.age());
+			
+			
+			
+			
+			// 第二写法 
+			//  this  是无法指向的,是默认指向调用它的那个对象 
+			/*
+			在 js 中  可以控制 this 的指向
+			
+			
+			*/ 
+			
+			
+			function getAge(){
+				var  now = new Date().getFullYear();
+				return  now - this.birth ;
+			}
+			
+			var  person = {
+				name:'frank',
+				birth:1992,
+				// 注意这样的写法
+				age:getAge
+			};
+			
+			var frank2 = {
+				name:'frank2',
+				birth:1992,
+				age:getAge
+			};
+		
+			
+			// console.log(person.age());
+			
+			
+			// 将this 绑定到person 上面, 参数为空
+			getAge.apply(person,[]);
+			
+		</script>
+	</body>
+</html>
