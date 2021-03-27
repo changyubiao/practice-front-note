@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	
+	<!-- 
+	
+	https://www.runoob.com/jsref/jsref-obj-string.html
+	
+	
+	JavaScript Array 对象
+	https://www.runoob.com/jsref/jsref-obj-array.html
+	
+	 string 的使用
+	 
+	 定义字符串  var  name ='xxx';
+	 
+	 
+	 javascript 中 字符串表示全部使用单引号， 建议。。
+	 
+	 -->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			.red{
+				background-color: red;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>string 的使用</h1>
+		
+		<script type="text/javascript">
+			//  JS 是弱类型语言  
+			var  name ='frank4';
+			console.log(name);
+			
+			name = 10;
+			console.log(name);
+			
+			//  字符串格式 ： 用单引号或者 双引号引用 起来， 建议使用单引号 
+			
+			
+			// // 如果想输出单引号 需要单独转义。
+			// var str = '我想 "输出单引号 \'';
+			// console.log(str);
+			
+			// TODO 2:11:19  
+			// document.write('<p class="red"> Frank 真帅！</p>')
+			
+		
+			
+			var s1 = '我爱祖国!';
+			var s2 = '今天天气真好.';
+			
+			
+			var str = s1.concat(s2);
+			
+			var str2= s1 + s2;
+			
+			console.log(str,str2);
+			
+			
+			// 获取字符串的长度,  内置属性 str.length
+			s1 ='123456789';
+			console.log('s1 length:',s1.length);
+			
+			// 查看类型
+			console.log('typeof s1:',typeof s1);
+			
+			
+			
+			//  indexOf   没有返回 -1 
+			// 返回字符串中检索指定字符第一次出现的位置
+
+			// 'hello world!'
+			//  0123456789ab
+			s3 = 'hello world!';
+			
+			console.log(s3.indexOf('x')); // -1 
+			console.log(s3.indexOf('h'));
+			console.log(s3.indexOf('d'));
+			
+			
+			var pos2 = s3.indexOf('o',5);
+			console.log('pos2=',pos2);
+			
+			
+			
+			// 获取指定位置的字符
+			var ch = s3.charAt(4);
+			// document.write('ch= ',ch);
+			console.log('ch=',ch);
+			
+			
+			// string.substring(from, to)
+			// substring() 方法返回的子串包括 开始 处的字符，但不包括 结束 处的字符。
+			// [from,to) 注意左闭右开区间
+			console.log(s3.substring(6,11));
+			
+			
+			
+			
+			
+		</script>
+		
+	
+		
+		<script type="text/javascript">
+			// 练习 1
+			
+			//  有一行字符串  是单词组成， 用空格 隔开，把单词提取出来 
+			var  s1 = 'I have a dream'
+			words = s1.split(' ');
+			console.log('words =',words);
+			
+			
+			
+			var startPos = s1.indexOf(' ');
+			if  (startPos !=-1){
+				var endPos = s1.indexOf(' ',startPos+1)
+				
+				console.log(startPos,endPos);
+				
+				var result = s1.substring(startPos+1,endPos);
+				console.log('result =',result);
+				
+			}
+			
+			
+			
+		</script>
+
+	</body>
+</html>

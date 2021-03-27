@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+
+<html>
+
+	<!--  
+	
+	JavaScript 数据类型
+	https://www.runoob.com/js/js-datatypes.html
+	
+	2. 数据类型
+			原始类型
+			
+			值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
+			
+			引用类型 
+			引用数据类型：对象(Object)、数组(Array)、函数(Function)。
+
+
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript 数据类型</title>
+	</head>
+	<body>
+
+		<h1> JavaScript 数据类型</h1>
+		<script type="text/javascript">
+			//  整数 
+			// var  num = 6;
+			// console.log('num =',num);
+
+
+			// 八进制  
+			// var num = 070;
+			// console.log('num =', num);
+
+
+
+			// 十六进制 0x 开头 零x 开头
+			//  0-9 a-f 
+			// var num2= 0x1f;  16 + 15 = 31 
+			// console.log('num2 =', num2);
+
+
+			// var num 
+			// var num4 = 5.0123;
+			// // var num4 = 5.00000000000000000000000000000000000000000000000000000000001;
+
+			// console.log('num4 =', num4);
+
+
+
+			// 浮点数的科学计数法 
+			// var  num5 = 561700000;
+			// var num6 =5.617e8;
+			// console.log('num5 =', num5);
+			// console.log('num5 =', num6);
+
+
+
+			// 特殊值 ，最大 最小， 正无穷 
+
+			var num = Number.MAX_VALUE;
+			console.log('MAX_VALUE = ', num);
+			
+			var num = Number.MIN_VALUE;
+			console.log('MIN_VALUE = ', num);
+			
+			
+			// 正无穷 
+			var num5 = Number.POSITIVE_INFINITY ;
+			console.log('POSITIVE_INFINITY = ', num5);
+			
+			
+			
+			// 全局isFinite()函数确定传递的值是否为有限。
+			// isFinite函数检查参数中的数字。如果参数为NaN、正无穷大或负无穷大，则此方法返回false；否则返回true。
+
+			//  false 不能这样做 
+			// console.log(num> Number.POSITIVE_INFINITY);
+			console.log(isFinite(Number.POSITIVE_INFINITY));
+			
+			
+			// var num= 10;
+			// console.log(isFinite(num));
+			
+			
+			// var num = NaN;
+			// console.log(num);
+			// // 不能这样判断 
+			// console.log(num ==NaN);
+			// console.log(isNaN(num));
+			
+			
+	
+			
+		
+		
+		</script>
+
+	</body>
+</html>

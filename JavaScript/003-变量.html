@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<!-- 
+	
+	
+	 https://www.runoob.com/js/js-variables.html
+	 
+	 变量  
+	 
+	 变量是存储信息的容器
+	 声明一个变量  var  let 等 关键字 声明变量  
+	 
+	 
+	 javascript 每一句话，以分号结尾。
+	 
+	 
+	  不写 var  行不行呢？ ， 行 但是有点危险 ， 不建议这样使用
+	  
+	  acb = 1;
+	  //  等效于 
+	  // window.acb =1;
+	  
+	  
+	  
+	  变量的命名规则：
+	  与代数一样，JavaScript 变量可用于存放值（比如 x=5）和表达式（比如 z=x+y）。
+	  
+	  变量可以使用短名称（比如 x 和 y），也可以使用描述性更好的名称（比如 age, sum, totalvolume）。
+	  
+	  变量必须以字母开头
+	  变量也能以 $ 和 _ 符号开头（不过我们不推荐这么做）
+	  变量名称对大小写敏感（y 和 Y 是不同的变量）
+	  变量 不能使用关键字， 保留字 
+	  
+	  
+	  为啥不能以数字 开头？ 
+	  
+	  语义性  二义性 
+	  
+	  
+	 
+	 2. 数据类型 
+		原始类型
+		引用类型 
+	  
+	 
+	 -->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+
+
+	<body>
+
+		<h1> h1 hello world </h1>
+
+
+		<script type="text/javascript">
+			var name = 'frank';
+
+			console.log(name);
+
+
+			let age = 10;
+
+			age = age + 4;
+			// console.log('age = ',age);
+
+			document.write('age=', age);
+
+
+
+			var x = 25;
+			document.write('<br/>x=', x);
+
+
+			var y = x + 5;
+			document.write('<br/> y=', y);
+			console.log('y=', y);
+
+
+			// 声明多个变量
+			// var x1, x2 ,x3;
+			// x1 =10;
+			// x2 = 15;
+			// x3 = 20;
+
+
+			// 可以这样定义 多个变量
+			var x1 = 10,
+				x2 = 15,
+				x3 = 20;
+
+			console.log(x1, x2, x3);
+
+
+
+			// 不写 var  行不行呢？
+
+			var abc = 1000;
+			// xxxxxxx 此处省略 一万行代码 
+			// ....... 此处省略 一万行代码 
+			// ........
+
+			acb = 1;
+
+			//  等效于 
+			// window.acb =1;
+			// console.log(abc);
+			console.log(acb);
+			
+			
+			
+			var $ab = 'frank';
+			console.log('$ab =',$ab);
+			
+			
+			
+			var _name='frank2';
+			console.log('_name =',_name);
+			
+			
+			
+			var pi = 3.1415926 ;
+			var PI = 111111;
+			console.log('pi =',pi);
+			console.log('PI =',PI);
+			
+			
+			
+			
+			
+			// 变量名不能是关键字    UncaughtSyntaxError
+			// var var='var';
+			
+			
+		</script>
+
+
+	</body>
+</html>
