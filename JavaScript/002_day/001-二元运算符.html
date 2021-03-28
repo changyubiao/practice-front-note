@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<h1> JavaScript 运算符</h1>
+		
+		<!-- 
+		
+		https://www.runoob.com/js/js-operators.html
+		
+		
+		 
+		 算符运算符 
+		 1. 一元运算符    ++  自增	,   --自减	
+		 2. 二元 运算符   + ， - ， * ，/ , % 取模（余数）	
+		 
+		 3. 三元 运算符 
+		 
+		 4. 复合运算符  += ， -=， *=， /= ,%= 
+		 
+		 -->
+
+
+
+		<!-- 		<script type="text/javascript" >
+			var num = 3 + 6;
+			console.log('num =', num);
+
+			var num1 = 3;
+
+			var num2 = num1 + 6;
+			console.log('num2 =', num2);
+
+
+
+			var num3 = Number.MAX_VALUE + 1E307
+			console.log(num3);
+
+			//  对于 Infinity  +1  还是 Infinity  
+			console.log(Infinity + 1);
+			console.log(Infinity - 1000000000);
+
+
+
+			//  如果 Infinity 参与计算 ，结果永远 是 Infinity
+			var num4 = 1E307 + Number.MAX_VALUE - Number.MIN_VALUE;
+			console.log('num4 =', num4); // Infinity 
+
+			// 什么时候 计算 会是 NaN  
+			//  undefined + 数字  = NaN 
+			var num5 = undefined + 1;
+			console.log('num5 = ', num5);
+
+			var num6;
+			console.log('num5 + num6=', num5 + num6);
+			
+		</script>
+		
+	 -->
+
+		<script type="text/javascript">
+			// 字符串 操作 
+			var str = 'abc' + 'def';
+			console.log(str);
+
+
+			//  字符串  ’53‘
+			str = '5' + 3;
+			console.log(str);
+
+
+			str2 = '' + 5 + 8;
+			console.log('str2 =', str2); // 58
+
+
+			//  字符串 ’53‘
+			str = 5 + '3';
+			console.log(str);
+
+
+
+			// 加法 ，只要有字符串就全部转化为字符串
+			// 减法， 视图把 字符串变成数字 ，  变成了 5,减法变成了整数运算
+			str = '5' - 1;
+			console.log(str);
+
+
+			// 这里转化 失败， 字符串字母 - num  变成 NaN 
+			str = 'a' - 1;
+			console.log(str);
+
+
+
+
+			//  数字减法 
+			var num = 7 - 2;
+			console.log('num =', num);
+
+			var num1 = 7 * 2;
+			console.log('7 *2 =', num1);
+
+
+			// 数字除法 ，这里是有余数的。
+			num = 4 / 3; // 1.333333
+			console.log('4 /3 =', num);
+
+
+
+			//  在JS 进行数值计算的时候会遇到这个
+			// Infinity  : 4/0 是 Infinity
+			console.log('4 / 0 =', 4 / 0);
+
+
+			// NaN 不是一个数字  0/0 = NaN 
+			num = 0 / 0;
+			console.log('0 / 0 =', num);
+
+
+
+
+			//  % 取余 运算 
+
+
+			var num = 4 % 3;
+			console.log('4%3 =', num);
+
+
+
+			// 浮点数也可以的
+			var num = 4.5 % 3;
+			console.log('4%3 =', num);
+
+			// NaN :  非零数字 对0 取余 都是NaN  
+			var num = 4 % 0;
+			console.log('4%0 =', num);
+			
+			
+			// 自增运算符   ++  , -- 运算符 
+			
+			
+			
+		</script>
+
+
+	</body>
+</html>
