@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1> 自增运算符  </h1>
+		<!-- 
+		++ 运算符  
+		
+		++x  返回 ++后的结果 
+		x++ 返回  ++前的结果
+		
+		
+		
+		-- 运算符
+		
+		
+		--x  表达式 => 返回 --后的结果
+		x--  表达式 => 返回  --前的结果
+		
+		
+		
+		加法器
+		 
+		 -->
+		 
+	<script type="text/javascript">
+			
+			//  ++ 自加 1 
+			var num = 5;
+			console.log('num =',num);
+			
+			// JS中  ++ 和  +1 没有区别 
+			// 从 C、 C++   ++ 和  +1 有区别 
+			// num ++; // num  = num +1 ;
+			// console.log('num =',num);
+			
+			
+			num = 5;
+			//  ++ 分为两步 
+			//  对操作变量 +1 ,表达式会返回一个值
+			//  x++ => 返回的是  ++前的结果 ,表达式的值 还是x本身 
+			//  ++x => 返回的是  ++后的结果
+			
+	
+			console.log('++num 表达式的值 = ',++num);
+			console.log( 'num = ',num);
+			
+			
+			num = 5 ;
+			console.log( 'num++ 表达式的值 = ',num++);
+			console.log( 'num = ',num);
+			
+			
+			//   -- 分为 两步操作
+			//  对操作数 的变量 -1 
+			//  表达式会 返回一个值   --x  =>返回 --后的值；   x--  =>返回  --前的值 
+			//   --x  
+			var num = 5;
+			var num2 =  num--   + 10 +  --num ;
+			// 18 
+			console.log(num2);
+			
+			
+			
+			var num = 5;
+			var num2 = 13 %7  + 5 *7 / num--  - ++num;
+			
+			console.log('num2 = ',num2);
+			
+		</script>
+
+		
+		
+		
+		
+		
+		<script type="text/javascript">
+			// 小小的练习题目
+			console.log('小小的练习题目 ++x,x++ ');
+			
+			// var num  = 5;
+			// var num2 = num ++  + 10  + ++num;
+			// //  5 +10 + 7 
+			// console.log('num2 = ',num2);
+			
+				
+			//  ++ num  返回 ++后的结果;
+			//  num ++ , 返回  ++ 前的结果;
+			var num = 7  
+			var num2 = 10 - ++num + ++num  - num++ - num++ ;
+			
+		
+			//  -8 
+			console.log(num2);
+			// 1:00:56
+			console.log(10 -8 +9 -9 -10);
+			
+			
+		</script>
+	</body>
+</html>

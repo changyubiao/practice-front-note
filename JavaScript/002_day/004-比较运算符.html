@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<!-- 
+	 比较运算符 
+	   > <  >= <=  == 
+	   
+	   
+	   ===  !=  !===
+	   
+	   
+	   如果一个运算数是 Boolean 值，在检查相等性之前，把它转换成数字值。false 转换成 0，true 为 1。
+	   如果一个运算数是字符串，另一个是数字，在检查相等性之前，要尝试把字符串转换成数字。
+	   如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换成字符串。
+	   如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换成数字
+	   
+	   
+	   
+	   
+	   
+	   条件运算符  
+	   ?:
+	   
+	   
+	   
+	   ASCII码对照表  http://ascii.911cha.com/
+	   
+	   
+	 -->
+	<body>
+		<h1>比较运算符  > <  >= <=  ==   ===  !=  !===  </h1>
+		
+		
+		
+		<script type="text/javascript">
+			
+			// 数字比较  结果是 boolean 类型 
+			console.log(5>10);
+			console.log(5<10);
+			
+			
+			console.log(2>=1);
+			console.log(2<=1);
+			
+			
+			
+			// 字符串的比较  > <  >=   <= 
+			// 编码  ASCII  
+			// 比较字符串 过程，就是按照顺序比较ASCII码的过程。
+			// 十六进制  ：
+			// 1. 0x61   JS 支持， 从 C，C++ 继承来的
+			// 2. 61h    JS 不支持, 从汇编语言而来的。
+			console.log('a'>'b');
+			
+			console.log('frank'>'franj'); // false  
+			
+			console.log('aaaa'>'bb'); // false 
+			
+			
+			console.log('aaa'>'aa'); // true 
+			console.log('aaa'>'aBb'); // true 
+			
+			
+			// 字符串 按字母比较
+			console.log('25' >'4'); // false 
+			
+			// ??  true  试图把字符串转为数字 进行比较 
+			// 如果遇到不能比较的情况 ，返回 NaN，表达式都是false
+			console.log('25' > 4);
+			
+			
+			// false 不能转换就是 false 
+			// 工作中 不要使用这种隐式类型转换
+			console.log('aaa'>4);
+			console.log('aaa'<4);
+			
+		</script>
+		
+		
+		
+		
+		
+<!-- 		<script type="text/javascript">
+			
+			//  条件运算符  
+			// ?:
+			//条件 运算符 <表达式> ? <返回表达式1>： <返回表达式2>
+			var  flag =  5>10 ? 'A' : 'B'
+			// 很简单 工作中 经常使用 
+			console.log(flag);
+			
+		</script>
+		 -->
+		
+		
+		
+		<script type="text/javascript">
+			
+			//  ==   ===   !=   !===
+			
+			// 笔试面试题 经常出现
+			
+			// 看上去不相等  ，但是相等 
+			console.log('undefined ==null ',undefined ==null);
+			console.log('false == 0 ',false ==0);
+			console.log('true ==1',true ==1);
+			// true 
+			console.log('\'5\' ==5 ', '5' ==5);
+			console.log('[] == \'\' ', [] =='');
+			console.log('{}  == \'[object Object]\'', {}  == '[object Object]');
+			console.log([5] =='5');
+			
+	
+			
+			
+			
+			// 比较运算符的转换规则     
+			// // 看上去相等，但是不相等 
+			console.log('NaN  ==NaN ',NaN ==NaN); // false 
+			console.log(NaN != NaN); //true 
+			console.log('\'NaN\'  ==NaN ','NaN' ==NaN);  //false 
+			console.log('true ==2',true ==2); //false 
+			console.log('undefined ==0', undefined ==0); // false 
+			console.log('null ==0', null ==0); // false 
+			
+			
+			
+			
+			//  ===  真相等  !== 真不相等
+			// 严格相等    就是不转换数据类型   
+			console.log('undefined ===null ',undefined ===null);
+			console.log('false === 0 ',false ===0);
+			console.log('true ===1',true ===1);
+			// true 
+			console.log('\'5\' ===5 ', '5' ===5);
+			console.log('[] === \'\' ', [] ==='');
+			console.log('{}  === \'[object Object]\'', {}  === '[object Object]');
+			console.log([5] ==='5');
+			
+			
+			// TODO 2:11:00 逻辑运算符 
+			
+			
+			
+		</script>
+		
+		
+	</body>
+	
+</html>

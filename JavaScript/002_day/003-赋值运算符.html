@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<!-- 
+	 
+	 
+	 赋值运算符 
+	 = 
+	 
+	 复合运算符  += 
+	 
+	 
+	 -->
+	<body>
+
+		<h1>赋值运算符 </h1>
+
+		<script type="text/javascript">
+			var num2;
+
+			//  = 是赋值运算符 , 表达式的值就是被赋值的值  
+
+			console.log(num2 = 100);
+
+
+			//  num2 = 3 +7   这是一个表达式，这个表达式会返回一个值 10 
+			//  var num = num2 
+			// 赋值运算符  从右往左运算
+
+			// num2 : undefined ,
+			var num = num2 = 3 + 7;
+
+			console.log(num, num2);
+
+
+			// += ，-=， /=, *=,%= 
+
+			// +=  表达式  ==>  变量  = 变量 + (表达式);
+
+			// 1:19:05 
+
+
+			var num = 5;
+
+			num += 10;
+			console.log(num);
+
+			num = 5
+
+			num -= 15
+			console.log(num);
+
+			num = 5
+
+			num *= 3
+			console.log(num);
+
+			num = 6
+			num /= 2 + 1
+			console.log(num);
+
+
+
+			num = 5;
+			num %=3
+			console.log(num);
+			
+			
+		</script>
+
+
+	</body>
+</html>
