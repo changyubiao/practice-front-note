@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			//1. 布尔运算 
+
+			var b1 = true;
+			var b2 = true;
+
+			// true 
+			console.log(b1 && b2);
+
+			console.log(true && true);
+			console.log(true && false);
+			console.log(false && true);
+			console.log(false && false);
+
+
+
+			// 2 两边不都是 布尔变量 
+			// 一个是布尔变量 一个不是布尔变量
+			// x && y   
+			// 如果x 等价于 false ， 这个表达式的值 是x 
+			// 如果x 不等价与 false , 这个表达式 是 y 
+
+			// 如果x 等价于 true,表达式值为 y 
+			// 如果x 等价于 false, 不管 y的值是什么。, 表达式的值为y 
+
+
+
+			//  哪些东西等价于 false  
+			//下面这些的东西 等价于 false;   undefined ,  0 , null, NaN , ''   
+
+			console.log(1 && true);
+
+			console.log(0 && true); //0
+			console.log(null && true); // null 
+			console.log(undefined && true); //undefined
+			console.log(NaN && true); //NaN 
+			console.log('' && true); // ''
+
+			//  notice  []  等价于 true
+			console.log([] && true); // true
+
+
+
+			// x&&y 
+			// 如果 x 等价于false , 返回x, 那么 y 会执行吗？ 
+
+			var count = 0;
+			console.log(0 && ++count);
+			console.log(null && ++count);
+			console.log(undefined && ++count);
+			console.log('count = ', count); // count =0 
+
+			// 应用方式
+			// 1. 初始化 data
+			// 2. 如果初始化完的data有效， ，那么我们调用 fn(data) ,返回 fn 处理结果
+			// ；如果无效 返回 data  
+
+			// if (data !=== null) {
+			// 	return fn(data);
+			// } else {
+			// 	return data
+			// }
+			// reuturn data && fn(data);
+		</script>
+
+
+		<script type="text/javascript">
+			// || 或运算 
+
+			// 1. 布尔运算
+			console.log('|| 或运算 ')
+			var b1 = true;
+			var b2 = true;
+			console.log(b1 || b2);
+			console.log(true || true); // true 
+			console.log(true || false); // true 
+			console.log(false || true); // true
+			console.log(false || false); // false 
+
+
+			// 2.两边 不都是 布尔变量的时候 
+			// x || y 
+			// 如果 x 等价于 true , y是什么值已经不重要了, 表达式返回 x 
+			// 如果 x 等价于 false,  表达式返回 y 
+
+
+
+			//  undefined , 0 , null, NaN , ''   等价于  false 
+
+
+			console.log(undefined || true);
+
+			console.log({} || true); // {}
+			console.log([] || true); // []
+
+			var count = 0;
+
+			// x || y   ,  x 等价于true , 直接返回x , y 不运算
+			console.log(1 || ++count);
+			console.log(true || ++count);
+			console.log({} || ++count);
+
+			console.log('count =', count);
+
+			// 应用 
+			// 如果e 等价false , 返回  window.event 
+			// 如果e 等价于 true , 返回 e 
+			var e = 0;
+			var event = e || window.event;
+		</script>
+
+
+
+		<script type="text/javascript">
+			//  ! 非的应用 
+
+			console.log(!true);
+			console.log(!false);
+		</script>
+
+
+		<script type="text/javascript">
+			var t1 = 123;
+			var t2 = 456;
+
+
+			//  method1 
+			// var tmp =0;
+			// // swap 两个值
+			// tmp = t1 ;
+			// t1 = t2;
+			// t2 = tmp ;
+			// console.log(t1,t2);
+
+
+
+			// method2  交换两个值 
+			t1 = t1 + t2;
+			t2 = t1 - t2;
+			t1 = t1 - t2;
+			console.log(t1, t2);
+
+			// 方法3 异或运算  TODO
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+			//  , 逗号运算符 ， 返回最后一个表达式的值 
+			
+			var  d1 = 5, d2 = 10, d3 = 1;
+			
+			console.log((5,3,2));  // 2  
+			
+			console.log((5,3,21));  // 21  
+			
+		</script>
+		
+		
+		
+		<script type="text/javascript">
+			
+			//   高优先级 优先于 低优先级的运算符进行运算
+			//  同优先级的 从左到右 
+			//  例外， 赋值运算符  从右向左 运算
+			
+		</script>
+	</body>
+</html>

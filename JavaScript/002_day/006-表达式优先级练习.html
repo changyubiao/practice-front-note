@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 
+		
+		优先级：低优先级让位于高优先级；同优先级从左到右
+		优先级 从 高到 低 
+		()
+		!、++、--
+		*、/、%
+		+、-
+		<、>、>=、<=
+		==、!=、===、!==
+		&&
+		||
+		？… : …
+		=、+=、-=、*=、/=、%=
+		，
+ 
+		 -->
+		<script type="text/javascript">
+			
+			
+			var num = 4;
+			// 100>15?(num= ++num*3+5/3):false)
+			 
+			
+			// 100>15 ? (num = 5*3 + 5/3):false 
+			// 100>15  ? (num =16.666666666667 ):false 
+			// 16.66666666667
+			console.log( (100>15?(num= ++num*3+5/3):false));
+			
+			// 数字 和字符串 相加 ， 字符串连接了， 有字符串和数字相加 
+			console.log(1 +'aaa' +3 +null + true);  //1aaa3nulltrue
+			
+			
+			
+		</script>
+	</body>
+</html>
