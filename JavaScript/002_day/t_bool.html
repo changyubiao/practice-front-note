@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<!-- 
+	 javascript 中的真假 值 
+	 
+	 
+	 1 javascript 的 假值 
+	
+		
+	 false,0, 0.0 ,""，'',null，undefined 和 NaN 
+	 
+	 
+	 
+	 
+	 1-1 javascript 的 真值
+	 
+	 ' ', true , [],{}, Infinity, 1 
+	 
+	 非零数字 也是真值
+	 	
+	 -->
+	<body>
+
+
+
+		<script type="text/javascript">
+			// console.log('hellow  world');
+
+			//  test condition  false 
+			console.log('=== Test condition false !')
+
+			if (NaN) {
+				console.log('NaN == true');
+
+			} else {
+				console.log('NaN == false');
+			}
+
+
+
+			if (undefined) {
+				console.log('undefined == true');
+
+			} else {
+				console.log('undefined == false');
+			}
+
+			if (null) {
+				console.log('null == true');
+
+			} else {
+				console.log('null == false');
+			}
+
+			if ('') {
+				console.log('\'\' == true');
+
+			} else {
+				console.log('\'\' == false');
+			}
+
+
+			if ("") {
+				console.log('"" == true');
+
+			} else {
+				console.log('""  == false');
+			}
+
+			if (false) {
+				console.log('false == true');
+
+			} else {
+				console.log('false == false');
+			}
+
+
+
+
+			var a = 0.0
+			if (a) {
+				console.log(a, ' == true');
+
+			} else {
+				console.log(a, ' == false');
+			}
+		</script>
+
+		<script type="text/javascript">
+			//  test true 
+
+			console.log('=== Test condition true !')
+
+			if (1) {
+				console.log('1 == true');
+
+			} else {
+				console.log('1 == false');
+			}
+
+			// Infinity
+			if (Infinity) {
+				console.log('Infinity == true');
+
+			} else {
+				console.log('Infinity == false');
+			}
+
+
+			if (!0) {
+				console.log('!0 == true');
+
+			} else {
+				console.log('!0 == false');
+			}
+
+
+			if (true) {
+				console.log('true == true');
+
+			} else {
+				console.log('true == false');
+			}
+
+			// 一个空格
+			if (' ') {
+				console.log('\' \' == true');
+
+			} else {
+				console.log('\' \' == false');
+			}
+
+
+			if ([]) {
+				console.log('[] == true');
+
+			} else {
+				console.log('[] == false');
+			}
+
+			if ({}) {
+				console.log('{} == true');
+
+			} else {
+				console.log('{} == false');
+			}
+		</script>
+	</body>
+</html>

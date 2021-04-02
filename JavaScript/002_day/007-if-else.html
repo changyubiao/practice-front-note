@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1> 条件分支 if else  ; switch   </h1>
+
+
+		<script type="text/javascript">
+			// if
+			// if(表达式){
+			//		代码块
+			// }
+			// 如果表达式为true,运行代码;否则,跳过
+
+			// var score = 80;
+			// if (score >= 60) {
+			// 	console.log('恭喜你，你这次的成绩及格了！');
+			// }
+
+
+
+			// if-else
+			// if(表达式){
+			// 	代码块1
+			// }else{
+			// 	代码块2
+			// }
+			// 如果表达式为true,运行代码块1;否则运行代码块2
+
+			// var score = 80;
+			// if (score >= 60) {
+			// 	console.log('恭喜你，你这次的成绩及格了！');
+			// } else {
+			// 	console.log('对不起，本次考试没有及格，下次继续努力！');
+			// }
+
+
+
+			// 实际问题:
+			// 100 ~ 90: 优秀,
+			// 90 ~ 75: 良好,
+			// 75 ~ 60: 及格,
+			// 60 以下: 不及格
+
+			// 第二种不推荐的写法:(不够优雅)
+			// var score = 70;
+			// if (score <= 100) {
+			// 	if (score >= 90) {
+			// 		console.log('优秀');
+			// 	} else {
+			// 		if (score >= 75) {
+			// 			console.log('良好');
+			// 		} else {
+			// 			if (score >= 60) {
+			// 				console.log('及格');
+			// 			} else {
+			// 				console.log('不及格');
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+
+
+
+
+			// if-else if-else if ... else
+			// if(表达式1){
+			// 	代码块1
+			// }else if(表达式2){
+			// 	代码块2
+			// }else if(表达式3){
+			// 	代码块3
+			// }else{
+			// 	代码块4
+			// }
+			// 最后的else可以没有
+
+
+			// 如果表达式1为true,运行代码块1;
+			// 否则,看表达式2是否为true,如果是运行代码块2;
+			// 否则,看表达式3是否为true,如果是运行代码块3;
+			// 否则,运行代码块4
+			// var score = 30;
+			// if (score <= 100) {
+			// 	if (score >= 90) {
+			// 		console.log('优秀');
+			// 	} else if (score >= 75) {
+			// 		console.log('良好');
+			// 	} else if (score >= 60) {
+			// 		console.log('及格');
+			// 	} else {
+			// 		console.log('不及格');
+			// 	}
+			// }
+
+
+
+
+			// switch-case
+			// switch(表达式){
+			// 	case 值1:
+			// 		代码块1;
+			// 		break;
+			// 	case 值2:
+			// 		代码块2;
+			// 		break;
+			// 	case 值3:
+			// 		代码块3;
+			// 		break;
+			// 	...
+			// 	default:
+			// 		代码块default;
+			// }
+			// 
+			// 1. 计算表达式
+			// 2. 把表达式的值和值1 进行 === (严格比较), 如果是true, 会执行代码块1
+			// 3. 如何表达式的值和值1不相等,把表达式的值和值2进行 ===,依次类推
+			// 4. 如果和所有的值都不相等,执行代码块default;
+
+
+			// 输入一个0 ~ 6之间的数,输出星期日~星期六.
+			// var day = 51;
+			// if (0 === day) {
+			// 	console.log('星期日');
+			// } else if (1 === day) {
+			// 	console.log('星期一');
+			// } else if (2 === day) {
+			// 	console.log('星期二');
+			// } else if (3 === day) {
+			// 	console.log('星期三');
+			// } else if (4 === day) {
+			// 	console.log('星期四');
+			// } else if (5 === day) {
+			// 	console.log('星期五');
+			// } else if (6 === day) {
+			// 	console.log('星期六');
+			// } else {
+			// 	console.log('哥们，你这是弄啥嘞！');
+			// }
+
+
+
+			var day = 1;
+			switch (day) {
+				case 0:
+					console.log('星期日');
+					break;
+				case 1:
+					console.log('星期一');
+					break;
+				case 2:
+					console.log('星期二');
+					break;
+				case 3:
+					console.log('星期三');
+					break;
+				case 4:
+					console.log('星期四');
+					break;
+				case 5:
+					console.log('星期五');
+					break;
+				case 6:
+					console.log('星期六');
+					break;
+				default:
+					console.log('哥们，你这是弄啥嘞！');
+			}
+
+			// 注意事项:
+			//  1. default可以没有,default 的语法块不写break
+			//  2. 值比较是严格比较 ===
+			//  3. break也是可以不写的, 代码块在执行完以后,会继续运行后面的代码块
+
+
+			// month 1 ~ 12, => 这个月的天数
+			// var month = 10;
+			// switch (month) {
+			// 	case 1:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 2:
+			// 		console.log('28天 or 29天');
+			// 		break;
+			// 	case 3:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 4:
+			// 		console.log('30天');
+			// 		break;
+			// 	case 5:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 6:
+			// 		console.log('30天');
+			// 		break;
+			// 	case 7:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 8:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 9:
+			// 		console.log('30天');
+			// 		break;
+			// 	case 10:
+			// 		console.log('31天');
+			// 		break;
+			// 	case 11:
+			// 		console.log('30天');
+			// 		break;
+			// 	case 12:
+			// 		console.log('31天');
+			// 		break;
+			// 	default:
+			// 		console.log('哥们，你这是弄啥嘞！');
+			// }
+
+
+			var month = 3;
+			switch (month) {
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					console.log('31天');
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					console.log('30天');
+					break;
+				case 2:
+					console.log('28天 or 29天');
+					break;
+				default:
+					console.log('哥们，你这是弄啥嘞！');
+			}
+
+
+			// 实际问题: 显示 num1 和 num2 比较大的一个数
+			// 代码块只有一行时,考虑使用三元运算符
+
+			var num1 = 8;
+			var num2 = 14;
+			if (num1 > num2) {
+				console.log(num1);
+			} else {
+				console.log(num2);
+			}
+
+			console.log(num1 > num2 ? num1 : num2)
+		</script>
+
+	</body>
+</html>
