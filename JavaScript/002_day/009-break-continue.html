@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			// break  continue 
+
+			// TODO 
+
+			// break, 运行break的时候,停止执行语句块,跳出循环.
+
+			// 练习: 找出100 ~ 200之间, 第一个被37整除余11的数
+
+			// for (var i = 100; i <= 200; i++) {
+			// 	if (i % 37 == 11) {
+
+			// 		console.log(i);
+			// 		break;
+			// 	}
+			// }
+
+			// continue, 运行continue的时候,停止执行语句块,继续下一次循环
+			// 练习: 找出100 ~ 200之间, 第二个被37整除余11的数
+
+			// 		var count = 0;
+			// 		for (var i = 100; i <= 200; i++) {
+
+			// 			if (i % 37 === 11) {
+			// 				count++;
+
+			// 				if (count ==2){
+			// 					console.log('i = ', i);
+			// 					break
+			// 				}
+			// 			}
+
+			// 		}
+
+
+			// 练习: 在50000以内,找前五个满足:除以7余5,除以13余7,除以17余13.
+			// var b1 = false; // 除以7余5
+			// var b2 = false; // 除以13余7
+			// var b3 = false; // 除以17余13
+
+			// var count = 0;
+			// for(var i = 1; i <= 50000; i++){
+			// 	b1 = false;
+			// 	b2 = false;
+			// 	b3 = false;
+
+			// 	if(i % 7 === 5) {
+			// 		b1 = true;
+			// 	}
+
+			// 	if(i % 13 === 7) {
+			// 		b2 = true;
+			// 	}
+
+			// 	if(i % 17 === 13) {
+			// 		b3 = true;
+			// 	}
+
+			// 	if(b1 && b2 && b3){
+			// 		count++;
+			// 		console.log('b1 and b2 and  b3 is true = ',i);
+			// 		if(count >= 5){
+			// 			break;
+			// 		}
+			// 	}
+			// }
+
+			// 优化			
+			var count = 0;
+			for (var i = 1; i <= 50000; i++) {
+				if (i % 7 === 5 && i % 13 === 7 && i % 17 === 13) {
+					count++;
+					console.log(i);
+					if (count >= 5) {
+						break;
+					}
+				}
+			}
+
+
+
+			// 多重循环的退出
+			var a = [];
+			a[0] = [0, 0, 0, 0];
+			a[1] = [0, 5, 0, 0];
+			a[2] = [0, 6, 0, 0];
+			// console.log(a);
+			// console.log(a[1][1]);
+
+			// 输出第一个不是0的数
+			// var jump = false;
+			// for (var i = 0; i < 3 && !jump; i++) {
+			// 	for (var j = 0; j < 4; j++) {
+			// 		if (a[i][j] !== 0) {
+			// 			console.log(a[i][j]);
+			// 			jump = true;
+			// 			break;
+			// 		}
+			// 	}
+
+			// }
+			// console.log('jump all for loop')
+
+
+
+			var jump = false;
+			for (var i = 0; i < 3; i++) {
+				if (jump) {
+					break;
+				}
+				for (var j = 0; j < 4; j++) {
+					if (a[i][j] !== 0) {
+						console.log(a[i][j]);
+						jump = true;
+						break;
+					}
+				}
+
+			}
+			console.log('jump all for loop')
+		</script>
+
+
+		<script type="text/javascript">
+			// 练习题 
+			// 练习1. document.write('*'),在屏幕上打印一个星号的三角形, 给定一个行数n,第一行一个*,第二行两个*,以此类推
+			// 练习2. document.write 打印99乘法表
+			// 练习3. 找到10万以内的,满足除以7余5,除以13余7,除以17余13,除以19余11,前5个数的和
+
+			// practice 1  
+			document.write("<h1> 练习1. document.write('*'),在屏幕上打印一个星号的三角形, 给定一个行数n,第一行一个*,第二行两个*,以此类推 </h1>")
+			var n = 3;
+			for (var i = 0; i < n; i++) {
+
+				for (var j = 0; j <= i; j++) {
+					document.write('*');
+				}
+				document.write('<br/>');
+
+			}
+
+
+
+
+			// 练习2. document.write 打印99乘法表
+			document.write('<h1> 练习2. document.write 打印99乘法表  </h1>')
+			for (var i = 1; i < 10; i++) {
+				for (var j = 1; j <= i; j++) {
+					document.write(i, '*', j, '=', i * j, '  ');
+
+				}
+				document.write('<br/>');
+
+			}
+
+
+
+
+			// 练习3. 找到10万以内的,满足除以7余5,除以13余7,除以17余13,除以19余11,前5个数的和
+
+			document.write('<h1> 练习3. 找到10万以内的,满足除以7余5,除以13余7,除以17余13,除以19余11,前5个数的和  </h1>')
+			var count = 0;
+			var result = 0;
+			for (var i = 1; i < 100000; i++) {
+
+				if (i % 7 == 5 && i % 17 == 13 && i % 19 == 11) {
+					count++;
+					console.log('cur_num:', i);
+
+					result += i
+					if (count === 5) {
+						break
+					}
+
+				}
+			}
+			document.write('<h2>result = ', result, '</h2>');
+			console.log('result = ', result);
+		</script>
+	</body>
+</html>

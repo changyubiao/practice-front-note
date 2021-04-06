@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<!-- 
+		 prompt 
+		 https://www.w3school.com.cn/jsref/met_win_prompt.asp
+		 
+		 
+		 -->
+	</head>
+	<body>
+		<script type="text/javascript">
+			// while  循环 
+			// 1. while
+			// while(表达式) {
+			// 	语句块
+			// }
+			// 
+			// 1. 判断 表达式是否为true, 运行语句块;否则,退出
+			// 2. 如果上一次运行了语句块,还会在判断表达式,如果还为true,还是运行语句块,直到表达式为false.
+
+
+			// var i = 0;
+			// while (i < 10) {
+			// 	console.log(i);
+			// 	i++;
+			// }
+
+
+			// 求1~100的和
+
+			var num = 1;
+			var sum = 0;
+			var i = 1;
+			while (i <= 100) {
+
+				sum += i;
+				i += 1;
+			}
+			console.log('sum =', sum);
+
+
+			// 2. do-while 语句块 
+			// do {
+			// 	语句块
+			// }while(表达式)
+			// do-while先执行一遍语句块,验证表达式,如果表达式为true,循环继续;如果为false,退出.
+
+			// var result = '';
+			// do {
+			// 	result = window.prompt('Frank长帅不帅？y\n', 'y');
+			// } while (result != 'y');
+			// console.log('早承认帅不就完了么：D');
+
+
+
+			// 3. for
+			// for(表达式1; 表达式2; 表达式3) {
+			// 	语句块
+			// }
+			// 1. 表达式1在进入循环以前,执行一次,且只执行一次
+			// 2. 判断表达式2,如果为true,执行语句块;否则,结束循环
+			// 3. 如果执行了语句块,结束后会执行表达式3,然后重新判断表达式2,循环下去.
+
+			// 求1~100的和
+			var sum = 0;
+			for (var i = 0; i <= 100; i++) {
+
+				sum += i;
+			}
+			console.log('for: sum = ', sum);
+
+
+			// 4. for-in
+			//  1. 数组
+			var a = [];
+			a[0] = 'abc';
+			a[1] = 'de';
+			a[2] = 'xyz';
+			console.log(a);
+
+
+
+			// for(var i = 0; i < a.length; i++){
+			// 	console.log(a[i]);
+			// }
+
+			// 注意这里i 是a对应的索引 
+			for (var i in a) {
+				console.log(a[i]);
+			}
+
+
+			// 2. 对象
+			var o = {};
+
+			// 等价写法
+			// o.a = 'abc';
+			o['a'] = 'abc';
+			o.b = 'de';
+			o.c = 'xyz';
+
+			console.log(o);
+
+			for (var x in o) {
+				console.log('x=', x);
+				console.log(x, o[x]);
+			}
+
+
+
+
+
+
+
+			//
+		</script>
+
+
+
+		<!-- 
+		<script type="text/javascript">
+			// 练习题目 
+
+			// 用while循环实现以下练习
+			// 练习1:写一段代码,求出某个整数的阶乘 5!=5*4*3*2*1;
+			// 练习2:求出1~100中所有奇数的和
+			// 练习3:求出1~1000之间,所有除以7余3同时除以5余2的数求和
+
+			//  练习1:写一段代码,求出某个整数的阶乘 5!=5*4*3*2*1;
+			var num = 1;
+			var result = 1;
+			var i = 1;
+			while (i <= 5) {
+				result *= i
+				i += 1
+
+			}
+			console.log('练习1 result = ', result);
+
+
+
+			// 练习2:求出1~100中所有奇数的和
+			var i = 1;
+			var sum = 0;
+			while (i < 100) {
+
+				if (i % 2 === 1) {
+					sum += i;
+				}
+				i++;
+			}
+			console.log('练习2 sum = ', sum);
+
+
+
+			// 练习3:求出1~1000之间,所有除以7余3同时除以5余2的数求和
+			var i = 1;
+			var sum = 0;
+			while (i <= 1000) {
+				if (i % 7 === 3 && i % 5 === 2) {
+					sum += i;
+				}
+				i++;
+			}
+			console.log('练习3 sum = ', sum);
+		</script>
+
+		<script type="text/javascript">
+			// 用for循环实现以下练习
+			// 练习1:写一段代码,求出某个整数的阶乘 5!=5*4*3*2*1;
+			// 练习2:求出1~100中所有奇数的和
+			// 练习3:求出1~1000之间,所有除以7余3同时除以5余2的数求和
+
+			var result = 1;
+			for (var i = 1; i <= 5; i++) {
+
+
+				result *= i
+				// console.log('cur reuslt:',result);
+
+
+			}
+			console.log('for 练习1 result = ', result);
+
+
+
+			// 练习2:求出1~100中所有奇数的和
+			var i = 1;
+			var sum = 0;
+			for (var i = 1; i < 100; i += 2) {
+				sum += i;
+
+			}
+			console.log('for 练习2 sum = ', sum);
+
+
+
+			// 练习3:求出1~1000之间,所有除以7余3同时除以5余2的数求和
+			var sum = 0;
+			for (var i = 1; i <= 1000; i++) {
+				if (i % 7 === 3 && i % 5 === 2) {
+					sum += i;
+				}
+
+			}
+			console.log('for 练习3 sum = ', sum);
+		</script>
+ -->
+
+	</body>
+</html>
