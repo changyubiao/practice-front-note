@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 
+		 
+		 数据类型转化  
+			1. 数据类型的判断    typeof ,instanceof 
+			2. 数据类型的转化  
+				2-1 转化为数字
+				2-2 转化为字符串
+				2-3 转化为boolean 
+				2-4 隐式类型转化， 显示类型转换 
+				
+		
+		
+		
+		
+		
+		参考链接：
+		JavaScript parseInt() 函数
+		https://www.w3school.com.cn/js/jsref_parseInt.asp
+		
+		
+		
+		JavaScript Number 对象
+		https://www.w3school.com.cn/jsref/jsref_obj_number.asp
+		 -->
+
+
+		<script type="text/javascript">
+			// instanceof	
+			// typeof()
+			//2-4 隐式类型转化，
+
+			// 数字与 数字字符串  + 字符串拼接
+			var num = 5;
+			var num2 = '10';
+			console.log('数字 + 数字字符串', num + num2, typeof(num + num2));
+
+
+			// 数字与 数字字符串 - 转为数字进行运算
+			var num = 5;
+			var num2 = '10';
+			console.log('数字 - 数字字符串', num - num2, typeof(num - num2));
+
+
+			// 数字 与 字符串 +
+			var num = 5;
+			var str = 'frank';
+			console.log('数字 + 字符串', num + str);
+
+
+
+
+			// 数字 显示类型转换 
+			// 库函数 Number(); 把 一个能转化为数字的其他类型 转化为数字 
+			var tmp1 = '2';
+			var tmp = Number(tmp1);
+			console.log(' Number(\'2\')显示类型转换', tmp, typeof(tmp));
+
+
+			var tmp1 = '';
+			var tmp = Number(tmp1);
+			console.log(' Number(\'\')显示类型转换', tmp, typeof(tmp));
+
+
+
+
+
+			var tmp1 = '1.23232';
+			var tmp = Number(tmp1);
+			console.log(' Number(1.23232)显示类型转换', tmp, typeof(tmp));
+
+
+			// 除了 
+			var tmp1 = true;
+			var tmp = Number(tmp1);
+			console.log(' Number(true)显示类型转换', tmp, typeof(tmp));
+
+
+			var tmp1 = false;
+			var tmp = Number(tmp1);
+			console.log(' Number(false)显示类型转换', tmp, typeof(tmp));
+
+
+			// notice   Number(null) = 0 ,   null == 0  是false
+			var tmp1 = null;
+			var tmp = Number(tmp1);
+			console.log(' Number(null)显示类型转换', tmp, typeof(tmp));
+
+
+
+			// 除了 长的像数字的字符串之外， 还有哪些可以转化为数字的，结果不是NaN 
+			// NaN  not  a number  
+			var tmp1 = 'abc';
+			var tmp = Number(tmp1);
+			console.log(' Number(abc)显示类型转换', tmp, typeof(tmp)); //NaN 
+
+
+
+			// 
+			var tmp1 = undefined;
+			var tmp = Number(tmp1);
+			console.log(' Number(undefined)显示类型转换', tmp, typeof(tmp)); //NaN 
+
+
+
+			var tmp1 = '1.5.2.3';
+			var tmp = Number(tmp1);
+			console.log(' Number(1.5.2.3)显示类型转换', tmp, typeof(tmp)); //NaN
+		</script>
+
+
+		<script type="text/javascript">
+			//  parseInt()   把 一个字符串 按照整数的方式 "解析"， 
+			// 如果只有开头的一部分 解析一部分，
+			// 如果解析不了 返回NaN 
+			// https://www.w3school.com.cn/js/jsref_parseInt.asp
+
+			console.log('======  parseInt()  beginning. ========')
+			var tmp1 = '123';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(123)', tmp, typeof(tmp)); //123 
+
+
+
+
+			var tmp1 = '120px';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'120px\')', tmp, typeof(tmp)); //120 
+
+
+
+			var tmp1 = 'a120';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'a120\')', tmp, typeof(tmp)); //NaN 
+
+
+
+			// 空字符不行， 空字符串 parseInt 返回 NaN 
+			var tmp1 = '';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'\')', tmp, typeof(tmp)); //NaN 
+
+
+
+
+			var tmp1 = '0xA0'; // a * 16 + 0 == 160 
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'0xa0\')', tmp, typeof(tmp)); //160 
+
+
+
+			var tmp1 = 'A0'; // a * 16 + 0 == 160
+			var tmp = parseInt(tmp1, 16);
+			console.log('parseInt(\'A0\')', tmp, typeof(tmp)); //160 
+
+
+			var tmp1 = '70';
+			var tmp = parseInt(tmp1, 8);
+			console.log('parseInt(\'70\')', tmp, typeof(tmp)); // 56  
+
+
+
+			var tmp1 = '1.67';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'1.67\')', tmp, typeof(tmp)); //1 
+
+
+
+			var tmp1 = '1.67E5';
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(\'1.67E5\')', tmp, typeof(tmp)); //1 
+
+
+			// undefined,null,false,true 
+			// 这些值 parseInt  都为 NaN 
+			var tmp1 = undefined;
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(undefined)', tmp, typeof(tmp)); //NaN 
+
+
+
+			var tmp1 = null;
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(null)', tmp, typeof(tmp)); //NaN 
+
+
+			var tmp1 = false;
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(false)', tmp, typeof(tmp)); //NaN 
+
+
+			var tmp1 = true;
+			var tmp = parseInt(tmp1);
+			console.log('parseInt(true)', tmp, typeof(tmp)); //NaN 
+
+		</script>
+		
+		
+		<!-- 
+		
+		Number 和 parseInt 的区别 
+		Number  本质做的是类型转换，  parseInt 开头的部分看上去像数字 
+		 
+		 Number可以  parseInt 不可以:false ,null ,''
+		 
+		 Number不可以  parseInt 可以:  数字开头的字符串  
+		  
+		 都不可以     undefined,字母开头的字符串
+		 
+		 -->
+		 <script type="text/javascript">
+		 	undefined
+		 </script>
+	</body>
+</html>
