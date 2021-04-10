@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		
+		
+		array  
+		 
+		 数组声明方式有两种    
+		 1. var  a = [];
+		 
+		 2. var  a = Array(1,2,3);
+		 
+		 
+		 
+		 
+		 数组 的遍历 
+		 数组的索引  
+			普通字符串，数字字符串，数字 ，小数， 都可以是数组的索引 
+		 
+		 
+		 https://www.w3school.com.cn/jsref/jsref_obj_array.asp
+		 
+		 -->
+
+		<script type="text/javascript">
+			// //1. 声明一个数组 第一种方式
+			//  // 数组内可以放入任意元素
+			// var arr = [1,2,3,4,0,null,undefined,NaN,'','frank'];
+			// console.log(arr,typeof(arr));
+
+
+			//3. 添加元素
+			var a = [];
+			a[0] = 5;
+			a[1] = 1;
+			a[3] = 10;
+			console.log(a, a.length);
+			console.log(a[1]);
+
+			// 初始化 
+			var a = [1, 3, 5];
+			console.log(a);
+
+
+			//4. 初始化个数，具体值之后在放入进去 
+			var a2 = [5, 4, , , 1]
+			console.log(a2);
+
+
+
+			var a3 = [5, , , , , , , , , , , , 1]
+			console.log('a3', a3);
+			a3[3] = 10;
+
+
+
+			//  数组 可以放入任意类型 
+			var a4 = [5, 0, '', null, undefined, NaN, [], {}, true, false]
+			console.log('a4', a4);
+
+
+
+
+			// //2. 声明一个数组 第二种方式
+			// a = new Array(1,2,3,undefined,NaN,'');
+			// console.log(a,typeof(a));
+
+
+			// 构造函数 Array() ;
+
+			//  new Array(); // 构造空数组
+			// new Array(size);
+			// new Array(element0, element1, ..., elementn);
+
+			var arr = new Array()
+			console.log(arr);
+
+			arr[0] = 10;
+			arr[1] = 20;
+			console.log(arr);
+
+
+
+			// 一个大小为size = 10 的数组
+			var arr = new Array(15)
+			// 初始化 数组的个数，是稀疏的
+			console.log(arr, arr.length);
+
+
+
+			//6. 数组的索引 ，下标， 从零开始 0 ·· length-1 
+			//7. 数组的长度   arr.length  
+
+
+			// 8. 数组的下标 可以不是严格的数字,  下标可以为 字符串
+
+			var b2 = new Array(4);
+
+			// 如果添加了一个 不在范围内的索引 写入数据，那么这个位置 会产生数据存储， 同时 length 会调整 
+			b2[7] = 5;
+
+
+			//length 变为 8了，数组的长度可以随时的调整
+			console.log('b2', b2, b2.length);
+
+
+			// 并不会报错 
+			// 数组的底层是类似 key-value 的mapper 
+			// 数字， 字符串 都可以作为索引；能够parse 为数字的字符串 会被转化为数字
+			// 转化为数字后 ， arr.length 值会受到整数的影响。
+			b2[1.5] = 10;
+
+			b2['abc'] = 'xyz';
+
+			b2['12'] = 'xyz';
+
+			console.log('b2', b2, b2.length);
+
+
+			// 应用  1.使用 数组    同时配合 length 
+			// 2.  使用key-value ,全部使用字符串， length 不用
+
+			var b3 = [];
+
+			b3['first'] = 'laoda';
+			b3['sed'] = 'laoer';
+			b3['third'] = 'laosan';
+
+			console.log('b3', b3, b3.length);
+
+
+			//9. 访问 一个没有初始化的位置， 会返回undefined 
+			// undefined
+			console.log(b3[3]);
+			console.log(b2[10]);
+
+
+			// 10. 数组 是一个引用类型的变量 
+
+
+			// 11. 如果判断 变量是数组类型 ？
+
+			console.log(typeof(b2));
+
+
+			//1.使用这种方法  使用构造函数的名称 去判断 
+			console.log(b2.constructor.name === 'Array');
+
+
+
+			// 12. 如何轮询数组，遍历数组
+
+			console.log('12. 如何轮询数组，遍历数组 ')
+			// 方法1 使用length  
+			arr = [1, 2, 3, 4, 5, 6]
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i]);
+			}
+
+
+			// 方法2  通过索引
+			arr2 = [1, 3, 5, 7, 9];
+			for (var i in arr2) {
+				console.log(i, arr2[i]);
+			}
+
+
+
+			//  方法3  for in  
+			// console.log('for in  arr3',arr3)
+			arr3 = []
+			arr3['a'] = 1;
+			arr3['b'] = 5;
+			arr3['c'] = 10;
+			console.log('for in  arr3', arr3)
+			for (var i in arr3) {
+				console.log(i, arr3[i]);
+			}
+
+			console.log('a3.length', arr3.length);
+
+
+			console.log('for in ');
+			//  for in  
+			var arr4 = [1, 2, , , , 5, , 10];
+			arr4['d'] = 20;
+			for (var i in arr4) {
+				// i只会有初始化对应的索引， 如果没有初始化,i是不会出来的。
+				console.log(i, arr4[i]);
+			}
+
+
+
+			//  方法3 轮询数组  forEach
+			// forEach() 操作的是元素 
+			// 1. 如果没有初始化，也是 轮询不出来的。
+			// 2. forEach 只能轮询数字,非稀疏的元素不依赖于length 
+			// 如果索引不是数字,或者数字字符串 , 则不能轮询 出来 
+			// 如果没有初始化，则不能轮询出来
+			var arr1 = [, , , 1, 5, NaN, , , 10, 20, 30]
+			console.log('forEach()  traverse 1111 ');
+			arr1.forEach(function(x) {
+				console.log(x);
+			});
+
+
+
+			a2 = []
+			a2['a'] = 1;
+			a2['b'] = 2;
+			a2['c'] = 3;
+			a2[4] = 100;
+			a2['5'] = 200;
+			// console.log(a2, a2.length);
+			console.log('forEach()  a2 traverse 2222 ');
+			a2.forEach(function(x) {
+				console.log(x); // 100  200
+			});
+		</script>
+
+
+		<script type="text/javascript">
+			// JavaScript 数组方法
+			// https://www.w3school.com.cn/js/js_array_methods.asp
+			console.log('array methods begin.')
+
+
+			// 1. concat 合并两个数组
+			var a1 = [1, 2, 3];
+			var a2 = [8, 9, 10];
+
+			var a = a1.concat(a2);
+			console.log('concat ', a);
+
+
+
+			// 2. join 把数组串行化为字符串
+			var a1 = ['f', 'r', 'a', 'n', 'k'];
+			// 类似python  ''.join([1,2,3])
+			var s = a1.join('/');
+			console.log(s, typeof(s));
+
+			// 数字也是可以 join 起来的. python中是不行的。
+			var a2 = [6, 7, 8, 9];
+			var s = a2.join('/');
+			console.log(s, typeof(s));
+
+
+
+			// 3. sort  默认地，sort() 函数按照字符串顺序对值进行排序。
+			//  in-place 原地排序 
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			console.log('before', fruits);
+			fruits.sort();
+			console.log('after', fruits);
+
+			var points = [40, 100, 1, 5, 25, 10];
+			// points.sort();
+			// console.log(points);   //[1, 10, 100, 25, 40, 5]
+
+
+			// asc 升序
+			// 当比较 40 和 100 时，sort() 方法会调用比较函数 
+			// function(40,100)。
+			// 该函数计算 40 - 100 ，然后返回 -60（负值）。
+			// 排序函数将把 40 排序为比 100 更低的值。
+			points.sort(function(a, b) {
+				return a - b;
+			})
+
+			console.log(points);
+
+
+			// desc 降序
+			points.sort(function(a, b) {
+				return b - a;
+			})
+
+			console.log(points);
+
+
+
+
+
+
+
+			// 0001  toString
+			// JavaScript 方法 toString() 把数组转换为数组值（逗号分隔）的字符串。
+			// 数组元素本身可以是数字，也可以是字符串
+			// var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			// s = fruits.toString();
+			// console.log(s,'',typeof(s));
+
+			// var  nums = [1,2,3,4];
+			// s = nums.toString();
+			// console.log(s,'',typeof(s));
+
+			// var  nums = [1,null,NaN,undefined,'',{}];
+			// s = nums.toString();
+			// console.log(s,'',typeof(s));
+
+
+
+
+
+			// 0002  nums.pop  数组 尾部删除元素, 返回删除的值
+			// 如果数组为空，返回undefined
+			// var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			// fruits.pop();
+			// console.log(fruits);
+
+
+			// 0003 数组 尾部添加元素， 返回数组的length
+			// fruits.push(1);
+			// console.log(fruits);
+
+
+
+			// 004 shift   首部删除一个元素
+			// 位移元素 
+			// 位移与弹出等同，但处理首个元素而不是最后一个。
+			// shift() 方法会删除首个数组元素，并把所有其他元素“位移”到更低的索引。
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			var tmp = fruits.shift();
+			console.log('tmp',tmp);
+			console.log(fruits); //["Orange", "Apple", "Mango"]
+			
+
+
+			// 005 unshift  首部添加一个元素
+			// unshift() 方法（在开头）向数组添加新元素，并“反向位移”旧元素：
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			// 相当于从左边推入一个元素， 后面的元素依次后移 
+			fruits.unshift('first');
+			console.log(fruits);
+			
+			// TODO  2：30：47
+			// 应用1  实现栈 
+			var  arr = []
+			arr.push(1);
+			arr.push(2);
+			arr.push(3);
+			arr.push(4);
+			console.log(arr);
+			
+			
+			cur = arr.pop();
+			console.log('cur =',cur);
+			
+			console.log(arr);
+			
+			cur = arr.pop();
+			console.log('cur =',cur);
+			console.log(arr);
+			
+			
+			// 从头部 进出 ，改成一个栈
+			var stack = []
+			stack.unshift(1);
+			stack.unshift(2);
+			stack.unshift(3);
+			stack.unshift(4);
+			console.log('stack',stack);
+			
+			// 头部出元素
+			stack.shift();
+			console.log('stack',stack);
+			
+			stack.shift();
+			console.log('stack',stack);
+			
+			
+			
+			// 应用3  把数组 头进 尾出 
+			var que = []
+			// 从头部进入数据
+			que.unshift(1);
+			que.unshift(2);
+			que.unshift(3);
+			que.unshift(4);
+			
+			console.log('que',que);
+			
+			console.log('出队列 ',que.pop());
+			console.log('出队列 ',que.pop());
+			console.log('que',que);
+			
+			
+			
+
+
+		</script>
+
+
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 数组练习题</title>
+	</head>
+	<body>
+
+
+		<script type="text/javascript">
+			//  练习1 求和 
+
+			var a = [1, 2, 3, 10, 20];
+
+			// 方法1
+			var sum = 0;
+			for (var i in a) {
+				sum += a[i];
+			}
+			console.log('sum', sum);
+
+			// 方法2 
+			var sum = 0;
+			for (var i = 0; i < a.length; i++) {
+				sum += a[i];
+			}
+			console.log('sum', sum);
+		</script>
+
+
+		<script type="text/javascript">
+			//2. 求平均值
+			var a = [1, 2, 3, 10, 20, 3, 40, 9];
+			var sum = 0;
+			for (var i = 0; i < a.length; i++) {
+				sum += a[i];
+			}
+			console.log('sum', sum);
+
+			console.log('avg =', sum / a.length);
+
+
+
+
+			// 3. 求数组中的最大值
+			var a = [1, 2, 3, 10, 20, 3, 40, 9];
+			maxVal = a[0];
+			maxIndex = 0
+			for (var i = 1; i < a.length; i++) {
+
+				if (a[i] > maxVal) {
+					maxVal = a[i];
+					maxIndex = i;
+				}
+			}
+			console.log('maxVal =', maxVal);
+			console.log('maxIndex =', maxIndex);
+
+
+			//4. 求数组中的最小值
+
+
+			// 5. 倒序遍历一个数组 
+			var arr5 = [1, 2, 3, 4, 5, 6, 7];
+
+			for (var i = arr5.length - 1; i >= 0; i--) {
+				console.log(arr5[i]);
+			}
+
+			// 第二种方式
+			console.log('第二种方式')
+			for (var i = 0; i < arr5.length; i++) {
+				console.log(arr5[arr5.length - 1 - i]);
+			}
+
+
+
+			// 6. 自己实现 join('-') 功能 
+			// // TODO 
+			var arr6 = [1, 2, 3, 4, 5, 6]
+			result6 = ''
+			for (var i = 0; i < arr6.length - 1; i++) {
+				result6 += arr6[i] + '-'
+			}
+			result6 += arr6[arr6.length - 1];
+			console.log('result6 =', result6, typeof(result6));
+
+
+
+			// 7. 反转数组 
+			var arr7 = [1, 2, 3, 4, 5, 6, 7];
+			var i = 0;
+			var j = arr7.length - 1;
+
+			var tmp;
+			while (i < j) {
+				// swap arr7[i],arr7[j]
+				tmp = arr7[i];
+				arr7[i] = arr7[j];
+				arr7[j] = tmp;
+				i++;
+				j--;
+			}
+			console.log('arr7 =', arr7);
+
+
+
+
+			// 8. 数组去重 
+			var arr8 = [1, 1, 3, 2, 6, 2, 6, 8, 9];
+
+			var result = [];
+
+			for (var i = 0; i < arr8.length; i++) {
+				// arr8[i] 是否存在result 数组中，
+				// 不在就加入进去, 在就跳过
+				if (!(isInArray(result, arr8[i]))) {
+					result.push(arr8[i]);
+				}
+			}
+			console.log('result8', result);
+
+			/**
+			 * 使用循环的方式判断一个元素是否存在于一个数组中
+			 * @param {Object} arr 数组
+			 * @param {Object} value 元素值
+			 */
+			function isInArray(arr, value) {
+				for (var i = 0; i < arr.length; i++) {
+					if (value === arr[i]) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+
+
+			// 思路二 去重思路二
+			var arr8 = [1, 1, 3, 2, 6, 2, 6, 8, 9];
+			var result = [];
+			// 排序 升序
+			arr8.sort(function(a, b) {
+				return a - b;
+			});
+
+			for (var i = 0; i < arr8.length; i++) {
+				if (result.length === 0 || arr8[i] !== result[result.length - 1]) {
+					result.push(arr8[i]);
+				}
+
+			}
+			console.log('result8 = ', result);
+
+
+
+			// 数组中有  字符串，数字，boolean  null， undefined 
+			// 如何去重
+			// 思路1 和刚刚一样
+			// 思路2   扫描数组， 数字，字符串，boolean 分类， undefined,null 这里记录一下
+			//  对数字， 字符串 排序
+		</script>
+
+	</body>
+</html>

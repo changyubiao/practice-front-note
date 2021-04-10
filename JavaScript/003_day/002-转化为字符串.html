@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			// 数字 与字符串 相加 ，转化为字符串 
+			// 转为字符串 
+			var tmp = '' + 2
+			console.log('tmp=', tmp, typeof(tmp));
+
+
+			var tmp = '' + null
+			console.log('tmp=', tmp, typeof(tmp));
+
+			var tmp = '' + undefined
+			console.log('tmp=', tmp, typeof(tmp));
+
+
+			var tmp = '' + false
+			console.log('tmp=', tmp, typeof(tmp));
+
+
+			var tmp = '' + true
+			console.log('tmp=', tmp, typeof(tmp));
+
+
+
+			// 显示类型转换  String 
+			// String() 生成一个字符串
+
+			console.log('String() 生成一个字符串');
+
+			var tmp = String(2);
+			console.log('String(2)=', tmp, typeof(tmp));
+
+			var tmp = String(null);
+			console.log('String(null)=', tmp, typeof(tmp));
+
+
+			var tmp = String(undefined);
+			console.log('String(undefined)=', tmp, typeof(tmp));
+
+
+			var tmp = String(true);
+			console.log('String(true)=', tmp, typeof(tmp));
+
+
+			var tmp = String(false);
+			console.log('String(false)=', tmp, typeof(tmp));
+
+
+
+			// toString()  成员函数 , 
+			var tmp = 80;
+			var tmp1 = tmp.toString();
+			console.log('tmp.toString() ', tmp1, typeof(tmp1));
+
+
+
+			// 转成16进制的字符串类型 string 
+			var tmp1 = tmp.toString(16);
+			console.log('tmp.toString(16) ', tmp1, typeof(tmp1));
+
+
+			// true 
+			var tmp = true;
+			var tmp1 = tmp.toString();
+			console.log('tmp.toString() ', tmp1, typeof(tmp1));
+
+
+			//  null ， undefined 不能使用 toString() 
+			// 注意：  null 没有 toString() 方法 
+
+
+			// Uncaught TypeError: Cannot read property 'toString' of null
+			var tmp = null;
+			// var tmp1  = tmp.toString();
+			// console.log('tmp.toString() ',tmp1,typeof(tmp1));
+
+			// console.log(undefined.toString());
+		</script>
+
+
+
+		<script type="text/javascript">
+			// 小练习 
+
+			// 二进制字符串 --》 16进制字符串 
+
+			var str = '10101001';
+
+			var num = parseInt(str, 2);
+			console.log('num=', num);
+
+			if (!isNaN(num)) {
+				console.log(num.toString(16));
+			}
+		</script>
+
+
+	</body>
+</html>

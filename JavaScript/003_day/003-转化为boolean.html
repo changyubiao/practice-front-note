@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			// 隐私类型转换 
+			var b = !0;
+			console.log(b, typeof(b)) //true 
+
+
+			var b = !1;
+			console.log(b, typeof(b)) //false 
+
+			var b = !10;
+			console.log(b, typeof(b)) //false 
+
+
+			var b = !1012;
+			console.log(b, typeof(b)) //false 
+
+
+
+			// 这里变为true 
+			var b = !!1000;
+			console.log(b, typeof(b)) //true 
+
+
+
+			var b = !undefined;
+			console.log(b, typeof(b)) //true 
+
+
+			var b = !null;
+			console.log(b, typeof(b)) //true 
+
+
+			var b = !'';
+			console.log(b, typeof(b)) //true 
+
+			var b = !NaN;
+			console.log(b, typeof(b)) //true 
+
+
+
+
+
+
+			// &&  ||  不进行 隐式类型转换
+
+			var b = undefined && 5;
+			console.log(b, typeof(b)) //undefined 
+
+			// Boolean   显示类型转换 
+			// 库函数  Boolean()  
+			var b = Boolean(0)
+			console.log(b, typeof(b)) //false
+
+			var b = Boolean(10)
+			console.log(b, typeof(b)) //true 
+
+
+			var b = Boolean(undefined)
+			console.log(b, typeof(b)) //false
+
+
+			var b = Boolean(null)
+			console.log(b, typeof(b)) //false
+
+
+			var b = Boolean(NaN)
+			console.log(b, typeof(b)) //false
+
+
+			var b = Boolean('')
+			console.log(b, typeof(b)) //false
+		</script>
+	</body>
+</html>

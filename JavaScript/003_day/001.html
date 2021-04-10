@@ -17,6 +17,25 @@
 				2-3 转化为boolean 
 				2-4 隐式类型转化， 显示类型转换 
 				
+			3. 数组类型
+				3-1 数组初始化
+				3-2 数组的遍历 3种方法 
+				3-3 数组排序 默认排序，以及 按数字排序
+				3-4 数组一些方法 push ,pop , unshift, shift
+				3-5 数组的长度 arr.length
+				3-6 数组的 arr.toString() 方法
+				3-7 数组 arr.join('-')
+				3-8 判断数组类型  typeof 好像不太行;
+					arr.constructor.name === 'Array')
+				
+				3-9 数组的合并 arr.concat(arr2)
+				
+				3-10 如何判断元素是否在数组中?
+		
+		
+		
+		
+		数组 
 		
 		
 		
@@ -200,10 +219,9 @@
 			var tmp1 = true;
 			var tmp = parseInt(tmp1);
 			console.log('parseInt(true)', tmp, typeof(tmp)); //NaN 
-
 		</script>
-		
-		
+
+
 		<!-- 
 		
 		Number 和 parseInt 的区别 
@@ -216,8 +234,44 @@
 		 都不可以     undefined,字母开头的字符串
 		 
 		 -->
-		 <script type="text/javascript">
-		 	undefined
-		 </script>
+		<script type="text/javascript">
+			// undefined
+			// parseFloat
+			a = parseFloat('10.01');
+			console.log('parseFloat(\'10.01\')', a);
+
+
+
+
+			var tmp1 = '10.12aaaaa';
+			var tmp = parseFloat(tmp1);
+			console.log('parseFloat(10.12aaaaa)', tmp, typeof(tmp)); //10.12  
+		</script>
+
+
+		<script type="text/javascript">
+			console.log('isNaN() beginning')
+
+			// isNaN()
+
+			// isNaN  放入不是数，那么自动调用Number() 进行转化  
+
+
+			// var tmp1 = '1.5.2.3';
+			// var tmp = Number(tmp1);
+			console.log('NaN ', isNaN(NaN)); //true 
+			console.log('NaN ', isNaN('a1000')); //true 
+
+			console.log('isNaN(undefined) ', isNaN(undefined)); //true 
+
+			console.log('isNaN(null) ', isNaN(null)); //true 
+
+
+			console.log('isNaN(1234) ', isNaN('1234')); //true 		
+				
+			console.log('isNaN(\'\') ', isNaN('')); //true
+		
+				
+		</script>
 	</body>
 </html>
