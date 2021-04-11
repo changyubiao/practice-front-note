@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 
+		 内存分配问题 
+		 
+		 /*
+		 number string null NaN undefined 
+		 
+		 */ 
+		 
+		 1. 值类型 ，引用类型 
+		 
+		 原始数据类型 变量的内存在栈中分配， 数据分配在栈中。 
+		  
+		 引用数据类型变量的内存在栈中分配，实际内存是在堆中分配的。 变量的内存中只存放一个内存的地址（在堆中）
+		 
+		 
+		 在拷贝数据的时候，原始数据类型直接拷贝数据，引用数据类型拷贝内存地址。 
+		  
+		  
+		 对于引用数据类型， 每有一个变量存储了变量的地址， 对应计数器 +1 ， 反之 -1 ； 当计数器为0 时候， 就可以释放内存。 
+		
+		 2. 堆  vs. 栈 
+		 -->
+
+		<script type="text/javascript">
+			// 数组为引用数据类型 
+			var arr1 = [1, 2, 3, 4];
+			var arr2 = arr1;
+			console.log(arr1);
+			console.log(arr2);
+
+			// 修改 arr2[1] ， arr1对应位置也会发生改变.
+			arr2[1] = 100;
+
+			console.log('arr1=', arr1);
+			console.log('arr2=', arr2);
+		</script>
+
+
+		<script type="text/javascript">
+			var a = 10;
+			var b = a;
+
+			b += 1;
+
+			console.log('a=', a, ',', 'b=', b);
+		</script>
+
+
+		<script type="text/javascript">
+			// 循环引用
+			var c = [];
+			var d = [];
+
+			c[0] = d;
+			d[0] = c;
+			
+			
+			console.log(c,d);
+			
+		</script>
+	</body>
+</html>

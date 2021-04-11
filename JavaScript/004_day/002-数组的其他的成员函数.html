@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 
+		 成员函数 
+		 
+		 
+		 https://www.w3school.com.cn/jsref/jsref_obj_array.asp
+		 
+		 
+		 https://www.w3school.com.cn/js/js_array_methods.asp
+		 
+		 
+		 
+		 
+		 JavaScript slice() 方法  
+		 slice() 方法可从已有的数组中返回选定的元素。
+
+
+		 https://www.w3school.com.cn/jsref/jsref_slice_array.asp
+		 
+		 
+		 arrayObject.slice(start,end)
+		
+		[start,end) 左闭右开区间截取 数组元素
+		start	必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。
+				也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+		end	可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。
+		
+		
+		如果只提供start参数 ，相当于 [start:arr.length-1]
+		
+		
+		
+		
+		
+		
+		JavaScript reverse() 方法
+		https://www.w3school.com.cn/jsref/jsref_reverse.asp
+		
+		 -->
+
+		<script type="text/javascript">
+			// slice  :从数组选择一部分元素， 拷贝生成一个新的数组，原数组不受影响。
+
+			// var arr = [0,1,2,3,4,5,6,7];
+
+			// console.log('slice',arr.slice(6));
+			// console.log('slice',arr.slice(-2));
+
+			// //类似python 切片 arr[3:7]  左闭右开区间
+			// console.log('slice',arr.slice(3,7));
+
+
+
+
+
+			// splice 
+			// splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+			// 注释：该方法会改变原始数组。
+
+			var arr = [0, 1, 2, 3, 4, 5, 6, 7];
+
+			b = arr.splice(6);
+			console.log('splice 1', arr, b);
+
+
+
+
+			var arr = [0, 1, 2, 3, 4, 5, 6, 7];
+
+			// 从索引开始 截取 4个长度
+			b = arr.splice(2, 4);
+			console.log('splice 2', arr, 'b=', b);
+
+
+
+
+			var arr = [0, 1, 2, 3, 4, 5, 6, 7];
+			// 从索引2开始 截取 4个长度 [2,3,4,5] , 之后在切口处添加 aa,bb,cc 元素
+			b = arr.splice(2, 4, 'aa', 'bb', 'cc');
+			console.log('splice 3', arr, 'b=', b);
+		</script>
+
+
+
+		<script type="text/javascript">
+			// delete： 删除数组中的元素
+
+			// 	var  a = [1,2,3,4,5];
+			// 	console.log(a);
+
+			// 	// 索引 1 会被删除。 以及对应的元素也被删除了。
+			// 	delete a[1];
+			// 	console.log(a);
+
+
+
+
+			// 数组性质 
+			// var a = [1, 2, 3, 4, 5];
+			
+			// 这里数组 0，1 的位置保存下来，其他的元素就被清除了。 
+			// a.length =2;
+			// console.log(a);
+			
+			
+			// 清空数组 方法 
+			
+			var  a = [0,1,2,3,4,5];
+			
+			
+			// for (var i =0;i< a.length;i++){
+			// 	//  这样的 数组的长度并不会改变
+			// 	delete a[i];
+			// }
+			
+			// 方法1  a.length =0 
+			//  这样直接就可以清空一个数组
+			// a.length =0 
+			// console.log(a);
+			
+			
+			// 方法2 spice 
+			// a.splice(0);
+			// console.log(a);
+			
+			
+			// 方法3 pop ,shift 方法
+			// while (a.length >0){
+			// 	// a.pop();
+			// 	a.shift();
+				
+			// }
+			// console.log(a);
+			
+			// 方法4 重新赋值    
+			var b = a;
+			// 此时b不会被清空的， a 已经清空了。
+			a = []
+			console.log('a',a,'b=',b);
+			
+			
+			
+		
+			
+			
+		</script>
+		
+
+		<script type="text/javascript">
+			//  reverse  
+			// https://www.w3school.com.cn/jsref/jsref_reverse.asp
+			// 原地 reverse 数组， 返回一个数组，同时自己也会被reverse 
+			var  names = [1,2,3,4,5];
+			
+			r = names.reverse();
+			
+			console.log('reverse=',r);
+			
+			console.log('names= ',names);
+			
+			
+		</script>
+
+	</body>
+</html>

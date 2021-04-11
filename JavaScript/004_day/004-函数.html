@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 
+		 https://www.w3school.com.cn/js/js_functions.asp
+		
+		 
+		 -->
+
+		<h1>JavaScript 函数</h1>
+		<!-- 
+		  函数 ：可以重复运行的子程序  
+		
+		
+		
+		 -->
+
+
+		<!-- 
+		 function name(参数 1, 参数 2, 参数 3) {
+			 要执行的代码;
+		 }
+		-->
+
+
+
+
+
+		<script type="text/javascript">
+			// 函数的定义
+			// 函数的声明 
+
+			// 变量  函数名： 标识符 
+
+
+			// 变量常用命名 写法 
+			// 小驼峰命名   单词串写，第一个单词小写，以后每个单词 首字母大写
+
+
+			// 大驼峰命名：  单词串写 每个单词首字母大写  --> 构造函数
+
+			// 匈牙利命名： windows api     i_xxx, fl_xxx , lpsz_xxx 
+			// 这种写法 基本已经淘汰了。
+			// 串糖葫芦 写法   aa-bb-cc  div class  class="anchor-list " class="para-title level-2"
+
+
+
+			// 函数 有形参 也可以没有 
+			// 形参 与 实参 
+			// 函数可以有 返回值， return， 如果没有return ，那么函数返回 undefined
+
+
+			// function getMaxofArray(arr) {
+
+			// 	var max = arr[0];
+
+			// 	for (var i = 1; i < arr.length; i++) {
+			// 		if (arr[i] > max) {
+			// 			max = arr[i]
+			// 		}
+			// 	}
+			// 	return max;
+			// }
+
+			// var b = [2, 3, 4, 5, 23, 12, 45, 23];
+			// maxValue = getMaxofArray(b);
+			// console.log('max = ', getMaxofArray(b));
+			// console.log('maxValue = ', maxValue);
+
+
+			// var b1 = [4, 32, 1, 34, 65, 10];
+			// console.log('max b1= ', getMaxofArray(b1));
+
+			// console.log('mySum = ',mySum(3,5));
+
+			// function mySum(a,b){
+			// 	return a + b;
+			// }
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+			// 练习 把一个数 反序 
+			// 12345 => 54321 
+			// 1.2 => 2.1 
+
+			// 形参， 输入，输出 ， 返回一个字符串 string 
+			function reverseNum(num) {
+				// 1.check parameter  参数的检查问题 ，形参的检查 有效性，合法性 
+				// 策略1  错了就返回
+				// 策略2  尽最大的能力， 完成相应功能。 能处理多少，就处理多少。
+
+				// 1-1 num 如果不是数字 ，怎么办？   就返回空字符串
+				if (typeof num !== 'number') {
+					return '';
+				}
+				//  1-2  num 是 NaN 或者 Infinity ,也返回空字符串
+				if (!isFinite(num)) {
+					return '';
+				}
+				if (isNaN(num)) {
+					return '';
+				}
+
+				nums = num.toString().split('');
+
+				// console.log('nums =',nums);
+
+				// reverse inplace 改变数组，并且返回数组本身
+				var s = nums.reverse().join('')
+				// console.log(nums,s);
+				return s;
+			}
+
+			// 设定相应的 测试用例  TDD 
+			// console.log('a=', reverseNum('aaaa'));
+			// console.log('a=', reverseNum(NaN));
+			// console.log('a=', reverseNum(Infinity));
+			// console.log('reverse=', reverseNum('12345'));
+			// console.log('reverse=', reverseNum(1.23));
+			// console.log('reverse=', reverseNum(12345));
+
+
+
+
+
+			// var  name = 'frank';
+			// names = name.split('')
+			// console.log(names);
+			// names.reverse();
+			// console.log(names);
+			// b = names.join('');
+			// console.log(b,names);
+
+
+
+			//  TODO  还没有完成 。。。。 
+
+			// 练习2   写一个 函数 ，能够返回两个数字和 
+
+			function mySum(a, b) {
+
+
+				if (typeof a !== 'number') {
+					return 0;
+				}
+				if (typeof b !== 'number') {
+					return 0;
+				}
+
+				return a + b;
+
+			}
+
+			// console.log(mySum(1, '2')); // 0 
+			// console.log(mySum('1', 2)); // 0 
+			// console.log(mySum('1', '2')); // 0 
+			// console.log(mySum(1, 2));
+
+
+
+			// 练习3 写一个函数 能够返回 n ...m 之间的和， n,m 都是整数;且m>n 
+
+			function mySumMN(n, m) {
+				if (typeof n !== 'number') {
+					console.log('n is not number!')
+					return 0;
+				}
+
+				if (typeof m !== 'number') {
+					console.log('m is not number!')
+					return 0;
+				}
+
+				if (n > m) {
+					console.log('n >m  input n,m isinvalid.');
+					return 0;
+				}
+
+				var sum = 0;
+				for (var i = n; i <= m; i++) {
+					sum += i;
+				}
+				return sum;
+			}
+
+			// console.log(mySumMN(5,2));
+			// console.log(mySumMN(5,'2'));
+			// console.log(mySumMN('5',10));
+			// console.log(mySumMN(1,10));
+
+
+
+
+
+			// 练习4 写一个函数  输入半径 r, 返回圆的面积 	
+			function calArea(r) {
+
+				if (typeof r !== 'number') {
+					console.log('r is not number!')
+					return 0;
+				}
+
+				var s = 0;
+				const PI = 3.1415;
+				s = PI * r * r;
+				return s;
+			}
+
+			// console.log(calArea('5'));
+			// console.log(calArea(1));
+			// console.log(calArea(2));
+
+
+
+			// 练习5 写一个函数，输入正整数 判断 这个数是否为质数 
+			function isPrime(num) {
+				// 
+				if (typeof num !== 'number') {
+					console.log('num is not number!')
+					return false;
+				}
+
+				if (num < 0) {
+					console.log('num is negative number!')
+					return false;
+				}
+
+				// 方法1 
+				if (num <= 3) {
+					return num > 1;
+				}
+
+				for (var i = 2; i < num; i++) {
+					if (num % i === 0) {
+						return false;
+					}
+				}
+				return true;
+			}
+
+			// console.log(isPrime('7'));
+			// console.log(isPrime(null));
+
+			// console.log(isPrime(7));
+			// console.log(isPrime(11));
+			// console.log(isPrime(10));
+			// console.log(isPrime(9));
+
+
+
+
+			function isPrime01(num) {
+				// 
+				if (typeof num !== 'number') {
+					console.log('num is not number!')
+					return false;
+				}
+
+				if (num < 0) {
+					console.log('num is negative number!')
+					return false;
+				}
+				// 方法2
+				if (num <= 3) {
+					return num > 1;
+				}
+				
+				sqrt = Math.sqrt(num);
+				for (var i = 2; i <= sqrt; i++) {
+					if (num % i === 0) {
+						return false;
+					}
+				}
+				return true;
+			}
+
+
+
+			console.log(isPrime01('7'));
+			console.log(isPrime01(null));
+			
+			console.log(isPrime01(7));
+			console.log(isPrime01(11));
+			console.log(isPrime01(10));
+			console.log(isPrime01(9));
+		</script>
+
+
+	</body>
+</html>
