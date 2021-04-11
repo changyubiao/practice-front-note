@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<h1>函数作为参数</h1>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			function f1() {
+				console.log('f1 beginning');
+				return 'hello f1';
+
+			}
+
+			function f(fn) {
+				// console.log(fn());
+
+				console.log(fn);
+				// console.log(typeof fn);  // function
+
+
+			}
+
+
+
+			// 调用函数
+			f(f1);
+		</script>
+	</body>
+</html>

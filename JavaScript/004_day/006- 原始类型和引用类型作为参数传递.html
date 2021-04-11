@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<h1>  原始类型 vs. 引用类型作为函数参数传递</h1>
+
+
+
+		<script type="text/javascript">
+			// var a = 10;
+			// var b = 5;
+
+			// function swap(x,y) {
+			// 	var tmp = x;
+			// 	x = y;
+			// 	y = tmp;
+			// }
+			
+			// console.log('a=',a,'b=',b) ;
+			// // 这里是值传递， 所以不会改变 。 只是复制了一份值，
+			// // 实参并不会改变
+			// swap(a,b);
+			// console.log('a=',a,'b=',b) ;
+			
+			
+			
+			
+			
+			
+			// 引用类型 实参
+			//  a,b 改成一个数组，变为引用类型 
+			//  a 存放的值 数组的地址
+			// 现在 a,b 为数组
+			var a = [10];
+			var b = [5];
+			
+			function swap(x,y) {
+				var tmp = x[0];
+				x[0] = y[0];
+				y[0] = tmp;
+			}
+			
+			console.log('a=',a,'b=',b) ;
+			swap(a,b);
+			console.log('a=',a,'b=',b) ;
+			
+		</script>
+
+
+
+
+
+
+	</body>
+</html>

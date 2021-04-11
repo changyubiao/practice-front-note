@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<h1>函数表达式</h1>
+	</head>
+	<body>
+		<!-- 
+		 函数表达式  不会污染 命名空间 ， 
+		 这也是为啥  
+		 很多库 都是使用函数表达式，而不是使用函数。
+			   
+		 
+		 -->
+		<script type="text/javascript">
+			// 函数声明
+			function f() {
+				return 0;
+			}
+
+
+			function main(a, fn, b) {				
+				return fn();
+				// return 'hell main';
+
+			}
+
+
+
+			// 把函数赋值给一个变量
+			// 函数表达式  
+			// var f1 = function fn1() {
+			// 	return 1;
+			// }
+
+
+			var f1 = function() {
+				return 1;
+			}
+
+			// console.log(f1());
+
+
+			// 函数表达式，第二个参数 也叫函数表达式
+			// main(1, function fn2() {
+			// 	return 2;
+			// }, 2)
+
+			
+			
+			//  函数表达式 
+			// 化简 可以去掉函数名称
+			var b = main(1, function() {
+				return 100;
+			}, 2);
+			
+			// console.log('b=',b);
+
+
+
+
+
+
+			// console.log(f1);
+		</script>
+	</body>
+</html>

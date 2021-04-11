@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<h1> 函数的嵌套 </h1>
+		<script type="text/javascript">
+			// 求斜边 长度  
+			var a = 3;
+			var b = 4;
+			// var h = Math.sqrt(a*a + b*b);
+			// console.log('h=',h);
+
+
+
+
+
+
+
+			// function hypotenuse(a, b) {
+			// 	// 函数嵌套，
+			// 	// square 这个函数 最外层 不可见，只可以被这个hypotenuse 函数调用。
+			// 	// 这样可以保证了一定 命名空间的污染问题 
+			// 	function square(x) {
+			// 		return x * x;
+			// 	}
+
+
+			// 	return Math.sqrt(square(a) + square(b));
+			// }
+
+
+			function hypotenuse(a, b) {
+				// 函数嵌套，
+				// square 这个函数 最外层 不可见，只可以被这个hypotenuse 函数调用。
+				// 这样可以保证了一定 命名空间的污染问题 
+				
+				// 也可以使用函数表达式 
+				var square = function(x) {
+					return x * x;
+				}
+				return Math.sqrt(square(a) + square(b));
+			}
+			var h = hypotenuse(a, b);
+			console.log('h=', h);
+			
+			
+	
+			// 任意 一个函数，可以调用其外部定义的函数， 也可以调用自己内部的函数。
+			
+			
+		
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

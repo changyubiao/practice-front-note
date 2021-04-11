@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<h1>函数的递归调用</h1>
+
+		<script type="text/javascript">
+			// ？ 一个函数是否可以 调用自己？ yes ， 递归
+			// 这样其实就是 递归  
+
+
+			// 求阶乘 
+			function fact(n) {
+				// base  case 
+				if (n <= 1) {
+					return 1
+				}
+				// drill down 
+				return n * fact(n - 1);
+			}
+
+
+			// 4 x 3 x 2 x 1 
+			// console.log(fact(4));
+			// 5 x 4 x 3 x 2 x 1
+			// console.log(fact(5));
+		</script>
+
+
+
+		<script type="text/javascript">
+			/*
+			有一个 台阶 有n阶，n>0  , 一步可以一阶台阶 ，  一步可以两阶台阶， 一步可以三阶台阶
+			*/
+
+
+			function climbStairs(n) {
+				// if (n === 1) {
+				// 	return 1;
+				// }
+				// if (n === 2) {
+				// 	return 2;
+				// }
+				// if (n === 3) {
+				// 	return 4;
+				// }
+				switch (n) {
+					case 1:
+						return 1;
+						break;
+					case 2:
+						return 1 + climbStairs(1);
+						break;
+					case 3:
+						return 1 + climbStairs(2) + climbStairs(1);
+					default:
+						return climbStairs(n - 3) + climbStairs(n - 2) + climbStairs(n - 1);
+				}
+
+				/*
+				
+				n =1  => 1 , 
+				n=2   => 2 ,  1->1 
+				n=3   => 3 ,  1->2 ,  step(2)  一步三阶; 一步一阶 ，step(2), 一步两阶 step(1);
+				
+				*/
+			
+				// return climbStairs(n - 1) + climbStairs(n - 2) + climbStairs(n - 3);
+			}
+			
+			// var step = climbStairs(8);
+			// console.log('step =', step);
+			// TODO  3:10
+			
+		</script>
+
+	</body>
+</html>
