@@ -68,14 +68,98 @@
 				n=3   => 3 ,  1->2 ,  step(2)  一步三阶; 一步一阶 ，step(2), 一步两阶 step(1);
 				
 				*/
-			
+
 				// return climbStairs(n - 1) + climbStairs(n - 2) + climbStairs(n - 3);
 			}
-			
+
 			// var step = climbStairs(8);
 			// console.log('step =', step);
 			// TODO  3:10
-			
+		</script>
+
+
+		<script type="text/javascript">
+			// 汉诺塔问题
+
+			// 汉诺塔 ， 三根柱子 ， A， B，C  , 有N片  
+			// 所有的片 在一个柱子,称为src A, 移动片 到 dest B 柱
+			// 规则1  每次只能移动一个片 ， 大片 永远在 小片 的下面， 大片不能放在小片上面。 
+
+			// var doHanoi ;
+			// n:1  doHanoi(1,A,B,C);
+			// n:2  doHanoi(1,A,C,B)  ,  2->B ,doHanoi(1,C,B,A) 
+			// n:3  doHanoi(2,A,C,B) ,   3->B ,doHanoi(2,C,B,A)
+			// ... 
+			// n:n  doHanoi(n-1,A,C,B) ,n ->B ,doHanoi(n-1,C,B,A)
+
+
+			function doHanoi(n, src, dest, help) {
+
+				if (n > 1) {
+
+					doHanoi(n - 1, src, help, dest);
+					//  ....
+					console.log('Move  No.' + n + ' dish from ' + src + ' to ' + dest);
+
+					doHanoi(n - 1, help, dest, src);
+
+				} else if (n == 1) {
+					console.log('Move  No.' + n + ' dish from ' + src + ' to ' + dest);
+
+				} else {
+					console.log('Error, n=', n);
+				}
+			}
+
+			// doHanoi(4,'A','B','C');
+		</script>
+
+
+		<script type="text/javascript">
+			// 练习 题目 
+			//  1. 求 n  以内所有的质数  
+
+			function getPrime(n) {
+
+				var result = [];
+
+				for (var i = 2; i <= n; i++) {
+					var flag = true ; 
+					for (var j = 2; j < i ;j++) {
+						if (i % j == 0) {
+							// i 不是质数
+							flag = false;
+							break;
+						}
+					}
+					if (flag) {
+						result.push(i)
+					}
+				}
+				return result;
+			}
+
+			console.log(getPrime(20));
+
+
+			// 2. 实现一个函数 , 参数 为n  根据输入  敲7, 非7 的倍数 或者不含7 ，可以打印出来 ，否则打印敲
+			function game(n) {
+
+				for (var i = 1; i <= n; i++) {
+					if (i % 7 === 0 || ('' + i).indexOf('7') !== -1) {
+						console.log('qiao!');
+					} else {
+						console.log('i=', i);
+					}
+				}
+
+			}
+			// game(20);
+
+
+
+
+
 		</script>
 
 	</body>
