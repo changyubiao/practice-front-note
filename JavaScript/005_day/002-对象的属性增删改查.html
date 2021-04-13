@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			var obj = {
+				name: 'frank',
+
+				f1: function() {
+					console.log('f1');
+				},
+
+
+			}
+
+			// 一： 增加 属性, method 
+			obj.b = 'bbb';
+
+
+			// 增加变量一个变量 ， 如 1 
+			// error 
+			// obj.1 = '111';
+
+			// 这样可以  
+			// obj['1'] = '1111';
+
+			// console.log(obj['1'])
+			// obj['1']
+			// 一个obj 的属性,方法的名称  可以不是一个标识符， 比如 1
+
+			obj['2'] = function() {
+				console.log('2222');
+			}
+
+			// console.log(obj['2']);
+
+
+
+
+			// 2. 一个没有定义的变量 直接赋值会产生怎么样的后果 
+
+			function f2() {
+				// 注意这里没有定义，没有使用 var 关键字
+				num = 5;
+
+				// 等价于 下面的这句话
+				// window.num = 5;
+			}
+
+			// call f2() 下面就不报错了。 
+			// f2();
+
+			// Uncaught ReferenceError: num is not defined
+			// console.log(num);
+
+			// 发生了什么 ?  当调用f2 后，下面 num 就会有值
+
+			// 1. 有一个全局对象 window
+			// 2. 所有在脚本中 （没有在函数中），通过 var 定义的变量，都挂在 window 上。 
+			// 3. 在任意位置  一个变量赋值都可以看做是在window上寻找这个变量
+
+			// var  abc = 124;
+			// console.log(window.abc);
+
+
+
+
+
+			// 二  删除一个属性
+			// 
+			// delete  obj.b;
+			// delete obj['1'];
+			// delete obj['2'];
+
+
+
+
+			// 改 
+			// 有则会改， 无则添加
+			// obj.b = 'aaa';
+
+
+			// 查  属性是否存在 对象 
+			//  in  
+
+			console.log(obj);
+			// console.log('b' in obj);
+			// console.log('ab' in obj);
+
+
+			// 也可以 这样写。
+			// console.log(obj.hasOwnProperty('a'));
+					
+			// delete obj.a ;
+			// console.log(obj.hasOwnProperty('a'));
+			
+			
+			
+			
+			
+			// 枚举 
+			// 一个obj 有多少方法 ，属性  
+			
+			for (var property  in obj){
+				console.log(property);
+			}
+			
+			console.log( obj['2']);
+			
+			console.log(obj.toString());
+			
+			
+			//  true 
+			console.log(obj.propertyIsEnumerable('2'));
+			
+			// false  ,不是可枚举的 属性
+			console.log(obj.propertyIsEnumerable('toString') );
+	
+			
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+		<script type="text/javascript">
+			// 字面量 
+
+			// var obj = {}
+
+			// //  书  属性， 成员函数 
+			// obj.name = 'JS实战';
+			// obj.pageNumber = 300;
+
+
+			// var author = {};
+			// author.name = 'frank';
+			// author.hobby = 'swim';
+			// author.age = 18 ;
+
+			// obj.author = author ;
+
+
+
+			// obj.query = function (){
+			// 	console.log('query book be running.');
+			// }
+
+
+			// obj.addPage  = function(){
+			// 	this.pageNumber ++;
+			// 	console.log('add page.');
+			// }
+
+
+			// // 系统构造函数
+			// var obj1 = new Object();
+
+
+
+			obj = {
+				name: 'JS实战',
+				pageNumber: 300,
+				author: {
+					name: 'frank',
+					age: 18,
+					hobby: 'swim'
+				},
+				query: function() {
+					console.log('query book be running.');
+				},
+				addPage: function() {
+					this.pageNumber++;
+					console.log('add page.');
+				},
+			}
+
+
+			console.log(obj.name);
+			obj.addPage();
+			console.log(obj.pageNumber);
+
+			var fName = 'addPage';
+			obj[fName]();
+			console.log(obj.pageNumber);
+		</script>
+
+		<script type="text/javascript">
+			// 练习1: 实现一个小猫对象,橘黄色的,名字叫小花,今年四岁,可以喵喵叫,可以吃鱼,可以上房.
+			
+			var cat = {
+				name:'xiaohua',
+				
+				color :'orange',
+				
+				age :4,
+				
+				
+				miaomiao : function(){
+					console.log('miao miao miao...');
+					
+				},
+				eatFish:function(){
+					console.log(this.name +' is eating fish');
+				},
+				
+				goHome: function(){
+					console.log(this.name +' go home.');
+				}
+			}
+			
+			
+			// 练习2: 实现一个手机对象,牌子是华为,型号是P30,价格5000, 可以打电话,可以发短信,还可以拍照
+		</script>
+
+	</body>
+</html>
