@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+		<!-- 
+		
+		构造函数  
+		 
+		 -->
+		<script type="text/javascript">
+			var createPerson = function(name, age, gender) {
+				var p = {};
+				p.type = 'person';
+				p.name = name;
+				p.age = age;
+
+				p.gender = gender || 'male';
+
+
+
+				p.eat = function() {
+					console.log(this.name + ' ' + 'is eatting');
+				};
+				p.study = function() {
+					console.log(this.name + ' ' + 'is studying.');
+				};
+
+				p.say = function() {
+					console.log(this.name + ' ' + 'is saying.');
+				};
+				return p;
+			}
+
+
+			// var frank = createPerson('frank', 18);
+			// var xiaoMing = createPerson('xiaoMIng', 10, 'male');
+
+
+			// function letPersonSay(person) {
+			// 	person.say(person);
+			// }
+
+			// letPersonSay(frank);
+			// letPersonSay(xiaoMing);
+
+
+			//  来 弄个 构造函数 
+			//  每次以相同的方式构造对象 ，如果改变了构造函数 ，所有此后产生的对象都跟着改变
+			// 构造函数 都是大写字母开头 
+
+			function Person(name, age, gender) {
+				//  生成了一个对象，并把 对象 赋值给 this 
+				this.type = 'person';
+				this.name = name;
+				this.age = age;
+
+				this.gender = gender || 'male';
+
+				this.eat = function() {
+					console.log(this.name + ' ' + 'is eatting');
+				};
+				this.study = function() {
+					console.log(this.name + ' ' + 'is studying.');
+				};
+
+				this.say = function() {
+					console.log(this.name + ' ' + 'is saying.');
+				};
+				
+				
+				// 这里返回了 this , 这里不需要写。  
+
+			}
+
+			//  new Person('frank', 18, 'male');  
+			// 使用new 关键字 
+			p = new Person('frank', 18, 'male');
+			console.log(p);
+			
+			
+			
+			var  a = new Array ();
+			var obj = new Object();
+			
+			console.log(a,obj);
+			
+			
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+			/*
+			练习题 
+			写一个 dog 的构造函数 
+			*/ 
+		</script>
+		<!--  -->
+	</body>
+</html>

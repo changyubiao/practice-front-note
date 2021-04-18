@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		JS 弱类型语言，支持对象的语言 
+		
+		
+		 JS 引擎处理脚本的过程：  预编译过程， 执行过程
+		 
+		 
+		 JavaScript引擎的两大步骤：
+		 预编译（第一次\前置扫描）
+		 解释执行（第二次扫描）
+		 
+		 
+		 预编译  
+		 GO : Global Object 
+		 
+		 脚本：
+		 创建全局对象GO（window）（上下文）
+		 加载脚本文件
+		 
+		 预编译：
+			 找出所有的变量声明，按照变量名加入全局对象，如果已经存在，忽略。
+			 找出所有的函数声明，按照函数名加入全局对象，如果已经存在同名变量或者函数，替换。 (注意)
+			 非声明不予理睬
+			 
+		 解释执行
+		 
+		 -->
+
+
+		<script type="text/javascript">
+			// 脚本的预编译 
+			// 1. 如果没有 var 的变量， 直接忽略， 不是变量声明。 不参与预编译过程
+			// console.log(aa);
+			// aa = 5;
+			// console.log(aa,typeof aa);
+
+
+			// 2.  即使  aa 在函数中， aa 也是全局变量, 是运行时生效，不是编译是生效
+			// 此时没有aa 因为函数 f2 没有执行
+			// console.log('aa',aa);
+
+			// 这样调用不会报错
+			// f2();
+
+			// function f2() {
+			// 	// 这里会把 aa 绑定到 window 上面
+			// 	aa = 5;
+			// 	console.log('f2 is running');
+			// }
+			// console.log('aa =', aa);
+
+
+
+			// 3. 脚本中 所有的变量声明，在脚本的预编译阶段完成，
+			// 所有变量的声明与实际的书写位置无关。
+			// console.log('a = ',a);  // undefined  
+			// var  a = 5;
+			// console.log('a = ',a); // 5 
+
+
+
+			// 4. 脚本中函数声明  在脚本的预编译阶段完成 所有的函数声明与实际书写位置无关
+			// console.log(f);
+
+			// // 这里是 函数的声明， 预编译过程 就完成了。
+			// function f(){
+			// 	console.log('f is running');
+			// }
+
+
+
+
+			// 5. 脚本中  如果变量与函数同名，函数将会覆盖变量 ,如果变量 则以第一次为准
+			// console.log(f1);
+			// // 变量声明
+			// var  f1;
+			// // var  f1 = 'frank';
+
+			// console.log(f1); // frank 
+
+			// // 函数声明
+			// function f1(){
+			// 	console.log('f1 is running');
+			// }
+
+			// var f1 ='frank2';
+			// console.log(f1);
+
+
+			//  5. 脚本中  如果变量与函数同名，函数将会覆盖变量 ， 变量无法覆盖 函数
+			// 预编译
+
+			// console.log(f1);
+			// // 函数声明
+			// function f1(){
+			// 	console.log('f1 is running');
+			// }
+
+			// var f1 ='frank2';
+
+
+
+			// 6 脚本中，函数名如果相同的话， 后面的声明 会覆盖 前面的函数声明
+			//  参数的个数是忽略的， 也就是JS 不支持重载函数
+
+			// 参数的个数 是忽略的？ 这是什么意思。。。
+
+			console.log(f);
+			// f(1,2,3);
+
+			function f(x) {
+				console.log('hello 0');
+			}
+
+			function f(x, y) {
+				console.log('hello 1');
+			}
+
+			function f(x, y, z) {
+				console.log('hello 2!', x, y, z);
+			}
+			// todo time:  1:40 
+			
+			
+		</script>
+
+
+	</body>
+</html>

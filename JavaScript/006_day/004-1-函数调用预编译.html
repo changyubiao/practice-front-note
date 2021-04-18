@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		函数调用的预编译过程 
+		
+
+		函数调用：
+			1.创建活动对象AO（Active Object）（上下文）
+			
+			2.预编译：
+				scope chain
+				初始化arguments
+				初始化形参，将arguments中的值赋值给形参
+				找出所有的变量声明，按照变量名加入AO，如果已经存在，忽略。
+				找出所有的函数声明，按照函数名加入AO，如果已经存在同名变量或者函数，替换。
+				this初始化
+				
+				
+			3.解释执行
+		
+		
+		
+		
+		
+		scope chain: 作用域链 
+		
+		GO --\> AO  
+		
+		 -->
+
+		<script type="text/javascript">
+			// 8. 函数中所有的变量的声明，在函数的预编译阶段完成， 所有的变量的声明与实际是书写位置无关
+			// function f() {
+			// 	console.log('a=', a); // undefined  
+			// 	var a = 10;
+			// 	console.log('a=', a); // 10 
+			// }
+			// f();
+
+
+
+			// 9. 在函数中， 所有函数声明 ，在函数的预编译阶段完成， 所有的函数声明 与实际书写位置无关。
+
+			// function f() {
+			// 	console.log(wrapper);
+
+			// 	// 里面 的不会进行预编译 
+			// 	function wrapper(){
+			// 		console.log('wrapper is running');	
+			// 	}
+			// }
+			// // 调用函数
+			// f();
+
+
+
+			// // 10. 在函数中， 如果变量与函数同名，那么函数将会覆盖变量 
+			// function f() {
+
+			// 	console.log(wrapper);  // function 
+			// 	var  wrapper = 'frank';
+
+			// 	console.log(wrapper);  // frank 
+
+			// 	// 函数 预编译 会覆盖同名的变量
+			// 	function wrapper(){
+			// 		console.log('wrapper is running');	
+			// 	}
+			// }
+			// // 调用函数
+			// f();
+
+			// 11. 在函数中， 只有函数 能够覆盖变量，变量无法覆盖函数
+			// function f() {
+
+			// 	console.log(wrapper);  // function 
+
+
+			// 	// 函数 预编译 会覆盖同名的变量
+			// 	function wrapper(){
+			// 		console.log('wrapper is running');	
+			// 	}
+			// 	var  wrapper = 'frank';
+
+
+			// }
+			// // 调用函数
+			// f();
+
+
+			// ???
+			// 12 后面的函数声明，如果函数同名，  后面的函数声明 会覆盖前面的函数的声明。 
+			//  并且 函数的个数 是忽略的， 也就是 JS 不支持重载 
+			// function f(){
+
+			// 	console.log(fin);
+			// 	function fin(x){
+			// 		console.log('hello 1 !');
+
+			// 	};
+
+			// 	function fin(x){
+			// 		console.log('hello 2 !');
+			// 	};
+
+			// 	function fin(x,y){
+			// 		console.log('hello 2 !');
+			// 	};
+
+			// }
+			// f();
+
+			// 2:11 
+
+
+
+			// 13 当函数预编译后， 遇到需要访问的变量或者函数， 优先考虑自己AO中定义的变量和函数
+			// 如果找不到，才会在其定义的上一层AO 中寻找，直到 GO ，再找不到 报错 
+			// var  scope = 'global';
+			// function f(){
+			// 	console.log(1,scope);  // undefined
+
+			// 	var scope = 'local';
+			// 	console.log(2,scope);
+			// }
+			// f();
+			// console.log(3,scope);
+
+			// //  GO.scope  -> undefined
+			// //  Go.f  -> function 
+			// // AO.scope  -> undefined
+			// //  AO.scope  -> 'local'
+			// // AO 被摧毁...
+			// // 3..   scope = 'global'
+
+
+
+
+			// another example 
+			
+		// 	console.log(1,scope);  // undefined
+		// 	var scope = 'global';
+
+		// 	function f() {
+		// 		var scope = '1-local';
+		// 		function f2() {
+		// 			console.log(2,scope); // undefined
+		// 			var scope = '2-local';
+		// 			console.log(3,scope);  // 2-local 
+		// 		}
+				
+		// 		// 调用f2()
+		// 		f2();
+		// 		console.log(4,scope);  // 1-local 
+		
+		// 	}
+		// 	f();
+		// 	console.log(5, scope);  // global
+			
+			//  GO.scope  -> undefined
+			//  GO.scope  -> function
+			
+			//  1. undefined
+			// 调用函数的时候， 生成函数的AO,  f.AO
+			//  f.AO.scope = undefined
+			//  f.AO.f2 = function 
+			//  f2.AO 
+			// f2.AO.scope = undefined 
+			// 2. undefined    之后变成 '2-local' 
+			
+			// f2 调用退出， destory f2.AO 
+			
+			// f.AO.scope = '1-local'
+			
+			// f 退出， destory  f.AO 
+			
+			// 5.  GO.scope = 'global'
+			
+			
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+			// 预编译 练习题目1 
+			
+			
+			// function test(x,x){
+			// 	console.log(x);  // function 
+			// 	x = 5;  
+				
+			// 	console.log(arguments);  //Arguments[2],  [12, 5]
+			// 	function x(){
+			// 		console.log('hahah');
+			// 	}
+			// }
+			
+			// test(12,13)
+			
+			//  GO.test -> funciton
+			// test.AO arguments  -> [12,13]
+			// test.AO.x  -> 12  -> 13
+			// test.AO.x  -> function  , test.AO arguments  -> function 
+			
+			// test.AO arguments  -> [12,5]
+			// test.AO.x  -> function  , test.AO arguments  -> function -> 5 
+			
+		</script>
+		
+		
+		 <script type="text/javascript">
+		 	// 预编译 练习2 
+			b = 'frank';
+			function a (a,a){
+				console.log(a);
+				console.log(b);
+				var b = 'abc';
+				
+				a();
+				function a(){
+					console.log(a);
+				}
+				
+			}
+			
+			
+			
+			
+		 </script>
+	</body>
+</html>

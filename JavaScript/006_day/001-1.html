@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 工厂模式
+		 https://www.runoob.com/design-pattern/design-pattern-intro.html
+		 
+		 -->
+
+		<script type="text/javascript">
+			// 工厂模式 ：   简单工厂和抽象工厂 
+
+			/*
+			 design  pattern   设计模式 
+			
+			什么是 GOF  四人帮 
+			 主张？ 模式 能够更好的帮你解决一些你面对的问题
+			 
+			 1 针对接口编程，更多的使用组合 而不是继承
+			 
+			*/
+
+
+
+			/*
+			 需求， 创建一些对象 ： person , dog,car   
+			 
+			 
+			 发现写了很多重复的代码
+			 构造 frank, 小明
+			 
+			 
+			 
+			*/
+
+
+			var personFactory = {
+
+				// 添加 gender 
+				createPerson: function(name, age, gender) {
+
+					var p = {};
+
+					p.type = 'person';
+					p.name = name;
+					p.age = age;
+
+					if (gender === undefined) {
+						// 没有传值 ,给默认值
+						p.gender = 'male';
+					} else {
+						p.gender = gender;
+					}
+
+
+					p.gender = gender || 'male';
+
+
+
+					p.eat = function() {
+						console.log(this.name + ' ' + 'is eatting');
+					};
+					p.study = function() {
+						console.log(this.name + ' ' + 'is studying.');
+					};
+
+					p.say = function() {
+						console.log(this.name + ' ' + 'is saying.');
+					};
+
+					return p;
+
+				}
+			};
+
+
+			var frank = personFactory.createPerson('frank', 18);
+			var xiaoMing = personFactory.createPerson('xiaoMIng', 10,'male');
+
+
+			function letPersonSay(p) {
+				
+				console.log(p.name,p.age,p.gender);
+				p.say();
+				// person.say.call(person);
+			}
+
+			// letPersonSay(frank);
+			// letPersonSay(xiaoMing);
+			
+			
+			/*
+			 dog 
+			 type name  , age  bark()  eat()
+			*/ 
+		   
+		   
+		   var  dog ={
+			   
+			   createDog:function(type,name,age){
+				   
+				   d = {};
+				   
+				   d.type = type;
+				   d.name  = name;
+				   d.age = age;
+				   
+				   d.bark = function() {
+				   	console.log(this.name + ' ' + 'is barking.');
+				   };
+				   
+				   d.eat = function() {
+				   	console.log(this.name + ' ' + 'is eating.');
+				   };
+				   
+				   return d ;
+			   }
+			   
+		   };
+		   
+		   
+		   
+		   bajin = dog.createDog('dog','bajin',1);
+		   huihui = dog.createDog('dog','huihui',1);
+		   
+		   
+		   
+		   var letDogBark = function(dog){
+			   dog.bark();
+		   };
+		   
+		   
+		   letDogBark(bajin);
+		   letDogBark(huihui);
+		   
+		   
+			
+			
+			
+			
+		</script>
+
+	</body>
+</html>

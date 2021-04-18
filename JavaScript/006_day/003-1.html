@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 包装类 ：
+		 
+		 包装类 
+		 
+		 本身是基本类型， 但是其本身是对象。 object 
+		 
+		 
+		 -->
+		<script type="text/javascript">
+			// 本身是基本类型， 但是其本身是对象。 object 
+			var n1 = 123;
+			var n2 = new Number(123);
+
+			console.log(n1, n2);
+
+
+			// number  object 
+			console.log(typeof n1, typeof n2);
+
+
+			var s1 = 'aaa';
+			var s2 = new String('aaa');
+			console.log(typeof s1, typeof s2);
+
+
+			var b1 = true;
+			var b2 = new Boolean(true);
+			console.log(typeof b1, typeof b2);
+
+
+
+
+			var str = '1234';
+			console.log(str.concat('56'));
+
+			/*
+			vart strTmp = new String(str);
+			console.log(strTmp.concat('56'));
+			// strTmp 销毁
+			
+			*/
+
+
+
+			var str2 = new String('12');
+			str2.concat('2');
+
+
+			var num = 567;
+			console.log(num.toString());
+			console.log(true.toString(), typeof true.toString());
+		</script>
+	</body>
+</html>

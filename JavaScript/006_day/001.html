@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 工厂模式
+		 https://www.runoob.com/design-pattern/design-pattern-intro.html
+		 
+		 -->
+
+		<script type="text/javascript">
+			// 工厂模式 ：   简单工厂和抽象工厂 
+
+			/*
+			 design  pattern   设计模式 
+			
+			什么是 GOF  四人帮 
+			 主张？ 模式 能够更好的帮你解决一些你面对的问题
+			 
+			 1 针对接口编程，更多的使用组合 而不是继承
+			 
+			*/
+
+
+
+			/*
+			 需求， 创建一些对象 ： person , dog,car   
+			 
+			 
+			 发现写了很多重复的代码
+			 构造 frank, 小明
+			*/
+
+
+
+			// frank 对象
+			var frank = {
+				name: 'frank',
+				type: 'person',
+				age: 18,
+				gender:'male',
+				// method 
+				eat: function() {
+					console.log(this.name + ' ' + 'is eatting');
+				},
+				study: function() {
+					console.log(this.name + ' ' + 'is studying.');
+				},
+
+				say: function() {
+					console.log(this.name + ' ' + 'is saying.');
+				}
+			};
+
+
+
+
+			// 小明 对象
+			var xiaoMing = {
+				name: 'xiaoMing',
+				type: 'person',
+				age: 10,
+				gender:'male',
+				// method 
+				eat: function() {
+					console.log(this.name + ' ' + 'is eatting');
+				},
+				study: function() {
+					console.log(this.name + ' ' + 'is studying.');
+				},
+
+				say: function() {
+					console.log(this.name + ' ' + 'is saying.');
+				}
+			};
+			
+			
+		
+			function letPersonSay(person){
+				// console.log(person.name);
+				// person.say(person);
+				person.say.call(person);
+			}
+			
+			
+			
+			letPersonSay(frank);
+			letPersonSay(xiaoMing);
+		
+			
+			
+		</script>
+
+	</body>
+</html>
