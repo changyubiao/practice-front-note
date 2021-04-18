@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+<!-- 
+
+
+如何判断一个变量是否为函数
+ 
+ 两种方法：
+
+ f.constructor.name =='Function'
+ 
+ 
+ typeof f == 'function'
+ 
+ 
+ -->
+
+		<script type="text/javascript">
+			var a = [];
+
+			var f = function(x) {
+				console.log(x);
+
+			}
+
+
+			// f(10);
+
+			// 如何判断一个变量是否为函数, 
+			// 判断大写的 Function 
+			console.log( f.constructor.name =='Function' );
+
+
+			// typeof  判断 可以判断函数  
+			// console.log((typeof f) == 'function');
+
+
+
+			//  typeof  一般用于原始类型 
+			//  null 是例外，  typeof  null 是 object  
+
+			// 函数是引用类型,  但是 typeof f 是function 
+		</script>
+
+
+		<script type="text/javascript">
+			// 练习 实现一个对象    
+			//  myMath  有两个成员函数 ， 
+			// maxOf 拿出最大数字   
+			//  三种情况，
+			// 1. 有两个或者两个以上的数字参数  返回最大的数字, 参数类型有其他类型忽略 
+			// 2. 只有一个参数， 这个参数是数组， 把数组里最大的数字的返回， 如果数组的数组小于2两个，报错， 如果有其他类型忽略。
+			// 3. 只有一个参数， 这个参数是一个object, 把对象身上 所有的数字属性 中 数字最大的返回， 如果数字不足两个 报错， 如果有其他的类型忽略。 
+
+
+			// minOf  拿出 最小的数字
+
+			var myMath = {
+
+				maxOf: function(a, b) {
+
+					if (arguments.length == 1) {
+						if (arguments[0].constructor.name === 'Array') {
+							var arr = arguments[0];
+							console.log('arr',arr);
+							var values = [];
+							for (var i = 0; i < arr.length; i++) {
+								if ( !isNaN(arr[i]) &&  (typeof arr[i] === 'number')) {
+									// console.log('push arr',arr[i]);
+									values.push(arr[i]);
+
+								}
+
+							}
+							if (values.length < 2) {
+								console.log('参数长度小于2 。')
+								return -1;
+							}
+							var result = Math.max.apply(Math, values);
+						} else if (a !== null && (typeof a) === 'object') {
+							// is object 
+							var values = [];
+							for (var o in arguments[0]) {
+								if (typeof arguments[0][o] == 'number') {
+									values.push(arguments[0][o]);
+								}
+
+							}
+							if (values.length < 2) {
+								console.log('参数长度小于2 。')
+								return -1;
+							}
+							var result = Math.max.apply(Math, values);
+						}else{
+							console.log('unkown 参数类型...')
+						}
+
+					} else if (arguments.length > 1) {
+						// 有两个参数
+						var arr = [];
+						for (var i = 0; i < arguments.length; i++) {
+							if (typeof arguments[i] === 'number') {
+								arr.push(arguments[i])
+							}
+
+						}
+						if (arr.length < 2) {
+							console.log('参数长度小于2')
+							return -1;
+						}
+
+						var result = Math.max.apply(Math, arr);
+
+					}else{
+						console.log('arguments 没有参数 ')
+					}
+					return result
+
+
+				}
+
+			}
+
+			var a = {
+				age: 18,
+				date: 1992,
+				today: 2021,
+			}
+
+
+			// console.log(myMath.maxOf());
+			// console.log(myMath.maxOf(1));
+			// console.log(myMath.maxOf(1,10));
+			// console.log(myMath.maxOf(1, 2, 3, 10, 22, 8));
+
+			// console.log(myMath.maxOf([1, 2, 3, 49, 10, 2]));
+			// console.log(myMath.maxOf([1, 2, null,NaN,5]));
+			// console.log(myMath.maxOf(a));
+
+
+
+			// var arr = [1, 2, 3, 10, 4]
+
+			// console.log(Math.max.apply(Math, arr));
+			// console.log(Math.min.apply(Math, arr));
+
+
+			// var  obj  = {
+			// } ;
+
+
+
+			// var  obj ='frank'
+
+			// // console.log(typeof obj );
+
+			// if (obj !== null &&  (typeof obj ) === 'object'){
+			// 	console.log('obj is object.');
+			// }else{
+			// 	console.log('obj is not object.');
+			// }
+		</script>
+
+	</body>
+</html>

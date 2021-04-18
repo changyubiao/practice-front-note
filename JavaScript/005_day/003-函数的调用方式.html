@@ -31,59 +31,41 @@
 			// 3. 构造函数的方式, 构造函数 new  
 			var a = new Array();
 			var obj2 = new Object();
-			
-			
+
+
 			// 4.新的方式： 间接调用函数 
 			// 使用  call 或者 apply ，主要区别 可以绑定 this 
-			
-			
-			var  obj3= {
-				name:'frank',
-				age:18,
-				f3:function(x,y){
-					console.log('this:',this);
-					console.log('age=',this.age);
-					console.log(x,y);
+
+
+			var obj3 = {
+				name: 'frank',
+				age: 18,
+				f3: function(x, y) {
+					console.log('this:', this);
+					console.log('age=', this.age);
+					console.log(x, y);
 				}
 			}
-			obj3.f3(3,4);
-			
+			obj3.f3(3, 4);
+
 			// console.log(obj3.f3);
 			// console.log(typeof obj3.f3);
-			
-			
-			var f4 = obj3.f3 ;
+
+
+			var f4 = obj3.f3;
 			// console.log(f4);
 			// undefined
 			// f4();
 			// window.f4();
-			
+
 			// 把 obj 对象当做第一个参数， 这样可以绑定 this 
-			f4.call(obj3,3,4);
+			f4.call(obj3, 3, 4);
 			// applay 调用方式有点区别 这里参数列表是一个列表 
 			// f4.apply(obj3,[3,4]);
-			
-			
-			
+
+
+
 			// TODO  1:42:00
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		</script>
 	</body>
 </html>

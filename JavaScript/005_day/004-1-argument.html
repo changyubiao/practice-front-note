@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments
+		 
+		 
+		 
+		 arguments.callee 就是函数本身
+		 
+		 -->
+	</head>
+	<body>
+
+	<script type="text/javascript">
+		
+		// 函数表达式的递归 
+		
+		var fact = function (n){
+			if (n<=1){
+				return 1;
+			}
+			
+			// arguments.callee 就是函数本身
+			return n  * arguments.callee(n-1);
+			
+		}
+	
+		// var  fact2 = fact; 
+		console.log(fact(4));
+		
+		
+		
+	</script>
+	
+	
+	</body>
+</html>
