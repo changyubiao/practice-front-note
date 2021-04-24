@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 
+		 JS中只有函数级别的作用域，没有块级别的作用域；换句话说，只有在进入或者退出函数的时候，作用域会发生变化。
+		 
+		 
+		 
+		 执行环境和作用域链
+
+
+		 执行环境（execution context），定义了执行期间可以访问的变量和函数。
+		 
+		 全局执行环境
+			 Global Object（window）
+			 从见到JS代码开始创建
+			 到网页关闭时销毁
+		 
+		 函数执行环境
+			 Activation Object
+			 从函数调用时 开始创建    ;  注意是 调用的时候 才产生函数的执行环境
+			 到函数调用结束时销毁  -> 引用计数为0的时候，才真正删除
+
+
+
+
+		执行环境（EC）和作用域链
+
+		作用域[[scope]]，每个函数都有。
+		作用域是私有属性，只能由JS引擎访问
+		作用域链，是AO和GO构成的链
+		所谓执行环境，就是根据作用域链依次查找变量和函数：
+			找到即停；
+			全部找完无果，报错。
+		作用域链每个函数都有
+
+		 
+		 
+		 
+		 
+		 
+		 生成作用域链
+
+		 
+		 每个函数在定义（函数声明\函数表达式）时会拷贝其父亲函数的作用域链；
+		 在函数被调用时，生成AO然后将AO压入作用域链的栈顶。
+		 
+
+
+		 
+		 
+		 
+		 -->
+
+		<script type="text/javascript">
+			// JS  作用域 是函数级别的
+
+			// 1. if 的{}块无法影响函数的作用域
+			// var scope = 'global';
+
+			// if (true) {
+			// 	console.log(1, scope); //global
+			// 	var scope = 'frank';
+			// 	console.log(2, scope); //frank 
+			// }
+			// console.log(3, scope); // frank 
+			// GO.scope -> undefined 
+			// GO.scope -> global  赋值语句
+
+
+
+			// 2. for 循环的{}块无法影响函数的作用域
+			// for (var i = 0; i < 10; i++) {
+			// 	console.log('frank');
+			// }
+			// // 此时i 是有效的.
+			// console.log('i=', i);
+
+
+
+			// 一种应用,可以判断是正常退出循环还是break出去的。
+
+			// 多定义一个 found 
+			// var found = false;
+			// var a = [1, 2, 5,0, 4];
+			// for (var i = 0; i < a.length; i++) {
+			// 	if (a[i] === 0) {
+			// 		found = true
+			// 		break;
+			// 	}
+			// }
+
+			// if (found) {
+			// 	console.log('foud Zero!');
+			// }
+
+
+
+			// 		var a = [1, 2, 5,0, 4];
+			// 		for (var i = 0; i < a.length; i++) {
+			// 			if (a[i] === 0) {
+			// 				break;
+			// 			}
+			// 		}
+
+			// 		if (i !== a.length){
+			// 			console.log('foud Zero!');
+			// 		}else{
+			// 			console.log('Not foud Zero!');
+			// 		}
+
+
+
+
+
+
+
+		</script>
+
+
+		<script type="text/javascript">
+			// 
+			// var g = 'g';
+
+			// function fa() {
+			// 	var a = 'a';
+
+			// 	function fb() {
+			// 		var b = 'b';
+			// 	}
+			// 	fb();
+			// }
+			// fa();
+		</script>
+
+
+		<script type="text/javascript">
+			//qestion1： 如果多次调用一个函数,生成的AO是相同的么？  
+			//  不是
+
+			function fa() {
+				console.log(a);
+				var a = 100;
+				a++;
+				// console.log(a);	
+			}
+
+			// fa(); // undefined
+			// fa(); // undefined
+			// fa(); // undefined
+			// fa(); // undefined
+			// fa(); // undefined
+		</script>
+		
+		
+		<script type="text/javascript">
+			//question2: 如果递归调用一个函数,生成的AO是相同的么？
+			// 不是
+			// ???
+			
+			// 函数定义的地方 
+			// 每个函数在定义（函数声明\函数表达式）时会拷贝其父亲函数的作用域链
+			function fa(x){
+				if (x>2){
+					var a = 100;
+					a ++;
+					// console.log('a=',a);
+					fa(x-1);
+				}
+				return 0;
+			}
+			
+			// var b = fa(5);
+			// console.log('b=',b);
+			
+		</script>
+
+
+	</body>
+</html>
