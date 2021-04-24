@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 函数作用域 [[scope]]
+		 
+			外部对内部可见；
+			内部对外部不可见；
+			内部优先；
+		
+		 -->
+		<script type="text/javascript">
+			// 作用域链， 
+			// 1. 函数外部对 内部可见 
+			// 	var  scope ='global scope';
+
+			// 	function  f(){
+			// 		console.log(scope);    //global scope
+			// 	}
+			// 	f();
+
+
+			// 2. 函数  内部对外部 不可见 
+			// function f() {
+			// 	var scope = 'hello world';
+			// }
+			// f();
+
+			// // Uncaught ReferenceError: scope is not defined
+			// //  scope 出了函数之后， 外面就不能访问了。
+			// console.log(scope);
+
+
+
+
+			// 3  函数，内部外部都可见，内部优先
+			var scope = 'global scope';
+
+			function f() {
+				console.log(scope); // undefined
+				var scope = 'frank';
+				console.log(scope); //frank  
+			}
+			f();
+			
+			console.log(scope);  // global scope 
+			
+			// 分析预编译 
+			// GO.scope -> undefined 
+			// GO.f  ->function
+			
+			// f.AO.scope -> undefined 
+			// 打印 scope  --> undefined 
+			// f.AO.scope = 'frank'
+			// 打印 scope  --> 'frank' 
+			
+			
+			
+		</script>
+	</body>
+</html>

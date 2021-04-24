@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+			闭包原理： 
+			函数的AO通过scope chain相互连接起来，使得函数体内的变量都可以保存在函数的AO，这样的特性称为“闭包”。
+
+
+		 应用： 
+		 
+		 特点： 封装变量 ，只暴露 函数 
+		 
+		 
+		 
+		 闭包的危险：
+			闭包会造成原有AO不释放，产生内存泄漏
+		 
+		 
+		 
+		 
+		 闭包的应用：
+			 1.实现公有变量
+			 2.缓存存储结构
+			 3.封装，实现属性私有化   
+			 4.模块化开发，防止污染全局变量
+
+
+
+		 
+		 
+		 
+		-->
+		<script type="text/javascript">
+			// 引入例子
+			// function outer() {
+			// 	var scope = 'outer';
+
+			// 	function inner() {
+			// 		return scope;
+			// 	}
+
+			// 	// 返回一个函数， 内部函数 会copy 父亲的scope chain 的拷贝，， 当父函数执行完成后， 此时父 函数的scope chain 已经没有了。
+			// 	// 此时 AO 并没有销毁.
+			// 	return inner
+			// }
+
+			// var fn = outer();
+			// var result = fn();
+			// console.log('scope=', result);
+		</script>
+
+
+
+		<script type="text/javascript">
+			// 1 公有变量 
+
+			// var  counter = 0;
+			// 5000 line codes 
+
+
+			// 5000 line codes
+
+			// function createCounter() {
+			// 	var counter = 0;
+
+			// 	// 内部函数
+			// 	function wrapper() {
+			// 		counter++;
+			// 		console.log('counter=',counter)
+			// 		return counter;
+
+
+			// 	}
+			// 	// 返回内部函数
+			// 	return wrapper
+			// }
+
+			// var  addCounter = createCounter();
+			// addCounter();
+			// addCounter();
+			// addCounter();
+			// addCounter();
+			// addCounter();
+		</script>
+
+
+		<script type="text/javascript">
+			// 2.缓存存储结构  多个变量 多个函数 
+			// function createCounter() {
+
+			// 	var count = 0;
+
+
+			// 	function counterAdd() {
+
+			// 		count++;
+			// 		console.log(count);
+
+			// 		return count;
+			// 	}
+
+
+			// 	function counterAddTwo() {
+
+			// 		count += 2;
+			// 		console.log(count);
+			// 		return count;
+			// 	}
+
+
+			// 	function clearAction() {
+
+			// 		count = 0;
+			// 		console.log(count);
+			// 		return count;
+			// 	}
+
+			// 	// 如何return  多个值呢？？
+
+			// 	return [counterAdd, counterAddTwo, clearAction]
+			// }
+
+			// var counterAction = createCounter();
+
+			// // add one 
+			// counterAction[0]();
+			// counterAction[0]();
+
+			// // add two 
+			// counterAction[1]();
+			// counterAction[1]();
+			// counterAction[1]();
+
+			// // clear counter 
+			// counterAction[2]();
+		</script>
+
+
+		<script type="text/javascript">
+			// 3. 模块化 代码  
+			function createCounter(name) {
+				var count = 0;
+
+				var counter = {
+					counterAdd: function() {
+						count++;
+						console.log(name,count);
+						return count;
+					},
+
+					counterAddTwo: function() {
+						count += 2;
+						console.log(name,count);
+						return count;
+					},
+
+					clearAction: function() {
+						count = 0;
+						console.log(name,count);
+						return count;
+					}
+				};
+				return counter;
+			}
+
+
+			var counter = createCounter('aa');
+			
+			
+			//  add one 
+			counter.counterAdd();
+			counter.counterAdd();
+
+			//  add two 
+			counter.counterAddTwo();
+			counter.counterAddTwo();
+			counter.counterAddTwo();
+
+			
+			// clear 清空
+			// counter.clearAction();
+			
+			
+			
+			
+			var counter2 = createCounter('bb');
+			counter2.counterAddTwo();  // 2 
+			
+			// 两个不同的闭包， 是两个不同的变量，
+			// 第二次调用 产生了两个不同的 AO ， 因此相互不影响的。
+			
+		</script>
+		
+		
+
+
+	</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			/*
+			
+			
+			with，生成新的with variable object，放在作用域链表顶端。
+
+			best practice 
+			
+			with 不要用 
+			
+			*/
+
+
+			// var person = {
+			// 	name: 'frank',
+			// 	age: 18,
+			// 	height: 175,
+			// 	wife: {
+			// 		name: 'wife name',
+			// 		age: 21
+			// 	}
+			// }
+
+
+			// with(person.wife) {
+			// 	console.log(name);
+
+			// }
+		</script>
+
+
+		<script type="text/javascript">
+			// function f(p1, x) {
+
+			// 	with(p1) {
+			// 		// 5000 line code 
+			// 		console.log(x);
+			// 	}
+
+			// }
+
+
+			// var p = {
+			// 	num: 1,
+			// 	num2: 10,
+			// 	// 突然 有一天 添加 x 属性.
+			// 	x:'frank'
+			// }
+
+			// f(p, 500);
+		</script>
+
+		<script type="text/javascript">
+			// var p = {
+
+			// 	values: {
+			// 		num1: 1
+			// 	}
+			// }
+
+			// with(p.values) {
+			// 	// 5000 line code  
+
+			// 	// 突然有一天....
+			// 	p.values = {
+			// 		num2: 15
+			// 	}
+
+			// 	// 5000 line code 
+			// 	console.log(num1);
+			// }
+
+			// console.log(p.values.num1);
+		</script>
+
+
+
+
+		<script type="text/javascript">
+			/*
+			作用域链的应用 
+			
+			
+			作用域链的应用：
+			
+			效率：
+				尽量少使用靠近上层的变量，多使用自己的局部变量
+			
+			
+			重名，容易出错：
+			
+				尽量减少不同层次函数使用相同的变量名 
+				避免函数名与变量名一样。
+
+			
+			Question:
+			
+				函数退出以后AO是否一定被释放？
+				 引用 要为0 ， 才有可能释放 
+
+			
+		
+		
+		
+		
+			为啥要知道原理 ？ 
+			
+			效率 
+			
+			安全 
+		*/
+
+
+			function outer() {
+
+				var scope = 'outer';
+
+				function inner() {
+
+					return scope;
+				}
+				// 闭包 
+				return inner
+			}
+			
+			var fn = outer();
+			
+			var result = fn();
+			console.log('scope=',result);
+			// fn();
+		</script>
+
+
+
+	</body>
+</html>
