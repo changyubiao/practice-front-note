@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!-- 
+		 
+		 Number.prototype.toString()
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString
+		 
+		 -->
+
+<!-- 		<style type="text/css">
+			p {
+				background-color: #00FF00;
+			}
+		</style>
+ -->
+
+
+
+		<script type="text/javascript">
+			// Math.max  
+			//练习1:  myMax 有若干个整数 
+
+
+			// TODO 
+		</script>
+
+
+
+		<script type="text/javascript">
+			// 练习2： 一个函数产生一个随机的颜色
+			// CSS  background-color: #00FF00;  随机的 R G B  两位的 16进制数 
+			//  1. 生成 0 —— 255 的随机数 ，离散的
+			// 2. 变成16进制的字符串 
+			// 3. 拼接 字符串 
+
+
+			function getRandomInt(a, b) {
+				// [a,b)
+				let num = Math.random() * (b - a) + a;
+				return Math.floor(num);
+			}
+
+
+			function convertHex(num) {
+				// toString() 方法返回指定 Number 对象的字符串表示形式。
+				// console.log('tostring=',num.toString(16));
+				return num.toString(16);
+			}
+
+
+			function randomColorStyle() {
+				var r = convertHex(getRandomInt(0, 256));
+				var g = convertHex(getRandomInt(0, 256));
+				var b = convertHex(getRandomInt(0, 256));
+				// console.log(r, typeof r);
+				return 'background-color: ' + '#' + r + g + b + ';' + '';
+			}
+
+			for (var i = 0; i < 100; i++) {
+				var result = randomColorStyle();
+				console.log(result);
+			}
+		</script>
+
+	</body>
+</html>
