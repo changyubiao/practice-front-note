@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 20px;
+				height: 20px;
+				background-color: #FF0000;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+
+		</div>
+		<script type="text/javascript">
+			// 练习2 跑火车 
+			// 用一些小demo 解决不确定的问题
+
+			// 1.
+			// var div = document.getElementById('div1')
+			// div.style.width  = '400px';
+
+
+			// var div = document.getElementById('div1');
+			// div.style.width  = '400px';
+
+
+			// 2.  setTimeout  20 X 20   -> 400 X 20   3秒钟 300ms 
+			//  增长380 ，增长10 次 宽度增长380 ， 1次增长38 
+
+			// 3 hardCoding   所以要改一下，抽成变量
+
+
+			// div 的最大长度，width 
+			var MAX_LENGTH = 400;
+
+			// div 的最小长度，width 
+			var EDGE = 20;
+
+			// div  的跑火车的长度 
+			var LENGTH = MAX_LENGTH - EDGE
+
+			// 间隔时间  单位毫秒
+			var INTERVAL = 10
+
+
+			// 总时长
+			var PERIOD = 3000
+
+			// 每次增长的长度 
+			var SPEED = Math.floor(LENGTH / (PERIOD / INTERVAL));
+
+
+			function startLonger() {
+				var div = document.getElementById('div1');
+				// console.log(div.style.width);
+				// console.log(div.clientWidth);
+
+				width = div.clientWidth;
+				console.log('startLonger:', width);
+
+				// console.log(div.clientWidth);
+				if (width < MAX_LENGTH) {
+					width += SPEED;
+					div.style.width = width + 'px';
+					setTimeout(startLonger, INTERVAL);
+				} else {
+					div.style.width = MAX_LENGTH + 'px';
+					setTimeout(startShorter, INTERVAL);
+				}
+			}
+
+
+			function startShorter() {
+				var div = document.getElementById('div1');
+
+				width = div.clientWidth;
+				// console.log(div.clientWidth);
+				if (width > EDGE) {
+					width -= SPEED;
+					div.style.width = width + 'px';
+					div.style.left = (MAX_LENGTH - width) + 'px';
+					setTimeout(startShorter, INTERVAL);
+				} else {
+					div.style.width = EDGE + 'px';
+
+					setTimeout(startDownLonger, INTERVAL);
+				}
+			}
+
+
+			function startDownLonger() {
+				// 开始向下走
+				var div = document.getElementById('div1');
+				// console.log(div.style.width);
+				// console.log(div.clientWidth);
+
+				// width = div.clientWidth;
+				height = div.clientHeight;
+
+				// console.log(div.clientWidth);
+				if (height < MAX_LENGTH) {
+					height += SPEED;
+					div.style.height = height + 'px';
+					setTimeout(startDownLonger, INTERVAL);
+				} else {
+					div.style.height = MAX_LENGTH + 'px';
+					setTimeout(startDownShorter, INTERVAL);
+				}
+			}
+
+			function startDownShorter() {
+				// 开始向下走,变短
+				var div = document.getElementById('div1');
+				// console.log(div.style.width);
+				// console.log(div.clientWidth);
+
+				height = div.clientHeight;
+
+
+				// console.log(div.clientWidth);
+				if (height > EDGE) {
+					height -= SPEED;
+					div.style.height = height + 'px';
+					div.style.top = (MAX_LENGTH - height) + 'px';
+					setTimeout(startDownShorter, INTERVAL);
+				} else {
+					div.style.height = EDGE + 'px';
+					setTimeout(startLeftLonger, INTERVAL);
+				}
+			}
+
+
+
+			function startLeftLonger() {
+				// 从右向左 移动 
+				var div = document.getElementById('div1');
+				// console.log(div.style.width);
+				// console.log(div.clientWidth);
+
+				width = div.clientWidth;
+				// height = div.clientHeight;
+
+				if (width < MAX_LENGTH) {
+					width += SPEED;
+					div.style.width = width + 'px';
+					div.style.left = (MAX_LENGTH - width) + 'px';
+					setTimeout(startLeftLonger, INTERVAL);
+				} else {
+					div.style.width = MAX_LENGTH + 'px';
+					setTimeout(startLeftShorter, INTERVAL);
+				}
+			}
+
+
+			function startLeftShorter() {
+				// 从右向左 移动 
+				var div = document.getElementById('div1');
+
+				width = div.clientWidth;
+
+				console.log('startLeftShorter:', width);
+
+				if (width > EDGE) {
+					width -= SPEED;
+					div.style.width = width + 'px';
+					// div.style.right = (MAX_LENGTH - width) + 'px';
+					setTimeout(startLeftShorter, INTERVAL);
+				} else {
+					div.style.width = EDGE + 'px';
+					setTimeout(startUpLonger, INTERVAL);
+				}
+			}
+
+
+			function startUpLonger() {
+				// 从右向左 移动 
+				var div = document.getElementById('div1');
+
+				height = div.clientHeight;
+				console.log('startUpLonger:height', height);
+
+
+				if (height < MAX_LENGTH) {
+					height += SPEED;
+					div.style.height = height + 'px';
+					div.style.top = (MAX_LENGTH - height) + 'px';
+					setTimeout(startUpLonger, INTERVAL);
+				} else {
+					div.style.height = MAX_LENGTH + 'px';
+					setTimeout(startUpShorter, INTERVAL);
+				}
+			}
+
+
+			function startUpShorter() {
+				// 开始向上走,变短
+				var div = document.getElementById('div1');
+				height = div.clientHeight;
+				console.log('startUpShorter:height', height);
+				if (height > EDGE) {
+					height -= SPEED;
+					div.style.height = height + 'px';
+					div.style.bottom = (MAX_LENGTH - height) + 'px';
+					setTimeout(startUpShorter, INTERVAL);
+				} else {
+					div.style.height = EDGE + 'px';
+					// setTimeout(startLeftLonger, INTERVAL);
+				}
+			}
+
+
+			startLonger();
+
+
+
+			// startDown();
+
+			// setTimeout(startLonger,3000);
+
+
+			//1. 作业完成 跑火车 那三部分写好。
+			// 从左到右, 从上到下,从右到左, 从下到上
+		</script>
+	</body>
+</html>

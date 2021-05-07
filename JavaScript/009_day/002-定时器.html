@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="txt">
+			
+			
+			
+		</div>
+
+		<script type="text/javascript">
+			/*
+			// 定时器, setTimeout调用时只是把任务放置到队列中,然后返回，
+			// 等到规定的时间到了,会再调用回调函数
+			// 异步.
+					
+			*/
+
+
+			// function fn() {
+			// 	var d = new Date();
+			// 	console.log(1, d);
+			// }
+
+
+			// // 函数名称， 毫秒数 
+			// setTimeout(fn, 5000);
+			// var d = new Date();
+			// console.log(2, d);
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// 定时器 
+			// 用setTimeout 做一个时钟  
+			// 浏览器是单线程，  不能写死循环 
+			// do{
+				
+			// }while(true)
+			
+			
+			var timer ;
+			function startTime(){
+				
+				var now = new Date();
+				var  txt = document.getElementById('txt');
+				txt.innerHTML = now.toLocaleDateString()+ ' '+  now.toLocaleTimeString();
+				// 200毫秒
+				timer = setTimeout(startTime,200);
+			}
+			timer = setTimeout(startTime,200);
+			
+			
+			
+			function stopTime(){
+				// 停住表
+				clearTimeout(timer);
+				
+			}
+			
+			// 10 秒 停掉一个表 
+			setTimeout(stopTime,10000);
+
+			
+			
+			
+			// setTimeout()  只有一次
+			// setInterval()  每间隔多长时间，就运行一次。 
+			// 64：25
+			
+			
+			
+	
+		</script>
+
+
+
+	</body>
+</html>
