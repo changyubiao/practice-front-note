@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 创建一个 JavaScript Date 实例，该实例呈现时间中的某个时刻。Date 对象则基于 Unix Time Stamp，即自1970年1月1日（UTC）起经过的毫秒数。
+
+
+
+			Date MDN 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date
+		 
+		 
+		 
+		 彻底弄懂GMT、UTC、时区和夏令时
+		 https://zhuanlan.zhihu.com/p/135951778
+		 -->
+
+		<script type="text/javascript">
+			// Date  对象日期和时间 
+			//1. 注意这个 new 关键字不能省略
+			// var d = new  Date();
+			// console.log(d);
+
+			//2 . 巨大的正整数 1970.1.1 00:00:00   以来到现在的毫秒数 
+			// 返回自 1970-1-1 00:00:00  UTC（世界标准时间）至今所经过的毫秒数。
+			// console.log(d.getTime());
+
+
+
+			// var  x = d.getTime();
+			// x /= 1000* 3600*24 * 365 ;
+			// console.log(x);
+
+
+
+
+			// 3. 设定时间 
+			// var d = new  Date();
+			// console.log(d);
+			// // year month day    month :0--11
+			// d.setFullYear(2019,3,1)
+			// console.log(d);
+
+
+
+			// 4. 构造函数 
+			// var d2 = new Date(2019, 3, 1)
+			// console.log(d2);
+
+
+
+
+			// 5. 各种时间, GMT  
+			/*
+			GMT 格林尼治时间  
+			UTC 协调世界时间 , 协调世界时(UTC) 
+
+			*/
+			// var d = new Date();
+			// console.log(d);
+
+			// console.log(d.toUTCString());
+			// console.log(d.toGMTString());
+
+
+
+
+			// 6. 设定年  d.setFullYear()
+			// var d = new Date();
+			// console.log(d);
+
+			// d.setFullYear(1999)
+
+			// console.log(d);
+
+			// console.log(d.getFullYear())
+
+
+			// 7. 获取月份  月份 从0 开始的 
+			// console.log(d.getMonth() +1);
+
+
+			// 8. 获取 日  
+			// console.log(d.getDate());
+
+
+
+			// 9. 这个是获取 星期几  , 0 星期日，  1~6 星期一 到星期六 
+			// console.log(d.getDay());
+
+
+
+			// 10. 获取毫秒数 
+			// var  s = d.getTime();
+			// 不是这个 
+			// var  s = d.getMilliseconds();
+			// console.log('s=',s);
+
+
+			// 11. 克隆出来 
+			// var  d2 = new Date(d);
+			// console.log('d2:',d2);
+
+
+
+
+
+			// 12. 获取小时， 分钟 
+			// var  d = new Date('Mon May 03 2021 16:42:21 GMT+0800');
+
+			// console.log(d.getHours());
+			// console.log(d.getMinutes());
+			// console.log(d.getSeconds());
+
+
+			// 13. 计算两个时间之差 ？ 
+			// console.log('13. 计算两个时间之差 ？ ')
+
+			// var  dStart = new Date(2019,4,1);
+			// var  dEnd = new Date(2019,4,10);
+
+			// // 毫秒数 
+			// console.log(dEnd -dStart);
+			// // 转成天数
+			// console.log((dEnd -dStart) /(1000*3600*24));
+
+
+
+			// 14。 Date 格式化 
+			// 日期格式化，  时间格式化
+
+			// var d = new Date();
+			// console.log(d);
+
+			// // 格式化日期 
+			// console.log(d.toDateString());
+			// console.log(d.toLocaleDateString());
+
+			// // 默认的时间
+			// console.log(d.toTimeString());
+			// console.log(d.toLocaleTimeString());
+
+
+			// 15  转成数字 
+			// var d2 = +new Date();
+			// console.log(d2);
+			// console.log(typeof d2);
+		</script>
+		
+
+	</body>
+</html>
