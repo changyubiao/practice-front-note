@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+		<script type="text/javascript">
+			/**
+			 * @param {string} s
+			 * @return {string[]}
+			 */
+			var findRepeatedDnaSequences = function(s) {
+				var L = 10;
+				visited = new Set();
+				output = new Set();
+
+				for (var i = 0; i < s.length - L + 1; i++) {
+					tmp = s.substring(i, i + L);
+					if (visited.has(tmp)) {
+						output.add(tmp)
+					}
+					visited.add(tmp);
+				}
+
+				var result = [...output];
+				return result;
+			};
+			
+			
+			
+			
+			// test function  
+			
+			console.log(findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"));
+			
+			
+		</script>
+	</body>
+</html>

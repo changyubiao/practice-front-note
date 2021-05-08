@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		
+		Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
+		 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set
+		 
+		 
+		 -->
+
+
+		<script type="text/javascript">
+			/*
+			Set对象是值的集合，你可以按照插入的顺序迭代它的元素。 Set中的元素只会出现一次，即 Set 中的元素是唯一的。
+			
+			*/
+			//1. 创建一个set 
+			// var  arr1 = new Set([1,2,3,4]);
+			// console.log(arr1);
+
+			// 1-1 创建一个空的set 
+			// 2. add 元素 
+			// var  mySet = new Set();
+			// mySet.add(1);
+			// mySet.add(5);
+			// mySet.add(3);
+			// mySet.add(2);
+			// mySet.add(10);
+			// console.log(mySet);
+
+
+
+			// 3. 清空集合 
+			// var  mySet = new Set([1,2,3,4]);
+			// console.log(mySet);
+			// // 清空集合 
+			// mySet.clear();
+			// console.log(mySet);
+
+
+
+
+			// 4. 集合的长度  set.size 
+			// var mySet = new Set([1, 2, 3, 4, 5, 10]);
+			// console.log(mySet.size);
+
+
+			// 5 移除一个元素 set.delete(item)
+			// var mySet = new Set([1, 2, 3, 4,5, 10]);
+			// mySet.delete(5);
+			// // 如果删除一个不存在的元素，也不会报错
+			// // mySet.delete(1000);
+			// console.log(mySet);
+			
+			
+			// 6 查看元素是否在集合中 
+			// var mySet = new Set([1, 2, 3, 4, 10]);
+			// console.log(mySet.has(10));
+			// console.log(mySet.has(20));
+			
+
+		
+			// 7  遍历Set,迭代set 集合
+			// for (var x of mySet) { 
+			//     console.log(x);
+			// }
+			
+			
+			
+			// 8 返回一个 iterator, 按照插入的顺序返回。
+			// The values() method returns a new iterator object that contains the values for each element in the Set object in insertion order.
+
+
+			var mySet = new Set();
+			mySet.add('foo');
+			mySet.add('bar');
+			mySet.add('baz');
+			mySet.add('three');
+			
+			var setIter = mySet.keys();
+			
+			console.log(setIter.next().value); // "foo"
+			console.log(setIter.next().value); // "bar"
+			console.log(setIter.next().value); // "baz"
+			console.log(setIter.next().value); // "three"
+			console.log(setIter.next().value); // "undefined"
+
+			
+
+
+			// 9 数组去重
+			// let arr2 = new Set([1,1,2,3,4]);
+			// let arr3 = [...arr2];
+			// console.log(arr2, arr3) // {1,2,3,4} [1,2,3,4] 
+		</script>
+
+	</body>
+</html>
