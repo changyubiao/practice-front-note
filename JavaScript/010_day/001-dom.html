@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 document  object  model     简称 DOM 
+		 
+		 
+		 
+		 
+		 2. DOM概述
+		 https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction
+		 
+		 
+		 HTML DOM 教程
+		 https://www.runoob.com/htmldom/htmldom-tutorial.html
+		 
+		 2. Javascript基础篇: 常见的Dom基本操作方法
+		  https://juejin.cn/post/6844903927956111373
+		 
+		 
+		 
+		 
+		 
+		 DOM 中 使用JS的正确姿势 
+		 
+		 1. js 直接写在 HTML 中
+		 2. js 与HTML 分离
+		 3. 把js以及所有的交互响应从html 中分离
+		 
+		 -->
+
+
+
+		<!-- 第一种 不建议这样写， 直接写在 html 中 ，js 直接写在html 中 -->
+		<!-- <input type="button" id="btn" value="按钮" onclick="alert('hello frank')" /> -->
+
+
+
+		<!-- 第二种  使用一个函数   -->
+	<!-- 	<input type="button" id="btn" value="按钮" onclick="f()" />
+
+		<script type="text/javascript">
+			function f() {
+				alert('Hello 1');
+			}
+		</script>
+ -->
+
+
+
+
+
+		
+
+		<!-- script 位置 在body 最后一个位置，body 的末尾 -->
+		<script type="text/javascript">
+			
+	// 		function hello() {
+	// 			alert('Hello 2');
+	// 		}
+	
+			// var btn=  document.getElementById('btn2');
+			// // btn.onclick =hello;
+			// btn.onclick = function () {
+			// 	alert('Hello 2');
+			// };
+			
+			
+			
+			// 第三种方式 
+			window.onload = function(){
+
+				document.getElementById('btn2').onclick = function () {
+					alert('Hello 2');
+				};
+				
+			}
+	
+					
+
+			// window.onload = function(){
+			// 	document.getElementById('btn').onclick = function(){
+			// 		alert('Hello Frank');
+			// 	}
+			// }
+		</script>
+		
+		
+		
+		<!-- 把 JS 和 交互从HTML 中剥离  -->
+		<input type="button" id="btn2" value="按钮2" />
+		
+		
+		
+		
+		
+
+	</body>
+</html>
