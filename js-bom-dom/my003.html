@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<p>11111111</p>
+		<p class="myP"></p>
+
+
+		<p>222222222222</p>
+		<p class="myP"> defg</p>
+		<p class="myP"> 3.14</p>
+
+
+		<form action="" method="post">
+			
+			<input type="button" name ="input1" value="按钮1"/>
+			<input type="button" name ="input1" value="按钮2"/>
+			<input type="button" name ="input1" value="按钮3"/>
+			<input type="button" name ="input1" value="按钮4"/>
+			<input type="button" name ="input1" value="按钮5"/>
+
+		</form>
+
+
+		<script type="text/javascript">
+			//  document  获取 元素的一些方法 
+			// getElementsByClassName , getElementsByTagName
+			// document.getElementById();
+
+			// document.getElementsByClassName();
+			// document.getElementsByTagName();
+
+
+
+
+			ps = document.getElementsByTagName('p');
+
+			console.log("ps:",ps);
+
+			for (var i = 0; i < ps.length; i++) {
+				ps[i].innerText = '我是修改以后的字符串，现在是第' + i + '行';
+
+			};
+
+			// HTMLCollection 不是数组, 不能用in/forEach
+			for (var i in ps) {
+				console.log(i);
+				ps[i].innerText = '我还是修改后的字符串，现在是第' + i + '行';
+			}
+
+
+			var ps2 = document.getElementsByClassName('myP');
+			console.log("ps2:", ps2);
+			for (var i = 0; i < ps2.length; i++) {
+				var style = ps2[i].style;
+
+				style.fontSize = '25px';
+				style.fontWeight = '700';
+				
+				style.backgroundColor = '#000000';
+				style.color ='#FF0000';
+				style.display = 'block';
+			};
+			
+			// document.getElementsByName()
+			
+			
+			
+			// name 只对部分标签有效, form,表单元素,img,iframe
+			var inputs= document.getElementsByName('input1');
+			
+			for (var i = 0;i<inputs.length;i++){
+				var style = inputs[i].style;
+				
+				style.fontSize = '40px';
+				style.fontWeight = '700';
+				style.color  = '#000000';
+			}
+			
+		</script>
+		
+		<script type="text/javascript">
+			// 练习 
+			// 	// 练习1: table 有表头,有表体,单数行背景是灰色的#ccc,双数行是白色的.
+			
+			
+			// 淘宝红 导航栏 
+			// 练习2: 菜单, 单数个菜单的字体颜色是#ff8000, 双数的菜单字体颜色黑色.
+		</script>
+	</body>
+</html>

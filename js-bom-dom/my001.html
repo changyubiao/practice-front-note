@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<!-- 
+	 
+	 -->
+	<body>
+		
+		
+		
+		<script type="text/javascript">
+			/*
+			一般 script 写在 body 的最后一个元素的位置，这样可以保证所有的元素 被加载 
+			*/ 
+			
+			
+			// window 加载完成后 执行 
+			window.onload = function(){
+				document.getElementById('btn').onclick = function(){
+					alert('hello frank');
+				};
+				
+			};
+			
+			
+			// document.getElementById('btn').onclick = function(){
+			// 	alert('hello frank');
+			// };
+		</script>
+
+		
+		
+		<input type="button" name="" id="btn" value="按钮"/>
+		
+
+		
+		
+	</body>
+</html>

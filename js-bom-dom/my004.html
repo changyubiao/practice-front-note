@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+
+		<form action="" method="" id="frm">
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="text" name="" id="" value="111111" />
+		</form>
+
+
+		<input type="button" name="" id="" value="AAAAAAAAAA" />
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
+			frm = document.getElementById('frm');
+
+			inputs = frm.getElementsByTagName('input');
+
+			for (var i = 0; i < inputs.length; i++) {
+				item = inputs[i];
+
+				if (item.type === 'button') {
+					item.value = '按钮' + i;
+					
+					
+					// 这里只是 绑定， 绑定的时候是作用域链
+					item.onclick = function() {
+						//  改变 button 的 value 
+						// 重置 一下, 之前的所有的按钮
+						for (var j = 0; j < inputs.length; j++) {
+							inputs[j].value = '按钮' + j;
+
+						};
+						// 更新当前值
+						// this.value = '我被点击了';
+						
+						// 此时 i = 6 xxx xxx  ，
+						//  GO 中 i 被共享了， 当调用的时候， i 已经变为 6 了。
+						// 这样写 对不对呢？  不对
+						console.log('i = ',i);
+						inputs[i].value = '我被点击了';
+
+					}
+				}
+
+			}
+
+
+			// 如果button 被点击了， value 的值 我被点击了；
+			// 如果其他的被点击了， 上一个被点击的还原。
+		</script>
+
+
+	</body>
+</html>

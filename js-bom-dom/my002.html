@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		CSS的inline、block与inline-block
+		https://segmentfault.com/a/1190000015202771
+		
+		
+		
+		 
+		dom    可以做的事情
+		
+		 操作元素 
+		 控制元素样式 
+		 
+		 元素交互响应  
+			1. 事件 
+		 -->
+
+	
+			<a id='a1'></a>
+
+	
+
+		<p id='p1'> 我是一个p 标签</p>
+
+		<!-- <img id='img1' width="200" height="200" /> -->
+
+		<img id='img1' style="width: 200px ; height: 200px;" />
+
+
+		<p>
+			<input type="button" name="" id="btn" value="按钮" />
+
+		</p>
+
+
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+
+			console.log(btn);
+			btn.value = '按钮2';
+			btn.type = 'text';
+
+			// 更改宽度
+			btn.style.width = '500px';
+			btn.style.height = '100px';
+			btn.style.margin = '100px';
+
+
+
+
+
+			var p = document.getElementById('p1');
+
+			p.innerText = '我是修改的p 标签';
+
+			p.style.width = '300px';
+			p.style.height = '200px';
+
+			p.style.fontSize = '25px';
+			p.style.fontWeight = '700';
+			p.style.border = '2px solid #000';
+
+			// 居中
+			p.style.textAlign = 'center';
+			p.style.lineHeight = '200px';
+
+
+
+
+			//  222222
+			/*
+			假设由于下列原因用户无法查看图像，alt 属性可以为图像提供替代的信息：
+			
+			网速太慢
+			src 属性中的错误
+			浏览器禁用图像
+			用户使用的是屏幕阅读器
+			*/
+			var img = document.getElementById('img1');
+			img.src = 'img/girl.jpeg';
+
+			img.title = '这是一个漂亮的姑娘';
+			img.alt = '显示替代文本，菇凉';
+
+			// img.style.width = '300px';
+			// img.style.height = '300px';
+			// 两种写法 
+			// 		img.width = '200';
+			// 		img.height = '200';
+
+
+
+			//  333333
+			var a = document.getElementById('a1');
+			a.innerText = 'BaiDu';
+			// 添加 href 属性
+			a.href = 'https://www.baidu.com';
+			
+			// 添加 style 属性 
+			a.style.display = 'inline-block';
+			// a.style.display = 'block';
+			a.style.color = '#FFFFFF';
+			a.style.backgroundColor = '#000000';
+			a.style.width = '400px';
+		</script>
+
+		<!-- 	<script type="text/javascript">
+	
+	
+		// 练习   居中
+		// 练习1. 居中的十二种方法, 其中6种, 用JS操作HTML完成.
+			
+			document.querySelector('a')
+		</script> -->
+	</body>
+</html>

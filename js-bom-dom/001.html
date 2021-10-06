@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 
+		
+		
+		https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
+		 
+		 
+		 -->
+	</head>
+	
+	<style type="text/css">
+		
+		#main{
+			
+			width:  150px;
+			height: 150px;
+			background-color: #00FF00;
+			/* background-color: #FF0000; */
+			/* background-color: red; */
+			
+			text-align: center;
+			line-height: 150px;
+		}
+		
+	</style>
+	<body>
+		
+		
+		<div id="main" onclick="" >
+			
+			
+			
+		
+				<p class="word">hello world</p>
+
+			
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			main = document.querySelector('#main');
+			
+			words = document.getElementsByClassName('word');
+			console.log(words)
+			
+			// 方法1 
+			// onclick 事件 会覆盖 之前的事件。 如果下面的 同一个元素绑定了 两次 onclick 只有一个 onclick 事件 生效
+			// main.onclick = function(){
+				
+			// 	console.log('我被点击了一下!  111');
+				
+			// }
+			
+			
+			// main.onclick = function(){
+				
+			// 	console.log('我又一次被点击了一下! 哈哈哈 2222')
+				
+			// }
+			
+			// main.addEventListener()
+			// 方法2 
+			
+			words.onclick = function(){
+				
+				this.innerHTML =" What's up ?";
+				// console.log('words is cliked')
+				
+			}
+			
+			
+			var count=0;/*计数，从0开始，每点击一下加一*/ 
+		// 	main.addEventListener('click',function(){
+		// 		console.log('hello main 被点击了.');
+		// 		// alert('我被点击了。。。');
+				
+		// 		// main.backgroundColor = '#FF0000';
+		// 		this.style.background = '#FF0000';
+				
+		// 		count  +=1 
+		// 		if (count % 3==0){
+		// 			this.style.background = '#00FF00';
+		// 		}else if (count %3==1){
+		
+		// 			this.style.background ='#FFFF00';
+		// 		}else if (count %3==2){
+		
+		// 			this.style.background ='#FF00FF';
+		// 		}
+				
+			
+			
+		// 	});
+			
+			
+		
+			
+			
+			// main.addEventListener('click',function(){
+			// 	console.log('hello main 又 被点击了.');
+			// });
+			
+			
+			
+			// main.attachEvent('onclick',function(){
+			// 	console.log('hello world 3.');
+				
+			// });
+				
+			// main.attachEvent('click',function(){
+				
+				
+			// 	console.log('attachEvent方式 被点击了。');
+				
+			// });
+			
+		</script>
+	</body>
+</html>

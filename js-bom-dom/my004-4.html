@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style type="text/css">
+			
+			form > input  {
+				display: inline-block;
+				width: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+
+		<form action="" method="" id="frm">
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="button" name="" id="" value="" />
+			<input type="text" name="" id="" value="111111" />
+		</form>
+
+
+		<input type="button" name="" id="" value="AAAAAAAAAA" />
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
+			/*
+		如果修改更加优雅 修改 按钮的value，
+		
+		使用数组 存储 所有的点击 按钮 
+		
+		*/
+			frm = document.getElementById('frm');
+
+			inputs = frm.getElementsByTagName('input');
+
+			var curClickedInput = null;
+			
+			var  tmpInput = []
+
+
+			for (var i = 0; i < inputs.length; i++) {
+				
+				// 传入当前的 i，放入到input[i] 中 
+				inputs[i].myI  = i 
+
+				if (inputs[i].type === 'button') {
+					// 初始化 按钮的值 
+					inputs[i].value = '按钮' + i;
+
+					// 立即执行函数
+					inputs[i].onclick = (function(x) {
+						// console.log('x = ', x);
+						inputs[i].value = value = '按钮' + i;
+
+						return (function() {
+							//  改变 button 的value 
+							// 只更新 当前的值， 还原 上一次 被点击的按钮 
+							
+							while (tmpInput.length >0){
+								var  tmp = tmpInput.pop();
+								tmp.value = '按钮' + tmp.myI;
+								
+							}
+							
+							// 更新当前值
+							// console.log('cur index =',x);
+							inputs[x].value = '我被点击了' + x;
+							tmpInput.push(inputs[x]);
+							
+						});
+					})(i);
+				}
+			}
+			
+			// time: 151:00 
+
+			// 如果button 被点击了， value 的值 我被点击了；
+			// 如果其他的被点击了， 上一个被点击的还原。
+		</script>
+
+
+	</body>
+</html>
