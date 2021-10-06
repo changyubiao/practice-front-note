@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<!-- 
+	 
+	 radio  
+	 
+	 
+	 checkbox 
+	 
+	 
+	 
+	 
+	 
+	 JavaScript Array splice() 方法
+
+
+	 https://www.w3school.com.cn/jsref/jsref_splice.asp
+	 
+	 
+	 -->
+	<body>
+
+		<form id="frm1">
+			<input type="radio" value="f" />男
+			<input type="radio" value="m" />女
+			<input type="radio" value="fm" />男女不限
+		</form>
+
+
+
+		<form id="frm2">
+			<!-- value 用于提交数据， 给后端 提交数据 -->
+			<input type="checkbox" value="chinese" />语文
+			<input type="checkbox" value="math" />数学
+			<input type="checkbox" value="english" />英语
+			<input type="checkbox" value="physics" />物理
+			<input type="checkbox" value="chemistry" />化学
+		</form>
+
+
+
+		<script type="text/javascript">
+			var frm1 = document.getElementById('frm1');
+
+			var radios = frm1.getElementsByTagName('input');
+			var frm2 = document.getElementById('frm2');
+			var tmpRadios = [];
+
+
+			// 方法1 
+			for (var i = 0; i < radios.length; i++) {
+				if (radios[i].type === 'radio') {
+					radios[i].onclick = function() {
+						// 如果点击的radio 已经是 checked ，什么都不做  
+						// 如果不是,执行 下面的
+
+						for (var j = 0; j < tmpRadios.length; j++) {
+							if (tmpRadios[j] == this) {
+								//  选中自己 不用做什么。
+								break
+							}
+						}
+
+						if (j === tmpRadios.length) {
+							//  没找到
+							while (tmpRadios.length > 0) {
+								var tmp = tmpRadios.pop();
+								tmp.checked = false;
+							}
+							tmpRadios.push(this);
+						}
+
+					}
+				}
+
+			}
+
+
+
+
+
+
+			// 方法二 
+			// for (var i = 0; i < radios.length; i++) {
+			// 	if (radios[i].type === 'radio') {
+
+			// 		radios[i].onclick = function() {
+			// 			// 如果点击的radio 已经是 checked ，什么都不做  
+			// 			// 如果不是,执行 下面的
+			// 			for (var j = 0; j < tmpRadios.length; j++) {
+			// 				if (tmpRadios[j] === this) {
+			// 					break;
+			// 				}
+			// 			}
+
+			// 			// 没找到 
+			// 			if (j === tmpRadios.length) {
+			// 				while (tmpRadios.length > 0) {
+			// 					var tmp = tmpRadios.pop();
+			// 					tmp.checked = false;
+
+			// 				}
+			// 				this.checked = true;
+			// 				tmpRadios.push(this);
+			// 			}
+
+			// 		}
+			// 	}
+
+			// }
+		</script>
+
+		<script type="text/javascript">
+			var frm2 = document.getElementById('frm2');
+
+			var checkBoxes = frm2.getElementsByTagName('input');
+
+			var tmpCheckBoxes = []
+
+			// 最多 有两个 可以被选中 
+			for (var i = 0; i < checkBoxes.length; i++) {
+
+				console.log('checkboexs: i ==', i);
+
+				//  错误 写法 xxx 有 bug  
+				if (checkBoxes[i].type === 'checkbox') {
+
+					// 	checkBoxes[i].onclick = function() {
+					// 		while (tmpCheckBoxes.length > 1) {
+					// 			//  queue  
+					// 			var tmp = tmpCheckBoxes.shift();
+					// 			tmp.checked = false;
+					// 		}
+					// 		tmpCheckBoxes.push(this);
+					// 	}
+
+
+
+
+
+					checkBoxes[i].onclick = function() {
+						// 正确写法
+						//  已经点击了， 因为点击后 先变化checked 状态， 然后调用click 
+						// 所以,此处为true,说明没点以前是没选中的,符合我们的前提
+						if (this.checked) {
+							while (tmpCheckBoxes.length > 1) {
+								var tmp = tmpCheckBoxes.shift();
+								tmp.checked = false;
+							}
+							tmpCheckBoxes.push(this);
+						} else {
+							// 选中的 checkbox
+							for (var j = 0; j < tmpCheckBoxes.length; j++) {
+								if (tmpCheckBoxes[j] === this) {
+									// 删除一个元素
+									tmpCheckBoxes.splice(j, 1);
+									break
+								}
+							}
+						}
+
+					}
+
+
+				}
+
+
+			}
+		</script>
+	</body>
+</html>
