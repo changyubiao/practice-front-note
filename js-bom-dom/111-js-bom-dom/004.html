@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 点击小图 出大图  -->
+
+
+		<!-- 81:00  -->
+
+
+
+		<a id="a-link" href="image/me.jpg" > <img src="image/me-small.jpg" width="135"></a> <br>
+
+
+		<img id="img" src="">
+		
+
+		<script type="text/javascript">
+			document.querySelector('#a-link').onclick = function() {
+				document.querySelector('#img').src = this.href;
+				// 不让 a link 跳转 
+				return false;
+			}
+		</script>
+
+
+	</body>
+</html>

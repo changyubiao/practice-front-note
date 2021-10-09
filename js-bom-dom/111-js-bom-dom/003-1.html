@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- <input type="text" name="" id="txt" value="" /> -->
+		<!-- 第一种写法 -->
+		<!-- <a id=”invalid-a“  href="https://www.baidu.com"  onclick="alert(123);return false"> 百度 </a> -->
+		
+		
+		<!-- 第二 种写法 -->
+		<!-- <a id=”invalid-a“  href="https://www.baidu.com"  onclick="return f()"> 百度 </a> -->
+		
+		
+		
+		<!-- 第三 种写法 -->
+		<a id="invalid-a"  href="https://www.baidu.com" > 百度 </a>
+
+
+
+		<script type="text/javascript">
+			// 常用技巧 
+			// 2 让 a 标签的跳转无效
+			// 三种方法 
+			// 方法1   直接写在 html 标记中
+			
+			// 方法2 
+			// function  f(){	
+			// 	alert(1234);
+			// 	return false;
+			// }
+			
+			
+			
+			// 方法3  直接改写 onclick 
+			document.querySelector('#invalid-a').onclick = function(){
+				alert(3333333);
+				// 返回值， 是false 
+				return false;
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

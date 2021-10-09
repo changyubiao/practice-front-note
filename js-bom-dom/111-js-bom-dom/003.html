@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<input type="text" name="" id="txt" value="" />
+
+		<!-- invalid  valid -->
+		<input type="button" name="" id="btn" value="无效" data-state="invalid" />
+
+
+
+		<script type="text/javascript">
+			// 常用技巧 
+
+			// 1 让 text 无效 
+			document.querySelector('#btn').onclick = function() {
+
+				var txt = document.querySelector('#txt');
+				if (this.dataset['state'] == 'invalid') {
+					txt.disabled = true;
+					this.dataset['state'] = 'valid';
+					this.value = '有效';
+
+				} else {
+
+					txt.disabled = false;
+					this.dataset['state'] = 'invalid';
+					this.value = '无效';
+
+				}
+
+			}
+			
+			
+			
+			// 2 让 a 标签的跳转无效
+		</script>
+	</body>
+</html>

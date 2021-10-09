@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<style type="text/css">
+			/* 
+		 考虑 css 的优先级问题 
+		 
+		 
+		 */
+
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: #FF0000;
+
+			}
+
+
+			.show {
+				display: block;
+
+			}
+
+			.hidden {
+
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<div id="div1" class="show">this is a div  </div>
+		<input type="button" name="" id="btn" value="隐藏" />
+
+
+		<script type="text/javascript">
+			// 显示 用一个按钮实现了
+			document.querySelector('#btn').onclick = function() {
+
+				var div1 = document.getElementById('div1');
+
+				if (this.value === '隐藏') {
+					// 隐藏
+					addClassName(div1, 'hidden');
+					removeClassName(div1, 'show');
+					this.value = '显示';
+				} else {
+					// 当前值 为显示 ， 此时要显示出来
+					addClassName(div1, 'show');
+					removeClassName(div1, 'hidden');
+
+					this.value = '隐藏';
+				}
+
+
+
+			}
+
+
+
+			document
+		</script>
+	</body>
+</html>

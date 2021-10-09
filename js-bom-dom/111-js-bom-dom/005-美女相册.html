@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+			body {
+				background-color: #CCCCCC;
+				margin: 20px 10%;
+
+			}
+
+			h2 {
+				color: #333333;
+				background-color: transparent;
+			}
+
+			ul {
+				padding: 0;
+			}
+
+			li {
+				list-style: none;
+			}
+
+
+			a {
+				color: #c60;
+				background-color: transparent;
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+
+
+			p {
+				/* background-color: #0000FF; */
+				font-size: 48px;
+			}
+
+			#image-gallery {
+				/* overflow  浮动取消*/
+				overflow: hidden;
+			}
+
+			#image-gallery>li {
+				float: left;
+				margin: 0 20px 20px 0;
+			}
+
+			#image-gallery>li>a>img {
+				/* 控制宽度 */
+				width: 200px;
+				border: 0;
+			}
+
+			#image {
+				width: 800px;
+
+
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>美女相册</h2>
+		<ul id="image-gallery">
+			<li> <a href="image/p1.jpg" title="美女娄艺潇"><img src="image/s1.jpg" alt=""></a> </li>
+			<li> <a href="image/p2.jpg" title="美女李金铭"><img src="image/s2.jpg" alt=""></a> </li>
+			<li> <a href="image/p3.jpg" title="美女不认识1"><img src="image/s3.jpg" alt=""></a> </li>
+			<li> <a href="image/p4.jpg" title="美女不认识2"><img src="image/s4.jpg" alt=""></a> </li>
+
+		</ul>
+
+
+		<img id="img" src="image/placeholder.png">
+
+		<p id="des">选择一张图片</p>
+
+		<script type="text/javascript">
+			// 第一中方式
+			// var img = document.getElementById('#img');
+
+			// var all_a = document.querySelectorAll('#image-gallery > li > a ');
+
+			// for (var i = 0; i < all_a.length; i++) {
+			// 	all_a[i].onclick = function() {
+			// 		document.querySelector('#img').src = this.href;
+
+			// 		// title 没有找到呢？ 原因是什么呢？
+			// 		console.log('this.title:', this.title);
+			// 		document.querySelector('#des').innerText = this.title;
+			// 		return false;
+
+			// 	}
+			// }
+
+
+
+
+			// 1. 改造 a 的onclick  
+
+			// 2.  阻止 a 跳转事件 
+
+
+			// todo  time:117:00
+			// 第二中方式
+			document.querySelectorAll('#image-gallery > li > a ').forEach(function(element) {
+				element.onclick = function() {
+					document.querySelector('#img').src = this.href;
+					document.querySelector('#des').innerText = this.title;
+
+					return false;
+				}
+			});
+		</script>
+
+	</body>
+</html>

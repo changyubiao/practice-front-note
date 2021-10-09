@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<style type="text/css">
+			/* 
+		 考虑 css 的优先级问题 
+		 
+		 
+		 */
+
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: #FF0000;
+
+			}
+
+
+			.show {
+				display: block;
+
+			}
+
+			.hidden {
+
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<div id="div1" class="show">this is a div </div>
+		<!--  自己创造一个 属性， 用户数据   data-xxxxx  -->
+		<input type="button" name="" id="btn" value="隐藏" data-frank="h" />
+		<!-- 增加用户数据 来控制  不用 value 控制 -->
+
+		<script type="text/javascript">
+			// 显示 用一个按钮实现了
+			document.querySelector('#btn').onclick = function() {
+
+				var div1 = document.getElementById('div1');
+				
+				
+				
+				/*
+				h  --> 要回到隐藏状态 --->   add  hidden class, remove show  class ;同时 文字变成显示,用户数据变成 s
+				s --> 要回到显示状态  --->   add  show class , remove hidden class ;同时文字变成隐藏 ,用户数据变成 h  
+				
+				*/
+			   
+				if (this.dataset['frank'] === 'h') {
+					// 隐藏
+					addClassName(div1, 'hidden');
+					removeClassName(div1, 'show');
+					this.value = '显示';
+					this.dataset['frank'] = 's';
+				} else {
+					// 当前值 为显示 ，此时要显示出来
+					addClassName(div1, 'show');
+					removeClassName(div1, 'hidden');
+
+					this.dataset['frank'] = 'h';
+					this.value = '隐藏';
+				}
+
+
+
+			}
+
+
+		</script>
+	</body>
+</html>
