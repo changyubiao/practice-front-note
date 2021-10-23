@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input {
+
+				width: 400px;
+				height: 30px;
+			}
+
+			span {
+				color: #AAAAAA;
+
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		 
+		  验证文本框内容  
+		 
+		 
+		 -->
+
+		<input type="password" name="" id="pwd" value="" /><span id="prompt"> 尚未发现问题</span>
+
+
+
+
+		<script type="text/javascript">
+			document.querySelector('#pwd').onblur = function() {
+
+				if (this.value.length < 6) {
+
+					var prompt = document.querySelector('#prompt');
+					prompt.style.color = '#FF0000';
+					prompt.innerText = '密码长度不得小于6位';
+
+				}
+
+
+			}
+
+
+			document.querySelector('#pwd').onfocus = function() {
+
+				if (this.value.length < 6) {
+					var prompt = document.querySelector('#prompt');
+					prompt.style.color = '#AAAAAA';
+					prompt.innerText = '尚未发现问题';
+
+
+				}
+
+
+			}
+			
+			
+			// time 2:22:35 
+		</script>
+
+
+	</body>
+
+</html>

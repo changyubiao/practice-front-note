@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		
+			ul {
+				width: 500px;
+			}
+			li {
+
+				list-style: none;
+				border: 1px solid #CCCCCC;
+				background-color: #FFFFFF;
+
+			}
+
+
+			/* 		li:hover{
+				
+				background-color: #FFFF00;
+			} */
+		</style>
+	</head>
+	<body>
+
+		<ul>
+			<li>第零行</li>
+			<li>第一行</li>
+			<li>第二行</li>
+			<li>第三行</li>
+			<li>第四行</li>
+			<li>第五行</li>
+			<li>第六行</li>
+			<li>第七行</li>
+			<li>第八行</li>
+			<li>第九行</li>
+
+		</ul>
+
+
+
+		<script type="text/javascript">
+			/*
+		
+		onmouseout  onmouseout 事件会在鼠标指针移出指定的对象时发生。
+
+
+		
+		onmouseover 事件会在鼠标指针移动到指定的元素上时发生。
+
+	
+		
+		*/
+
+
+			var lis = document.querySelectorAll('ul> li');
+
+
+			lis.forEach(function(element) {
+
+				var tmpText = element.innerText;
+
+
+				element.onmouseover = function() {
+					// 鼠标放上去的时候，显示黄色
+					this.style.backgroundColor = '#FFFF00';
+					this.innerText = '当前行：' + tmpText;
+				}
+
+
+				element.onmouseout = function() {
+					// 鼠标离去的时候，显示淡灰色
+					this.style.backgroundColor = '#FFFFFF';
+					this.innerText = tmpText;
+
+				}
+
+			});
+			
+			
+			// time:128:00   行高亮功能 结束
+			// 行高亮 功能结束
+			
+			
+			/* 
+			onfocus：事件在对象获得焦点时发生。
+			
+			即当鼠标点击时，触发的事件，
+			
+			onblur： 事件会在对象失去焦点时发生
+			
+			*/ 
+		</script>
+
+	</body>
+</html>

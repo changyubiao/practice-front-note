@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				width: 500px;
+			}
+
+			li {
+
+				list-style: none;
+				border: 1px solid #CCCCCC;
+				background-color: #FFFFFF;
+
+			}
+
+
+			/* 		li:hover{
+				
+				background-color: #FFFF00;
+			} */
+		</style>
+	</head>
+	<body>
+
+		<ul>
+			<li>第零行</li>
+			<li>第一行</li>
+			<li>第二行</li>
+			<li>第三行</li>
+			<li>第四行</li>
+			<li>第五行</li>
+			<li>第六行</li>
+			<li>第七行</li>
+			<li>第八行</li>
+			<li>第九行</li>
+
+		</ul>
+
+
+		<script type="text/javascript">
+			lines = document.querySelectorAll('ul > li');
+
+			console.log(lines);
+
+			for (var i = 0; i < lines.length; i++) {
+				
+				lines[i].onmouseover = function() {
+					console.log('this.innerText: mouseover;', this.innerText);
+					cur_text = this.innerText;
+					// console.log("cur text:",cur_text);
+					this.innerText = '当前行: ' + this.innerText;
+					this.style.backgroundColor = '#FFFF00';
+				}
+
+
+				lines[i].onmouseout = function() {
+					
+					console.log('onmouseout:cur_text:', cur_text);
+					
+					this.innerText = cur_text;
+					this.style.backgroundColor = '#FFFFFF';
+
+				}
+
+			}
+		</script>
+
+
+
+
+
+	</body>
+</html>

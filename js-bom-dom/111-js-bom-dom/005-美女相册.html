@@ -57,6 +57,7 @@
 
 			#image {
 				width: 800px;
+				border: 0;
 
 
 			}
@@ -107,10 +108,10 @@
 			// todo  time:117:00
 			// 第二中方式
 			document.querySelectorAll('#image-gallery > li > a ').forEach(function(element) {
+				// 每一个 element 进行操作
 				element.onclick = function() {
 					document.querySelector('#img').src = this.href;
 					document.querySelector('#des').innerText = this.title;
-
 					return false;
 				}
 			});
