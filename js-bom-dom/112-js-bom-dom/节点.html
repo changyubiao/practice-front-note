@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+		<div id="div1">
+			<div class="cls"></div>
+			ABCD
+			<!--A123456789 -->
+			<p>2222222222222</p>
+			<h1>hhhhhhhhhhhhhhh1</h1>
+		</div>
+
+		<script type="text/javascript">
+			function showNode(node) {
+				type = ''
+				switch (node.nodeType) {
+					case 1:
+						type = 'element';
+						break;
+					case 2:
+						type = 'attribute';
+						break;
+					case 3:
+						type = 'text';
+						break;
+					case 8:
+						type = 'comment';
+						break;
+					default:
+						type = 'unknown';
+						// break ;
+
+				}
+				return ('' + node.nodeType + '|' + type + '-' + node.nodeName + '-' + node.nodeValue + ';');
+
+			}
+
+			var div1 = document.querySelector('#div1');
+			// console.log(showNode(div1));
+
+
+			// var idAttr = div1.attributes[0];
+
+			// console.log(idAttr);
+
+
+
+			// var txt = div1.childNodes[2];
+			// console.log(showNode(txt));
+
+
+			// var cmt = div1.childNodes[3]
+			// console.log(showNode(cmt))
+
+			// console.log(div.nodeType)
+			// console.log(div.nodeName)
+			
+			
+			
+			// 打印node 里面有所有的node  NodeList
+			// for (var i = 0; i < div1.childNodes.length; i++) {
+			// 	// console.log('122222222222')
+			// 	console.log(showNode(div1.childNodes[i]));
+
+			// }
+			
+			
+			for (var i = 0;i< div1.children.length;i++){
+				// children 只有元素, 类型  HTMLCollection 
+				console.log(showNode(div1.children[i]));
+			}
+			
+		</script>
+		
+		
+		<!-- 
+		
+		
+		childNodes 
+		 children  
+		 
+		 parentElement 
+		 
+		 previousSibling 
+		 
+		 previousElement
+		 nextSibling 
+		 nextElementSibling 
+		 
+		 
+		 
+		 
+		 -->
+	</body>
+</html>

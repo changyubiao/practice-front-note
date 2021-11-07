@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+		<div id="div1">
+			<div class="cls" style="color: #FF0000;">
+				<p> cls 00000000000</p>
+				<div> aaaaaaaaaaaaa</div>
+			</div>
+			ABCD
+			<ul class="c123">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<!--A123456789 -->
+			<p>2222222222222</p>
+			<h1>hhhhhhhhhhhhhhh1</h1>
+		</div>
+
+		<script type="text/javascript">
+			function showNode(node) {
+				type = ''
+				switch (node.nodeType) {
+					case 1:
+						type = 'element';
+						break;
+					case 2:
+						type = 'attribute';
+						break;
+					case 3:
+						type = 'text';
+						break;
+					case 8:
+						type = 'comment';
+						break;
+					default:
+						type = 'unknown';
+						break;
+
+				}
+				return ('' + node.nodeType + '|' + type + '-' + node.nodeName + '-' + node.nodeValue + ';');
+
+			}
+
+			var div1 = document.querySelector('#div1');
+			// console.log(showNode(div1));
+
+
+			// var idAttr = div1.attributes[0];
+
+			// console.log(idAttr);
+
+			// var txt = div1.childNodes[2];
+			// console.log(showNode(txt));
+
+
+			// var cmt = div1.childNodes[3]
+			// console.log(showNode(cmt))
+
+			// console.log(div.nodeType)
+			// console.log(div.nodeName)
+
+
+
+			// 打印node 里面有所有的node  NodeList
+			// for (var i = 0; i < div1.childNodes.length; i++) {
+			// 	// console.log('122222222222')
+			// 	console.log(showNode(div1.childNodes[i]));
+
+			// }
+
+
+			// for (var i = 0; i < div1.children.length; i++) {
+			// 	// children 只有元素, 类型  HTMLCollection 
+			// 	console.log(showNode(div1.children[i]));
+			// }
+
+
+
+			// 遍历dom tree  
+			// 深度 优先 ？  bfs ?
+			function goThrough(node, level) {
+
+				if (node.childNodes == undefined) {
+					return
+				}
+
+				for (var i = 0; i < node.childNodes.length; i++) {
+
+					var cur = node.childNodes[i];
+					// 打印当前的node 节点
+					console.log(level + showNode(cur));
+
+					// 打印当前node 属性 
+					attrs = cur.attributes;
+					// console.log(attrs);
+
+					if (attrs != undefined && attrs.length != 0) {
+						for (var j = 0; j < attrs.length; j++) {
+							var b = attrs[j];
+							console.log(level + '{attr}' + showNode(b));
+						}
+					}
+					// drill down 
+					//  recursive  next  child 
+					goThrough(cur, level + '\t');
+				}
+
+			}
+
+			// goThrough(div1, '');
+
+
+			// 练习  
+			// 	// children, 用childNodes实现一个children
+
+			function getChildren(element) {
+
+				// 获取 child 
+				var results = []
+
+
+				if (element.childNodes != undefined && element.nodeType == 1) {
+
+					for (var i = 0; i < element.childNodes.length; i++) {
+
+						cur = element.childNodes[i];
+
+						if (cur.nodeType === 1) {
+							results.push(cur);
+						}
+					}
+				}
+				return results;
+			}
+			console.log(getChildren(div1));
+		</script>
+
+	</body>
+</html>
