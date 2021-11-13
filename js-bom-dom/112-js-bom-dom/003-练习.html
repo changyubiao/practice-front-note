@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+		
+			body{
+				background-color: #CCCCCC;
+			}
+		
+			li {
+
+				list-style: none;
+				color: #333333;
+				width:  400px;
+				height: 25px;
+
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul id="address">
+
+			<!-- 		<li>合肥</li>
+			<li>南京</li>
+			<li>上海</li>
+			<li>阜阳</li>
+			 -->
+			 
+	<!-- 		 <script type="text/templ">
+				<li>%name%</li>
+			 	
+			 </script> -->
+			 
+			 
+		</ul>
+
+
+		<script type="text/javascript">
+			// 动态的生成HTML 内容 
+			// 1 编写 静态 html  css  确定效果 可以接受 
+			// 2 把响应的html 注释， 然后将数据封装到json 中， 写动态生成html 代码
+			// 3 写 Ajax 用于替换 静态的封存数据。 
+
+			// var address = ["1","2","3","4"]
+			var address = [
+				"合肥",
+				"南京",
+				"上海",
+				"阜阳",
+				"济南",
+				"天津"
+			];
+
+
+			var ul = document.querySelector('#address');
+
+
+			content = []
+
+			for (var i = 0; i < address.length; i++) {
+				content[i] = '<li>' + address[i] + '</li>';
+
+			}
+
+			// console.log(content);
+			// 转成 字符串类型
+			innerHtml = content.join('')
+			ul.innerHTML += innerHtml;
+
+
+			console.log(content);
+			
+			
+			var addresses = document.querySelectorAll('#address > li');
+			for(var j= 0;j<addresses.length;j++){
+				
+				addresses[j].onmouseover = function(){
+					this.style.backgroundColor = '#FFFF00';
+				}
+				
+				addresses[j].onmouseout = function(){
+					this.style.backgroundColor = '#CCCCCC';
+					
+				}
+				
+			}
+			
+			
+			// hour: 160min 
+			
+			window.onload = function(){
+				console.log('every thing done.')
+				
+			}
+			
+			// 这种写法 违背了 一种原则  html 结构应该写在 html 页面中
+			
+			
+			// hour: 165 min 
+			
+			
+			
+			// hour: 168 min 
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

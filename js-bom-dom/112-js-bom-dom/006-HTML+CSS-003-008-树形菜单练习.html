@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 练习要求：
+				1. 所有a链接不带有下划线
+				2. 登录和注册链接，文字为绿色，加粗700
+				3. 导航栏中的所有链接，缺省文字为橙色，不加粗
+				   一级菜单链接文字为深红色
+				4. 所有文字都是 14px，字体是微软雅黑
+			 */
+			
+			a {
+				text-decoration: none;
+			}
+			
+			#right-nav>.model a {
+				color: green;
+				font-weight: 700;
+			}
+			
+			body {
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+			
+			#nav a {
+				color: orange;
+				font-weight: 400;
+			}
+			
+			#nav>ul>li>a {
+				color: darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			<ul>
+				<li><a href="#">菜单1</a></li>
+				<li><a href="#">菜单2</a></li>
+				<li><a href="#">菜单3</a></li>
+				<li><a href="#">菜单4</a></li>
+				<li>
+					<a href="#">菜单5</a>
+					<ul>
+						<li><a href="#">子菜单1</a></li>
+						<li><a href="#">子菜单2</a></li>
+						<li><a href="#">子菜单3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="right-nav">
+			<div class="model">
+				<a href="#">登录</a>
+				<a href="#">注册</a>
+			</div>
+		</div>
+	</body>
+</html>

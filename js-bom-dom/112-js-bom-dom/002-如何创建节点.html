@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 002.html 
+		 如何创建节点  
+		 
+		 
+		 方法1 
+		 document.write('<p> hello world</p>');
+		 
+		 
+		 方法2 
+		 document.innerHTML 
+		 
+		 
+		 方法3 
+		 document.createElement()
+		 
+		 
+		 
+		  3种 方法 
+		  
+		  
+			补充 onload 方法 
+		  window.onload() 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。
+
+			为什么要使用 onload 方法 ？ 
+			
+			JavaScript 中的函数方法需要在 HTML 文档渲染完成后才可以使用，如果没有渲染完成，此时的 DOM 树是不完整的，
+
+
+		 -->
+		 
+		 
+		 <p>当前字符串：</p>
+		 
+		 
+		 <script type="text/javascript">
+			
+			document.write('<p> hello world</p>');
+			
+		
+			
+			window.onload = function(){
+				// document.write , 如果在页面 加载完毕以后再次调用，会把页面以前 已经所有的元素全部清空
+				//  只用 于 页面加载是，页面加载完成后 不再使用 
+				document.write('<h1>  Frank 真帅 !</h1> <input type="button" value="按钮">');
+				// document.write('<h1>  Frank 真帅 2!</h1> <input type="button" value="按钮">');
+			}
+			
+			
+			
+			// document.innerHTML 
+			
+			
+			// document.createElement()
+			
+			
+			
+			
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 002.html 
+		 如何创建节点  
+		 
+		 
+		 方法1 
+		 document.write('<p> hello world</p>');
+		 
+		 
+		 方法2 
+		 document.innerHTML 
+		 
+		 
+		 方法3 
+		 document.createElement()
+		 
+		 
+		 
+		  3种 方法 
+		 -->
+
+
+		<p>当前字符串：</p>
+
+		<div id="div1">AAAAAAAAAAAAAAAA</div>
+
+		<script type="text/javascript">
+			// document.write('<p> hello world</p>');
+
+
+			// window.onload = function(){
+			// 	// document.write , 如果在页面 加载完毕以后 再次调用，会把页面以前 已经所有的元素全部清空
+			// 	//  只用 于 页面加载是，页面加载完成后 不再使用 
+			// 	document.write('<h1>  Frank 真帅 !</h1> <input type="button" value="按钮">');
+			// 	document.write('<h1>  Frank 真帅 2!</h1> <input type="button" value="按钮">');
+			// }
+
+
+			
+			
+			
+			//  第二种方法 
+			// document.innerHTML 
+
+			// window.onload = function(){
+			// 	var div1 = document.querySelector('#div1');
+			// 	div1.innerHTML = '<h1>  Frank 真帅 !</h1> <input type="button" value="按钮">';
+
+			// }
+
+
+
+
+
+			//  3. 第三种方法 
+			
+			//  可以生成一个  暂时不挂在 DOM tree 上的元素 ， 
+			// document.createElement()
+
+			var p = document.createElement('p');
+			p.innerHTML = '<h1>Frank 真帅 !</h1>';
+
+
+
+			var div1 = document.querySelector('#div1');
+			console.log(div1);
+			
+
+			// 创建 input  
+			var input = document.createElement('input');
+			// console.log('input',input);
+
+			var type = document.createAttribute('type');
+			type.value = 'button'
+			input.setAttributeNode(type);
+			console.log('input', input);
+			
+			
+			value = document.createAttribute('value');
+			value.value = '按钮';
+			input.setAttributeNode(value)
+			console.log('input2',input);
+			
+			
+			div1.appendChild(p);
+			div1.appendChild(input);
+			
+			
+			
+		</script>
+	</body>
+</html>

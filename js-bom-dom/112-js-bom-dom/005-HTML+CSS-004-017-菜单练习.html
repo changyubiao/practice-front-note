@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#nav {
+				text-align: center;
+			}
+
+			#nav>a {
+				display: inline-block;
+				width: 120px;
+				height: 50px;
+				background-image: url(image/bgall.png);
+				/* 文字的垂直居中 */
+				line-height: 50px;
+				color: #fff;
+				/* 消除文字的下划线 */
+				text-decoration: none;
+				background-position: left top;
+			}
+
+			#nav>a:hover {
+				background-position: left -50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			<!-- 			<a href="#">测试菜单1</a>
+			<a href="#">测试菜单2</a>
+			<a href="#">测试菜单3</a>
+			<a href="#">测试菜单4</a>
+			<a href="#">测试菜单5</a> -->
+		</div>
+	</body>
+
+
+
+	<script type="text/javascript">
+		function generateOrderNum(n) {
+			let word = '测试菜单';
+
+			var result = [];
+			for (var i = 0; i < n; i++) {
+				result[i] = word + ' ' + i;
+
+			}
+			// console.log(result);
+			return result
+		}
+
+
+
+
+		var orders = generateOrderNum(5);
+		var nav = document.getElementById('nav');
+		// console.log(nav);
+
+		innerHtml = []
+		for (let i = 0; i < orders.length; i++) {
+			// 生成a tag  
+			cur = '<a href="#">' + orders[i] + '</a>'
+			innerHtml[i] = cur
+		}
+
+
+		innerHtmlString = innerHtml.join('');
+		// 用 innner html 赋值
+		nav.innerHTML = innerHtmlString;
+		
+		
+		
+		// a_list = document.querySelectorAll('#nav> a');
+		
+		
+		// a_list.forEach(function(item,idx){
+			
+		// 	console.log(item,idx);
+		// 	item.style.width = '120px';
+		// 	item.style.height = '50px';
+		// 	item.style.margin = '10px';
+			
+		// 	item.style.color = '#fff';
+		// 	item.style.textDecoration = 'none';
+		// 	// item.style.backgroundPosition = 'left top';
+			
+		// 	// item.style.backgroundImage="url('image/bgall.png')";
+			
+		// })
+		
+		
+	</script>
+
+
+
+</html>
