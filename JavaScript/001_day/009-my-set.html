@@ -57,41 +57,67 @@
 			// // 如果删除一个不存在的元素，也不会报错
 			// // mySet.delete(1000);
 			// console.log(mySet);
-			
-			
+
+
 			// 6 查看元素是否在集合中 
 			// var mySet = new Set([1, 2, 3, 4, 10]);
 			// console.log(mySet.has(10));
 			// console.log(mySet.has(20));
-			
 
-		
+
+
 			// 7  遍历Set,迭代set 集合
 			// for (var x of mySet) { 
 			//     console.log(x);
 			// }
-			
-			
-			
+
+
+
 			// 8 返回一个 iterator, 按照插入的顺序返回。
 			// The values() method returns a new iterator object that contains the values for each element in the Set object in insertion order.
+			// The values() method returns an Iterator object containing all the values in a Set:
 
+
+			// keys() 和values() 方法相同
 
 			var mySet = new Set();
 			mySet.add('foo');
 			mySet.add('bar');
 			mySet.add('baz');
 			mySet.add('three');
-			
-			var setIter = mySet.keys();
-			
-			console.log(setIter.next().value); // "foo"
-			console.log(setIter.next().value); // "bar"
-			console.log(setIter.next().value); // "baz"
-			console.log(setIter.next().value); // "three"
-			console.log(setIter.next().value); // "undefined"
 
-			
+			var setIter = mySet.keys();
+
+			// console.log(setIter.next().value); // "foo"
+			// console.log(setIter.next().value); // "bar"
+			// console.log(setIter.next().value); // "baz"
+			// console.log(setIter.next().value); // "three"
+			// console.log(setIter.next().value); // "undefined"
+
+
+			console.log('mySet:', mySet);
+
+			// 遍历迭代器
+			// var result = []
+			// for(const entry of setIter){
+			// 	console.log(entry)
+			// 	result.push(entry);
+
+			// }
+			// console.log(result.join(','));
+
+
+		
+
+
+			// forEach 
+			console.log('forEach: ')
+			mySet.forEach(function(value){
+				console.log(value);
+			})
+
+
+
 
 
 			// 9 数组去重
