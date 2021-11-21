@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js 中的事件</title>
+
+
+		<style type="text/css">
+			div {
+
+				width: 100px;
+				height: 100px;
+				background-color: #FF0000;
+
+				margin: 30px;
+			}
+		</style>
+
+
+
+	</head>
+
+
+	<!-- 
+	refer：
+	
+	https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
+	
+	
+	
+	
+	
+	
+	chrome 不支持 attachEvent 这个方法
+	
+	
+	 
+	 
+	addEventListener  在 IE9  在开始支持 , chrome 支持
+	 
+	onType 这个都支持 
+	 
+	 
+	 
+	 
+	 -->
+
+
+	<body>
+
+
+
+
+		<div id="the-d">
+
+
+		</div>
+
+
+		<!-- <div id = "the-d2"></div> -->
+
+		<script type="text/javascript">
+			// 1 onType  事件绑定 
+			//   绑定事件的名字  click  
+
+			/**
+			 *  1.兼容性比较好 
+			 *  2. 同一个对象绑定了两次， 如果调用两次，后面的回调会清除前面的回调。 注意！！！
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
+
+			var d = document.querySelector('#the-d');
+			// var  d2 = document.querySelector('#the-d2');
+
+			// d.onclick = function(){
+			// 	console.log('div 被点击了, click ');
+			// 	// console.log(this);
+
+			// }
+
+
+			// d.onclick = function(){
+
+			// 	console.log('div 又又又被点击了, click ');
+
+			// }
+
+
+
+			// 第二种方法  
+			// addEventListener  
+
+			// 调用 两次都有效 
+			//  这个方法 比较新 ，  IE9 开始支持， IE8 不支持 这个方法
+			// var d = document.querySelector('#the-d');
+
+			// d.addEventListener('click', function() {
+			// 	console.log('div 被点击了, click ');
+			// 	console.log(this);
+			// });
+
+
+
+			// d.addEventListener('click', function() {
+			// 	console.log('div 又又又被点击了, click ');
+			// });
+
+
+
+			// 第三种方法  chrome不支持这个方法
+			// onclick
+			// d.attachEvent('onType',function(){});
+
+			// 特点：1. chrome 不支持 这个方法 
+			//      2. 这个回调中， this 是指向window ， 特例 IE attachEvent 方法 中， this  指的是 window 
+
+
+
+			// function divClick(){
+			// 	console.log('div 被点击了, click ');
+			// 	console.log(this);
+
+			// }
+
+			// // chrome 不支持这个方法 , IE 支持这个方法
+			// d.attachEvent('onclick',function(){
+			// 	// console.log('div 被点击了, click ');
+
+			// 	divClick.call(d);
+			// 	// console.log(d);
+
+			// });
+
+			// d.attachEvent('onclick',function(){
+
+			// 	console.log('div 又又又被点击了, click ');
+
+			// });
+
+
+
+
+			// hour: 25min  27min
+
+
+			// 兼容 事件   IE， Chrome  事件的函数 
+			function divClick() {
+				console.log('我又点击了');
+				console.log(this);
+
+			}
+
+
+			// function addEvent(element, type, func) {
+			// 	if (Boolean(element.addEventListener)) {
+			// 		// Chrome 
+			// 		element.addEventListener(type, func);
+			// 	} else if (element.attachEvent) {
+			// 		//  IE 
+			// 		element.attachEvent('on' + type, function() {
+			// 			// 这样调用可以 拿到 this 
+			// 			func.call(element);
+
+			// 		});
+			// 	} else {
+			// 		// xxxx  兜底 
+			// 		element['on' + type] = func;
+			// 	}
+
+			// }
+			// addEvent(d, 'click', divClick);
+
+
+
+
+
+
+			// 通过原型的方式 
+
+			// 构造函数,都有一个prototype原型对象,任何挂在这个原型对象上的函数, 
+			// 通过构造函数创造出来的对象都可以使用.
+
+			//  
+
+
+			// var obj = new Object();
+			// console.log(Object.prototype);
+
+			// // 构造函数的 prototype 
+			// Object.prototype.frank = function() {
+			// 	console.log('hello frank');
+			// }
+			// obj.frank();
+
+			
+			// 兼容性写法 
+			Element.prototype.addEvent = function(type, func) {
+				var element = this;
+				// console.log("element:", element)
+				if (Boolean(element.addEventListener)) {
+					// Chrome 
+					element.addEventListener(type, func);
+				} else if (element.attachEvent) {
+					//  IE 
+					element.attachEvent('on' + type, function() {
+						// 这样调用可以 拿到 this 
+						func.call(element);
+
+					});
+				} else {
+					// xxxx  兜底 
+					element['on' + type] = func;
+				}
+
+			}
+			d.addEvent('click', divClick);
+
+
+			// if (undefined){
+			// 	console.log('undefined true');
+			// }else{
+			// 	console.log('undefined false');
+			// }
+		</script>
+	</body>
+</html>

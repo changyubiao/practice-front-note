@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>冒泡的取消</title>
+		<style type="text/css">
+			div.clsg {
+
+				position: relative;
+				width: 500px;
+				height: 500px;
+
+				background-color: #00FF00;
+			}
+
+			div.clsf {
+
+				position: absolute;
+				left: 520px;
+				width: 300px;
+				height: 300px;
+
+				background-color: #FF0000;
+			}
+
+			div.clss {
+				position: absolute;
+				left: 320px;
+				/* top: 10px; */
+				width: 100px;
+				height: 100px;
+
+				background-color: #0000FF;
+			}
+		</style>
+
+	</head>
+	<body>
+		<!-- 
+		 
+		 
+		 冒泡的取消： 事件的触发 到某个元素 停止了，
+		 
+		 
+		 阻止默认行为 
+		 
+		 
+		事件的起源  
+	 
+		 事件的委托 
+		
+		 
+		 
+		 -->
+
+		<div class="clsg">
+			<div class="clsf">
+
+				<div class="clss"></div>
+			</div>
+
+		</div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		
+		<a id="aid" href="#">ABCD</a>
+
+
+		<script type="text/javascript">
+			Element.prototype.addEvent = function(type, func) {
+				var element = this;
+				// console.log("element:", element)
+				if (Boolean(element.addEventListener)) {
+					// Chrome 
+					element.addEventListener(type, func);
+				} else if (element.attachEvent) {
+					//  IE 
+					element.attachEvent('on' + type, function() {
+						// 这样调用可以 拿到 this 
+						func.call(element);
+
+					});
+				} else {
+					// xxxx  兜底 
+					element['on' + type] = func;
+				}
+
+			}
+
+
+			Element.prototype.stopPropagation =function (e){
+				e = e || window.event;
+				// 冒泡的取消 chrome
+				// e.stopPropagation();
+				if (e.stopPropagation){
+					// chrome 写法 
+					e.stopPropagation();
+				}else{
+					// IE  写法
+					e.cancelBubble = true
+				}
+
+			}
+			
+			
+			
+			
+			// preventDefault
+			Element.prototype.preventDefault = function(e){
+				// 阻止默认行为 
+				e = e || window.event;
+				if (e.preventDefault){
+					e.preventDefault();
+				}else{
+					e.returnValue = false;
+				}
+				
+				
+			}
+
+			// function stopPropagation(e){
+			// 	e = e || window.event;
+			// 	// 冒泡的取消 chrome
+			// 	// e.stopPropagation();
+			// 	if (e.stopPropagation){
+			// 		// chrome 写法 
+			// 		e.stopPropagation();
+			// 	}else{
+			// 		// IE  写法
+			// 		e.cancelBubble = true
+			// 	}
+
+			// }
+
+
+
+			var divg = document.querySelector('.clsg');
+			var divf = document.querySelector('.clsf');
+			var divs = document.querySelector('.clss');
+
+
+
+
+
+			// 这里冒泡的取消
+
+			//  chrome , IE  兼容性问题 
+			//  同时 支持 IE8 e 没有初始化， 在window.event 
+			//  冒泡取消的方法  e.cancelBubble = true
+			// Chrome 
+			divs.addEvent('click', function(e) {
+				// 在IE 8 中 没有 出来e 
+				// console.log(window.event);
+				console.log('div son is cliked. 冒泡');
+				// console.log(e);
+				// 兼容性写法
+
+				// stopPropagation(e);
+				// divs.stopPropagation(e);
+				// this.stopPropagation(e);
+
+				// e = e || window.event;
+				
+				
+				// // 冒泡的取消 chrome
+				// // e.stopPropagation();
+				// if (e.stopPropagation){
+				// 	// chrome 写法 
+				// 	e.stopPropagation();
+				// }else{
+				// 	// IE  写法
+				// 	e.cancelBubble = true
+				// }
+
+			}, false);
+
+			divf.addEvent('click', function(e) {
+				console.log('div father is cliked. 冒泡');
+				// e.stopPropagation();
+				this.stopPropagation(e);
+				
+				e = e || window.event;
+				
+				// 如何找到 事件的 起源 
+				// IE  只支持 e.srcElement ， Chrome 两个都支持 target ,srcElement
+				var  target = e.target || e.srcElement ;
+				console.log('target:',e.target, e.srcElement);
+				// e.target
+			}, false);
+
+
+
+			divg.addEvent('click', function() {
+				console.log('div grandfather is cliked. 冒泡');
+
+			}, false);
+			
+			// 阻止默认事件行为 
+			// 缺省的默认行为 
+			// 第一种 方法  return false
+			
+			// document.oncontextmenu = function(){
+			// 	console.log('right cliked trigged content menu !');
+			// 	return false ;
+			// }
+			
+			
+			// 第二种方法
+			 // chrome 
+			// e.preventDefault()
+			
+			// IE  
+			// e.returnValue = false 
+			
+			let  body = document.body
+			// 注意 body 才是 element 
+			// document.body instanceof Element   ==> true
+
+			// body.preventDefault();
+			// 阻止右键 显示 菜单的
+			body.addEvent('contextmenu',function(e){
+				this.preventDefault(e);
+
+				
+			})
+			
+			
+			let  aid = document.querySelector('#aid');
+			
+			// 
+			aid.addEvent('click',function(e){
+				//  点击的click 事件的默认行为
+				this.preventDefault(e);
+				
+			})
+			
+			
+			//hour: 139:15
+		</script>
+	</body>
+</html>

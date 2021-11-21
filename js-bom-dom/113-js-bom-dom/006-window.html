@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<!-- 
+	 
+	 
+	 
+	 BOM  就是介绍 window 上一些预制对象以及方法 
+	 
+	 
+	 dom 属于内核
+	 
+	 bom 属于内核之外 
+	 
+	 
+	 其实简单讲BOM就是由一些对象构成，这些对象又包括许多属性和方法，通过操作这些对象的属性和方法可以用来实现与浏览器交互。
+	 刚刚提到BOM由一些对象构成，那么到底是由哪些对象构成呢？
+	 先看一下一个基本的BOM属性结构图
+	 
+	 上面可以看到BOM的六大对象为：
+	
+	 作者：李心一
+	 链接：https://juejin.cn/post/6844904015646441485
+	 来源：稀土掘金
+	 
+	 document ： DOM
+	 event : 事件对象
+	 history : 浏览器的历史记录
+	 location : 窗口的url 地址栏的信息
+	 screen : 显示设备的信息
+	 navigator : 浏览器的配置信息
+	 
+	
+	 
+	 
+	 BOM 的内置对象 
+	 
+	 alert 
+	 prompt 
+	 confirm 
+	 
+	 
+	 -->
+	<body>
+
+
+		<script type="text/javascript">
+			var a = 5;
+			console.log(window.a);
+
+			function f1() {
+				console.log('hello!');
+			}
+
+			window.f1();
+			
+			// 这些都是挂载  window 对象上面
+			// console.log(window.document);
+			// console.log(window.console);
+			// console.log(window.prompt);
+		</script>
+	</body>
+</html>

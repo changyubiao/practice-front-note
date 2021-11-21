@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<!-- 
+	 
+	 history 
+	 
+	 navigator
+	 
+	 -->
+	<body>
+
+
+		<input type="button" name="" id="to2" value="去history2" />
+		<input type="button" name="" id="forward" value="前进" />
+
+		<script type="text/javascript">
+			let btn = document.querySelector('#to2');
+			var btnForward = document.querySelector('#forward');
+
+
+			btn.addEventListener('click', function() {
+				location.href = '010-history-2.html';
+			});
+
+			btnForward.addEventListener('click', function() {
+				// location.href = '010-history-2.html';
+				history.forward();
+			});
+
+
+
+
+			// console.log(history);
+			console.log(navigator);
+			
+			console.log(navigator.userAgent);
+			// history
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>  运算符多的情况下 需要注意 哪些问题</title>
+		
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+		
+			/*
+			优先级 表格 
+			https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
+			
+			
+			*/
+			//    ++ 
+			// 运算符的优先级
+			
+			
+			
+			// js 舍入误差  
+			console.log(0.1 + 0.2);
+			
+			
+			/*
+			 // IEEEE754 标准 
+			
+			*/ 
+			
+			
+			
+			// console.log(0.1.toString(2));
+			// console.log(0.1 + 0.2);
+			
+			
+			
+			// 解决方案 
+			// 方案1  舍去 保留几位小数
+			console.log((0.1 + 0.2).toFixed(2));
+			
+			// 方案2 
+			function add(num1,num2){
+				// 先转换成整数 在进行计算 
+				var m = Math.pow(10,2);
+				
+				var result =  (num1 * m  + num2*m) /m ;
+				return  result;
+				
+			}
+			
+			
+			// console.log(a=500);
+			
+			console.log(add(0.1,0.2));
+		</script>
+	</body>
+</html>

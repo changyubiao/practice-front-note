@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<!-- 
+	
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+	
+	
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+	 -->
+	<body>
+
+
+		<script type="text/javascript">
+			// 构造一个空的map 
+			const map = new Map();
+				
+
+			map.set('a', 1);
+			map.set('b', 2);
+			map.set('c', 3);
+
+			// console.log(map);
+
+			// for(var i in map){
+			// 	console.log('i',i);
+			// 	console.log(i);
+			// }
+
+			const myMap = new Map()
+
+			const keyString = 'a string'
+			const keyObj = {}
+			const keyFunc = function() {}
+
+			// setting the values
+			myMap.set(keyString, "value associated with 'a string'")
+			myMap.set(keyObj, 'value associated with keyObj')
+			myMap.set(keyFunc, 'value associated with keyFunc')
+
+			myMap.size // 3
+
+			// getting the values
+			myMap.get(keyString) // "value associated with 'a string'"
+			myMap.get(keyObj) // "value associated with keyObj"
+			myMap.get(keyFunc) // "value associated with keyFunc"
+			
+			//  Notice  这里只能使用 map.get() 获取值 
+			//  key 的类型 可以是 字符串， 对象， 甚至是function ，
+			
+			
+			
+
+			myMap.get('a string') // "value associated with 'a string'"
+			// because keyString === 'a string'
+			myMap.get({}) // undefined, because keyObj !== {}
+			myMap.get(function() {}) // undefined, because keyFunc !== function () {}
+			
+			
+			myMap = 1 ;
+			console.log('myMap',myMap);
+		</script>
+	</body>
+</html>

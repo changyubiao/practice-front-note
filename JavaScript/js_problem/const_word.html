@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> const 关键字的用法</title>
+	</head>
+	<body>
+
+		<!-- 
+			const 用来定义一个常量 ，如果是值类型的变量， 则定义之后就不允许修改了， 
+			
+			这里 不允许修改 就是 不允许对这个变量赋值。 
+			如果这个 变量 本身 是一个引用类型，比如 object, 里面的内容是可以修改的。 
+		 
+		 
+		 -->
+
+		<script type="text/javascript">
+			const person = {
+				name: 'frank',
+			}
+
+			// console.log(person.name);
+			// // 这样是可以修改的
+			// person.name = 'shimin,liu';
+			// console.log(person.name);
+
+
+			// 这样就不行了， 不允许直接赋值了。 
+			// Uncaught TypeError: Assignment to constant variable.
+			// person = 1;
+			// console.log(person.name);
+			
+		</script>
+
+
+		<script type="text/javascript">
+			// var  name = "frank";
+			
+			//如果用 const 定义一个常量, 此后这个变量不能被重新赋值了。
+			// 
+			const name = "frank";
+			console.log('name:', name);
+			
+			
+			// Uncaught TypeError: Assignment to constant variable.
+			// name = 'AAAAAAAA';
+			// console.log('name:', name);
+		</script>
+
+	</body>
+</html>

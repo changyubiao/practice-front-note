@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 开发中 隐式转换 转换的一些坑  </title>
+	</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			//  特殊类型的隐式转换 NaN  0  undefined  null  -->   false 
+		
+			
+			var num = NaN;
+			
+			if (num){
+				console.log(true);
+			}else{
+				console.log(false);
+			}
+		
+		
+			var bool = Boolean(null);
+			console.log(bool);
+			
+			// true && true   ==> true 
+			// false || true  => true 
+
+			
+			console.log(5 || 0 ); // 5 
+			console.log(0 || 5 ); // 依然是 5 
+			
+			
+			console.log(0 && 5 ); // 0
+			console.log(5 && 0 );  // 0 
+			
+			console.log('undefined == null  ? ');
+			
+			//  toNumber   0  == 0  隐式类型转换，
+			console.log(undefined  == null);
+			console.log(undefined  === null);
+			
+			//  推荐 这样使用 
+			var a,b = null;
+			if(a  === b ){
+				
+				
+			}
+			
+			if(a  !== b ){
+				
+				
+			}
+			
+			
+			
+		</script>
+
+
+	</body>
+</html>

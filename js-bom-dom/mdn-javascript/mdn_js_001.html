@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>猜数字小游戏</title>
+		<!-- https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/A_first_splash -->
+		<style type="text/css">
+			html {
+				font-family: sans-serif;
+				font-size: 16px;
+			}
+
+			body {
+				width: 40%;
+				max-width: 800px;
+				min-width: 480px;
+				margin: 0 auto;
+			}
+
+			p {
+				width: auto;
+			}
+
+			input {
+				height: 28px;
+				padding: 2px;
+				margin-left: 1px;
+				margin-right: 5px;
+
+			}
+
+			.guessSubmit {
+				width: 50px;
+			}
+
+
+			div.form {
+				margin-top: 40px;
+
+			}
+
+			.guessField {
+				width: 200px;
+			}
+
+			.lastResult {
+				color: white;
+				padding: 3px;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<h1>猜数字游戏</h1>
+
+		<p>我刚才随机选定了一个100以内的自然数。看你能否在10次以内猜中它。</p>
+		<p>每次我都会告诉你所猜的结果是高了,还是低了。</p>
+
+		<div class="form">
+			<label for="guessField">请猜数: </label>
+			<input type="text" id="guessField" class="guessField">
+			<input type="submit" value="确定" class="guessSubmit">
+		</div>
+
+		<div class="resultParas">
+			<p class="guesses"></p>
+			<p class="lastResult"></p>
+			<p class="lowOrHi"></p>
+		</div>
+
+
+
+		<script type="text/javascript">
+			// 最多的猜的次数
+			const maxGuessNumber = 10;
+
+			// 生成的数字
+			let randomNumber = randInt(1, 100);
+
+
+			const guesses = document.querySelector('.guesses');
+			const lastResult = document.querySelector('.lastResult');
+			const lowOrHi = document.querySelector('.lowOrHi');
+
+
+
+			var submit = document.querySelector('.guessSubmit');
+
+			var guessField = document.querySelector('.guessField');
+
+
+			let guessCount = 1;
+			let resetbutton;
+
+			// guessField
+			guessField.focus();
+
+
+
+			function checkGuess() {
+				// alert('我是一个占位符');
+
+				let userGuessNumber = Number(guessField.value);
+				// console.log(guessField.value)
+				if (guessCount == 1) {
+					guesses.textContent = '上次猜的数: ';
+				}
+
+				// console.log('guess textcontent:', guesses.textContent);
+				guesses.textContent += userGuessNumber + ' ';
+
+
+				if (userGuessNumber === randomNumber) {
+					lastResult.textContent = '恭喜你，猜对了！' + ' 一共猜了' + guessCount + '次.';
+					lastResult.style.backgroundColor = '#008000';
+					lowOrHi.textContent = '';
+					gameOver();
+				} else if (userGuessNumber > randomNumber && guessCount < maxGuessNumber) {
+					// 
+					lastResult.textContent = '猜错了!';
+					lastResult.style.backgroundColor = '#FF5000';
+					lowOrHi.textContent = '你猜高了';
+
+				} else if (userGuessNumber < randomNumber && guessCount < maxGuessNumber) {
+					// 
+					lastResult.textContent = '猜错了!';
+					lastResult.style.backgroundColor = '#FF5000';
+					lowOrHi.textContent = '你猜低了';
+
+				} else if (guessCount === maxGuessNumber) {
+					// guessCount   == maxGuessNumber
+					lastResult.textContent = '!!!GAME OVER!!!';
+					gameOver();
+
+				} else {
+					lastResult.textContent = '!!! ERROR OCCURS !!!';
+					lastResult.style.backgroundColor = '#FF5000';
+
+					console.log('error ocurr!!!');
+					gameOver();
+				}
+
+				guessCount++;
+				guessField.value = '';
+				guessField.focus();
+
+			}
+
+
+			function resetGame() {
+				// 重置 猜数字的次数
+				guessCount = 1;
+
+				const resetP = document.querySelectorAll('.resultParas  p');
+
+				// 清空所有的文本
+				for (let i = 0; i < resetP.length; i++) {
+					resetP[i].textContent = '';
+				}
+
+				// 删除 重新开始的 按钮 
+				// resetButton
+				resetButton = document.querySelector('#reset-btn');
+				// console.log('resetButton ',resetButton);
+				resetButton.remove();
+
+
+				// 禁用 所有的field 
+				guessField.disabled = false;
+				submit.disabled = false;
+				guessField.value = '';
+
+				lastResult.style.backgroundColor = '#FFFFFF';
+
+				// generate a new number 
+				let randomNumber = randInt(1, 99);
+
+				// guessField 获得焦点 
+				guessField.focus();
+			}
+
+
+			function randInt(min, max) {
+				/*
+				 取值范围 [min,max]  左闭右开区间的整数
+				Return random integer in range [min, max], including both end points.
+				*/
+				max = max + 1;
+				let randomNumber = Math.floor(Math.random() * (max - min)) + min;
+				return randomNumber;
+
+			}
+
+
+			function gameOver() {
+				console.log('game over!');
+				guessField.disable = true;
+				submit.disable = true;
+				resetButton = document.createElement('button');
+				resetButton.textContent = '开始新游戏';
+
+				const id = document.createAttribute('id')
+				id.value = 'reset-btn';
+				resetButton.setAttributeNode(id);
+
+				document.body.appendChild(resetButton);
+				resetButton.addEventListener('click', resetGame);
+
+				// 禁用 所有按钮,input 
+				guessField.disabled = true;
+				submit.disabled = true;
+
+			}
+
+			// 添加 click 事件 
+			submit.addEventListener('click', checkGuess);
+		</script>
+
+	</body>
+</html>

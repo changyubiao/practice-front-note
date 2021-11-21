@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件冒泡</title>
+		<style type="text/css">
+			div.clsg {
+
+				position: relative;
+				width: 500px;
+				height: 500px;
+
+				background-color: #00FF00;
+			}
+
+			div.clsf {
+
+				position: absolute;
+				left: 520px;
+				width: 300px;
+				height: 300px;
+
+				background-color: #FF0000;
+			}
+
+			div.clss {
+				position: absolute;
+				left: 320px;
+				/* top: 10px; */
+				width: 100px;
+				height: 100px;
+
+				background-color: #0000FF;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+
+		<div class="clsg">
+			<div class="clsf">
+				
+				<div class="clss"></div>
+			</div>
+
+		</div>
+
+
+		<script type="text/javascript">
+			/*
+		
+		事件的冒泡
+		
+		如果你点击一个元素 ，他的父元素，以及父元素的父元素，以及依次  都会 依次触发事件，
+		
+		如果父亲（祖先结点）绑定了节点， 会触发，如果没有绑定 则不会触发。
+		
+		
+		https://juejin.cn/post/6844903834075021326
+		
+		
+		https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
+		
+		
+		
+		
+		addEventListener
+		
+		target.addEventListener(type, listener, useCapture);
+
+		useCapture  是否捕获 ， boolean 值
+		
+		*/
+			// 
+			var divg = document.querySelector('.clsg');
+			var divf = document.querySelector('.clsf');
+			var divs = document.querySelector('.clss');
+
+
+
+
+			// 绑定事件
+			divg.addEventListener('click', function() {
+				console.log('div grandfather is cliked. 冒泡');
+
+			}, false);
+
+
+			divf.addEventListener('click', function() {
+				console.log('div father is cliked. 冒泡');
+			}, false);
+
+			divs.addEventListener('click', function() {
+				console.log('div son is cliked. 冒泡');
+			
+			}, false);
+		
+
+
+			// 事件捕获 , 只有 chrome 支持
+			// 事件的捕获 和 冒泡顺序相反 
+			divg.addEventListener('click', function() {
+				console.log('div grandfather is cliked. 捕获');
+			}, true);
+
+			divf.addEventListener('click', function() {
+				console.log('div father is cliked. 捕获');
+
+			}, true);
+
+
+			divs.addEventListener('click', function() {
+				console.log('div son is cliked. 捕获');
+
+			}, true);
+
+
+			
+
+
+			// divs.addEventListener('click', function() {
+			// 	console.log('div son is cliked. 冒泡 333');
+
+			// }, false);
+
+
+			// divs.addEventListener('click', function() {
+			// 	console.log('div son is cliked. 冒泡 222');
+
+			// }, false);
+
+
+
+			// 捕获 和冒泡 执行顺序 
+			// 捕获和冒泡的执行顺序:
+			//    1. 祖先节点,按照从高到低,触发捕获
+			//    2. 节点本身,按照绑定顺序,触发冒泡+捕获  ?? 永远是捕获在前面
+			//    3. 祖先节点,按照从低到高,触发冒泡
+			
+			// 1:37 min 
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

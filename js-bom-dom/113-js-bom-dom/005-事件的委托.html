@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>005-事件委托</title>
+
+		<style type="text/css">
+			ul li {
+
+				list-style: none;
+				background-color: #FFFF00;
+				color: #FF0000;
+				width: 200px;
+				height: 40px;
+				line-height: 40px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 
+		 触发的起源 target 
+		 
+		 利用冒泡 + 事件的起源，避免在非常大量的子元素绑定事件，而只是少量父元素绑定事件 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 -->
+
+
+		<ul id="ul">
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+			<li>没点过</li>
+
+		</ul>
+
+
+
+
+
+
+		<script type="text/javascript">
+			// 事件的委托
+			Element.prototype.addEvent = function(type, func) {
+				var element = this;
+				if (element.addEventListener) {
+					element.addEventListener(type, func);
+				} else if (element.attachEvent) {
+					element.attachEvent('on' + type, function() {
+						func.call(element);
+					});
+				} else {
+					element['on' + type] = func;
+				}
+			}
+
+			Element.prototype.stopPropagation = function(e) {
+				e = e || window.event;
+
+				if (e.stopPropagation) {
+					e.stopPropagation();
+				} else {
+					e.cancelBubble = true;
+				}
+			}
+
+			Element.prototype.preventDefault = function(e) {
+				e = e || window.event;
+				if (e.preventDefault) {
+					e.preventDefault();
+				} else {
+					e.returnValue = false;
+				}
+			}
+
+			Element.prototype.getTarget = function(e) {
+				e = e || window.event;
+				return (e.target || e.srcElement);
+			}
+
+
+
+			// var lis = document.querySelectorAll('ul>li');
+			// for (var i = 0;i< lis.length;i++){
+
+			// 	lis[i].addEvent('click',function(e){
+			// 		console.log('click on li');
+			// 		this.textContent = '点过';
+			// 		this.style.color = '#FF0000';
+			// 		this.style.backgroundColor ='#CCCCC';
+			// 	})
+			// }
+
+
+
+			var ul = document.querySelector('#ul');
+
+			ul.addEvent('click', function(e) {
+				e = e || window.event;
+				var target = this.getTarget();
+
+				// target.innerHTML = '点过';
+				// target.style.backgroundColor ='#CCCCC';
+				
+				if (target !== this) {
+					// target.textContent = '点过';
+					target.innerHTML = '点过';
+					target.style.backgroundColor ='#CCCCC';
+					target.style.color = '#000000';
+				}
+
+				// console.log(target);
+				// target.textContent = '点过';
+				// this.getTarget().style.backgroundColor ='#CCCCC';
+
+			});
+		</script>
+	</body>
+</html>

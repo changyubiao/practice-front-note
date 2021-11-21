@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>  开发中 如何优化for 循环 </title>
+	</head>
+	<body>
+		
+		
+		<ul id ="nums">
+			
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		
+		<script type="text/javascript">
+			
+			/*
+			
+			
+			for 性能 优化 
+			*/
+		   
+		   arr  = []
+		   
+		   
+		   // // 每次读取 arr.length
+		   // for(var i = 0;i< arr.length;i++){
+			   
+			   
+		   // }
+		   
+		   
+		   
+		   // 优化 
+		    var length = arr.length;
+			
+			for(var i = 0,len= arr.length;i< len;i++){			   
+						   
+			}
+			
+			
+			
+			
+			// 算法  优化 
+			var sum = 0 ;
+			//  1 + 2 + ...  + 99 + 100
+		   for (var i = 0; i < 100; i++) {
+		   	// 100  
+				sum +=1
+			
+			}
+			console.log(sum);
+			//  使用 公式    (1 +N )N / 2
+			
+			
+			
+			
+			//  leetcode  两数之和 
+			// arr = [1,2,3,4,5,6];  num1 + num2 == 11 
+			
+			
+			// arr.indexOf()
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+		
+		/**
+		 * @param {number[]} nums
+		 * @param {number} target
+		 * @return {number[]}
+		 */
+		// var twoSum = function(nums, target) {
+			
+		// 	var visited = {};
+		// 	for(var  i in nums){
+		// 		console.log(i,nums[i]);
+		// 		var anther = target  - nums[i];
+		// 		if (anther in visited){
+		// 			return [i,visited[anther]];
+		// 		}else{
+		// 			visited[nums[i]] = i ;
+		// 		}
+				
+		// 	}
+		// 	// not found
+		// 	return [-1,-1];
+		// };	
+		
+
+		var twoSum = function(nums, target) {
+			var map = new Map();
+			for(var  i in nums){
+				// console.log(i,nums[i]);
+				var anther = target  - nums[i];
+				
+				if (map.has(anther)){
+					return [i,map.get(anther)];
+				}else{
+					map.set(nums[i],i);
+				}
+				
+			}
+			// not found
+			return [-1,-1];
+		};	
+		
+		var  nums = [3,2,1];
+		var target = 3;
+		
+		console.log(twoSum(nums,target));
+			
+			
+		</script>
+	</body>
+</html>

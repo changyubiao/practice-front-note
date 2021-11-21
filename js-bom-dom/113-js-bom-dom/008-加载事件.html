@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 refer
+		 
+		 https://zh.javascript.info/onload-ondomcontentloaded
+		 
+		 
+		 -->
+		
+		
+		<script  type="text/javascript">
+			
+			
+			// 加载事件 
+			window.onload = function(){
+			
+			// 	var div = document.querySelector('#div1');
+			// 	div.textContent = 'Hello world !';
+			console.log('onload');
+				
+			}
+
+			
+			
+			// 这种方式
+			// window.addEventListener('load',function(){
+				
+			// 		var div = document.querySelector('#div1');
+			// 		div.textContent = 'Hello world 2!';
+					
+				
+			// });
+			
+			
+			
+			/*
+			
+			
+			https://zh.javascript.info/onload-ondomcontentloaded
+
+			
+			DOMContentLoaded —— 浏览器已完全加载 HTML，并构建了 DOM 树，但像 <img> 和样式表之类的外部资源可能尚未加载完成。
+			
+			load 事件 —— 外部资源已加载完成，样式已被应用，图片大小也已知了。
+			
+			*/ 
+			
+			
+			
+			
+			
+			// DOMContentLoaded 事件 
+			// window.onload   vs.  DOMContentLoaded  区别 
+			/*
+			// src   css 外部文件 , img   加载是异步的， 不会阻塞DOM 解析的过程 
+			
+			1. HTML DOM 解析完成时候
+			
+			2. 所有CSS外部文件 img 下载完了
+			
+			通常来说  1先完成 
+			
+			
+			
+			window.onload  2完成后触发 
+			
+			DOMContentLoaded 1完成触发
+			
+			*/ 
+			
+			// 这个相对会快一点 
+			window.addEventListener('DOMContentLoaded',function(){
+					// var div = document.querySelector('#div1');
+					// div.textContent = 'Hello world 3!';
+					
+					console.log('DOMContentLoaded');
+					
+				
+			});
+		</script>
+		
+		
+		<div id="div1">
+		
+			
+			
+		</div>
+		
+
+		
+	</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> js 深拷贝 与 浅拷贝 </title>
+	</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			var obj = {
+				a: 'hello',
+				b: {
+					a: 'world',
+					age: 18
+				},
+				c: [1, "frank", null, false]
+			}
+
+
+			// 遍历 copy  shallow copy 
+			function simpleClone(origin) {
+				// shallow copy 
+				var obj = {};
+				for (var i in origin) {
+					// 拷贝
+					obj[i] = origin[i];
+				}
+				return obj;
+
+			}
+
+			// newObj = simpleClone(obj)
+			// // console.log(obj);
+			// // console.log(newObj);
+
+			// // update newObj
+			// newObj.b.a = 'AAAAAAAAAAAAAAAA';
+
+			// console.log(obj);
+			// console.log(newObj);
+
+
+
+
+			// 第二种方式 
+			// Object.create 
+			//  shadow copy 
+			// var newObj = Object.create(obj);
+			// newObj.b.a = 'AAAAAAAAAAAAAAAA';
+
+			// console.log(obj);
+			// console.log(newObj);
+			// console.log('pause here')
+		</script>
+
+
+		<script type="text/javascript">
+			// 深拷贝 
+
+			var obj = {
+				a: 'hello',
+				b: {
+					a: 'world',
+					age: 18
+				},
+				c: [1, "frank", null, false]
+			}
+
+
+			function deepClone(origin, curObj) {
+				// 深拷贝 
+				// deep copy 
+				var obj = curObj || {};
+				for (var i in origin) {
+					// 拷贝
+					// 判断引用类型 
+
+					if (typeof(origin[i]) == 'object' && origin[i] !== null) {
+						// 判断是 数组 还是对象 类型 
+						// 注意 null 类型没有 constructor 构造器 
+						// obj[i] =  origin[i].constructor  == Array ? []:{}; 
+						obj[i] = origin[i].constructor == Array ? [] : Object.create(null);
+						// 递归的拷贝
+						deepClone(origin[i], obj[i]);
+					} else {
+						// 值类型 
+						obj[i] = origin[i];
+					}
+
+				}
+				return obj;
+			}
+
+
+			// newObj = deepClone(obj);
+			// // console.log(obj);
+			// // console.log(newObj);
+
+			// // update newObj
+			// newObj.b.a = 'AAAAAAAAAAAAAAAA';
+
+			// console.log(obj);
+			// console.log(newObj);
+
+			// 
+			//  Object.create(null) 
+			//  这个作用用来生成一个空对象而已 ,并且没有prototype 
+
+			//  b = {}   
+			//  也是空对象， 但是有 prototype 
+		</script>
+
+
+		<script type="text/javascript">
+			// 第三种方式  这种是第三种 深拷贝的方式 
+			// 把对象先转成 字符串 然后在进行 parse 这样就是深拷贝了。
+			// JSON.parse()
+			// JSON.stringify()
+
+
+			var obj = {
+				a: 'hello',
+				b: {
+					a: 'world',
+					age: 18
+				},
+				c: [1, "frank", null, false]
+			}
+
+
+
+			newObj = JSON.parse(JSON.stringify(obj));
+			// console.log(obj);
+
+			// console.log('=============new ===========')
+			// console.log(newObj);
+
+
+
+			// update newObj
+			newObj.b.a = 'AAAAAAAAAAAAAAAA';
+
+			console.log(obj);
+			console.log(newObj);
+		</script>
+	</body>
+</html>
