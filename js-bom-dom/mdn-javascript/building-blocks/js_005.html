@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple calendar example</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			ul {
+				padding-left: 0;
+			}
+
+			li {
+				display: block;
+				float: left;
+				width: 25%;
+				border: 2px solid white;
+				padding: 5px;
+				height: 80px;
+				line-height: 80px;
+				background-color: #4A2DB6;
+				color: white;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<label for="theme">Select month: </label>
+		<select id="select">
+
+			<option value="January">January</option>
+			<option value="February">February</option>
+			<option value="March">March</option>
+			<option value="April">April</option>
+			<option value="May">May</option>
+			<option value="June">June</option>
+			<option value="July">July</option>
+			<option value="August">August</option>
+			<option value="September">September</option>
+			<option value="October">October</option>
+			<option value="November">November</option>
+			<option value="December">December</option>
+
+
+		</select>
+
+		<h1></h1>
+		<ul>
+
+		</ul>
+
+		<script type="text/javascript">
+			var select = document.querySelector('select');
+			var list = document.querySelector('ul');
+			var h1 = document.querySelector('h1');
+
+			var monthMap = new Map([
+				['January', 31],
+				['March', 31],
+				['May', 31],
+				['July', 31],
+				['August', 31],
+				['October', 31],
+				['December', 31],
+
+
+				['February', 28],
+				['April', 30],
+				['June', 30],
+				['September', 30],
+				['November', 30],
+
+
+				// ['April', '', '', '', '', '', '', '', '']
+
+			])
+
+			select.onchange = function() {
+				var choice = select.value;
+				console.log(select.value);
+
+				let days = monthMap.get(select.value);
+				// ADD CONDITIONAL HERE
+
+
+				createCalendar(days, choice);
+			}
+
+			function createCalendar(days, choice) {
+				list.innerHTML = '';
+				h1.textContent = choice;
+				for (var i = 1; i <= days; i++) {
+					var listItem = document.createElement('li');
+					listItem.textContent = i;
+					list.appendChild(listItem);
+				}
+			}
+
+			createCalendar(31, 'January');
+		</script>
+
+
+	</body>
+
+</html>

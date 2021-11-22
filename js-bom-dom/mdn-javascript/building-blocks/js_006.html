@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<label for="theme">Select theme: </label>
+		<select id="theme" value="white">
+			<option value="white">White</option>
+			<option value="black">Black</option>
+			<option value="purple">Purple</option>
+			<option value="yellow">Yellow</option>
+			<option value="psychedelic">Psychedelic</option>
+		</select>
+
+		<h1>This is my website</h1>
+
+		<script type="text/javascript">
+			var select = document.querySelector('select');
+			var html = document.querySelector('html');
+			// document.body.style.padding = '20px';
+
+			// var choice = select.value;
+			// var choice = 'purple';
+
+
+			function update(bgColor, textColor) {
+				html.style.backgroundColor = bgColor;
+				html.style.color = textColor;
+			}
+
+
+			select.addEventListener('change', function() {
+				var choice = select.value;
+				console.log('choice:', choice);
+
+				switch (choice) {
+					case 'white':
+						bgColor = choice;
+						textColor = 'black';
+						break;
+					case 'black':
+						bgColor = choice;
+						textColor = 'white';
+						break;
+					case 'purple':
+						bgColor = choice;
+						textColor = 'white';
+						break;
+					case 'yellow':
+						bgColor = choice;
+						textColor = 'white';
+						break;
+					case 'psychedelic':
+						bgColor = 'lime';
+						textColor = 'purple';
+						break;
+					default:
+						bgColor = 'white';
+						textColor = 'black';
+						break;
+				}
+
+				console.log(bgColor, textColor);
+				update(bgColor, textColor);
+
+			});
+		</script>
+
+
+	</body>
+
+</html>
