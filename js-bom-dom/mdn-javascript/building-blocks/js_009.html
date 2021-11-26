@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Integer squares generator</title>
+    <style>
+
+    </style>
+  </head>
+  <!-- 
+  循环
+   https://developer.mozilla.org/zh-CN/docs/learn/JavaScript/Building_blocks/Looping_code
+   -->
+  <body>
+
+  <label for="number">Enter number: </label>
+  <input id="number" type="text">
+  <button>Generate integer squares</button>
+
+  <p>Output: </p>
+
+
+    <script>
+    const para = document.querySelector('p');
+    const input = document.querySelector('input');
+    const btn = document.querySelector('button');
+
+    btn.addEventListener('click', function() {
+      para.textContent = 'Output: ';
+      let num = input.value;
+      input.value = '';
+	  // 获得焦点
+      input.focus();
+      for (let i = 1; i <= num; i++) {
+        let sqRoot = Math.sqrt(i);
+		
+		// 在循环中，我们使用Math.sqrt(i)找到每个数字的平方根，
+		// 然后测试平方根是否是一个整数，
+		// 通过判断当它被向下取整时，
+		// 它是否与自身相同（这是Math.floor(...)对传递的数字的作用）
+        if(Math.floor(sqRoot) !== sqRoot) {
+          continue;
+        }
+
+        para.textContent += i + ' ';
+      }
+    });
+      
+    </script>
+
+  </body>
+</html>

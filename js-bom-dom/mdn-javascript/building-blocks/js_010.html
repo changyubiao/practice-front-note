@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div class="output">
+
+		</div>
+
+		<script type="text/javascript">
+			function syncSleep(time) {
+				const start = new Date().getTime();
+				while (new Date().getTime() - start < time) {}
+			}
+
+
+			var output = document.querySelector('.output');
+
+			output.innerHTML = '';
+			var i = 10;
+
+			while (i >= 0) {
+				console.log('i:', i);
+				var para = document.createElement('p');
+				if (i === 10) {
+					para.textContent = 'Countdown ' + i;
+
+				} else if (i === 0) {
+					para.textContent = 'Blast off';
+
+				} else {
+					para.textContent = i;
+
+				}
+				output.appendChild(para);
+
+				i--;
+			}
+		</script>
+	</body>
+</html>
