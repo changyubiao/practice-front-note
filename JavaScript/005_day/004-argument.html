@@ -44,24 +44,23 @@
 
 			function f(a, b, c) {
 				// a,b,c 形参
-				// console.log(a,b,c);
+				console.log(a,b,c);
 
-				// // 获取形参
-				// console.log('获取形参长度', f.length);
+				// 获取形参
+				console.log('获取形参长度:', f.length);
 
-				// console.log(arguments);
-				// // console.log(arguments[0],arguments.length);
+				console.log(arguments);
+				console.log(arguments[0],arguments.length);
 
-				// // 枚举
-				// for (var i=0;i< arguments.length ;i ++){
-				// 	console.log(arguments[i])
-				// }
-
+				// 枚举
+				for (var i=0;i< arguments.length ;i ++){
+					console.log(arguments[i])
+				}
 
 
 				//Notice:   b 和 agruments[1] 是两个不同的变量
 				// 但是系统会自动绑定在一起。 前提是传参的时候 有b 和arguemnt[1] 有传入值
-				console.log(b, arguments[1]);
+				// console.log(b, arguments[1]);
 
 
 				b = 100;
@@ -74,10 +73,10 @@
 			}
 
 			// 此时可以调用 
-			f(1);
+			// f(1);
 
 			// 此时这样调用 
-			// f(1, 2, 3, 4, 5);
+			f(1, 2, 3, 4, 5);
 
 
 			// 形参多，实参少情况 

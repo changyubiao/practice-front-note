@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点击轮播图-02</title>
+		<script type="text/javascript" src="animation.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			img {
+				vertical-align: top;
+			}
+
+			#box {
+				width: 730px;
+				height: 454px;
+				padding: 5px;
+				border: 1px solid #ccc;
+				margin: 0;
+				/* margin: 100px auto; */
+			}
+
+			#box>.inner-box {
+				position: relative;
+				width: 730px;
+				height: 454px;
+				overflow: hidden;
+			}
+
+			#box>.inner-box>ul {
+				overflow: hidden;
+				position: absolute;
+				width: 500%;
+				left: 0;
+				top: 0;
+			}
+
+			#box>.inner-box>ul>li {
+				float: left;
+			}
+
+			#box>.inner-box>div {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+
+			#box>.inner-box>div>span {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background-color: #fff;
+				text-align: center;
+				line-height: 16px;
+				cursor: pointer;
+			}
+
+			#box>.inner-box>div>span.active {
+				color: #fff;
+				background-color: #ff8000;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="box">
+			<div class="inner-box">
+				<ul>
+					<li><a href="#"><img src="images/1.jpg"></a></li>
+					<li><a href="#"><img src="images/2.jpg"></a></li>
+					<li><a href="#"><img src="images/3.jpg"></a></li>
+					<li><a href="#"><img src="images/4.jpg"></a></li>
+					<li><a href="#"><img src="images/5.jpg"></a></li>
+				</ul>
+				<div data-index="0">
+					<span class="active">1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+			// var  ul = document.querySelectorAll('#box >.inner-box > ul')[0];
+			// 1.准备 轮播图的宽度
+			// 2. 跑一张录播图的时间 
+			var duration = 1000;
+
+			var innerBox = document.querySelector('.inner-box');
+			var width = innerBox.offsetWidth;
+			// console.log(innerBox.offsetWidth);
+
+			// 3. innternal 
+			var internal = 20;
+			// // innerBox.clientWidth
+
+			// 4. 运动的对象 
+			var ul = document.querySelector('#box >.inner-box > ul');
+			// // animation(ul,target*2,1500*2,internal);
+			// animation(ul,-width*2,duration*2,internal);
+
+			// 5. bind event 
+			var spans = document.querySelectorAll('#box>.inner-box>div>span');
+			var spanDiv = document.querySelector('#box>.inner-box>div');
+			for (var i = 0; i < spans.length; i++) {
+				spans[i].addEventListener('click', function() {
+					// 从span inner html  
+					// 如何确定x 的值
+					var lastX = parseInt(spanDiv.dataset['index']);
+					// console.log(this.innerHTML);
+					var x = parseInt(this.textContent) - 1;
+
+
+					if (lastX !== x) {
+						spans[lastX].setAttribute('class', '');
+						spans[x].setAttribute('class', 'active');
+
+						animation(ul, -width * x, duration * Math.abs(lastX - x), internal);
+						// 设置为index
+						spanDiv.dataset['index'] = x;
+
+					}
+
+				});
+			}
+		</script>
+
+	</body>
+</html>

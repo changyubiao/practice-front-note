@@ -3,11 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<h1>函数表达式</h1>
+		<h1>函数表达式-03</h1>
 	</head>
 	<body>
 
 		<script type="text/javascript">
+		/*
+		
+		函数表达式 不会污染命名空间， 
+		
+		很多JS库 使用函数表达式 
+		
+		
+		*/ 
 			// 污染命名空间
 			// var a = 5;
 			// var b = 3;
@@ -67,25 +75,30 @@
 
 
 
-			// 不报错，， 但是 不是立即执行函数。
-			// function fn(x) {
-			// 	var a = 5;
-			// 	var b = 3;
-			// 	console.log(a + b);
-			// 	console.log('x =',x);
-			// }(1);
+			// 不报错， 但是 不是立即执行函数。
+			// 这个函数 fn 有定义, (1); 这里就是普通的表达式
+			function fn(x) {
+				var a = 5;
+				var b = 3;
+				console.log(a + b);
+				console.log('x =',x);
+			}(1);
+			
+			// (1,2,3);
 
 
 
 
 			// 小想学习 
-
+			// Notice:  return 返回值不止一行， 返回值要用括号 阔起来
 			function f1() {
 				// return 返回值不止一行， 返回值要用括号 阔起来
 
-				//  return  语句 只会看当前行..
+
+				// return [[1,2],[3,4]];
+				//  return  语句 只会看当前行..	
 				// return 
-				// return  ;
+				// return 
 				// [
 				// 	[1, 2],
 				// 	[3, 4]

@@ -44,94 +44,172 @@
  
  -->
 
-		<input type="text" name="" id="pos" value="100" />
-		<input type="button" name="" id="btn" value="向前移动" />
+		<input type="text" name="" id="pos" value="0" />
+		<input type="button" name="" id="btn" value="移动" />
 		<div id="div1">
 		</div>
 
 
 		<script type="text/javascript">
-			var btn = document.querySelector('#btn');
-
-			// 5 秒
-			// 3. 时间的跨度: duration
-			// 时间的间隔: interval
-			const duration = 5000;
-			const interval = 20;
-
+		
+		
 			// var  div = document.querySelector('#div1');
-			btn.addEventListener('click', function() {
-				// 运动的对象 #div1
-				var div = document.querySelector('#div1');
+			// btn.addEventListener('click', function() {
+			// 	// 运动的对象 #div1
+			// 	var div = document.querySelector('#div1');
 
 
+			// 	// 起始点 :  #div1  当前位置的 left 
+			// 	// 终止点 :   #div1 #pos  
+			// 	// 不能用 , 拿不到 left 
+			// 	// var leftStart = div.style.left;
+
+
+			// 	var leftStart = div.offsetLeft;
+			// 	console.log('left:', leftStart);
+
+			// 	// 用户输入的值
+			// 	var leftEnd = parseInt(document.querySelector('#pos').value);
+
+			// 	console.log('leftEnd:', leftEnd);
+			// 	console.log('typeof leftEnd :', typeof leftEnd);
+
+			// 	// 时间跨度: 常数 5s 
+			// 	// 时间间隔, 常数 20ms 
+
+			// 	// 设置定时器 
+			// 	// 9. timer 在闭包中 需要有方法 把 timer 干掉
+			// 	//  问题: timer 在闭包 中 ， 需要有方法 把 timer 停掉
+
+			// 	timer && clearInterval(timer);
+
+			// 	timer = setInterval(function() {
+
+			// 			let stepTemp = (leftEnd - leftStart) / (duration / interval);
+			// 			let step = Math.floor(stepTemp);
+
+			// 			// step 必须是整数,且不能是0 ,要不然 step 不会变化了
+			// 			if (step === 0) {
+			// 				step = stepTemp > 0 ? 1 : -1;
+			// 			}
+
+			// 			// console.log('step:', step);
+			// 			// console.log(div.style.left, leftEnd);
+
+			// 			console.log('timer:', timer, 'step:', step,
+			// 				'div.offsetLeft - leftEnd:', div.offsetLeft - leftEnd,
+			// 				'offsetLeft:', div.offsetLeft,
+			// 				'leftEnd:', leftEnd
+			// 			);
+
+
+			// 			// 定时器什么时候停止 
+			// 			// div.style.left <= leftEnd
+
+			// 			// 同时考虑 向左 和向右移动
+			// 			// if (step * (div.offsetLeft - leftEnd) <= 0) {
+			// 			// 最后一次 不足一个step 如何处理  ？
+
+
+			// 			// 8.如何解决 lefEnd 位置不精确的问题
+			// 			if (Math.abs((leftEnd - div.offsetLeft)) <= Math.abs(step)) {
+			// 				// 设置为 leftEnd 
+			// 				div.style.left = leftEnd + 'px';
+			// 				console.log('clearInterval begin...');
+			// 				clearInterval(timer);
+			// 			} else {
+			// 				div.style.left = (div.offsetLeft + step) + 'px';
+			// 				if (div.style.left < 0) {
+			// 					div.style.left = 0;
+			// 					clearInterval(timer);
+			// 				}
+			// 			}
+
+
+			// 			// timer: 3 step: -2 div.offsetLeft - leftEnd: -902
+			// 			// 001.html:101 timer: 3 step: -2 div.offsetLeft - leftEnd: -904
+
+			// 			// } else {
+			// 			// 	// 停止定时器
+			// 			// 	console.log('clear Interval...')
+			// 			// 	console.log(div.offsetLeft, leftEnd);
+			// 			// 	// clearInterval(timer);
+			// 			// }
+
+			// 		},
+			// 		interval);
+
+			// });
+
+
+			//  这个时候 还是有点问题，  回去的时候 会出去。。。。一直往左 跑
+			// hour:81:00:00
+
+			// question 10  封装一个函数 
+			function animation(element, leftEnd, duration, internal) {
+				// 1.运动对象  element  
 				// 起始点 :  #div1  当前位置的 left 
 				// 终止点 :   #div1 #pos  
-				// 不能用 , 拿不到 left 
-				// var leftStart = div.style.left;
+				var leftStart = element.offsetLeft;
+				// console.log('left:', leftStart);
+				// console.log('leftEnd:', leftEnd);
+				// console.log('typeof leftEnd :', typeof leftEnd);
+
+				let stepTemp = (leftEnd - leftStart) / (duration / interval);
+				let step = Math.floor(stepTemp);
+				// step 必须是整数,且不能是0 ,要不然 step 不会变化了
+				if (step === 0) {
+					step = stepTemp > 0 ? 1 : -1;
+				}
 
 
-				var leftStart = div.offsetLeft;
-				console.log('left:', leftStart);
-
-
-				var leftEnd = parseInt(document.querySelector('#pos').value);
-
-				console.log('leftEnd:', leftEnd);
-				console.log('typeof:', typeof leftEnd);
-
-				// 时间跨度: 常数 5s 
-				// 时间间隔, 常数 20ms 
-
-				// 设置定时器 
+				// 4. 设置定时器 
 				// 9. timer 在闭包中 需要有方法 把 timer 干掉
-				var timer = setInterval(function() {
+				//  问题: timer 在闭包 中 ， 需要有方法 把 timer 停掉
+				element.timer && clearInterval(element.timer);
 
-						let stepTemp = (leftEnd - leftStart) / (duration / interval);
-						let step = Math.floor(stepTemp);
-
-						// step 必须是 整数,且不能是0 
-						if (step === 0) {
-							step = stepTemp > 0 ? 1 : -1;
-						}
-
+				element.timer = setInterval(function() {
 						// console.log('step:', step);
 						// console.log(div.style.left, leftEnd);
 
-						console.log('timer:', timer, 'step:', step,
-							'div.offsetLeft - leftEnd:', div.offsetLeft - leftEnd);
-
+						console.log('timer:', element.timer, 'step:', step,
+							'div.offsetLeft - leftEnd:', element.offsetLeft - leftEnd,
+							'offsetLeft:', element.offsetLeft,
+							'leftEnd:', leftEnd
+						);
 
 						// 定时器什么时候停止 
-						// div.style.left <= leftEnd
-
 						// 同时考虑 向左 和向右移动
-						// if (step * (div.offsetLeft - leftEnd) <= 0) {
-						// 最后一次 不足一个step 如何处理  ？
-						// 如何解决 lefEnd 位置不精确的问题
-						if (Math.abs((leftEnd - div.offsetLeft)) <= step) {
-							div.style.left = leftEnd + 'px';
-							clearInterval(timer);
+						// 8.如何解决 lefEnd 位置不精确的问题
+						if (Math.abs((leftEnd - element.offsetLeft)) <= Math.abs(step)) {
+							// 设置为 leftEnd 
+							element.style.left = leftEnd + 'px';
+							console.log('clearInterval begin...');
+							clearInterval(element.timer);
 						} else {
-							div.style.left = (div.offsetLeft + step) + 'px';
+							element.style.left = (element.offsetLeft + step) + 'px';
 						}
-
-						// } else {
-						// 	// 停止定时器
-						// 	console.log('clear Interval...')
-						// 	console.log(div.offsetLeft, leftEnd);
-						// 	// clearInterval(timer);
-						// }
-
 					},
 					interval);
+			}
+			
+			// 5 秒
+			// 3. 时间的跨度: duration
+			// 时间的间隔: interval
+			const duration = 6000;
+			const interval = 20;
+			var btn = document.querySelector('#btn');
+			// var timer = null;
 
-			});
-			// 
-			//  这个时候 还是有点问题，  回去的时候 会出去。。。。一直往左 跑
-			// hour:81
+			btn.addEventListener('click', function() {
+				var div = document.querySelector('#div1');
+				var pos = document.querySelector('#pos');
+				var leftEnd = parseInt(pos.value);
+				// console.log('123:leftEnd:', leftEnd)
+				animation(div, leftEnd, duration, interval);
+			})
 		</script>
 
-
+		<!-- hour: 1:32:21 -->
 	</body>
 </html>
