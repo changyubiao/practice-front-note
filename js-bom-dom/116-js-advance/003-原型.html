@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name, age){ // 构造函数
+				this.name = name;
+				this.age = age;
+			}	
+			
+			// 方法
+			Person.prototype.say = function(saidWords){
+				console.log(saidWords);
+			}
+			// 属性
+			// 共享属性
+			Person.prototype.animalName = '人';
+			
+			var person1 = new Person('Frank', 25);
+			var person2 = new Person('Frank', 25);
+			
+			// console.log(person1.animalName);
+			// console.log(person2.animalName);
+			
+			// 原型的方法,既可以访问原型中的其他的方法和属性,
+			// 也可以访问实例上自己的属性
+			Person.prototype.say2 = function(){
+				// 原型上的方法 
+				this.say('Frank 很帅！');
+				// 原型上的属性
+				console.log(this.animalName,this.name);
+				// 实例的自己的属性
+				// console.log(this.name);
+				console.log('say2 done.')
+			}
+			
+			// person1.say2();
+			// console.log('============p2.say2()===========')
+			// person2.say2();
+			
+			
+			// 写实例：直接在实例上增加的方法或者属性，是属于实例本身的，不会影响构造函数的原型
+			// 读实例：首先在实例本身上寻找改方法或者属性，如果找不到去原型上找，如果还找不到，返回undefined
+			// person1.animalName = '好人';
+			// // 1.  
+			// console.log(person1.animalName);  //好人
+			// // 2.  
+			// console.log(person2.animalName);  //人
+			
+			
+			// 3. 删除自己的实例的属性， 则会继续去 原型链上去找。
+			// console.log('delete person1.animalName.')
+			// delete person1.animalName;  // 只能删除自己的animalName,不会删除原型的东西
+			// console.log(person1.animalName);  // 人 
+			
+			// 4. 
+			delete person2.animalName;
+			delete Person.prototype.animalName;
+			console.log(person2.animalName);   // undefined
+			 
+		</script>
+	</body>
+</html>

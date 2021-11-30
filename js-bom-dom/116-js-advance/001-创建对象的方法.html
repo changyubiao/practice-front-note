@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Person 对象, name, age, say()
+			// 1. 工厂方法
+			function createPerson(name, age, saidWords){
+				var person = {};
+				person.name = name;
+				person.age = age;
+				person.say = function(){
+					console.log(saidWords);
+				}
+				return person;
+			}
+			
+			var person1 = createPerson('隔壁王校长', 25, '同学们好!');
+			
+			// console.log(createPerson.prototype);
+			
+			// 2. 直接
+			// 不推荐的写法
+			var person2 = {};
+			person2.name = '隔壁王校长';
+			person2.age = 25;
+			person2.say = function(){
+				console.log('同学们好！');
+			}
+			
+			// 推荐的写法
+			var person3 = {
+				name: '隔壁王校长',
+				age: 25,
+				say: function(){
+					console.log('同学们好！');
+				}
+			}
+			
+			// 3. 构造函数
+			function Person(name, age, saidWords){
+				this.name = name;
+				this.age = age;
+				this.say = function(){
+					console.log(saidWords);
+				}
+			}
+			
+			console.log(Person.prototype);			
+			
+			var person4 = new Person('隔壁王校长', 25, '同学们好!');
+			
+			console.log(person4.__proto__);
+			
+			console.log(Person.prototype === person4.__proto__);
+			
+			console.log(Person);
+			console.log(person4.__proto__.constructor);
+			
+			console.log(Person === person4.__proto__.constructor);
+			
+			var a = [];
+			console.log(a.__proto__.constructor.name);
+			
+			var obj = {};
+			console.log(obj.__proto__.constructor.name);
+			
+			console.log(person4.__proto__.constructor.name);
+			
+			console.log(person4 instanceof Person);
+			console.log(a instanceof Array);
+			console.log(obj instanceof Object);
+			
+			// 如果你用一个构造函数创建了一个对象,那么:
+			//  对象.__proto__.constructor 就是构造函数的函数对象
+			//  对象 instanceof 构造函数对象 是 true
+
+		</script>
+	</body>
+</html>
