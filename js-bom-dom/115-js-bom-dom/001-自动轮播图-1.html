@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自动轮播图-1</title>
+		<script type="text/javascript" src="animation.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			img {
+				vertical-align: top;
+			}
+
+			#box {
+				width: 730px;
+				height: 454px;
+				padding: 5px;
+				border: 1px solid #ccc;
+				margin: 0;
+				/* margin: 100px auto; */
+			}
+
+			#box>.inner-box {
+				position: relative;
+				width: 730px;
+				height: 454px;
+				overflow: hidden;
+			}
+
+			#box>.inner-box>ul {
+				overflow: hidden;
+				position: absolute;
+				width: 500%;
+				left: 0;
+				top: 0;
+			}
+
+			#box>.inner-box>ul>li {
+				float: left;
+			}
+
+			#box>.inner-box>.page {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+
+			#box>.inner-box>.page>span {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background-color: #fff;
+				text-align: center;
+				line-height: 16px;
+				cursor: pointer;
+			}
+
+			#box>.inner-box>.page>span.active {
+				color: #fff;
+				background-color: #ff8000;
+			}
+
+
+
+
+			/* arrow  */
+			/* #box>.inner-box>.arrow {} */
+
+			#box>.inner-box>.arrow>span {
+				position: absolute;
+
+				display: none;
+				width: 40px;
+				height: 40px;
+
+				text-align: center;
+				line-height: 40px;
+
+				font-size: 30px;
+				font-weight: 700;
+				font-family: '黑体';
+				color: #fff;
+				background-color: #000000;
+
+				top: 50%;
+				margin-top: -20px;
+
+				opacity: 0.3;
+				border: 1px solid #FFFFFF;
+				cursor: pointer;
+
+				display: none;
+			}
+
+
+			#box:hover>.inner-box>.arrow>span {
+				display: block;
+
+			}
+
+			#box>.inner-box>.arrow>.left {
+				left: 0;
+			}
+
+			#box>.inner-box>.arrow>.right {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="box">
+			<div class="inner-box">
+				<ul>
+					<li><a href="#"><img src="images/1.jpg"></a></li>
+					<li><a href="#"><img src="images/2.jpg"></a></li>
+					<li><a href="#"><img src="images/3.jpg"></a></li>
+					<li><a href="#"><img src="images/4.jpg"></a></li>
+					<li><a href="#"><img src="images/5.jpg"></a></li>
+				</ul>
+				<div class="page" data-index="0">
+					<span class="active">1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+				</div>
+
+
+				<div class="arrow">
+					<span class="left">&lt;</span>
+					<span class="right">&gt;</span>
+
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+
+			// 1.准备 轮播图的宽度
+			// 2. 跑一张录播图的时间 
+			var duration = 1000;
+
+			var innerBox = document.querySelector('.inner-box');
+			var width = innerBox.offsetWidth;
+			// console.log(innerBox.offsetWidth);
+
+			// 3. innternal 
+			var internal = 20;
+			// animation(ul,target*2,1500*2,internal);
+
+			// 4.实验跑轮播,运动对象 ul 
+			var ul = document.querySelector('#box >.inner-box > ul');
+
+
+			// 5. bind event 
+			var spans = document.querySelectorAll('#box>.inner-box>.page>span');
+			var spanDiv = document.querySelector('#box>.inner-box>.page');
+
+
+
+			//6. 左右箭头
+			var leftSpan = document.querySelector('#box>.inner-box>.arrow >.left');
+			var rightSpan = document.querySelector('#box>.inner-box>.arrow >.right');
+
+
+			function changeSpans(spanDiv, spans, lastX, x) {
+				spans[lastX].setAttribute('class', '');
+				spans[x].setAttribute('class', 'active');
+				spanDiv.dataset['index'] = x;
+			}
+
+
+			for (var i = 0; i < spans.length; i++) {
+				// 立即执行函数 , 这里的function 是 立即执行函数， 因为是这里是一个闭包， 
+				//  function 无法拿到 i 的值， 所以要立即执行 拿到i 
+				spans[i].addEventListener('click', (function(x) {
+					console.log('x:', x);
+					// 返回一个函数 
+					return (function() {
+						var lastX = parseInt(spanDiv.dataset['index']);
+						// console.log('orginlast X:',spanDiv.dataset['index']);
+						if (x !== lastX) {
+							// 操作 spans 
+							changeSpans(spanDiv, spans, lastX, x);
+							animation(ul, -width * x, duration * Math.abs(lastX - x), internal);
+
+						}
+
+					});
+				})(i));
+			}
+
+
+			leftSpan.addEventListener('click', function() {
+				var lastX = parseInt(spanDiv.dataset['index']);
+				// 左移一步
+				if (lastX > 0) {
+					var x = lastX - 1
+					animation(ul, -width * x, duration * 1, internal);
+					changeSpans(spanDiv, spans, lastX, x);
+
+				} else {
+					console.log('不能左移了. lastX:', lastX);
+				}
+			});
+
+
+
+			rightSpan.addEventListener('click', function() {
+				var lastX = parseInt(spanDiv.dataset['index']);
+				var maxLength = spans.length;
+				// 左移一步
+				if (lastX < maxLength - 1) {
+					var x = lastX + 1
+					changeSpans(spanDiv, spans, lastX, x);
+					animation(ul, -width * x, duration * 1, internal);
+
+				} else {
+					console.log('不能右移了. lastX:', lastX);
+				}
+
+			});
+
+
+
+
+			// 6. 每隔一段时间 自动跑一页 
+			// 20 s 
+			var largerInterval = 5 * 1000;
+
+			function autoSlideShow() {
+				// 自动轮播图
+
+				var lastX = parseInt(spanDiv.dataset['index']);
+
+				var maxLength = spans.length;
+				var x = 0;
+
+				// var realInteral = internal;
+				var realDuration = duration;
+
+				if (lastX < maxLength - 1) {
+					x = lastX + 1;
+				} else {
+					x = 0;
+					realDuration = (maxLength - 1) * duration;
+
+				}
+
+				changeSpans(spanDiv, spans, lastX, x);
+				animation(ul, -width * x, realDuration, internal);
+				
+				// 开始跑下一次 
+				setTimeout(autoSlideShow,largerInterval);
+
+			}
+
+			// setTimeout()
+			setTimeout(autoSlideShow,largerInterval);
+		</script>
+
+	</body>
+</html>
