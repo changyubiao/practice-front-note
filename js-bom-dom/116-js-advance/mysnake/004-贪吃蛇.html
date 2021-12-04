@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>贪吃蛇游戏</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#map {
+
+				width: 800px;
+				height: 600px;
+				position: relative;
+				background-color: #CCCCCC;
+			}
+
+
+			.food {
+				width: 20px;
+				height: 20px;
+				background-color: #00FF00;
+
+				position: absolute;
+
+			}
+
+			.snake {
+				width: 20px;
+				height: 20px;
+				background-color: #0000FF;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- 	<script src="js/snake_v2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game_v2.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<div id="map">
+
+		</div>
+		
+		
+		
+		
+		
+
+		<script type="text/javascript">
+			/*
+			面向对象分析
+			
+			Snake
+			
+			
+			Food
+			
+			
+			Map
+			
+			Game
+			
+			*/
+
+
+			// console.log(a);
+			// var food = new Food(100,100);
+			// var food = new Food(20,25);
+
+
+			// var map = document.querySelector('#map');
+			// food.init(map);
+
+			// console.log('food init done.');
+
+			// var food2 = new Food(900,-100,20,20,'#0000FF');
+			// food2.init(document.querySelector('#map'));
+
+			// var food3 = new Food(100,100);
+			// food3.init(document.querySelector('#map'));
+
+			// var food = new Food(100,100);
+			// food.init(document.querySelector('#map'));
+
+			// var food2 = new Food(10000,10000,20,20,' #0000FF');
+			// food2.init(document.querySelector('#map'));
+
+
+
+			// function Snake(headX, headY, width, height, length, headColor, bodyColor, direction)
+			// var snake = new Snake(undefined,undefined,undefined,undefined,undefined,undefined,undefined,'abc');
+			// var snake = new Snake(undefined,undefined,undefined,undefined,undefined,undefined,undefined,'left');
+			// var snake = new Snake(undefined,undefined,undefined,undefined,undefined,undefined,undefined,'right');
+			// var snake = new Snake(undefined,undefined,undefined,undefined,undefined,undefined,undefined,'down');
+			// var snake = new Snake(undefined,undefined,undefined,undefined,undefined,undefined,undefined,'up');
+
+			// var snake = new Snake(100,100);
+
+			// // function Snake(headX, headY, width, height, length, headColor, bodyColor, direction)
+			// var snake = new Snake(125, 75,20 ,20, 3, '#000', '#FFFF00');
+			// snake.direction = 'down';
+			// snake.length = 3;
+			// var map = document.querySelector('#map');
+			// snake.init(map);
+
+
+			// setInterval(function(){
+			// 	snake.move(map);
+			// },400);
+
+
+			// snake.move(map);
+			// snake.move(map);
+			// snake.move(map);
+			// snake.direction = 'down';
+			// snake.move(map);
+			// snake.move(map);
+			// snake.move(map);
+			// snake.move(map);
+			// snake.move(map);
+
+
+			// // snake.head.x = 35;
+			// snake.direction = 'up';
+			// console.log(snake);
+
+
+			/*
+			
+			main 入口函数
+			
+			
+			*/
+
+
+			var map = document.querySelector('#map');
+			var game = new Game(map);
+			game.init();
+		</script>
+	</body>
+</html>

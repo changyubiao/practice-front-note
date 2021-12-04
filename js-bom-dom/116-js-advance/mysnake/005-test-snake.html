@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="shortcut icon" type="image/png" href="lib/jasmine-3.3.0/jasmine_favicon.png" />
+		<link rel="stylesheet" href="lib/jasmine-3.3.0/jasmine.css" />
+		<script src="lib/jasmine-3.3.0/jasmine.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jasmine-3.3.0/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jasmine-3.3.0/boot.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				height: 3000px;
+			}
+			
+			#map {
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				position: relative;
+			}
+			
+			.food {
+				width: 20px;
+				height: 20px;
+				background-color: #00f;
+				position: absolute;
+			}
+			
+			.snake {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- 最后引入即可 -->
+		<script src="js-case/testcases.js" type="text/javascript" charset="utf-8" ></script>
+		<!-- <script src="js-case/test-snake.js" type="text/javascript" charset="utf-8" ></script> -->
+		
+		
+	</body>
+</html>

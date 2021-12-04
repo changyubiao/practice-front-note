@@ -9,3 +9,23 @@
 	- 003 html 
 	- 004 html 
 	- 005 html 
+
+
+
+
+## 第二部分JavaScript 
+
+
+
+### 第二部分2-1 JavaScript 高级
+
+
+#### 116 and 117 -js-advance
+	- 001.创建对象的方法
+	- 002.构造对象中的问题
+	- 003.JavaScript中的原型 prototype
+	- 004.snake小游戏的实现基础版
+
+
+
+
