@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象的三个概念</title>
+	</head>
+	<body>
+		<!-- 
+		 hour: 2:09min 
+		 
+		
+		
+		实例   《==》   构造函数  + 原型链 
+		 
+		 
+		 
+		 -->
+
+		<script type="text/javascript">
+			function F1() {
+				this.a = 1;
+			}
+
+			F1.prototype.f = function() {
+				// console.log(this.a);
+				return this.a;
+			}
+
+
+			var f1 = new F1()
+
+			// f1.b = 2;
+			// 需要增加一个变量b， 但是又不想让其他程序受到影响 
+
+
+
+			// 1111
+			// var f2 = new Object()
+			// // 注意这里写法,原型指向 f1 
+			// f2.__proto__ = f1;
+
+
+			// 第二种写法
+			var f2 = Object.create(f1);
+			
+			// 
+			// var f3 = Object.create(f1.__proto__);
+
+			
+
+			f2.a = 100;
+			f2.b = 2;
+			
+			// f3.name = 'frank';
+			
+			
+			console.log(f1.a, f1.b, f1.f());
+			console.log(f2.a, f2.b, f2.f());
+			// console.log(f2.f)
+			
+			
+			
+			console.log(f1);
+			console.log(f2);
+		</script>
+
+	</body>
+</html>

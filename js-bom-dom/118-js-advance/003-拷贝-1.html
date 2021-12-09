@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拷贝构造函数-1</title>
+	</head>
+	<body>
+		<!-- 
+		
+		拷贝构造函数
+			
+		hour: 2:34
+		
+	
+		 -->
+
+		<script type="text/javascript">
+			function F1(a, b) {
+
+				if (a.__proto__ && a.__proto__.constructor.name === 'F1') {
+					for (var i in a) {
+						if (a.hasOwnProperty(i)) {
+							this[i] = a[i];
+						}
+					}
+				} else {
+					this.a = a;
+					this.b = b;
+				}
+			}
+
+			var f1 = new F1(1, 2);
+			var f3 = new F1(f1);
+
+			
+			
+			// 拷贝继承
+			// 1. 直接拷贝 
+			var  f2 = Object.create(f1.__proto__);
+			for (var i in f1){
+				if (f1.hasOwnProperty(i)){
+					f2[i] = f1[i];		
+				}
+			}
+
+		
+			console.log(f1);
+			console.log(f2);
+			// 拷贝构造函数 
+		</script>
+
+	</body>
+</html>

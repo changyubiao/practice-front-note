@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象的三个概念</title>
+	</head>
+	<body>
+		<!-- 
+		 hour:46min
+		 
+		 1. 里氏替换原则  https://zhuanlan.zhihu.com/p/268574641
+		 
+		 2. 里氏替换原则 https://wiki.jikexueyuan.com/project/java-design-pattern-principle/principle-2.html
+		 
+		 里氏替换原则译自Liskov substitution principle。
+		 Liskov是一位计算机科学家，也就是Barbara Liskov，麻省理工学院教授，
+		 也是美国第一个计算机科学女博士，
+		 师从图灵奖得主John McCarthy教授，人工智能概念的提出者。
+		 
+		 
+		 如果S是T的子类型，对于S类型的任意对象，如果将他们看作是T类型的对象，则对象的行为也理应与期望的行为一致。
+		 
+		 
+		 
+		 
+		 
+		 
+		 封装
+		 
+			给对象的数据 或者方法 赋予标准的访问权限， 没有权限的时候 不可以访问	
+			为啥呢？  降低复杂度， 降低耦合
+		 
+		 JS 明显不支持， JS 所有的 属性和方法都是 公开的。 
+		 
+		 
+		 
+		 
+		 继承 
+		 
+		 实体之间的isa 的关系
+		 
+		 A 是一种 B 
+		 
+		   ==》  A  extends B  
+			人是动物    		 动物是 人的基类      
+			
+			张三是个人   =>   人是张三的基类 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 多态 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 -->
+
+		<script type="text/javascript">
+			// hour:64min   86min
+
+			// 例子: 基类 animal: gender, weight, eat(), sleep()
+			//           cat: eat(mouse)
+			//           mouse:
+			//                vole: eat('crop')
+			//                rat: eat('garbage')
+			// 基类
+			function Animal(gender, weight) {
+				this.gender = gender;
+				this.weight = weight;
+			}
+
+			Animal.prototype.eat = function() {
+				console.log('animal is eating.');
+			}
+
+			Animal.prototype.sleep = function() {
+				console.log('sleep. zzZZ');
+			}
+
+
+
+			// 派生类 
+			function Cat(gender, weight, name) {
+				// 借用构造函数
+				Animal.call(this, gender, weight);
+				this.name = name;
+			}
+
+			// 原型链继承
+			Cat.prototype = new Animal('male', 2);
+			Cat.prototype.constructor = Cat;
+
+			Object.defineProperty(Cat.prototype, 'constructor', {
+				enumerable: false
+			})
+
+			// Object.defineProperty(Cat.prototype, 'constructor', {
+			// 	enumerable: false
+			// });
+
+
+			Cat.prototype.eat = function(mouse) {
+				// 如何知道 传入 的是 mouse ?  如何知道类型呢？  JS 是弱类型
+				// 1. 使用原型链来判断 
+
+				// console.log(mouse instanceof Mouse);
+				// console.log(mouse instanceof Animal);
+				// if (mouse instanceof Mouse){
+				// 	console.log('cat is eating a mouse.');
+
+				// 	mouse.f1();
+				// 	mouse.f2();
+				// 	mouse.f3();
+
+				// }else{
+				// 	console.log('cat cannot eat not a mouse!');
+
+				// }
+
+
+				// 2. 基于接口来判断 ,
+				// 判断mouse 里面一些关键的方法有没有 实现
+				if (mouse.f1 && mouse.f2 && mouse.f3) {
+					mouse.f1();
+					mouse.f2();
+					mouse.f3();
+				} else {
+					console.log('cat cannot eat not a mouse!');
+
+				}
+
+			}
+
+
+
+
+			function Mouse() {
+
+			}
+
+			Mouse.prototype = new Animal('male', 1);
+			Mouse.prototype.constructor = Mouse
+
+			Object.defineProperty(Mouse.prototype, 'constructor', {
+				enumerable: false
+			})
+
+			Mouse.prototype.f1 = function() {
+				console.log('f1 execute');
+			}
+
+			Mouse.prototype.f2 = function() {
+				console.log('f2 execute');
+			}
+
+			Mouse.prototype.f3 = function() {
+				console.log('f3 execute');
+			}
+
+
+
+			function Vole() {
+
+			}
+			
+			Vole.prototype = new Mouse();
+			Vole.prototype.constructor = Vole;
+
+			Object.defineProperty(Mouse.prototype, 'constructor', {
+				enumerable: false
+			})
+
+			Vole.prototype.eat = function() {
+
+				console.log('a Vole is eating Crop.');
+			}
+
+			function Rat() {
+
+			}
+
+			Rat.prototype = new Mouse();
+			Rat.prototype.constructor = Rat;
+			
+			Object.defineProperty(Rat.prototype, 'constructor', {
+				enumerable: false
+			})
+			
+			
+			Rat.prototype.eat = function() {
+				console.log('a Rat is eating Garbage.');
+
+			}
+			// mouse 
+			// vole  田鼠 
+			// rat   大白鼠
+
+
+
+
+			var v = new Vole();
+			var r = new Rat();
+
+			var cat = new Cat();
+			var c2 = new Cat();
+			// cat.eat(v);
+			// cat.eat(r);
+			// cat.eat(c2);
+
+
+			var obj = {
+				f1: function() {
+					console.log('obj f1');
+				},
+				f2: function() {
+					console.log('obj f2');
+				},
+				f3: function() {
+					console.log('obj f3');
+				},
+
+			}
+
+
+			// cat.eat(obj);
+			// hour: 1:57:41
+		</script>
+
+	</body>
+</html>

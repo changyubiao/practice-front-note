@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 回顾 原型 知识点
+		 
+		 
+		原型
+		每个函数，都有一个内置属性，叫做prototype（原型）
+		prototype是对象
+		如果一个对象是通过new产生的，那么这个对象将有缺省的属性，__proto__，这个属性指向函数的原型。
+
+
+ 
+		 
+		 
+		 
+		 -->
+		
+		<script type="text/javascript">
+			
+			function Grand(){
+				
+				this.a = 'a';
+				this.b = 10;
+			}
+			
+			
+			var  proto = new Object();
+			proto.c = 'c'
+			proto.f = function(){
+				console.log('hello');
+			}
+			Grand.prototype = proto;
+			
+			var grand = new Grand();
+			console.log(grand);
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

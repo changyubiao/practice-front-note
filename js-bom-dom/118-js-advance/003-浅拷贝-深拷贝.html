@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浅拷贝深拷贝</title>
+	</head>
+	<body>
+		<!-- 
+		hour: 2:38min
+		
+		浅拷贝 vs. 深拷贝 
+		
+		
+		浅拷贝
+			只拷贝值
+		
+		
+		
+		深拷贝 
+			拷贝值并且拷贝引用
+		
+	
+		 -->
+
+		<script type="text/javascript">
+			function F1(a, b) {
+
+				if (a.__proto__ && a.__proto__.constructor.name === 'F1') {
+					for (var i in a) {
+						if (a.hasOwnProperty(i)) {
+							this[i] = a[i];
+						}
+					}
+				} else {
+					this.a = a;
+					this.b = b;
+				}
+			}
+
+			var f1 = new F1([1, 2], {
+				'a': 3,
+				'b': 4
+			});
+			// var f3 = new F1(f1);
+
+
+			// 深拷贝
+			var f4 = deepCopy(f1);
+
+
+			//  from 拷贝 返回b   
+			function deepCopy(from) {
+				// 1.把 from 所有 成员拷贝给 b 
+				var b = Object.create(from.__proto__);
+				for (var i in from) {
+					if (from.hasOwnProperty(i)) {
+
+						if (from[i] instanceof Object) {
+							// 深度拷贝 
+							b[i] = deepCopy(from[i]);
+							// array 修复显示
+							if (from[i] instanceof Array) {
+								b[i].length = from[i].length;
+							}
+						} else {
+							// 基本类型
+							b[i] = from[i];
+						}
+					}
+				}
+				return b;
+			}
+
+
+			console.log(f1.a === f4.a);
+			console.log(f1.b === f4.b);
+		</script>
+
+	</body>
+</html>

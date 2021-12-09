@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+
+		 1. 从 Object开始 每一层底层 的构造函数 构造出的是 实例， 作为上一层构造函数的对象
+		 
+		 2. 构造好后， 通过对象的__proto__, 可以一直追溯到Object/null, 这个链表 称为 原型链
+		 
+		
+		
+		原型链的性质：
+		
+			 1. 所有挂载 原型链对象 上的属性，方法 都可以 所有的 派生实例所拥有。
+		
+		
+		
+		 
+		 
+		 
+		 自己定义 原型 也是可以的， 不使用默认的原型链
+		 
+		 
+		 -->
+		 
+		 <div class="div1">
+		 	
+		 </div>
+		 
+
+		<script type="text/javascript">
+			function Grand() {
+
+				this.b = 10;
+				this.name = 'grand';
+				this.level = 0;
+			}
+
+			var obj = new Object();
+			obj.a = 3;
+
+			Grand.prototype = obj;
+			obj.constructor = Grand;
+
+			var grand = new Grand();
+			grand.grandName = 'grandName';
+			// grand.a = 2;
+			// console.log(grand);
+
+			function Father() {
+				this.name = 'father';
+				this.level = 0;
+			}
+
+
+			Father.prototype = grand;
+			grand.constructor = Father;
+
+
+			function Son() {
+				this.name = 'son';
+				this.level = 2;
+			}
+
+			var father = new Father();
+			father.fatherName = 'fatherName';
+			// father.a = 1;
+			Son.prototype = father;
+			father.constructor = Son;
+
+
+			var son = new Son();
+			// son.a = 0;
+			console.log(son);
+
+
+			// console.log(son.name);
+			// console.log(son.fatherName);
+			// console.log(son.grandName);
+
+			console.log(son.a);
+
+
+			// 1. 所有挂载 原型链对象 上的属性，方法 都可以 所有的 派生实例所拥有。 如果有相同的属性， 则根据原型链从自身 到 原型链上依次向上找， 找到就返回。
+
+			// 2.如果访问一个实例 的对象和方法， 先从对象本身找， 如果没有，会沿着原型链 依次向上寻找，找到就返回,找不到就会返回 undefined
+
+			// console.log(son.abdc);
+
+			// 3. Document是一个构造函数,原型链: Document -> Node -> EventTarget -> Object
+			
+			
+			// 4. HTMLDivElement -> HTMLElement -> Element -> Node -> EventTarget -> Object
+			
+			var div1  = document.querySelector('.div1');
+			console.log(div1);
+			
+			
+		</script>
+	</body>
+</html>
