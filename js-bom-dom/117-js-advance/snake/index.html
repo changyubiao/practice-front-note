@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>贪吃蛇游戏</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#map {
+
+				width: 800px;
+				height: 600px;
+				position: relative;
+				background-color: #CCCCCC;
+			}
+
+
+			.food {
+				width: 20px;
+				height: 20px;
+				background-color: #00FF00;
+				position: absolute;
+
+			}
+
+			.snake {
+				width: 20px;
+				height: 20px;
+				background-color: #0000FF;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		<div id="map">
+
+		</div>
+
+
+		<script type="text/javascript">
+			/*
+			
+			main 入口函数
+			
+			*/
+
+			var map = document.querySelector('#map');
+			var game = new Game(map);
+			game.init();
+		</script>
+	</body>
+</html>
