@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>量词</title>
+	</head>
+	<body>
+		<!-- 
+ 
+			量词 
+			
+			refer: 
+				https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+		-->
+
+		<script type="text/javascript">
+			// 7. 量词 任何一个单位允许出现的次数
+			//    {n}    出现n次   等于n次
+			//    {m,n}    最少出现m次,最多出现n次 包括n次 
+			//    {m,}    做少出现m次,最多不限制  >m 次
+			//    ? = {0,1}
+			//    + = {1,}
+			//    * = {0,}
+
+			function testRex(pattern, houseNumbers) {
+				console.log('cur pattern:', pattern);
+				for (let i = 0; i < houseNumbers.length; i++) {
+					// 设置 lastIndex 让每次都从头开始匹配 
+					pattern.lastIndex = 0;
+					if (pattern.test(houseNumbers[i])) {
+						console.log('true:', houseNumbers[i]);
+					} else {
+						console.log('false:', houseNumbers[i]);
+
+					}
+
+				}
+			}
+
+			var houseNumbers = ['101', '513', '1204', '805', '806', '1405', '1804'];
+			// var pattern7 = /^\d{3,4}$/g;
+			// testRex(pattern7, houseNumbers);
+
+
+			// 量词的使用 
+			// 贪婪量词: ? + * 独立使用 找到最大匹配串
+			// 惰性量词: '*?'  '+?' 找到即停止
+
+			// var str7 = 'abbbbaaabbbaaabbbb1234';
+			// console.log(str7.match(/.*bbb/g));
+			// console.log(str7.match(/.*?bbb/g));
+
+
+
+
+			// 8. 分组, 一个正则表达式,不但可以对整个匹配进行操作,并且还可以对其中()中的子串进行匹配
+			//     (pattern), 捕获pattern匹配的结果, 自动设定好分组
+			//     \1 正则表达式中反向引用, RegExp.$1 在JS中反向引用
+
+			var str8 = 'mom and dad';
+			// console.log(str8.match(/mom( and dad)?/));
+			// // 获取分组的内容， $1
+			// console.log(RegExp.$1);
+
+
+			// 匹配两个 联系相同的 单词
+			var str9 = 'word    excel    excel   hello   world   world!';
+			// var str9 = 'frank kname';
+			// console.log(str9.match(/([a-zA-Z]+)\s+\1/));
+			// console.log(str9.match(/([a-zA-Z]+\s)\s+\1/));
+
+			//     (?<name>pattern)  捕获pattern匹配的结果, 自动设定好分组, 同时设定那么为组名
+			//     \k<name> 反向引用
+			// console.log(str9.match(/(?<word>[a-zA-Z]+)\s+\k<word>/));
+			// console.log(str9.match(/(?<word>[a-zA-Z]+)\s+\k<word>/g));
+			// 参数g, 全局的,给出所有匹配的子串
+			//    没有的话,在第一匹配后停止,给出更多的信息.
+			//     0: 匹配的串 JS RegExp.lastMatch
+			//     1: 捕获的串 JS RegExp.$1
+			//     groups: 如果你使用了名字形式的分组,那么所有有名字的分组会放到groups里面.
+			//     index: 匹配的串的起始位置.
+			//     input: 原来的串
+			// console.log(str9.match(/(?<word>[a-zA-Z]+)\s+\k<word>/));
+			// console.log(RegExp.lastMatch);
+			// console.log(RegExp.$1);
+
+			// 9. 断言 定语
+			//    零宽-后行 断言 pattern(?=x)
+			// var str10 = 'reaaa;rcaaa=bbb=;';
+			// 匹配 以分号结尾的 两个字母
+			// console.log(str10.match(/[a-z]{2}(?=;)/g));
+
+			//    零宽-先行 断言 (?<=x)pattern
+			// 说明 一个匹配的字符串 ，前面有什么东西，这里并不占用匹配内容。只是一个定语。
+			//            匹配 以ea开头的 四个字符
+			// console.log(str10.match(/(?<=ea).{4}/g));
+
+			//    零宽-负向-后行 断言 pattern(?!x)
+			//            匹配 不以分号结尾的 三个字母
+			// console.log(str10.match(/[a-z]{3}(?!;)/g));
+
+			//    零宽-负向-先行 断言 (?<!x)pattern
+			//            匹配 不以re开头的三个字母a
+			// console.log(str10.match(/(?<!re)a{3}/g));
+
+
+
+			// 10. 或 |
+			var str11 = 'var abcd;';
+			var str12 = 'function getName(){}';
+
+			// 变量声明:  /\s*var\s+[a-zA-z_]\w*;?/
+			// 函数声明:  /\s*function\s+[a-zA-z_]\w*\s*\(\)\{\}/
+		
+
+			// console.log(str11.match(/\s*var\s+(?<variable>[a-zA-z_]\w*);?/));
+			// console.log(str12.match(/\s*function\s+(?<functionName>[a-zA-z_]\w*)\s*\(\)\{\}/));
+			console.log(str11.match(/\s*var\s+(?<variable>[a-zA-z_]\w*);?|\s*function\s+(?<functionName>[a-zA-z_]\w*)\s*\(\)\{\}/));
+			console.log(str12.match(/\s*var\s+(?<variable>[a-zA-z_]\w*);?|\s*function\s+(?<functionName>[a-zA-z_]\w*)\s*\(\)\{\}/));
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+
+			var str13 = 'var name = \'frank\';';
+			var  matches = str13.match(/\s*var\s+(?<name>[\w]+)\s=\s(?<value>[\w']+);/);
+			console.log(matches.groups);
+			
+			// console.log(str11.match(/\s*var\s+(?<name>[\w]+)\s=\s(?<value>[\w']+);/));
+			
+			// hour:133min
+		</script>
+	</body>
+</html>

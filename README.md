@@ -39,3 +39,22 @@
 
 
 
+
+#### 119-js-advance
+正则表达式的使用,学习常用的正则表达式 ，以及JS 中正则的函数,str.match, str.search 
+
+pattern.test(str)，RegExp的函数 pattern.exec(str) 等
+
+- 001 正则表达式
+- 002 正则表达式
+- 002 练习正则
+- 003 js 正则的函数
+- 004 正则的应用
+
+
+
+
+一些在线测试的正则网站  
+[regextester](https://www.regextester.com/)  
+[ihateregex](https://ihateregex.io/expr/username)
+

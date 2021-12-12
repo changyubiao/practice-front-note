@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>regular expression</title>
+	</head>
+	<body>
+<!-- 
+
+
+https://www.runoob.com/regexp/regexp-metachar.html
+
+正则表达式(Regular Expression)是一种文本模式，包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为"元字符"）。
+
+正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。
+
+正则表达式是繁琐的，但它是强大的，学会之后的应用会让你除了提高效率外，会给你带来绝对的成就感。只要认真阅读本教程，加上应用的时候进行一定的参考，掌握正则表达式不是问题。
+
+许多程序设计语言都支持利用正则表达式进行字符串操作。
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ https://www.regextester.com/
+ 
+ https://ihateregex.io/expr/username
+ 
+ 
+ 
+ -->
+
+		<script type="text/javascript">
+			var content = 'hello world. i am a hello';
+
+
+			// 第一种方式
+			// 	var regExp = RegExp('hello','g');
+			// 	console.log(content.match(regExp));
+
+			// 	// 第二种方式 
+			// 	console.log(content.match(/hello/g));
+
+
+
+			// 正则表达式
+			// 表达式,参数
+			//    [0-9]: 匹配从0到9的任意一个数字
+			//     +: 量词 必须出现至少一次, 1次或者多次.
+
+			//  g: 全局的
+			// 1. 正则表达式类
+			// var regExp = new RegExp('[0-9]+', 'g');
+			// var str1 = '123123413143134';
+			// console.log(str1.match(regExp));
+
+
+			// 2. 直接量,直接表示正则表达式 /表达式/参数
+			// console.log(str1.match(/[0-9]+/g));
+			// console.log(str1.match(/\d+/g));
+			// console.log(str1.match(/[123]+/g));
+			// console.log(str1.match(/123/g));
+			// console.log(str1.match(/(123)+/g));
+
+
+			// var regExp = /[0-9]+/g;
+			// console.log(regExp.test(str1));
+			// console.log(typeof regExp);
+			// console.log(regExp instanceof RegExp);
+
+
+
+			/*
+			g	执行全局匹配，即查找所有匹配，而不是在第一个匹配后停止	
+			i	执行不区分大小写的匹配	
+			m	执行多行匹配
+
+			*/
+
+
+
+			// ------------------------------正则表达式的详解------------------------------
+
+			// 3. 简单类, 单词本身
+			// var str2 = 'hello world!';
+			// console.log(str2.match(/hello/g));
+			// console.log(str2.match(/o/g));
+
+
+
+			// 4. 范围类, [], 方括号中的任意一个字符如果能匹配上,都是可以的.
+			//    例子: 匹配十进制数？ [0123456789]+ [0-9]+
+			//              二进制数？[01]+
+			//              十六进制数？ [0123456789abcdefABCDEF]+ [0-9a-fA-F]+
+			// var str3 = '1346263454';
+			// console.log(str3.match(/[0-9]+/g));
+			// console.log(str3.match(/\d+/g));
+			// var str4 = '100101011';
+			// console.log(str4.match(/[01]+/g));
+			// var str5 = '134969458abfA';
+			// console.log(str5.match(/[0-9a-fA-F]+/g));
+
+
+
+			// 5. 负向类, 排除[^], 方括号中的任意字符都不能出现
+			// console.log('// 5. 负向类, 排除[^], 方括号中的任意字符都不能出现');
+			// var str6 = 'asdjfaklfjak13413412zvczvzxcvz';
+			// // 不能出现数字的字符串
+			// console.log(str6.match(/[^0-9]+/g));
+
+
+
+
+			// 6. 通配符 预定义类
+			// 大写一般表示非
+
+			// 字符
+			// \d = [0-9]    数字 digital
+			// \D = [^0-9]    非数字
+			// \w = [a-zA-Z_0-9]    数字字母下划线 用来形成变量名 word
+			//      标识符,变量名:  由数字字母下划线组成,但是不能以数字开头.    
+			//                      /[a-zA-Z_]\w*/
+			// \W = [^a-zA-Z_0-9]    其他
+			// \s = [\t\n\r\f\v ]   所有的空格或者空白
+			// \S = [^\t\n\r\f\v ]   非空格或者非空白
+			// .  = [^\n\r] 除了回车以外的所有字符
+			//  位置,不含字符
+			// \b 表示边界(两个字符中间的位置) 一边是\w, 一边是\W
+			// \B 不是边界, 两边都是\w, 或者两边都是\W
+			// ^  开始
+			// $  结尾
+
+
+
+			// 练习 匹配 房间号码
+			var houseNumbers = ['101', '513', '1204', '805', '806', '1405', '1804'];
+			//   test 正则表达式.test(string) true: false
+
+
+			// for (let i = 0; i < houseNumbers.length; i++) {
+			// 	// var pattern = /\b\d{3}\b/g;
+			// 	// 去 三位数字
+			// 	var pattern = /^\d{3}$/g;
+			// 	if (pattern.test(houseNumbers[i])) {
+			// 		console.log('true', houseNumbers[i]);
+			// 	}
+			// }
+			// var pattern = /\b\d{3}\b/g;
+			// var pattern = /^\d{3}$/g;
+			// testRex(pattern,houseNumbers);
+
+
+
+			//练习 以8楼开头 的门牌号
+			var pattern2 = /^8\d{2}$/;
+			// testRex(pattern2, houseNumbers);
+			// console.log(pattern2);
+
+			
+			
+			// 尾号是单数的房间 都找出来
+			var pattern3 = /[13579]$/;
+			testRex(pattern3, houseNumbers);
+			
+			
+			
+			
+			
+			
+			
+			function testRex(pattern, houseNumbers) {
+				console.log('cur pattern:',pattern);
+				for (let i = 0; i < houseNumbers.length; i++) {
+					// 每次 pattern 初始化位置 设置为0 
+					pattern.lastIndex = 0;
+					if (pattern.test(houseNumbers[i])) {
+						console.log('true', houseNumbers[i]);
+					}
+
+				}
+			}
+		</script>
+
+
+	</body>
+</html>

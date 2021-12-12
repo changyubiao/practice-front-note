@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS正则表达式中的函数</title>
+
+	</head>
+
+	<!-- 
+	 
+	 
+	 
+	 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search
+	 
+	 
+	 
+	 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split
+	 
+	 
+	 -->
+	<body>
+
+
+
+		<script type="text/javascript">
+			// String 
+			//    1. search(regExp), 返回一个整数, 匹配的子串开始的位置, 没有返回 -1
+			//    g参数无效,不支持全局,lastIndex
+			// var str = 'I   wordA word   site   excel word OK.';
+			// var pos = str.search(/\bword\b/)
+			// console.log(pos);
+			// console.log(str[pos]);
+
+
+
+			//    2. match(regExp) 
+			//        有g参数: 全局, 所有匹配的最大子串, input,index无效, 返回一个数组对象
+			//        没有g参数, 0: 最大子串, index: 开始位置, input原始串
+			// var str = 'I   wordA word   site   excel word OK.';
+			// console.log(str.match(/\bword\b/));
+			// console.log(str.match(/\bword\b/g));
+
+
+
+			//    3. replace(regExp/substr, replacement) 返回是replace以后的字符串
+			//      regExp, 类,直接量, substr字符串
+			//      replacement,  可以是 字符串, 函数
+
+			// var str = 'I   wordA word   site   excel word OK.';
+			// // 只替换一个
+			// console.log(str.replace('word', 'WORD'));
+			// // 只替换一个，只替换一次
+			// console.log(str.replace(/\bword\b/, 'WORD'));
+			// // 所有匹配到的，都替换掉.  g参数 
+			// console.log(str.replace(/\bword\b/g, 'WORD'));
+
+			// replace 用分组可以解决很多问题
+			// $1,$99 分组, 
+			// $&, 匹配的子串, 
+			// $` 子串的左侧 
+			// $' 子串的右侧
+			// var str = 'aaaa-bbb ccccccc-dd'; // bbb-aaaa dd-ccccccc
+			// console.log('input:', str);
+			// console.log(str.match(/(?<first>[a-z]+)-(?<sec>[a-z]+)/));
+			// console.log(str.replace(/([a-z]+)-([a-z]+)/g, '$2-$1'));
+			// console.log(str.replace(/([a-z]+)-([a-z]+)/g, repalcer));
+
+			// 要求所有的ASCII的数值+1
+			function repalcer(match, p1, p2, offset, str) {
+				// console.log('arguments',arguments);
+				var ret = '';
+				for (var i = 0; i < p2.length; i++) {
+					ret += String.fromCharCode(p2.charCodeAt(i) + 1);
+				}
+				ret += '-';
+				for (var i = 0; i < p1.length; i++) {
+					ret += String.fromCharCode(p1.charCodeAt(i) + 1);
+				}
+
+				return ret;
+			}
+
+
+
+
+
+			// hour: 194 min 
+
+			//    4. split(separator, howmany) 把字符串按照separator切成多个次, 返回数组
+			//      separator: 字符串, 正则表达式
+			//      howmany 返回数组的最大长度
+			// var str = 'I   wordA word   site   excel word OK.';
+			// console.log(str.split(/\s+/));
+			// console.log(str.split(/\s+/, 4));
+			// // 这里 可能  切出来 "" ,""
+			// console.log(str.split(' '));
+
+
+
+
+			//  RegExp的函数
+			//     5. test(string) 能匹配返回true,不能匹配返回false
+			// var str = 'I   wordA word   site   excel word OK.';
+			// console.log(/\bword\b/.test(str));
+			// console.log(/\bexcel\b/.test(str));
+
+
+
+
+			//     6. exec(string):
+			//        没有g: 返回的东西和match在没有g时返回的一样
+			//        有g: lastIndex 放入子串结束位置的下一位
+			var str = 'I   wordA word   site   excel word OK.';
+			var regExp2 = /\bword\b/g;
+			var a1 = regExp2.exec(str);
+			console.log(a1);
+			console.log(regExp2.lastIndex);
+			
+			a1 = regExp2.exec(str);
+			console.log(a1);
+			console.log(regExp2.lastIndex);
+			
+			
+		</script>
+
+
+
+		<script type="text/javascript">
+			const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+
+			// any character that is not a word character or whitespace
+			// const regex = /[^\w\s]/g;
+
+			// console.log(paragraph.search(regex));
+			// expected output: 43
+			// console.log(paragraph[paragraph.search(regex)]);
+		</script>
+	</body>
+</html>

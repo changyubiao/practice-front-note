@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>正则应用-格式化输出 </title>
+	</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			// 格式化输出 
+			var dt = new Date();
+			console.log(dt);
+
+			// var dt = 'Sun Dec 12 2021 11:17:06 GMT+0800 (中国标准时间)';
+			Date.prototype.myFormat = function(fmt) {
+				console.log(fmt);
+				var obj = {
+					'M+': this.getMonth() + 1,
+					'd+': this.getDate(),
+					'h+': this.getHours(),
+					'm+': this.getMinutes(),
+					's+': this.getSeconds()
+				}
+
+				if (/y+/.test(fmt)) {
+					var year = this.getFullYear().toString();
+					// console.log(year);
+					// console.log(RegExp.lastMatch);
+					// 替换年 
+					if (RegExp.lastMatch.length < year.length) {
+						year = year.substr(-RegExp.lastMatch.length);
+
+					}
+					fmt = fmt.replace(RegExp.lastMatch, year);
+				}
+
+				for (var key in obj) {
+					var pattern = new RegExp(key);
+					//  TODO
+					if (pattern.test(fmt)) {
+
+						var x = obj[key].toString();
+						if (RegExp.lastMatch.length > x.length) {
+							x = x.substr(-RegExp.lastMatch.length);
+						}
+						fmt = fmt.replace(RegExp.lastMatch, x);
+						// console.log(fmt);
+					}
+				}
+
+
+
+				// if (/[mM]+/.test(fmt)){
+				// 	var month = (this.getMonth()+1).toString();
+				// 	// console.log(year);
+				// 	// console.log(RegExp.lastMatch);
+
+
+				// 	// 替换月
+				// 	console.log('替换月:',RegExp.lastMatch)
+				// 	if(RegExp.lastMatch.length > month.length){
+				// 		month = '00000000000' + month;
+				// 		month = month.substr(-RegExp.lastMatch.length);
+
+				// 	}
+				// 	fmt = fmt.replace(RegExp.lastMatch,month);
+				// 	console.log(fmt);
+				// }
+
+				return fmt;
+			}
+
+			console.log(dt.myFormat('yyyy年 MM月 dd日 hh时'));
+			console.log(dt.myFormat('yyyy===MM###dd hh-mm++ss'));
+			// console.log('hello world');
+		</script>
+
+	</body>
+</html>

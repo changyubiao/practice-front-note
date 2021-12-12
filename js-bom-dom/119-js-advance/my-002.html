@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+		 
+		 
+		 如果正则表达式设置了全局标志，test() 的执行会改变正则表达式   lastIndex属性。
+		 连续的执行test()方法，后续的执行将会从 lastIndex 处开始匹配字符串，(exec() 同样改变正则本身的 lastIndex属性值).
+		 
+		 -->
+
+		<script type="text/javascript">
+			function testRex(pattern, houseNumbers) {
+
+				console.log('cur pattern:', pattern);
+				for (let i = 0; i < houseNumbers.length; i++) {
+					// 先把 pattern lastIndex 清零
+					pattern.lastIndex = 0;
+					if (pattern.test(houseNumbers[i])) {
+						console.log('true:', houseNumbers[i]);
+					} else {
+						console.log('false:', houseNumbers[i]);
+					}
+
+				}
+			}
+
+
+			// var arr = ['101', '513', '1204', '805', '806', '1405', '1804'];
+
+			// var pattern7 = /\d{3,4}/g;
+			// testRex(pattern7, arr);
+		</script>
+
+		<script type="text/javascript">
+			var regex = /foo/g;
+
+			var str = 'foo hello world'
+			// regex.lastIndex is at 0
+			regex.test(str); // true
+
+			// regex.lastIndex is now at 3
+			regex.test(str); // false
+		</script>
+	</body>
+</html>
