@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	
+	<body>
+	
+		 
+		<h1>JavaScript 中 call()、apply()、bind() 的用法</h1>
+		
+		<span>参考文章</span>
+		 <a href="https://www.runoob.com/w3cnote/js-call-apply-bind.html"> runoob JavaScript 中 call()、apply()、bind() 的用法 </a>
+		 
+	
+		<script type="text/javascript">
+			
+			
+			var  name = '小王';
+			var  age = 17;
+			
+			var obj ={
+				name :'frank',
+				age :this.age,
+				myFun:function(from,to){
+					console.log(this.name +' '+ this.age + ' ' + from + ' -> ' + to);
+				}
+			}
+			
+			var db = {
+				name:'老大',
+				age:28
+			}
+			
+			var obj2 = {
+				name:'frank',
+				age:18
+			}
+			
+			// 此时 db 就拥有了，调用 myFun 这个函数的能力。 此时函数内部this 就是db
+			// 老大 28 成都 -> 111
+			obj.myFun.call(db,'成都','上海','1111');
+			
+			// frank 18 西安 -> 咸阳
+			// 如果传入多余的参数，直接忽略
+			obj.myFun.apply(obj2,['西安','咸阳']);
+			obj.myFun.apply(obj2,['西安','咸阳','hello']);
+			
+			/** 区别
+			 * call 的参数是直接放进去的，第二 ,第三,第 n 个参数全都用逗号分隔，
+			 * apply 的所有参数都必须放在一个数组里面传进去 
+			 * 
+			 */
+		</script>
+	</body>
+</html>

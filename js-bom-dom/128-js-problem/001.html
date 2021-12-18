@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 typeof 返回数据类型？  如何检查变量的类型 
+		 
+		 
+		 typeof   
+			 number  string boolean undefined 
+			 
+			 null , [],{}   对象  typeof  ——> object 
+			 
+			 函数 ->  function 
+		 
+		 
+		 
+		 如何检查变量的类型 ?
+		 
+				1.首先 使用 typeof ， 区分 object 和原始类型  
+				
+				2. 不可以使用 instanceof ， 因为instanceof 是用于指明原型链，而且如果 __pro__ 被修改了， instanceof 失效 
+				
+				3. 使用 Object  Object.prototype.toString.call()
+				
+		 
+		 
+		 -->
+		
+		
+		
+		<script type="text/javascript">
+			
+			// Object.prototype.toString.call()
+			
+			
+			var a = new Object();
+			var b = null;
+			var  arr = new Array();
+		
+			var  d = /frank/g ;
+			
+			// object 
+			var c = {};
+			
+			
+			console.log(typeof a);  //object 
+			console.log(typeof d);
+			console.log(typeof arr);
+			
+			// Jquery 源码里面有这些 判断类型 
+			// [object Object]
+			console.log(Object.prototype.toString.call(a));
+			
+			// [object Null]
+			console.log(Object.prototype.toString.call(b));
+			
+			
+			// "[object Object]"
+			console.log(Object.prototype.toString.call(c));
+			
+			
+			// [object RegExp]
+			console.log(Object.prototype.toString.call(d));
+			
+			// [object Array]
+			console.log(Object.prototype.toString.call(arr));
+			
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

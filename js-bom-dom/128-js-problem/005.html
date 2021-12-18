@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 
+		 问：call和apply的区别？
+		 
+		 
+		 
+		 
+		 
+		 
+		 相同点：都可以用于绑定this
+		 
+		 区别：参数表
+		 functionObject.call(this, 参数1, 参数2, …)
+		 functionObject.apply(this, [参数1, 参数2, …])
+		 functionObject.apply(this, arguments)
+
+		 
+		 
+		 hour:27min
+		 -->
+		 
+
+		 
+		 <script type="text/javascript">
+		 	
+			// call  apply 方法 允许 间接调用一个函数 ，就像 这个函数是在某个对象的方法一样， 
+			// call(), applay() 的第一个参数 都是要在 其上 调用的这个函数对象， 也就是函数的调用上下文 ， 在函数体内部 它会变成 this 关键字， 
+			
+			// 如果要把函数f() 作为对象obj  的方法进行调用（不传入参数） 可以使用 call, apply  
+			// f.call(obj);
+			// f.applay(obj);
+			
+			//  上面的代码可以解释为 
+			// obj.m = f ;  // 把f 作为obj 的一个临时方法 
+			// m.();  //调用这个函数
+			// delete obj.m; // 删除这个房
+			
+			
+			
+			// r如果function f 有参数的话，假设 f 有两个参数 
+			
+			// 下面是 分别使用 call, apply 调用 就可以了。 
+			// f.call(obj,1,3);
+			// f.apply(o,[1,3]);
+			
+			
+			
+			
+			
+			
+			// 举个例子 求最大值
+			// var myMax = Math.max(1,3,45,8,10,9);
+			// console.log(myMax);
+			
+			// 假设是一个数组 ，有一些数字
+			var  numbers = [1,3,45,8,10,9];
+			
+			// max 接收 一系列数字 ,numbers 解包 即可
+			// var myMax = Math.max(...numbers);
+			// console.log(myMax);
+			
+			
+			// 这样就可以调用了， 第二个参数是一个数组
+			var myMax = Math.max.apply(Math,numbers);
+			console.log(myMax);
+			
+			
+		 </script>
+	</body>
+</html>
