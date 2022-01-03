@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 问：论述JS中的继承方法？
+		 
+		 继承方法
+		 -->
+
+		<script type="text/javascript">
+			// 构造函数
+			function Person(name) {
+				this.name = name;
+				this.sum = function() {
+					var total = 0;
+					for (var i = 0; i < 10; i++) {
+						total += i
+					}
+					console.log(total);
+				}
+			}
+			// 添加原型属性
+			Person.prototype.age = 10;
+
+
+			// 方法1 
+			// 原型链继承：新构造函数原型 等于 父类实例
+			function Frank(name) {
+				this.name = name;
+			}
+
+			Frank.prototype = new Person();
+
+			var frank = new Frank('frank');
+			console.log(frank.age);
+
+			console.log(frank instanceof Person);
+			
+			/*
+			特点：
+			子类实例可以继承子类属性，父类属性，父类原型属性
+			
+			缺点： 
+			1.来自原型对象的引用属性是所有实例共享的，原型中的一改则全改
+			2.创建子类实例时，无法向父类构造函数传参
+
+			*/ 
+		</script>
+	</body>
+</html>

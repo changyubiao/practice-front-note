@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 问：论述JS中的继承方法？
+		 
+		 继承方法
+		 
+		
+		 
+		 
+		 3）组合继承：原型链继承+借用构造函数
+
+		 -->
+
+		<script type="text/javascript">
+			// 构造函数
+			function Person(name) {
+				this.name = name;
+				this.sum = function() {
+					var total = 0;
+					for (var i = 0; i < 10; i++) {
+						total += i
+					}
+					console.log(total);
+				}
+			}
+			Person.prototype.age = 10;
+
+
+
+			// 构造父类的构造函数
+			function Frank(name) {
+				Person.call(this,name);
+				
+			}
+			
+			Frank.prototype = new Person();  //原型链继承
+
+
+			var frank = new Frank('frank');
+			
+			console.log(frank.age); //10 继承了父类原型的属性
+			console.log(frank.name);  // 继承了构造函数的属性
+			console.log(frank instanceof Person);  // true
+			
+		
+		</script>
+	</body>
+</html>

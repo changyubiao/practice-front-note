@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 问：论述JS中的继承方法？
+		 
+		 继承方法
+		 -->
+
+		<script type="text/javascript">
+			// 构造函数
+			function Person(name) {
+				this.name = name;
+				this.sum = function() {
+					var total = 0;
+					for (var i = 0; i < 10; i++) {
+						total += i
+					}
+					console.log(total);
+				}
+			}
+			
+
+
+			// 借用构造函数继承：在子类构造函数中以call或者apply的方式调用父类构造函数。
+			
+			/*
+			特点：		 1， 只继承父类属性，不继承父类原型属性
+			             2， 解决了原型链继承的缺点
+			             3， 可以继承多个构造函数的属性
+			             4， 子实例调用构造函数时可以向父构造函数传参
+			
+			
+			缺点：		  1， 只能继承父类构造函数属性
+			              2， 无法实现复用，每个新实例都有父类属性的副本，臃肿。
+
+
+
+			*/ 
+			function Frank(name) {
+				Person.call(this,name);
+				this.age  = 10;
+				
+			}
+
+
+			var frank = new Frank('frank');
+			console.log(frank.age);
+			console.log(frank.name);
+
+			console.log(frank instanceof Person);  // false
+			
+		
+		</script>
+	</body>
+</html>

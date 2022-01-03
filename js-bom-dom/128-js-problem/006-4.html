@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 问：论述JS中的继承方法？
+		 
+		 继承方法
+		 
+		 
+		 原型式继承：用一个空构造函数做容器，把父类实例当做原型
+		 
+		 
+
+		 -->
+
+		<script type="text/javascript">
+			// 构造函数
+			function Person(name) {
+				this.name = name;
+				this.sum = function() {
+					var total = 0;
+					for (var i = 0; i < 10; i++) {
+						total += i
+					}
+					console.log(total);
+				}
+			}
+			Person.prototype.age = 10;
+
+		
+		
+			function content(obj){
+				function F(){};
+				F.prototype = obj;
+				return new F(); //返回函数对象
+			}
+			
+			var  person  = new Person('frank');
+		
+			var frank  = content(person);
+			
+		
+			
+			console.log(frank.age);
+			console.log(frank.name);
+			console.log(frank instanceof Person);  // true
+			
+		
+		</script>
+	</body>
+</html>

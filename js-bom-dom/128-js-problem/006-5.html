@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 问：论述JS中的继承方法？
+		 
+		 继承方法
+		 
+		 
+		（5）寄生式继承：在原型式继承的基础上，将继承本身封装
+		
+
+		 -->
+
+		<script type="text/javascript">
+			// 构造函数
+			function Person(name) {
+				this.name = name;
+				this.sum = function() {
+					var total = 0;
+					for (var i = 0; i < 10; i++) {
+						total += i
+					}
+					console.log(total);
+				}
+			}
+			Person.prototype.age = 10;
+
+
+
+			function content(obj) {
+				function F() {};
+				F.prototype = obj;
+				return new F(); //返回函数对象
+			}
+
+
+
+			function subobject(obj) {
+				var sub = content(obj);
+				sub.name = 'aaaaaaa';
+				return sub;
+			}
+
+			var person = new Person();
+
+			var frank = subobject(person);
+
+
+			console.log(frank.age);
+			console.log(frank.name);
+			console.log(typeof frank); // object 
+			console.log(frank instanceof Person); // true
+		</script>
+	</body>
+</html>

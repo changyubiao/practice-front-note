@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Demo</title>
+		<style>
+		
+			.highlight{
+				
+				background-color: pink;
+			}
+			.bordered {
+				border: 2px solid #000000;
+			}
+			
+			
+			
+			/* 同时拥有这两个的class 的元素 */
+			.highlight.bordered{
+				font-size: 200%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p class="bordered" >我是第一段</p>
+		<p class="highlight">我是第二段</p>
+		<p class="bordered highlight"> 我是第三段</p>
+	</body>
+</html>

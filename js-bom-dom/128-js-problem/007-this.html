@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		
+		问：论述this指针？
+		 
+		 
+		 
+		 
+		 1. 在非函数的脚本中，this被初始化为window（默认绑定）
+		 2. 在普通函数调用中，this被初始化为window（默认绑定）
+		 3. 对象的函数，通过对象调用，this被初始化为对象（隐式绑定）
+		 4. call\apply中，this被初始化为第一个参数（显示绑定）
+		 5. 用new调用构造函数中，this被指向刚刚创建的对象（new绑定）
+		 6. 如果把函数作为callback赋值给setTimeout，那么this被初始化为window（隐式丢失）
+		 7. [ES6语法] bind(this)可以帮助将this初始化为当前对象
+		 8. 原则：this永远和调用函数时的状态相关，和定义的时候无关。
+
+
+
+		
+		 -->
+
+		<input type="button" name="" id="btn" value="按钮" />
+
+
+		<script type="text/javascript">
+			// 1. 在非函数的脚本中，this被初始化为window（默认绑定）
+			// console.log(this);
+
+
+
+			// 2. 在普通函数调用中，this被初始化为window（默认绑定）
+			// function print(){
+			// 	console.log(this);
+			// }
+			// print();
+
+
+
+
+			// 3.对象的函数，通过对象调用，this被初始化为对象（隐式绑定）
+			var name = 'window';
+
+			function f3() {
+				console.log(this.name);
+			}
+			var obj = {
+
+				name: 'obj',
+				f2: function() {
+					console.log(this.name);
+				},
+				f3: f3,
+
+				f4: function() {
+					console.log(this);
+				}
+			}
+
+
+			// 	obj.f2(); //obj
+
+			// 	f3();// window
+
+			// 	obj.f3();  // obj
+
+			// 	var newf = obj.f3;
+			// 	newf(); // window
+
+
+
+
+			// 4. call\apply中，this被初始化为第一个参数（显示绑定）
+
+			// var  f3_2 = obj.f3;
+			// f3_2.call(obj);
+			// f3_2.apply(obj);
+
+
+
+
+
+			// 5. 用new调用构造函数中，this被指向刚刚创建的对象（new绑定）
+			// function Create() {
+			// 	this.name = 'create';
+			// 	console.log(this);
+			// }
+
+			// var c = new Create(); // Create 对象 
+			// Create(); // window 
+
+
+
+
+			// 6 如果把函数作为callback赋值给setTimeout，那么this被初始化为window（隐式丢失）
+			// setTimeout(obj.f3,1000)  // window
+			var btn = document.querySelector('#btn');
+			btn.onclick = obj.f4;
+
+
+
+
+			// 7. [ES6语法] bind(this)可以帮助将this初始化为当前对象
+			// var f31 = obj.f4.bind(obj);
+			// var f33 = obj.f4;
+			// f31(); // obj
+			// f33(); // window
+		
+
+
+
+
+
+			// for exmaple
+			var a = 1;
+
+			function ff1() {
+				console.log(this.a);
+			}
+
+			var obj1 = {
+				a: 2,
+				ff2: ff1
+			}
+
+			var obj2 = {
+				a: 3,
+				obj1: obj1
+			}
+
+			// obj2.obj1.ff2(); // 2 
+			// var fff = obj2.obj1.ff2;
+		
+			
+			// fff.call(obj2.obj1);  // 2
+			// fff.call(obj2);  // 3
+
+
+
+			// 58min
+			// 78min 
+			// 84min
+		</script>
+
+	</body>
+</html>
