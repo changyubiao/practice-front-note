@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		
+		问：如何阻止事件冒泡和默认事件行为？
+		 
+		-->
+		
+		<script type="text/javascript">
+			// 事件的委托
+			Element.prototype.addEvent = function(type, func) {
+				var element = this;
+				if (element.addEventListener) {
+					element.addEventListener(type, func);
+				} else if (element.attachEvent) {
+					element.attachEvent('on' + type, function() {
+						func.call(element);
+					});
+				} else {
+					element['on' + type] = func;
+				}
+			}
+		
+			Element.prototype.stopPropagation = function(e) {
+				e = e || window.event;
+		
+				if (e.stopPropagation) {
+					e.stopPropagation();
+				} else {
+					e.cancelBubble = true;
+				}
+			}
+		
+			Element.prototype.preventDefault = function(e) {
+				e = e || window.event;
+				if (e.preventDefault) {
+					e.preventDefault();
+				} else {
+					e.returnValue = false;
+				}
+			}
+		
+			Element.prototype.getTarget = function(e) {
+				e = e || window.event;
+				return (e.target || e.srcElement);
+			}
+		
+		
+			var ul = document.querySelector('#ul');
+		
+			ul.addEvent('click', function(e) {
+				e = e || window.event;
+				var target = this.getTarget();
+		
+				// target.innerHTML = '点过';
+				// target.style.backgroundColor ='#CCCCC';
+				
+				if (target !== this) {
+					// target.textContent = '点过';
+					target.innerHTML = '点过';
+					target.style.backgroundColor ='#CCCCC';
+					target.style.color = '#000000';
+				}
+			});
+		</script>
+		
+		
+		
+	</body>
+</html>

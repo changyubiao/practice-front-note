@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<!-- 
+	 问：简述创建对象的几种方法？
+	 
+	 
+	 
+	 -->
+	<body>
+
+		<!-- 
+		 
+		 
+		 工厂模式
+		 构造函数模式
+		 原型模式
+		 原型-构造函数模式
+		 动态原型-构造函数模式
+		 寄生构造函数
+		 稳妥构造函数
+		 
+		 
+		 hour:116 min 
+		
+		 -->
+
+
+		<script type="text/javascript">
+			// 1. 工厂模式
+			// function createPerson(name) {
+			// 	var obj = new Object();
+			// 	obj.name = name;
+			// 	obj.f = function() {
+			// 		console.log('hello');
+			// 	}
+			// 	return obj;
+			// }
+
+			// var person1 = createPerson('隔壁王校长');
+			// console.log(1, person1);
+
+
+
+
+			// 2. 构造函数
+			// function Person(name) {
+			// 	this.name = name;
+			// 	this.f = function() {
+			// 		console.log('hello');
+			// 	}
+			// }
+
+			// var person2 = new Person('隔壁老王');
+			// console.log(2, person2);
+
+
+
+
+			// 3. 原型模式
+			// function Person() {}
+
+			// Person.prototype.name = '隔壁王校长3';
+			// Person.prototype.f = function() {
+			// 	console.log('hello');
+			// }
+
+			// var person3 = new Person();
+			// console.log(3, person3);
+
+
+
+
+			// hour:130min pause 
+			// 讲到第5中 创建对象的方法。
+
+
+
+
+
+			// 4. 原型-构造函数模式
+			//    构造函数无法共享函数,浪费内存
+			//    原型,属性也是共享的
+			//    期望是: 函数共享,属性私有
+			// function Person(name) {
+			// 	this.name = name;
+			// }
+
+			// Person.prototype.f = function() {
+			// 	console.log('hello');
+			// }
+
+			// var person4 = new Person('隔壁王校长4');
+			// console.log(4, person4);
+
+
+
+			// 5. 动态原型-构造函数模式
+			// function Person(name) {
+			// 	this.name = name;
+			// 	if (typeof this.f !== 'function') {
+			// 		Person.prototype.f = function() {
+			// 			console.log('hello');
+			// 		}
+			// 	}
+			// }
+			// var person5 = new Person('隔壁王校长5');
+			// console.log(5, person5);
+
+
+
+
+
+			// 6. 寄生构造函数
+			// var newArray = new Array();
+			// newArray.f = function() {
+			// 	console.log('hello');
+			// }
+
+			// 实例和构造函数没有关系
+			// function Array2() {
+			// 	var newArray = new Array();
+			// 	newArray.f = function() {
+			// 		console.log('hello array2 ');
+			// 	}
+			// 	// 构造函数 return  东西了,此时和this 没有关系了。
+			// 	return newArray;
+			// }
+
+			// var arr = new Array2();
+			// console.log(arr);
+			// arr.f();
+
+
+
+
+			// 7. 稳妥构造函数
+			// 就是一个普通的函数， 返回一个对象，在对象上 绑定一个function
+			function Array2() {
+				var newArray = new Array();
+				newArray.f = function() {
+					console.log('hello 稳妥构造函数');
+				}
+				return newArray;
+			}
+
+			// 注意 这里 没有使用 new 
+			var a2 = Array2();
+			console.log(a2);
+
+
+
+
+			// hour:139min
+		</script>
+
+
+
+
+	</body>
+</html>
