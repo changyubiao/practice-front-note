@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<h1>
+			问：JS中如何捕获异常？
+		</h1>
+		
+		
+		
+		
+		<!-- 
+		 
+		try
+		catch
+		finally
+ 
+		 -->
+		
+		<script type="text/javascript">
+			
+			// 1.自然产生的错误
+			
+			try {
+				abc();
+				
+			}catch(err){
+				// console.log(err);
+				console.log(err.message);
+			}finally{
+				// 一定会执行， 和java 一样
+				console.log('111111');
+			}
+			
+	
+			
+			
+		</script>
+		
+		
+		<!-- script 相对隔离，一个script 报错， 另一个script 并不受影响 -->
+		<script type="text/javascript">
+			console.log('2222222222222');
+		</script>
+		
+	</body>
+</html>

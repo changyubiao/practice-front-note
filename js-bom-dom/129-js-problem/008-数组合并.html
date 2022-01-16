@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组合并</title>
+	</head>
+	<body>
+
+		<!-- 
+		 
+		 array sort  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+		 
+		 
+		 
+		 -->
+		<h1>数组合并 </h1>
+
+
+		<h2>
+			还有点问题 todo 实现有点问题
+
+		</h2>
+
+
+
+		<script type="text/javascript">
+			// 1. JS 库函数, concat sort
+			var a1 = [1, 4, 7, 12, 19];
+			var a2 = [2, 9, 13, 22];
+
+
+
+			// 	// 接口的定义:
+			// 如果有一个是数组,另一个不是数组，是null => 返回另一个数组
+			// 有一个是非数组, 非null => 返回 []
+			// 两个都是数组, 不是整数或者是数字,抛弃.
+
+			function mergeArray(arr1, arr2) {
+
+				// 是不是数组,输入数据是不是对的
+				// check parameter 
+				if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) {
+					if ((arr1 instanceof Array) && arr2 === null) {
+						return arr1;
+					} else if (arr1 === null && (arr2 instanceof Array)) {
+						return arr2;
+					} else {
+						return [];
+					}
+				}
+
+
+				arr1 = filterNumber(arr1);
+				arr2 = filterNumber(arr2);
+
+				var arr = arr1.concat(arr2);
+				// 升序排序
+				arr.sort(function(a, b) {
+					return a - b;
+				});
+				return arr;
+
+			}
+
+			function filterNumber(arr) {
+				var tmp = [];
+				for (var i = 0; i < arr.length; i++) {
+					if (typeof arr[i] === 'number') {
+						tmp.push(arr[i]);
+					}
+				}
+				return tmp;
+			}
+
+			// console.log(mergeArray(a1, a2));
+
+
+
+
+			// method2 
+			function mergeArray2(arr1, arr2) {
+				// 是不是数组,输入数据是不是对的
+				// check parameter 
+				if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) {
+					if ((arr1 instanceof Array) && arr2 === null) {
+						return arr1;
+					} else if (arr1 === null && (arr2 instanceof Array)) {
+						return arr2;
+					} else {
+						return [];
+					}
+				}
+
+
+				arr1 = filterNumber(arr1);
+				arr2 = filterNumber(arr2);
+
+				// arr1 的小标
+				var i = 0;
+				// arr2 的下标
+				var j = 0;
+
+				// var k = 0;
+				var result = [];
+
+				while (i < arr1.length && j < arr2.length) {
+					if (arr1[i] < arr2[j]) {
+						result.push(arr1[i]);
+						i++;
+					} else if (arr1[i] >= arr2[j]) {
+						result.push(arr2[j]);
+						j++;
+					}
+				}
+
+				// check arr engouth use 
+				while (i < arr1.length) {
+					result.push(arr1[i]);
+					i++;
+
+				}
+
+				while (j < arr2.length) {
+					result.push(arr2[j]);
+					j++;
+
+				}
+
+				// console.log('aaaaaaaaaaaaa');
+				return result;
+			}
+
+			console.log(mergeArray(a1, a2));
+			console.log(mergeArray2(a1, a2));
+		</script>
+
+	</body>
+</html>

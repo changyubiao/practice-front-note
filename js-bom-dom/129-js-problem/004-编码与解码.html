@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>问：简述字符集和编码？</h1>
+		
+		<p>详解ppt</p>
+		
+		
+		
+		<a href="http://tools.jb51.net/table/gb2312">gb2312 编码表</a>
+		
+		
+		
+		<!-- 64min -->
+		
+		
+		
+		
+		<p>GB2312字符集</p>
+		<!-- 
+		
+		GB2312字符集
+		
+			收录6763个汉字，以及682个字符
+			ASCII字符使用1个字节，新收录的汉字字符用2个字节
+			兼容ASCII字符集
+			太小；变长字节数 
+		 
+		 -->
+		 
+		 
+		 
+		 <p>GBK字符集</p>
+		 <!-- 
+		  GBK字符集：
+		  兼容GB2312、兼容Big5 -> 兼容ASCII
+		  ASCII码1字节，GBK字符2字节
+		  变长字节数。
+		  -->
+		
+		
+		
+		<p>GB18030字符集</p>
+		<!-- 
+		GB18030字符集：
+		
+		兼容GBK ->兼容GB2312、兼容Big5 -> 兼容ASCII
+		ASCII码1字节，GB18030使用2字节或者4字节
+		变长字节数。
+		-->
+	
+	
+	
+	
+	
+	<p>UTF-8 是Unicode 一种实现方式 </p>
+	<!-- 
+	 Unicode值，世界上的任何字符都用2\4个字节表示。
+	 UTF-8，ASCII码用1字节表示，其他字符用2~6个字节表示，编码见下图。
+	 兼容ASCII，不兼容GB系列
+	
+
+	 -->
+	
+	
+	<p>UCS-2\UTF-16字符集</p>
+	<!-- 
+	 UCS-2字符集，使用固定的2字节表示所有字符。
+	 不兼容ASCII字符，每个ASCII字符在UCS-2中使用2字节表示。
+	 UTF-16，兼容UCS-2字符集，同时包含部分UCS-4字符集中的字符，UTF-16用2或4个字节表示字符。
+
+	 -->
+	
+	<p>UCS-4\UTF-32字符集</p>
+	<!-- 
+	UCS-4字符集，使用固定的4字节表示所有字符。
+	不兼容ASCII字符，每个ASCII字符在UCS-4中使用4字节表示，也不兼容UCS-2、UTF-16等。
+	UCS-4，兼容UTF-32字符集。
+
+	 -->
+	
+	
+	<p> 为什么会出现乱码问题？ </p>
+	<!-- 
+	
+	
+	 浏览器（JS引擎），通常遵循UCS-2字符集，支持部分UTF-16属性。
+	 HTML/CSS/JS文件字符集通常为UTF-8。
+	 可能存在HTML/CSS/JS文件字符集为GBK的情况。
+	 
+	 
+	 
+	 乱码：
+	 当文件的字符集和处理文件的程序（比如，浏览器，文本编辑器）字符集不相符时，程序解码后的文字不具有可读性，称为乱码。
+
+	 
+	 
+	 -->
+	
+	
+	
+	<script type="text/javascript">
+		// 
+		
+		var  str = 'abc隔壁王校长';
+		
+		function  getBytes(str){
+			var num = 0;
+		 
+			// 在JS 引擎中 都是 16bit ,保存成GB2312 后，  ASCII 1byte  ,中国字 2Byte 
+			for(var i =0;i<str.length;i++){
+				if(str.charCodeAt(i) >127){
+					num +=2;
+				}else{
+					num ++;
+				}
+			}
+			return num ;
+		}
+		
+		// console.log('11111');
+		
+		console.log(getBytes(str));
+		
+		
+		// GBK 解码
+		// console.log(' GBK 解码');
+		// var  arrUnit8 = new Uint8Array([206,210]);
+		// var decoder = new TextDecoder('gbk');
+		// console.log(decoder.decode(arrUnit8));
+		
+		
+		
+		// UTF-8 解码
+		// console.log('UTF-8 解码');
+		// var  arrUnit8 = new Uint8Array([230,136,145]);
+		// var decoder = new TextDecoder('utf-8');
+		// console.log(decoder.decode(arrUnit8));
+		
+		
+		
+		
+		
+		// 解码 
+		var str = '我';
+		var encoder = new TextEncoder('utf-8');
+		console.log(encoder.encode(str));
+		
+		
+		
+		
+	</script>
+
+	
+	<script type="text/javascript">
+		// 文件 和 内存 的编码是两个事情
+		
+		// 文件里面的编码 
+		
+		// JS引擎里面的编码  
+		// *.html ,*.js     
+		
+		// var b = '常玉标'；
+		
+		
+	</script>
+	
+	
+	
+	
+	</body>
+	
+	
+	
+</html>

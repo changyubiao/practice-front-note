@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 垃圾回收机制  -->
+		
+		<h1>垃圾回收机制 </h1>
+		
+		<!-- 
+		 问：哪些操作会造成内存泄露？ JS中的垃圾回收机制？
+		 
+		 
+		 
+		 JS 垃圾回收机制
+		 引用计数 reference counting（IE7及以下）
+		 标记-清除 Mark and sweep （Chrome，FF，IE8及以上）
+		 机制：
+		 window对象作为root。
+		 从root出发，标记window下的所有对象，如果对象中还包含对象，递归标记。
+		 将未标记的对象回收
+		 
+
+
+		 -->
+		<h2> 哪些操作会造成内存泄露？ </h2>
+		<p></p>
+		<p>1.意外的全局变量，内存无法释放</p>
+		<p>2. 定时器函数没有及时清理，函数本身</p>
+		<p>3.  DOM泄露，remove的元素被变量引用</p>
+		<p>4.  闭包：需要将用完的函数变量置空</p>
+		<p>5.  console.log()，console.dir()会在内部缓存对象引用，造成泄露</p>
+		<p>6. 例外：循环引用（使用引用计数法时会产生，只发生于IE7及以下）</p>
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			
+			
+			// 1.意外的全局变量，内存无法释放
+			function foo(arg){
+				
+				
+				// 等同于
+				// window.bar = 'global variable';
+				bar= 'global variable';
+				
+				
+				// 等同于
+				// 此时 this 是window  
+				// window.bar2 = 'potential gloabel'
+				this.bar2 = 'potential gloabel'
+				
+			}
+			
+			
+			
+			//2. 定时器函数没有及时清理，函数本身
+			// 定时器函数没有及时清理，函数本身和函数内使用的外部变量都会泄露
+			
+			function getData(){};
+			
+			let someResource = getData();  
+			setInterval(() => {  
+			    const node = document.getElementById('Node');  
+			    if(node) {  
+			        node.innerHTML = JSON.stringify(someResource));  
+			    }  
+			}, 1000);
+			
+
+
+
+			// 3.  DOM泄露，remove的元素被变量引用
+			var refA = document.getElementById('refA');
+			document.body.removeChild(refA);
+			 // #refA不能回收，
+			 // 因为存在变量refA对它的引用。
+			 // 将其对#refA引用释放，但还是无法回收#refA。
+
+
+
+			//4.  闭包：需要将用完的函数变量置空
+			function createCounter(x){
+				var count = 0;
+				var counter = {counterAdd: function(){
+						count++;
+						return count;
+				}};
+				return counter;
+			}
+			var counter = createCounter(1);
+			counter.counterAdd();
+
+
+		//5.  console.log()，console.dir()会在内部缓存对象引用，造成泄露
+		// 建议在发布代码前将所有console.log、console.dir删除或者注释。
+		
+		
+		
+		
+		
+		//6. 例外：循环引用（使用引用计数法时会产生，只发生于IE7及以下）
+		// 引用计数这种GC 的时候会发生这种情况
+		function f2() {  
+		    let obj1 = {};  
+		    let obj2 = {};  
+		  
+		    obj1.a = obj2; // obj1 引用 obj2  
+		    obj2.a = obj1; // obj2 引用 obj1  
+		}
+
+
+		// hour:32min 
+
+		</script>
+		
+		
+	</body>
+</html>

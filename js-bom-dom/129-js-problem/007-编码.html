@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<p>问：编写函数，把字符串中的<>&空格转义为HTML中的标记</p>
+
+
+
+		<script type="text/javascript">
+			// < &lt;
+			// > &gt;
+			// & &amp;
+			// 空格 &nbsp;
+			// 1. 扫描字符串,替换
+			// 作业
+			
+			
+			
+			// 方法1 
+			mapping = {
+				' ':'&nbsp;',
+				'<':'&lt;',
+				'>':'&gt;',
+				'&':'&amp;',
+			}
+			
+			function charReplace0(str) {
+				
+				var arr = str.split('');
+				// console.log(arr);
+				for (let i=0;i<str.length;i++){
+					if (str[i] in mapping){
+						arr[i] = mapping[str[i]];
+					}
+				}
+				
+				var result = arr.join('')
+				return result;
+			}
+			
+			console.log(charReplace0('<> &'));
+			
+			
+
+			// 2. replace 
+			// 正则替换
+			function charReplace(str) {
+				var tmp = str;
+				// &
+				// < > 空格
+				tmp = tmp.replace(/&/g, '&amp;');
+				tmp = tmp.replace(/</g, '&lt;');
+				tmp = tmp.replace(/>/g, '&gt;');
+				tmp = tmp.replace(/ /g, '&nbsp;');
+
+				return tmp;
+
+			}
+			console.log(charReplace('<> &'));
+
+
+			// 方法2-1 
+			function charReplace2(str) {
+				// replace 可以传 function 
+				return str.replace(/[><& ]/g, function(match) {
+					switch (match) {
+						case '<':
+							return "&lt;"
+						case '>':
+							return "&gt;"
+						case ' ':
+							return "&nbsp;"
+						case '&':
+							return "&amp;"
+						default:
+							return	
+					}
+				})
+			}
+			
+			console.log(charReplace2('<> &'));
+		</script>
+
+	</body>
+</html>
+

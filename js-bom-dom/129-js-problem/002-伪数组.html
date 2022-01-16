@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪数组</title>
+	</head>
+	<body>
+
+		<h1>
+			简述什么是伪数组？
+		</h1>
+
+
+
+		<!-- 
+		 伪数组，也称为类数组
+		 特点：
+		 1. 有下标，可以通过下标访问
+		 2. 有length
+		 3. 有push和splice方法，可以操作
+		 4. 既可以当做数组使用，也可以当做对象使用
+		 DOM中很多数组都是伪数组
+
+		 
+		 -->
+
+		<p>伪数组，也称为类数组</p>
+		特点：
+		<ol>
+			<li>有下标，可以通过下标访问</li>
+			<li>有length</li>
+			<li>有push和splice方法，可以操作</li>
+			<li>既可以当做数组使用，也可以当做对象使用</li>
+		</ol>
+		<p> DOM中很多数组都是伪数组 </p>
+
+
+
+
+		<script type="text/javascript">
+			var a1 = [1, 2, 3];
+
+
+			// var a2 = {
+			// 	'0':1,
+			// 	'1':2,
+			// 	'2':3,
+			// 	'length':3,
+			// 	'push':Array.prototype.push ,
+			// 	'splice':Array.prototype.splice 
+			// }
+
+			console.log(a1);
+			// console.log(a2);
+			// console.log(a1)
+
+
+			function FakeArray() {
+				this['0'] = 1;
+				this['1'] = 2;
+				this['2'] = 3;
+				this['length'] = 3;
+			}
+
+			FakeArray.prototype.push = Array.prototype.push;
+			FakeArray.prototype.splice = Array.prototype.splice;
+
+
+			var a2 = new FakeArray();
+
+			console.log(a2);
+		</script>
+	</body>
+</html>

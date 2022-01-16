@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<h1>
+			问：JS中如何捕获异常？
+		</h1>
+		
+		<script type="text/javascript">
+	
+		</script>
+		
+		
+		<script type="text/javascript">
+
+			window.onerror = function(msg,url,line,col,error){
+				
+				console.log(msg);
+				console.log(url);
+				console.log(line);
+				console.log(col);
+				console.log(error);
+				
+				// 不往外抛出异常
+				return true 
+				
+			}
+			
+			
+			abc();
+		</script>
+		
+		<script type="text/javascript">
+			// console.log('2222222222');
+		</script>
+		
+		
+		<!-- hour :125min  -->
+		
+	</body>
+</html>
