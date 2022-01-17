@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--
+		 真实效果:
+		 
+		 方法2 更快 ,使用 原生库函数  运行效率 高于 JS 代码 
+		 
+		 
+		 
+		 
+		 循环 vs. indexof 
+		 
+		 
+	 
+		 结论:  JS 原生库 效率 比 自己写的要快 
+		 -->
+		 
+		 <p>
+			  循环 vs. indexof  效率对比 
+			 
+		 </p>
+		 
+		 
+		
+		<script type="text/javascript">
+			
+			
+
+			
+			 // 循环 vs. indexof 
+			 var a1 = ['abc', 'a2', 'four', 'one', 'two', 'three', 'four', '4', 'one', 'three'];
+			 var startTime = new Date()
+			 
+			 for (var i =0;i< 50000000;i++){
+				 // a1.indexOf('four');
+				 
+				 
+				 // method 2
+				 for (var j =0;j< a1.length;j++){
+					 if (a1[j] =='four'){
+						 break;
+					 }
+				 }
+			 }
+			 			 
+			 var endTime = new Date();
+			 
+			 console.log(endTime -startTime);
+			 
+			 
+			 
+		</script>
+	</body>
+</html>
