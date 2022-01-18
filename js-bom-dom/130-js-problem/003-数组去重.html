@@ -65,7 +65,7 @@
 
 
 
-
+			// 方法2
 			function unique01(arr) {
 				/*
 				use indexof 
@@ -89,8 +89,8 @@
 			}
 
 
-
-
+			// 方法3 
+			// 先sort 在 去重,这样会变成无序的结果
 			function unique02(arr) {
 				if (!Array.isArray(arr)) {
 					console.log('type error!');
@@ -118,7 +118,7 @@
 			}
 
 
-
+			// 方法4
 			function unique03(arr) {
 				/*
 				use map 
@@ -152,24 +152,23 @@
 			// 3-1 使用 object 作为一个 "map"
 			function unique(arr) {
 				/*
-				use map 
-				
-				map 里面 是严格区分类型的. 
+				3-1 使用 object 作为一个 "map"
 				*/
 				if (!Array.isArray(arr)) {
 					console.log('type error!');
 					return
 				}
 			
-				// TODO 
 				var result = []
-				let map = {};
+				let visited = {};
 				for (let i = 0; i < arr.length; i++) {
-					if (map[arr[i]]) {
+					if (visited[arr[i]]) {
 						// nothing
 					} else {
-						map[arr[i]] = true;
+						// 没有放入进去,放进去,
 						result.push(arr[i]);
+						// 标记已经访问过
+						visited[arr[i]] = true;
 					}
 			
 				}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>考察div bgcolor</title>
+
+		<style type="text/css">
+			.div {
+				width: 100px;
+				height: 100px;
+
+
+			}
+
+			.parentDiv {
+
+				background-color: #00ff00;
+			}
+
+			.div1 {
+
+				border: 1px solid #000000;
+				/* background-color: #FF0000!important; */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 
+		题目: 
+			获得一个div 真实的 background-color  不考虑IE , 不考虑 float
+		
+		 -->
+
+
+
+
+		<!-- 	<div id="elem"  class="div div1" style="background-color: #FF0000;">
+
+		</div> -->
+
+
+		<div class="parentDiv">
+			<div id="elem" class="div div1">
+				div1
+			</div>
+		</div>
+
+
+
+
+		<script type="text/javascript">
+			// 如何获得backgroud color 
+			var div = document.querySelector('#elem');
+
+			// console.log(div);
+
+			//1. Element 原型上的style  只能获得行内样式, 无法获得CSS的样式.
+
+			// 2. 获得计算后的样式,  getComputedStyle
+
+			// 2-1. 问题 当行内样式生效时, getComputedStyle 是否可以正确计算 
+			//  答 : 可以
+
+
+			// 2-2.  当行内样式不生效时, getComputedStyle 是否可以正确计算 ?  可以
+
+
+
+			// 3  如果 一个 div 自己没有颜色, 但是它的父亲有颜色, 它看上去的颜色就是它父亲的颜色 
+			// 		假设 所有的div 要么是透明的, 要么时完全不透明的. 
+				// 如果是透明的,需要找父亲结点 
+			var bgColor = div.style.backgroundColor;
+			// console.log(bgColor);
+			var bgColor2;
+
+
+			// bgColor2 = getStyle(div.parentNode, 'background-color');
+			bgColor2 = getStyle(div.parentNode, 'background-color');
+
+			console.log(bgColor2);
+
+		
+			isOpacity(div)
+			// hour:148min
+
+			function isOpacity(element){
+				// 用于获取 element 是否是透明的, 
+				// 返回 bool 
+				console.log(parseFloat(element.style.opacity));
+				
+				return parseFloat(element.style.opacity);
+
+				
+			}
+			
+			function getRealBgColor(element){
+				
+				
+				
+			}
+			
+			// 要有
+			// if (document.defaultView && document.defaultView.getComputedStyle) {
+
+			// 	cssQuery = document.defaultView.getComputedStyle(div, null);
+			// 	document.defaultView.getComputedStyle()
+			// 	console.log(cssQuery);
+			// 	// 获取 真实的样式 
+			// 	bgColor2 = cssQuery ? cssQuery.getPropertyValue('background-color') : null;
+
+			// 	console.log(bgColor2);
+			// }
+
+
+
+
+			function getStyle(element, property) {
+				/*
+				
+				首先 查找 行内样式 ,如果有直接返回
+				
+				如果没有 就使用计算样式
+				*/
+				var result = '';
+
+				// check parameters 
+				if (!element || !property) {
+					return result;
+				}
+
+				// result = element.style[property2];
+
+				// if (!result){
+				// 	result = getCssStyle(element,property)
+				// }
+
+				return getCssStyle(element, property)
+				// return result;	
+			}
+
+
+
+			function getCssStyle(element, attr) {
+				/*
+				
+				获取计算后的属性值
+				
+				element : Element
+				
+				attr: str  需要获取样式的属性名, 'background-color'
+				*/
+
+				var vulue = '';
+
+				if (document.defaultView && document.defaultView.getComputedStyle) {
+					var cssQuery = document.defaultView.getComputedStyle(element, null);
+					value = cssQuery ? cssQuery.getPropertyValue(attr) : null;
+				}
+
+				return value;
+
+				// hour:132min
+				
+				
+				// hour:148min
+			}
+		</script>
+
+
+	</body>
+
+
+</html>

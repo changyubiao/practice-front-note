@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+
+		<!-- 
+		
+		写出能够匹配html 标签的正则表达式
+		 
+		 -->
+
+
+
+		<script type="text/javascript">
+
+			// 合法的标签
+			var tag1 = '<xxxx>';
+			var tag2 = '</xxxx>';
+			var tag3 = '<xxxx/>';
+			var regExp = /<\/?\w+\/?>/g
+
+
+			regExp.lastIndex = 0 ;
+			console.log(regExp.test(tag1));
+			
+			// console.log(regExp.lastIndex);
+			regExp.lastIndex = 0 ;
+			console.log(regExp.test(tag2));
+			
+			// console.log(regExp.lastIndex);
+			regExp.lastIndex = 0 ;
+			console.log(regExp.test(tag3));
+			
+		</script>
+	</body>
+</html>

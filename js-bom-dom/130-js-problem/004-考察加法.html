@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*
+			a,b  试问 a+b 的结果: 
+			
+			*/ 
+		
+			// 这里会报错
+			// var a = undefind;
+			// var b = NaN;
+			
+			// console.log(add(a,b));  //NaN
+			
+			
+			var a = '123';
+			var b = NaN;
+			console.log(add(a,b)); // 123NaN
+			
+			
+			
+			var a = NaN;
+			var b = undefined;
+			console.log('C',add(a,b));  //NaN
+			
+			
+			
+			var a = 'undefined';
+			var b = NaN;
+			console.log(add(a,b));  //undefinedNaN
+			
+			
+			function  add(a,b){
+				// console.log(a +b);
+				return a+ b;
+			}
+			
+			
+					
+			
+		</script>
+	</body>
+</html>

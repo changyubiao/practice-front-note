@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+			/* 父容器 */
+			#wrapper {
+
+				width: 209px;
+				/* background-color: #007069; */
+				padding: 5px;
+				margin-bottom: 50px;
+			}
+
+			input[type="button"] {
+				position: relative;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 实现代码 将网页中所有的文本框内容清空
+		 
+		 -->
+
+		<p> 实现代码 将网页中所有的文本框内容清空</p>
+
+		<div id="wrapper">
+
+			<div>
+				姓名 <input type="text" name="" id="" value="111" />
+			</div>
+
+			<div>
+				住址 <input type="text" name="" id="" value="222" />
+			</div>
+
+
+			<div>
+				爱好 <input type="text" name="" id="" value="333" />
+			</div>
+
+
+			<div>
+				<input type="button" name="" id="btn" value="清空" />
+			</div>
+			
+			<input type="button" name="" id="btn" value="按钮1" />
+			<input type="button" name="" id="btn" value="按钮2" />
+			
+		</div>
+
+
+
+
+
+		<script type="text/javascript">
+			// var inputs = document.querySelectorAll('input[type="text"]');
+			var inputs = document.querySelectorAll('input');
+			var btn = document.querySelector('#btn');
+
+
+			// console.log(inputs);
+
+			btn.addEventListener('click', function() {
+
+				// console.log('cliek  buttn ')
+
+				for (let i = 0; i < inputs.length; i++) {
+					// 这里进行 类型过滤
+					// if (inputs[i].getAttribute('type') == 'text') {
+					// 	inputs[i].value = '';
+					// }
+					
+					// 这里也可以 过滤 
+					if (inputs[i].type === 'text') {
+						inputs[i].value = '';
+					}
+				}
+
+			})
+
+
+
+			// 92min 
+		</script>
+	</body>
+</html>
