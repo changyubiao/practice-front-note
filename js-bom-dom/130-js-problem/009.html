@@ -8,6 +8,8 @@
 			.div {
 				width: 100px;
 				height: 100px;
+				border: 1px solid #000000;
+				
 
 
 			}
@@ -19,9 +21,42 @@
 
 			.div1 {
 
-				border: 1px solid #000000;
+				/* border: 1px solid #000000; */
 				/* background-color: #FF0000!important; */
 			}
+			
+			.div2 {
+				/* background-color: rgba(255,128,127,0); */
+				background-color: transparent;
+			}
+			
+			
+			.div3 {
+				/* background-color: #FF0000; */
+				/* background-color: transparent; */
+				opacity: 0;
+			}
+			
+			.div4 {
+				display: none;
+			}
+			
+			
+			.div5 {
+				visibility: hidden;
+			}
+			
+			
+			.div6 {
+				background-color: #00ff00;
+			}
+			
+			
+			.div7 {
+				/* background-color: #2288F6; */
+			}
+			
+			
 		</style>
 	</head>
 
@@ -45,6 +80,33 @@
 			<div id="elem" class="div div1">
 				div1
 			</div>
+			
+			<div id="elem2" class="div div2">
+				div2
+			</div>
+			
+			
+			<div id="elem3" class="div div3">
+				div3
+			</div>
+			
+			<div id="elem4" class="div div4">
+				div4
+			</div>
+			
+			<div id="elem5" class="div div5">
+				div5
+			</div>
+			
+			
+			<div id="elem6" class="div div6">
+				div6
+			</div>
+		</div>
+		
+		
+		<div id="elem7" class="div div7">
+			div7
 		</div>
 
 
@@ -53,6 +115,13 @@
 		<script type="text/javascript">
 			// 如何获得backgroud color 
 			var div = document.querySelector('#elem');
+			var div1 = div;
+			var div2 = document.querySelector('#elem2');
+			var div3 = document.querySelector('#elem3');
+			var div4 = document.querySelector('#elem4');
+			var div5 = document.querySelector('#elem5');
+			var div6 = document.querySelector('#elem6');
+			var div7 = document.querySelector('#elem7');
 
 			// console.log(div);
 
@@ -71,48 +140,172 @@
 			// 3  如果 一个 div 自己没有颜色, 但是它的父亲有颜色, 它看上去的颜色就是它父亲的颜色 
 			// 		假设 所有的div 要么是透明的, 要么时完全不透明的. 
 				// 如果是透明的,需要找父亲结点 
-			var bgColor = div.style.backgroundColor;
-			// console.log(bgColor);
-			var bgColor2;
+			// var bgColor = div.style.backgroundColor;
+			// // console.log(bgColor);
+			// var bgColor2;
 
-
+			
+			// var regExp= /(\d+,\s*){3}0/g;
+			
 			// bgColor2 = getStyle(div.parentNode, 'background-color');
-			bgColor2 = getStyle(div.parentNode, 'background-color');
+			// bgColor2 = getStyle(div, 'background-color');
 
-			console.log(bgColor2);
-
+			// console.log(bgColor2);
+			
+			// console.log(bgColor2,regExp.test(bgColor2));
+			
+			
+			
+			
+			// var bgColor3 = getStyle(div2, 'background-color');
+			// regExp.lastIndex =0 ;
+			// console.log(bgColor3,regExp.test(bgColor3));
+			
+			
+			
+			
+			// var bgColor4 = getStyle(div3, 'background-color');
+			// regExp.lastIndex =0 ;
+			// console.log(bgColor4,regExp.test(bgColor4));
+			
+			//  console.log(getStyle(div3, 'opacity'));
+			 
+			
+			
+			
+			
+			// var bgColor5 = getStyle(div4, 'background-color');
+			// regExp.lastIndex =0 ;
+			// console.log(bgColor5,regExp.test(bgColor5));
+			
+			//  console.log(getStyle(div4, 'disaplay'));
+			 
+			
+			
+			
+			
+			
+			// var bgColor6 = getStyle(div5, 'background-color');
+			// regExp.lastIndex =0 ;
+			// console.log(bgColor6,regExp.test(bgColor6));
+			
+			//  console.log(getStyle(div5, 'visibility'));
+			
+			
+			// console.log('=========isOpacity ============')
+			// console.log(isOpacity(div));
+			// console.log(isOpacity(div2));
+			// console.log(isOpacity(div3));
+			// console.log(isOpacity(div4));
+			// console.log(isOpacity(div5));
+			
+			
+			
+			console.log('=========getRealBgColor ============')
+			// console.log(getRealBgColor(div));
+			console.log(getRealBgColor(div1));
+			console.log(getRealBgColor(div2));
+			// console.log(getRealBgColor(div3));
+			// console.log(getRealBgColor(div4));
+			// console.log(getRealBgColor(div5));
+			console.log(getRealBgColor(div6));
+			console.log(getRealBgColor(div7));
 		
-			isOpacity(div)
+		
+			// isOpacity(div)
 			// hour:148min
-
 			function isOpacity(element){
-				// 用于获取 element 是否是透明的, 
-				// 返回 bool 
-				console.log(parseFloat(element.style.opacity));
+				/*
 				
-				return parseFloat(element.style.opacity);
-
+				 用于获取 element 是否是透明的,
+				  
+				  获取计算后的属性值 , 是否为透明的. 
+				  
+				  1. 透明的情况  
+						1-1 . 没有设定 background-color     rgba(0, 0, 0, 0)
+				
+						1-2  有设定,  background-color  并且最后一位 是 0 , 正则表达式
+						1-3  有设定,  background: transparent   rgba(0, 0, 0, 0)
+						
+						1-4  有设定或者不设定  opacity:0 
+						1-5 有设定或则没有设定   visibility : hidden 
+						1-5 有设定或则没有设定   display : none
+						
+						
+			
+						
+				*/
+				// 用于获取 element 是否是透明的, 
+				// 返回 bool 				
+				var result = '';
+				var isOpacity = true;
+				var notOpacity = false;
+				
+				result = getStyle(element,'opacity');
+				// console.log(1,result);
+				if (result === '0'){
+					// 说明是透明的.
+					return isOpacity ;
+				}
+				
+				
+				result = getStyle(element,'display');
+				if (result === 'none'){
+					// 说明是透明的.
+					return isOpacity ;
+				}
+				
+				
+				result = getStyle(element,'visibility');
+				if (result === 'hidden'){
+					// 说明是透明的.
+					return isOpacity;
+				}
+				
+				
+				
+				result = getStyle(element,'background-color');
+				
+				// 匹配最后一位 是0 rgb a
+				var regExp= /(\d+,\s*){3}0/g;
+				regExp.lastIndex =0 ;
+				if (regExp.test(result)){
+					return isOpacity;
+				}
+			
+				return notOpacity;
+			
 				
 			}
 			
 			function getRealBgColor(element){
+				/*
 				
+				获取 眼睛 能够看到的背景色 
+				真正的背景色 
+				hour:2:52:56 
+				*/ 
+			
 				
+				var  bgColor = '';
 				
+				// 不是透明的, 就是不透明的. 
+				if (!isOpacity(element)){
+					// // 不是透明的, 就是不透明的. 
+					
+					bgColor = getStyle(element,'background-color');
+					
+				}else if (element != document.documentElement){
+					// 透明的
+					// 寻找父亲结点, 是否为透明的, 
+					bgColor  = getRealBgColor(element.parentNode);
+				}else{
+					bgColor = 'rgba(0,0,0,0)';
+				}
+				
+				return bgColor;
 			}
 			
-			// 要有
-			// if (document.defaultView && document.defaultView.getComputedStyle) {
-
-			// 	cssQuery = document.defaultView.getComputedStyle(div, null);
-			// 	document.defaultView.getComputedStyle()
-			// 	console.log(cssQuery);
-			// 	// 获取 真实的样式 
-			// 	bgColor2 = cssQuery ? cssQuery.getPropertyValue('background-color') : null;
-
-			// 	console.log(bgColor2);
-			// }
-
 
 
 
@@ -129,15 +322,7 @@
 				if (!element || !property) {
 					return result;
 				}
-
-				// result = element.style[property2];
-
-				// if (!result){
-				// 	result = getCssStyle(element,property)
-				// }
-
 				return getCssStyle(element, property)
-				// return result;	
 			}
 
 
