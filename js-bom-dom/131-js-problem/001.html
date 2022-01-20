@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<p>
+			问: 写一个可以将数字 变成货币形式的函数
+
+
+
+
+		</p>
+
+
+
+		<script type="text/javascript">
+			/*
+			
+			例子:   12345         $12,345.00
+					1234.1234     $12,345.12
+					
+					123           $123.00
+					
+					
+					
+					
+					
+			
+			
+			
+			*/
+
+			var num = 12345;
+
+			var num2 = 12345.1234;
+			var num3 = 123;
+			var num4 = 0;
+
+			var num5 = NaN;
+
+			var num6 = Infinity;
+			// 1. 直接写 
+
+
+			Number.prototype.toCurrency = function() {
+
+				var ret = '$0.0';
+
+				if (isNaN(this)) {
+					return ret;
+				}
+
+
+				if (!isFinite(this)) {
+					return ret;
+				}
+
+
+				// convert to string 
+				var tmp = this.toFixed(2);
+				tmp = tmp.toString();
+
+				console.log('tmp=', tmp);
+
+				var mark = (tmp.length - 3) % 3;
+				var ret = '$';
+
+				for (var i = 0; i < tmp.length - 3; i++) {
+					// console.log('cur i=',i);
+					if (mark === i % 3 && i !== 0) {
+						ret += ',';
+					}
+					ret += tmp.charAt(i);
+				}
+				// ret += tmp.substring(-3,tmp.length);
+				ret += tmp.substr(tmp.length-3,);
+				return ret;
+			}
+			
+			// realnumber: $12,345.12
+			// console.log(num.toCurrency());
+			console.log(num2.toCurrency());
+
+			// console.log(num5.toCurrency());
+			// console.log(num6.toCurrency());
+
+
+			// 2. 正则表达式 
+			// prankster
+		</script>
+
+	</body>
+</html>
