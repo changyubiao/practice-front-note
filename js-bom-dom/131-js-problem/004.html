@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+			p {
+				background-color: #FF0000;
+			}
+		</style>
+	</head>
+	<body>
+
+		<p>
+			实现一个函数 ,将穿糖葫芦写法 变为 小驼峰写法
+
+
+		</p>
+		<!-- 
+			background-color   ->  backgroundColor 
+		 
+		 -->
+
+		<script type="text/javascript">
+			var str1 = 'background-color';
+			var str1 = 'background-color-aaa-bbb';
+
+
+			function changeName(name) {
+				var names = name.split('-');
+
+				// console.log(names);
+
+				for (var i = 1; i < names.length; i++) {
+					// console.log(names[i][0].toUpperCase());
+					names[i] = names[i][0].toUpperCase() + names[i].slice(1, )
+					// console.log(names[i]);	
+				}
+				return names.join('');
+			}
+			// hour: 34min
+			// console.log(changeName(str1));
+
+
+			function testchangeName() {
+				var str1 = 'background-color-aaa-bbb';
+				console.assert(changeName(str1) === 'backgroundColorAaaBbb');
+				
+				
+				
+			}
+
+
+			testchangeName();
+		</script>
+	</body>
+</html>

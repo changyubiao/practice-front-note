@@ -24,35 +24,29 @@
 					
 					123           $123.00
 					
+					NaN           $0.00
+					Infinity     $0.00
 					
 					
-					
-					
-			
-			
-			
 			*/
 
-			var num = 12345;
+			// var num = 12345;
+			// var num2 = 12345.1234;
+			// var num3 = 123;
+			// var num4 = 0;
 
-			var num2 = 12345.1234;
-			var num3 = 123;
-			var num4 = 0;
+			// var num5 = NaN;
 
-			var num5 = NaN;
-
-			var num6 = Infinity;
+			// var num6 = Infinity;
 			// 1. 直接写 
 
 
-			Number.prototype.toCurrency = function() {
+			Number.prototype.toCurrency00 = function() {
 
-				var ret = '$0.0';
-
+				var ret = '$0.00';
 				if (isNaN(this)) {
 					return ret;
 				}
-
 
 				if (!isFinite(this)) {
 					return ret;
@@ -60,36 +54,223 @@
 
 
 				// convert to string 
+				// toFixed 保留两位小数
 				var tmp = this.toFixed(2);
 				tmp = tmp.toString();
 
-				console.log('tmp=', tmp);
+				// console.log('tmp=', tmp);
 
-				var mark = (tmp.length - 3) % 3;
+				var end = tmp.length - 3;
+				var mark = end % 3;
 				var ret = '$';
 
-				for (var i = 0; i < tmp.length - 3; i++) {
+				// console.log('mark=',mark,';','end=',end);
+				for (var i = 0; i < end; i++) {
 					// console.log('cur i=',i);
 					if (mark === i % 3 && i !== 0) {
+						// console.log("cur i:",i,'add comma');
 						ret += ',';
 					}
+					// console.log("cur i:",i, "add s:",tmp[i])
 					ret += tmp.charAt(i);
+
 				}
-				// ret += tmp.substring(-3,tmp.length);
-				ret += tmp.substr(tmp.length-3,);
+				// 取后三位
+				ret += tmp.substring(tmp.length - 3, );
 				return ret;
 			}
-			
-			// realnumber: $12,345.12
-			// console.log(num.toCurrency());
-			console.log(num2.toCurrency());
 
+
+			Number.prototype.toCurrency = function() {
+				/*
+				 code opimization
+				*/
+				var defaultValue = '$0.00';
+				var results = [];
+				if (isNaN(this)) {
+					return defaultValue;
+				}
+
+				if (!isFinite(this)) {
+					return defaultValue;
+				}
+
+
+				// convert to string 
+				// toFixed 保留两位小数
+				var tmp = this.toFixed(2);
+				tmp = tmp.toString();
+
+
+				var end = tmp.length - 3;
+				var mark = end % 3;
+
+				results.push('$');
+				for (var i = 0; i < end; i++) {
+
+					if (mark === i % 3 && i !== 0) {
+						results.push(',');
+					}
+
+					results.push(tmp.charAt(i));
+				}
+				// 取后三位
+				results.push(tmp.substring(tmp.length - 3));
+				return results.join('');
+			}
+
+
+
+			// // realnumber: $12,345.12
+			// console.log(num.toCurrency());
+			// console.log(num2.toCurrency());
+			// console.log(num3.toCurrency());
+			// console.log(num4.toCurrency());
 			// console.log(num5.toCurrency());
 			// console.log(num6.toCurrency());
 
-
 			// 2. 正则表达式 
-			// prankster
+			//
+
+			Number.prototype.toCurrencyRex00 = function() {
+				/**
+				 * 
+				 * 
+				 */
+
+				var ret = '$0.00';
+				if (isNaN(this)) {
+					return ret;
+				}
+
+				if (!isFinite(this)) {
+					return ret;
+				}
+
+
+				var tmp = this.toFixed(2);
+
+				// var num2 = 12345.1234;
+
+
+				var start = (tmp.length - 3) % 3 || 3;
+
+				var length1 = start;
+				// console.log(start);
+				// console.log(length1);
+
+
+				var length2 = tmp.length - start - 3;
+
+
+				// 思路  把字符串 分为3部分 
+				// console.log(start,length1);
+				// 截取 (0 ,length)
+				var tmp1 = tmp.substr(0, length1);
+				var tmp2 = tmp.substr(length1, length2);
+
+				// 后面三个字符
+				var tmp3 = tmp.substr(-3);
+
+				ret = '$' + tmp1 + tmp2.replace(/(\d{3})/g, ',$1') + tmp3;
+				// console.log(ret);
+				return ret;
+
+			}
+
+
+			Number.prototype.toCurrencyRex = function() {
+				/**
+				 * optimize code 
+				 * 
+				 */
+				var ret = '$0.00';
+				if (isNaN(this)) {
+					return ret;
+				}
+
+				if (!isFinite(this)) {
+					return ret;
+				}
+   
+				// convert to string 
+				var tmp = this.toFixed(2);
+				// console.log('full string:',tmp);
+				var first = (tmp.length - 3) % 3 || 3;
+				var second = tmp.length - first - 3;
+
+				// 思路  把字符串 分为3部分 
+				var tmp1 = tmp.substring(0, first);
+				var tmp2 = tmp.substring(first, first + second);
+
+				// 后面三个字符
+				var tmp3 = tmp.substring(tmp.length - 3);
+				ret = '$' + tmp1 + tmp2.replace(/(\d{3})/g, ',$1') + tmp3;
+				return ret;
+			}
+
+
+
+
+			function testToCurrency() {
+
+				var num = 12345;
+				var num2 = 12345.1234;
+				var num3 = 123;
+				var num4 = 0;
+
+				var num5 = NaN;
+				var num6 = Infinity;
+
+				// // realnumber: $12,345.12
+				// console.log(num.toCurrency());
+				// console.log(num2.toCurrency());
+				// console.log(num3.toCurrency());
+				// console.log(num4.toCurrency());
+				// console.log(num5.toCurrency());
+				// console.log(num6.toCurrency());
+
+				console.log('testing testToCurrency beginning');
+				console.assert(num.toCurrency() === '$12,345.00');
+				console.assert(num2.toCurrency() === '$12,345.12');
+				console.assert(num3.toCurrency() === '$123.00');
+				console.assert(num4.toCurrency() === '$0.00');
+				console.assert(num5.toCurrency() === '$0.00');
+				console.assert(num6.toCurrency() === '$0.00');
+				console.log('testing done');
+
+			}
+
+
+
+			function testToCurrencyRex() {
+
+				var num = 12345;
+				var num2 = 12345.1234;
+				var num3 = 123;
+				var num4 = 0;
+
+				var num5 = NaN;
+				var num6 = Infinity;
+
+				console.log('Test testToCurrencyRex beginning');
+				console.assert(num.toCurrencyRex() === '$12,345.00');
+				console.assert(num2.toCurrencyRex() === '$12,345.12');
+				console.assert(num3.toCurrencyRex() === '$123.00');
+				console.assert(num4.toCurrencyRex() === '$0.00');
+				console.assert(num5.toCurrencyRex() === '$0.00');
+				console.assert(num6.toCurrencyRex() === '$0.00');
+				console.log('Test done');
+
+			}
+
+
+
+
+			// testing  function 
+			testToCurrency();
+
+			testToCurrencyRex();
 		</script>
 
 	</body>

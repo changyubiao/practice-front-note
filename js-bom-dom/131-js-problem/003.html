@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style media="screen">
+
+
+		</style>
+	</head>
+	<body>
+		<!--  -->
+		<!-- <h1> hello world</h1> -->
+		<p>
+			题目考察 对象引用1 
+		</p>
+		
+		<script type="text/javascript">
+
+			function changeObjectProperty(o) {
+				console.log(0, o);
+
+				o.siteUrl = "http://www.csser.com";
+
+				o = new Object();
+
+				// console.log(1, CSSer);
+				console.log(2, o);
+				o.siteUrl = "http://wwww.baidu.com";
+				console.log(3, o);
+			}
+
+
+
+			var CSSer = new Object();
+			changeObjectProperty(CSSer);
+
+			// csser.com
+			console.log(6, CSSer.siteUrl);
+			
+			
+			// hour:30min
+		</script>
+	</body>
+</html>

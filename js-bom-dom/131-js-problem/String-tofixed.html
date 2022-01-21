@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>toFixed</title>
+	</head>
+	<body>
+		
+		<!-- 
+		
+		mdn 地址
+		 
+		 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+		 
+		 
+		 numObj.toFixed(digits)
+		 
+		 参数
+		 digits
+		 小数点后数字的个数；介于 0 到 20 （包括）之间，实现环境可能支持更大范围。如果忽略该参数，则默认为 0。
+		
+		返回值
+		使用定点表示法表示给定数字的字符串
+		
+		
+		四舍五入 法 
+		 
+		 -->
+		
+		<script type="text/javascript">
+			
+			
+			
+			var num = 123.315678;
+			
+			console.log('num=',num);
+			
+			console.log(num.toFixed(1));
+			console.log(num.toFixed(2));
+			console.log(num.toFixed(3));
+			console.log(num.toFixed(4));
+			console.log(num.toFixed(5));
+			console.log(num.toFixed(6));
+			console.log(num.toFixed(10));
+			
+			
+			
+			// 实际测试发现 可以传递 0 -100 的数字
+			// String-tofixed.html:43 Uncaught RangeError: toFixed() digits argument must be between 0 and 100
+			// at Number.toFixed (<anonymous>)
+			// at String-tofixed.html:43:20
+			console.log(num.toFixed(101));
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
