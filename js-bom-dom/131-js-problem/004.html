@@ -2,12 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>将穿糖葫芦写法 变为 小驼峰写法</title>
 
 		<style type="text/css">
-			p {
-				background-color: #FF0000;
-			}
+
 		</style>
 	</head>
 	<body>
@@ -43,16 +41,129 @@
 			// console.log(changeName(str1));
 
 
-			function testchangeName() {
-				var str1 = 'background-color-aaa-bbb';
-				console.assert(changeName(str1) === 'backgroundColorAaaBbb');
-				
-				
-				
+			String.prototype.toCamel = function() {
+				var ret = '';
+				for (var i = 0; i < this.length; i++) {
+
+					var cur = this.charAt(i);
+
+					if (cur != '-') {
+						ret += cur;
+					} else {
+						i++;
+						ret += this.charAt(i).toUpperCase();
+					}
+
+				}
+				return ret;
 			}
 
 
-			testchangeName();
+			String.prototype.toCamel2 = function() {
+				// 正则表达式
+				pattern = /-\w/g
+
+				var ret = this.replace(pattern, function($) {
+					return $.substring(1).toUpperCase();
+				})
+
+
+				return ret;
+			}
+
+
+
+			String.prototype.toCamel3 = function() {
+				// 正则表达式
+				pattern = /-(\w)/g
+
+				var ret = this.replace(pattern, function($, $1) {
+					//$ 代表捕获的结果 , $1 代表捕获分组的第一个分组
+					return $1.toUpperCase();
+				})
+
+
+				return ret;
+			}
+
+
+
+			/*
+				testing 
+			*/
+			function testchangeName() {
+				var str1 = 'background-color-aaa-bbb';
+				console.assert(changeName(str1) === 'backgroundColorAaaBbb');
+
+			}
+
+
+
+			function testtoCamel() {
+				console.log('testtoCamel')
+				var str1 = 'background-color-aaa-bbb';
+				console.assert(str1.toCamel() === 'backgroundColorAaaBbb');
+
+
+				var str2 = 'background';
+				console.assert(str2.toCamel() === 'background');
+
+
+			}
+
+
+
+
+			function testtoCamel2() {
+				console.log('testtoCamel2')
+				var str1 = 'background-color-aaa-bbb';
+				console.assert(str1.toCamel2() === 'backgroundColorAaaBbb');
+
+
+				var str2 = 'background';
+				console.assert(str2.toCamel2() === 'background');
+
+				var str3 = 'background-color';
+				console.assert(str3.toCamel2() === 'backgroundColor');
+
+			}
+
+
+
+			function testtoCamel3() {
+				console.log('testtoCamel3')
+				var str1 = 'background-color-aaa-bbb';
+				console.assert(str1.toCamel3() === 'backgroundColorAaaBbb');
+
+
+				var str2 = 'background';
+				console.assert(str2.toCamel3() === 'background');
+
+				var str3 = 'background-color';
+				console.assert(str3.toCamel3() === 'backgroundColor');
+
+			}
+
+
+
+
+
+			/*
+			 测试函数 
+			main()
+			*/
+			function main() {
+				// testchangeName();
+				// testtoCamel();
+				// testtoCamel2();
+				testtoCamel3();
+
+				console.log('Main Test done.')
+			}
+
+
+// hour 45min
+			main();
 		</script>
 	</body>
 </html>
