@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>问：何时end能够打印出来？</p>
+		<!-- 
+		 答 ： 永远不可能执行
+		 
+		 
+		 while 脚本 没有执行完， 整个脚本没有结束，就没有机会 走到setTimeout 的函数 
+		 
+		 
+		 
+		 
+		 setTimeout 宏任务 
+		 -->
+		
+		<script type="text/javascript">
+			
+			var t =true;
+			setTimeout(function(){
+				console.log('11111');
+				t = false;
+			},1000);
+			
+			while(t){
+				
+			};
+			
+			console.log('end');
+			
+			
+		</script>
+	</body>
+</html>

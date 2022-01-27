@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 
+		 区号3~4位，第一位为0
+		 中横线
+		 电话7~8位数字
+		 中横线
+		 分机号3~4位数字 可能没有
+
+
+
+		 
+		 -->
+		 <p>
+				问：写出匹配固定电话的正则表达式
+				
+				 区号3~4位，第一位为0
+				 中横线
+				 电话7~8位数字
+				 中横线
+				 分机号3~4位数字 可能没有
+				 
+				 
+				 022-24700000
+				 0725-5555555
+				 010-11112222-1234
+				 010-11112222-123
+			 
+		 </p>
+		
+		
+		<script type="text/javascript">
+			
+			
+			var pattern = /0\d{2,3}-\d{7,8}(?:-\d{3,4})?$/
+			
+			
+			var ph1 = '022-24700000';
+			var ph2 = '0725-5555555';
+			var ph3 = '010-11112222-1234';
+			var ph4 = '010-11112222-123';
+			
+			
+			// pattern.lastIndex = 0;
+			// console.assert(pattern.test(ph1)== true);
+			// pattern.lastIndex = 0;
+			// console.assert(pattern.test(ph2)== true);
+			// pattern.lastIndex = 0;
+			// console.assert(pattern.test(ph3)== true);
+			// pattern.lastIndex = 0;
+			// console.assert(pattern.test(ph4)== true);
+			
+			
+			console.log(ph1.match(pattern));
+			console.log(ph2.match(pattern));
+			console.log(ph3.match(pattern));
+			console.log(ph4.match(pattern));
+			
+		</script>
+	</body>
+</html>
