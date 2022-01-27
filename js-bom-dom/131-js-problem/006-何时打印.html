@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>何时打印end </title>
+	</head>
+	<body>
+		
+		<p>
+			何时打印end
+			
+				
+		</p>
+		
+		<!-- 
+		 
+		 永远不可能打印出来,  
+		 
+		 
+		 setTimeout  必须要等脚本可以执行到最后一句话,才能执行下去. 这里形成了一个死锁效应. 
+		  
+		  
+		  
+		  
+		 -->
+
+
+		<script type="text/javascript">
+			var t = true;
+
+			setTimeout(function() {
+				console.log('1111111');
+				t = false;
+			}, 1000);
+
+
+			// t 永远为 true 
+			while (t) {
+
+			};
+
+
+			console.log('end',t);
+		</script>
+	</body>
+</html>

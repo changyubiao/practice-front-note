@@ -41,44 +41,44 @@
 			// 1. 直接写 
 
 
-			Number.prototype.toCurrency00 = function() {
+			// Number.prototype.toCurrency = function() {
 
-				var ret = '$0.00';
-				if (isNaN(this)) {
-					return ret;
-				}
+			// 	var ret = '$0.00';
+			// 	if (isNaN(this)) {
+			// 		return ret;
+			// 	}
 
-				if (!isFinite(this)) {
-					return ret;
-				}
+			// 	if (!isFinite(this)) {
+			// 		return ret;
+			// 	}
 
 
-				// convert to string 
-				// toFixed 保留两位小数
-				var tmp = this.toFixed(2);
-				tmp = tmp.toString();
+			// 	// convert to string 
+			// 	// toFixed 保留两位小数
+			// 	var tmp = this.toFixed(2);
+			// 	tmp = tmp.toString();
 
-				// console.log('tmp=', tmp);
+			// 	// console.log('tmp=', tmp);
 
-				var end = tmp.length - 3;
-				var mark = end % 3;
-				var ret = '$';
+			// 	var end = tmp.length - 3;
+			// 	var mark = end % 3;
+			// 	var ret = '$';
 
-				// console.log('mark=',mark,';','end=',end);
-				for (var i = 0; i < end; i++) {
-					// console.log('cur i=',i);
-					if (mark === i % 3 && i !== 0) {
-						// console.log("cur i:",i,'add comma');
-						ret += ',';
-					}
-					// console.log("cur i:",i, "add s:",tmp[i])
-					ret += tmp.charAt(i);
+			// 	// console.log('mark=',mark,';','end=',end);
+			// 	for (var i = 0; i < end; i++) {
+			// 		// console.log('cur i=',i);
+			// 		if (mark === i % 3 && i !== 0) {
+			// 			// console.log("cur i:",i,'add comma');
+			// 			ret += ',';
+			// 		}
+			// 		// console.log("cur i:",i, "add s:",tmp[i])
+			// 		ret += tmp.charAt(i);
 
-				}
-				// 取后三位
-				ret += tmp.substring(tmp.length - 3, );
-				return ret;
-			}
+			// 	}
+			// 	// 取后三位
+			// 	ret += tmp.substring(tmp.length - 3, );
+			// 	return ret;
+			// }
 
 
 			Number.prototype.toCurrency = function() {
@@ -120,21 +120,13 @@
 			}
 
 
-
-			// // realnumber: $12,345.12
-			// console.log(num.toCurrency());
-			// console.log(num2.toCurrency());
-			// console.log(num3.toCurrency());
-			// console.log(num4.toCurrency());
-			// console.log(num5.toCurrency());
-			// console.log(num6.toCurrency());
-
 			// 2. 正则表达式 
 			//
 
 			Number.prototype.toCurrencyRex00 = function() {
 				/**
-				 * 
+				 * method 1
+				 * use substr 截取字符串 
 				 * 
 				 */
 
@@ -149,8 +141,6 @@
 
 
 				var tmp = this.toFixed(2);
-
-				// var num2 = 12345.1234;
 
 
 				var start = (tmp.length - 3) % 3 || 3;
@@ -182,7 +172,7 @@
 			Number.prototype.toCurrencyRex = function() {
 				/**
 				 * optimize code 
-				 * 
+				 *  命名, 使用 substring 
 				 */
 				var ret = '$0.00';
 				if (isNaN(this)) {

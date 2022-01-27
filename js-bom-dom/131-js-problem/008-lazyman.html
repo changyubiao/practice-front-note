@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p>
+			[tencent]实现一个 lazyman    
+		</p>
+		
+		
+		<!-- 
+		 
+		LazyMan 功能如下: 
+		
+			- 链式调用   
+			- 工厂函数 
+		 
+		 
+		1. LazyMan('frank');
+		
+			Hi! This is frank.
+		
+		2. LazyMan('frank').sleep(10).eat('dinner');
+			
+			Hi!  this is frank.
+			<wait 10 seconds>
+			wake up after 10 
+			Eat dinner~
+		
+		
+		3.  LazyMan('frank').eat('dinner').eat('supper');
+		
+		
+			Hi!  this is frank.
+			Eat dinner~
+			Eat supper~
+		
+		
+		4. LazyMan('frank').sleepFirst(10).eat('dinner');
+			
+			<wait 10 seconds>
+			wake up after 10 
+			Hi!  this  is frank.
+			Eat dinner~
+		 
+			
+			
+			
+			
+		分析: 
+		
+		
+		- 链式调用   
+			每次调用 返回自己 this 
+		 
+		- 工厂函数 
+		 
+		 
+		 - sleep 如果处理时间,  setTimeout , 不可能直接执行 ?
+		 
+				tasklist 维护一个任务列表, 然后一次执行. 
+		 
+		 hour: 68min 
+		 -->
+		
+		<script type="text/javascript">
+			
+			// setTimeout
+			
+			function Man(){
+				
+			}
+			
+			function LazyMan(name){
+				console.log('Hi! this is ' + name+'.');
+				return new Man();	
+			}
+			
+			Man.prototype.sleep = function(num){
+				
+				// 这里有问题, 要阻塞住 就可以了. 
+				// 不能异步执行...
+				setTimeout(function(){
+					console.log('wake up after '+ num);
+				},1000*num);
+				
+				return this ;
+			}
+			
+		
+			
+			Man.prototype.eat = function(when){
+				console.log('Eat ' + when +'~');
+				return this ;
+			}
+			
+			
+			// LazyMan('frank').eat('supper').eat('dinner');
+			// 有问题? 
+			LazyMan('frank').sleep(4).eat('dinner');
+		</script>
+		
+		
+	</body>
+</html>

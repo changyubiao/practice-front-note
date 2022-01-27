@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<p>
+			[tencent]实现一个 lazyman
+		</p>
+
+
+		<!-- 
+		 
+		LazyMan 功能如下: 
+		
+			- 链式调用   
+			- 工厂函数 
+		 
+		 
+		1. LazyMan('frank');
+		
+			Hi! This is frank.
+		
+		2. LazyMan('frank').sleep(10).eat('dinner');
+			
+			Hi!  this is frank.
+			<wait 10 seconds>
+			wake up after 10 
+			Eat dinner~
+		
+		
+		3.  LazyMan('frank').eat('dinner').eat('supper');
+		
+		
+			Hi!  this is frank.
+			Eat dinner~
+			Eat supper~
+		
+		
+		4. LazyMan('frank').sleepFirst(10).eat('dinner');
+			
+			<wait 10 seconds>
+			wake up after 10 
+			Hi!  this  is frank.
+			Eat dinner~
+		 
+			
+			
+		分析: 
+	
+		- 链式调用   
+			每次调用 返回自己 this 
+		 
+		- 工厂函数 
+		 
+		 
+		 - sleep 如果处理时间,  setTimeout , 不可能直接执行 ?
+		 
+				tasklist 维护一个任务列表, 然后一次执行. 
+		 
+		 
+		- 订阅模式  发布订阅模式,  来维护一个 任务列表. 
+		方便 解耦 
+		
+		
+		用异步模拟阻塞 过程..
+		 -->
+
+		<script type="text/javascript">
+			(function(window, undefined) {
+
+				// 构造函数 
+				function Man() {
+					this.tasklist = [];
+
+				}
+
+
+				Man.prototype.sleep = function(num) {
+					this.subscribe('sleep', num);
+					return this;
+				};
+
+				Man.prototype.sleepFirst = function(num) {
+					this.subscribe('sleepFirst', num);
+					return this;
+				};
+
+				Man.prototype.eat = function(when) {
+					this.subscribe('eat', when);
+					return this;
+				};
+
+				Man.prototype.subscribe = function() {
+					if (arguments.length < 2) {
+						console.error('subscribe error. arguments is not enough,');
+						return
+					}
+					var taskName = arguments[0];
+					var args = Array.prototype.slice.call(arguments, 1);
+					var task = new Task(taskName, args, this);
+
+					if (task.taskName == 'sleepFirst') {
+						// 放在第一个位置
+						this.tasklist.unshift(task);
+					} else {
+						// 放在最后一个位置
+						this.tasklist.push(task);
+					}
+				}
+
+
+				/*
+				 tasklist 的内容
+				 构造函数
+				*/
+				function Task(name, args, man) {
+					this.taskName = name;
+					this.args = args;
+					this.man = man;
+				}
+
+				Task.prototype.lazyMan = function(name) {
+					lazyManLog('Hi, This is ' + name + '!');
+					this.publish();
+
+				};
+
+				Task.prototype.eat = function(when) {
+					lazyManLog('Eat ' + when + '~');
+					this.publish();
+				};
+
+
+				Task.prototype.sleep = function(num) {
+
+					var that = this;
+					setTimeout(function() {
+						lazyManLog('Wake up after ' + num);
+						// 这里为啥不能用 this 
+						that.publish();
+
+					}, num * 1000);
+				};
+
+
+				Task.prototype.sleepFirst = function(num) {
+					var that = this;
+
+					setTimeout(function() {
+						lazyManLog('Wake up after ' + num + ' seconds');
+						// 这里为啥不能用 this 
+						that.publish();
+					}, num * 1000);
+				};
+
+				// 发布
+				Task.prototype.publish = function() {
+
+					if (!this.man.tasklist.length) {
+						console.log("current tasklist is [];");
+						return
+					}
+
+					if (this.man.tasklist.length > 0) {
+						var task = this.man.tasklist.shift();
+						task[task.taskName].apply(task, task.args);
+					}
+				}
+
+
+				function lazyManLog(message) {
+					console.log(message);
+				}
+
+				// 93min
+				// 工厂函数
+				function LazyMan(name) {
+					var man = new Man();
+					man.subscribe('lazyMan', name);
+
+					setTimeout(function() {
+						man.tasklist[0].publish();
+					}, 0);
+					return man;
+				}
+
+				window.LazyMan = LazyMan;
+			})(window);
+
+
+
+			// LazyMan('frank').eat('supper').eat('dinner');
+			// 有问题? 
+			// LazyMan('frank').sleep(4).eat('dinner');
+
+			// console.log(LazyMan('frank'));
+			// LazyMan('frank').sleepFirst(3).eat('morning');
+
+
+			LazyMan('frank').sleepFirst(2).eat('morning').eat('afternoon');
+			// LazyMan('frank').eat('dinner');
+			// hour:120min
+			// hour:125min end 
+		</script>
+
+
+	</body>
+</html>

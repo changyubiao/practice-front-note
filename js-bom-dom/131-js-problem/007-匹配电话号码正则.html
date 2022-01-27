@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			
+			var  pattern = /0\d{2,3}-\d{7,8}(-\d{3,4})?/g
+			
+			
+			var pn1 = '022-24700000';
+			var pn2 = '022-24700000-012';
+			var pn3 = '012-24700000';
+			var pn4 = '112-24700000';
+	
+		
+			// pattern.lastIndex = 0  
+			console.log(check(pattern,pn1));
+			console.log(check(pattern,pn2));
+			console.log(check(pattern,pn3));
+			console.log(check(pattern,pn4));
+			
+			
+			console.log('check1 begin ...')
+			
+			console.log(check1(pattern,pn1));
+			console.log(check1(pattern,pn2));
+			console.log(check1(pattern,pn3));
+			console.log(check(pattern,pn4));
+			
+			function check(pattern ,phone){
+				
+				pattern.lastIndex = 0;
+				return  Boolean(pattern.test(phone));
+						
+			}
+	
+			
+			
+			
+			function check1(pattern ,phone){
+										
+				return  Boolean(phone.match(pattern));
+			}
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
