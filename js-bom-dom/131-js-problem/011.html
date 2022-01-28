@@ -5,28 +5,34 @@
 		<title></title>
 	</head>
 	<body>
-		
+
 		<p>问：[阿里真题]console.log的输出？</p>
-		
+
 		<script type="text/javascript">
-			
-			
-			
-			var num =10;
-			
+			var num = 10;
+
 			var obj = {
-				
-				num :8 ,
-				inner :{
-					num:6,
-					print:function(){
-						console.log('num:'+ num+",this.num:"+this.num);
+
+				num: 8,
+				inner: {
+					num: 6,
+					print: function() {
+						console.log('num:' + num + ",this.num:" + this.num, "window.num:", window.num);
 					}
 				}
-				
 			}
+
+
+			num = 888;
+			obj.inner.print(); // 888  , 6  888 
+
+			var fn = obj.inner.print;
+			fn();   //888, 888,888
 			
+			(obj.inner.print)();  // 888, 6, 888 
 			
+			// 注意这里赋值语句 的返回 结果 , 为 右边表达式的结果.  ==>此时this就变为　Windows
+			(obj.inner.print = obj.inner.print)();  // 888,888,888
 		</script>
 	</body>
 </html>

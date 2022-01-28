@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+		 
+		 百度 
+		 
+		 GC 作用域链 的形成 ,是在定义的时候 就 已经 拷贝了 父亲的GO, 真正调用的时候  创建 AO .
+		 
+		 
+		-->
+
+		<script type="text/javascript">
+			var x = 10;
+
+			function fn() {
+				// console.log(this);
+				console.log(x);
+			}
+
+
+			function show(f) {
+				var x = 30;
+				// console.log(this);
+				f();
+				// console.log(this);
+			}
+
+			show(fn); //10
+		</script>
+	</body>
+</html>

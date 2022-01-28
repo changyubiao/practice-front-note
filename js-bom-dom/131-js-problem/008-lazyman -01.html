@@ -73,7 +73,7 @@
 
 				// 构造函数 
 				function Man() {
-					this.tasklist = [];
+					this.tasks = [];
 
 				}
 
@@ -104,16 +104,16 @@
 
 					if (task.taskName == 'sleepFirst') {
 						// 放在第一个位置 
-						this.tasklist.unshift(task);
+						this.tasks.unshift(task);
 					} else {
 						// 放在最后一个位置
-						this.tasklist.push(task);
+						this.tasks.push(task);
 					}
 				}
 
 
 				/*
-				 tasklist 的内容
+				 tasks 的内容
 				 构造函数
 				*/
 				function Task(name, args, man) {
@@ -159,13 +159,13 @@
 				// 发布
 				Task.prototype.publish = function() {
 
-					if (!this.man.tasklist.length) {
-						console.log("current tasklist is [];");
+					if (!this.man.tasks.length) {
+						console.log("current tasks is [];");
 						return
 					}
 
-					if (this.man.tasklist.length > 0) {
-						var task = this.man.tasklist.shift();
+					if (this.man.tasks.length > 0) {
+						var task = this.man.tasks.shift();
 						task[task.taskName].apply(task, task.args);
 					}
 				}
@@ -182,7 +182,7 @@
 					man.subscribe('lazyMan', name);
 
 					setTimeout(function() {
-						man.tasklist[0].publish();
+						man.tasks[0].publish();
 					}, 0);
 					return man;
 				}
