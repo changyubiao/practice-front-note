@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+
+
+
+		<script type="text/javascript">
+			const deepClone = (target) => {
+				if (typeof target === 'object' && target !== null) {
+					const cloneTarget = Array.isArray(target) ? [] : {};
+					for (let prop in target) {
+						if (target.hasOwnProperty(prop)) {
+							cloneTarget[prop] = deepClone(target[prop]);
+						}
+					}
+					return cloneTarget;
+				} else {
+					return target;
+				}
+			}
+
+
+
+
+			// const obj = {
+			// 	val: 2,
+			// 	names: [1, 2, 3, ['laoda', 'frank']]
+			// };
+
+
+			// const obj2 = deepClone(obj)
+
+			// console.log(obj);
+
+			// console.log(obj2);
+			// a.target = a;
+			
+			var a =1 ;
+			
+			var b = deepClone(a);
+			
+			console.log(a,b);
+		</script>
+
+
+	</body>
+</html>
