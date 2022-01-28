@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<!-- 
+ 
+https://www.runoob.com/jsref/jsref-foreach.html
+ 
+ 
+ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+ 
+ 注意array.foreach  返回值为 undefined 
+ 
+ 
+ 
+ forEach() 为每个数组元素执行一次 callback 函数；与 map() 或者 reduce() 不同的是，它总是返回 undefined 值,并且不可链式调用。
+ 
+ 
+ 
+ -->
+
+		<p>
+			forEach() 为每个数组元素执行一次 callback 函数；与 map() 或者 reduce() 不同的是，它总是返回 undefined 值,并且不可链式调用。
+
+
+		</p>
+
+		<script type="text/javascript">
+			// var numbers = [4, 9, 16, 25,36];
+
+
+			// numbers.forEach(element => console.log(element));
+
+
+			// //1.打印 数组元素
+			// numbers.forEach(function(element) {
+			// 	console.log(element);
+			// })
+
+
+
+			// // 2. 同时打印 数组元素 和 index 
+			// numbers.forEach(function(element, idx) {
+			// 	console.log(element, idx);
+			// })
+
+
+
+
+
+			// 3. foreach 并布恩那个改变 原来的数组  , 并且 这个函数不返回值. 			
+			// numbers.forEach(function(element,idx){
+
+			// 	element +=100;
+			// 	console.log(element,idx)
+
+			// })
+
+			// console.log(numbers.toString());
+			// console.log(numbers);
+
+
+
+			// // 4. 打印出数组的内容
+			// function logArrayElements(element, index, array) {
+			// 	console.log('a[' + index + '] = ' + element);
+			// }
+
+			// [2, 3, 4, , 9].forEach(logArrayElements);
+
+			// logs 注意没有index =3 的情况.
+			// a[0] = 2
+			// a[1] = 3
+			// a[2] = 4
+			// a[4] = 9
+
+
+
+
+
+			// 4-1 forEach
+			// 注意: forEach 并不能返回 
+			// numbers.forEach(function(element,idx) {
+
+			// 	if (idx ==1){
+			// 		console.log('idx:',idx);
+			// 		return 
+			// 	}
+			// 	console.log(element);  // 4 16 25 36 
+			// })
+
+		
+			
+			// 4-2 主动抛出异常 来解决, 此时仅仅影响当前的 idx 元素 
+			var numbers = [4, 9, 16, 25, 36];
+			numbers.forEach(function(element, idx) {
+
+				try {
+					if (idx == 1) {
+						throw {
+							message: 'idx == 1,throw Error',
+							idx: idx
+						}
+
+					}
+					console.log(element);
+				} catch (e) {
+					//TODO handle the exception
+
+					console.log(e);
+				}
+
+			})
+
+
+
+			// 5. flat 数组  
+			/**
+			 * Flattens passed array in one dimensional array
+			 *
+			 * @params {array} arr
+			 * @returns {array}
+			 */
+			// function flatten(arr) {
+			// 	const result = [];
+
+			// 	arr.forEach((i) => {
+			// 		if (Array.isArray(i)) {
+			// 			result.push(...flatten(i));
+			// 		} else {
+			// 			result.push(i);
+			// 		}
+
+			// 	})
+
+			// 	return result;
+			// }
+
+
+			// const problem = [1, 2, 3, [4, 5, [6, 7], 8, 9]];
+			// var flattenedArr= flatten(problem); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+			// console.log(flattenedArr);
+		</script>
+	</body>
+</html>
